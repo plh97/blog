@@ -6,14 +6,15 @@
     <meta name="baidu-site-verification" content="dttAbY7QVf" />
     <link rel="shortcut icon" href="blog.ico"/>
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
     <title>My Personal Blog 3.0</title>
     <!-- Bootstrap -->
     <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css">
     <!-- My_Css -->
     <link rel="stylesheet" href="build/css/basic.min.css">
-    <!-- Angualr -->
-    <script src="lib/angular/angular.js"></script>
-    <script src="lib/angular-ui-router/release/angular-ui-router.js"></script>
+    <!-- <link rel="stylesheet" href="build/css/blog1.min.css"> -->
+    <link rel="stylesheet" href="build/css/blog2.min.css">
+    <!-- <link rel="stylesheet" href="build/css/blog1.min.css"> -->
   </head>
   <body ng-app="uirouter">
     <header>
@@ -35,7 +36,8 @@
               <li ui-sref-active="active"><a ui-sref="blog2">Blog 2.0</a></li>
               <li ui-sref-active="active"><a ui-sref="blog1">Blog 1.0</a></li>
               <li ui-sref-active="active"><a ui-sref="cv">简历</a></li>
-              <li ui-sref-active="active"><a ui-sref="Interview">作品集</a></li>
+              <li ui-sref-active="active"><a ui-sref="Interview">2048</a></li>
+              <li ui-sref-active="active"><a href="zjdesign.html">正觉设计</a></li>
             </ul>
           </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
@@ -45,9 +47,13 @@
     <ui-view></ui-view>  
     <footer>
     </footer>
+    <!-- Angualr -->
+    <script src="lib/angular/angular.js"></script>
+    <script src="lib/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="lib/jquery/dist/jquery.min.js"></script>
     <script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="build/js/basic.js"></script>
+    <script src="js/index2.js"></script>
     </div>
   </body>
 </html>

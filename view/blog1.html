@@ -1,23 +1,3 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <meta name="baidu-site-verification" content="dttAbY7QVf" />
-    <link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
-    <link rel="shortcut icon" href="blog.ico"/>
-    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
-    <title>My Personal Blog</title>
-    <script src="../lib/jquery/dist/jquery.min.js"></script>
-
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="../lib/bootstrap/dist/css/bootstrap.min.css">
-    <!-- My_Css -->
-    <link rel="stylesheet" href="../css/index2.css">
-  </head>
-  <body>
-<img src="../build/images/wechatfirst.jpg" alt="" hidden>
 <!-- 这里开始写一个侧边栏动态监听屏幕滚动事件 -->
 <div class="scroll">
   <ul>
@@ -43,47 +23,9 @@
     <li class="1" style="border-bottom:0px"><a href="#1">Thinkphp分享会<span class="glyphicon glyphicon-chevron-right"></span></a></li>
   </ul>
 </div>
-<div class="bootstrapt-container">
-
-
-
-
-<!--<div class="bootstrapt-context">
-    <h1>关于如何把妹</h1>
-  </div>
-  <div class="bootstrapt-context">
-    <h1>关于如何穿衣打扮</h1>
-  </div>
-  <div class="bootstrapt-context">
-    <h1>关于百川理财</h1>
-  </div>
-  <div class="bootstrapt-context">
-    <h1>关于脱模剂</h1>
-  </div>
-
-  <div class="bootstrapt-context">
-    <h1>利用jquery写一个2048的小游戏</h1>
-  </div>
-
-  <div class="bootstrapt-context">
-    <h1>利用canvas写的2048的小游戏</h1>
-  </div>
-
-  <div class="bootstrapt-context">
-    <h1>利用canvas绘制一片星空</h1>
-  </div>
-
-  <div class="bootstrapt-context">
-    <h1>利用canvas绘制一个绚丽的html5倒计时</h1>
-  </div>
-  
-  
-  <div class="bootstrapt-context">
-    <h1>gulp如何挂起</h1>
-  </div>-->
-
-  <div class="bootstrapt-context">
-    <h1>关于买二手房</h1>
+<div class="container-context container" style="position: relative;left: 110px">
+  <div class="col-sm-12" id="19">
+    <h3>关于买二手房</h3>
     <p>最近买房真的是操心！</p>
     <p>首先我觉得还是有必要普及一下新知识，买房分为4中情况，</p>
     <ul>
@@ -113,13 +55,10 @@
     <p>注意了，房管局严令禁止首付款帮业主赎楼，不要用别人的错误，不道德来伤害自己。</p>
     <p>仔细分析，100w买房，肯定是全款买房，全款买房还不走银行监督流程，这不是胡闹，买房人是有问题的，什么都不懂买个西瓜洗洗睡去吧，然后大批看热闹人看热闹，然后大批中介发朋友圈，这就是绕开中介的后果！很多中介素质超低</p>
     <p>像我这没买过房子的，还去了家家顺，创二地产混了一个月，培训了3天才弄懂买房基本流程，中介是如何怂恿业主成交，只说好消息，不说差消息，先看最好的房，再看最差的房子，然后再看适合的房子，形成价格心理落差，达成交易，鼓励多和盘方合作，公司抽成50%，剩下的合作人分！</p>
-    <h1>好了8:27了。我要去上班！</h1>
+    <h5>好了8:27了。我要去上班！</h5>
   </div>
-
-
-
-  <div class="bootstrapt-context" id="18">
-    <h1>配置本地后端环境wamp(PHP+Apache+MySQL)+memcache+rewrite vhost（我的机子是win7_64位系统）</h1>
+  <div class="col-sm-12" id="18">
+    <h3>配置本地后端环境wamp(PHP+Apache+MySQL)+memcache+rewrite vhost（我的机子是win7_64位系统）</h3>
     <audio id="audio" src="../mp3/爱不完.mp3" controls="controls" perload="meta"></audio>
     <p>首先，第一步下载一个<a href="http://sourceforge.net/projects/wampserver/files/WampServer%202/WampServer%202.2/wampserver2.2e/wampserver2.2e-php5.4.3-httpd2.2.22-mysql5.5.24-x64.exe/download">wampserver2.2</a>(不要下载2.4或者2.5这些高版本,不然以后你想用手机端调试用速度会超慢的)，下载好以后安装在如下路径:D:\Program Files (x86),然后下载我已经配置好的<a href="any-soft/wamp.zip">文件</a>，打开，进入到如下画面。</p>
     <img src="../build/images/wampzip.png" alt="">
@@ -128,57 +67,33 @@
     <p>然后重启wampserver，直到显示 <img style="display:inline" src="../build/images/lvsewampserver.jpg" alt="">,如果你的图标是黄色或者红色，就是说名Apache或者MySQL没有成功开启，如果是Apache没成功开启，可能是80端口被占用，打开控制面板，服务，里面关闭那个占用80端口的服务，然后在开启Apache就可以了，还剩下最后两个步骤，一个是打开你刚才复制进去的httpd-vhosts.conf文件，</p>
     <img src="../build/images/httpd-vhost.jpg" alt="">
   </div>
-  <div class="bootstrapt-context" id="18">
+  <div class="col-sm-12">
     <p>the last step,我勾上的那些全部要勾上。最上面还有一个php_curl要勾上。</p>
     <img src="../build/images/php_extend.jpg" alt="">
     <p>最后打开C:\Windows\System32\drivers\etc的hosts文件，在里面加上一句话127.0.0.1 www.zunar.com.cn，就大功告成啦。本地环境已经配置好了。，如果你是32位的系统，请下载32位的wampserver，然后php_memcache.dll文件也要下载对应的32位文件。</p>
   </div>
-
-
-
-
-
-
-
-
-
-  <div class="bootstrapt-context" id="17">
-    <h1>Font-Awesome图标字体</h1>
+  <div class="col-sm-12" id="17">
+    <h3>Font-Awesome图标字体</h3>
     <p>首先下载<a href="http://fontawesome.dashgame.com/assets/font-awesome-4.3.0.zip">Font Awesome4.3.0</a>,然后把文件解压，放在你的项目目录下，并且在html文件中加入下面一段话</p>
     <p>&lt;link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css"></p>
     <p style="display:inline">然后你就可以试着练练手拉，比如说：&lt;i class="fa fa-shirtsinbulk">&lt;/i> 等于</p><i class="fa fa-shirtsinbulk active fa-2x"></i>
     <p>具体内容可以去<a href="http://fontawesome.dashgame.com/">Font Awesome</a>里面看~</p>
     <img src="../build/images/font_awesome.jpg" alt="">
   </div>
-
-
-
-  <div class="bootstrapt-context" id="16">
-    <h1>检测是手机端访问本页面还是pc端<i class="icon-mobile-phone"></i></h1>
+  <div class="col-sm-12" id="16">
+    <h3>检测是手机端访问本页面还是pc端<i class="icon-mobile-phone"></i></h3>
     <p>先来一首安静的音乐</p>
     <audio id="audio" src="../mp3/岛歌.mp3" controls="controls" perload="none">
     </audio>
     <p>然而我暂时还不会写，先放一放</p>
-
   </div>
-  <script type="text/javascript">  
-  </script>
-  
-
-
-  <div class="bootstrapt-context" id="15">
-    <h1>为什么有的人觉得很懂他（她）2015/10/24</h1>
+  <div class="col-sm-12" id="15">
+    <h3>为什么有的人觉得很懂他（她）2015/10/24</h3>
     <p>用你的心去体会对方的心，多聆听，关于动作模仿，当然不是指的真的去做一模一样的动作，心里暗自模范，去体会着别人的心境</p>
     <p>为什么有的人不会聊天，很多时候我们陷入一个误区，认为不会聊天，肯定是话的内容说错了，我想说的是，语言只能表达10%的意思，语气表达出40%的意思，肢体语言表达出50%的意思，说话时候，注意自己的语气是否过于冷淡，为什么你说话的语气总是那么的生硬，说话要带有丰富的情感，这样别人才能喜欢听你说话，关于肢体语言的训练，这个比较难，我还不懂。</p>
   </div>
-
-
-
-
-
-
-  <div class="bootstrapt-context" id="14">
-    <h1>如何去写一个侧边栏滚动动态监听 2015/10/24</h1>
+  <div class="col-sm-12" id="14">
+    <h3>如何去写一个侧边栏滚动动态监听 2015/10/24</h3>
     <p>先来一首安静的音乐</p>
     <audio id="audio" src="../mp3/flymetothemoon.mp3" controls="controls" perload="none">
     Your browser does not support the audio element.
@@ -193,32 +108,13 @@
     <img src="../build/images/slidenav1.jpg" alt="">
     <p>$("#"+number_context).offset().top; ,,,,,,,,,,,,,这段代码的意思就是获取当前选中的div元素到页面顶部的距离，</p>
     <p>$('body,html').animate({scrollTop:context_top-100},1000),这段代码的意思是在1秒时间内，让屏幕滚动到指定的高度，用这段代码，很巧妙的获取的当前点击的div元素的属性，从而动态获取某篇文章的高度。</p>
-
   </div>
-
-  <div class="bootstrapt-context">
+  <div class="col-sm-12">
     <img src="../build/images/slidenav1.jpg" alt="">
     12
   </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <div class="bootstrapt-context" id="13">
-    <h1>关于breaking 2015/10/24</h1>
+  <div class="col-sm-12" id="13">
+    <h3>关于breaking 2015/10/24</h3>
     <p>可以点开下面的音乐来试一试感觉，如果你对音乐有感觉。那么恭喜你，跳街舞是你最明智的选择！</p>
     <!--<audio id="audio" src="mp3/breaking 街舞舞曲.mp3" controls="controls" perload="none"></audio>-->
     <!--<audio id="audio" src="mp3/街舞商城 breaking 练舞曲 cd1.mp3" controls="controls" perload="none"></audio>-->
@@ -230,25 +126,21 @@
     <p>六步是基础，练好六步很关键，如果觉得累，可以练习基础舞步</p>
     <iframe class="vedio" height=498 width=700 src="http://player.youku.com/embed/XMTI5OTc2MjkzMg==" frameborder=0 allowfullscreen></iframe>
     <script type="text/javascript">  
-
       $(".vedio").click(function(){
         console.log(1)
         var audioEle = $("#audio")[0];
             audioEle.pause();  //播放
       })
-
     </script> 
   </div>
-  <div class="bootstrapt-context">
+  <div class="col-sm-12">
     <p>那么接下来分享几段十分经典的国外breaking教程</p>
     <iframe class="vedio" height=498 width=700 src="http://player.youku.com/embed/XNjE1OTc0NzEy" frameborder=0 allowfullscreen></iframe>
     <iframe class="vedio" height=498 width=700 src="http://player.youku.com/embed/XNjE1OTc3ODg4" frameborder=0 allowfullscreen></iframe>
     <p>亲，请问你学会了嘛？</p>
   </div>
-
-
-  <div class="bootstrapt-context" id="12">
-    <h1>sublime text 3快捷键 2015/10/23</h1>
+  <div class="col-sm-12" id="12">
+    <h3>sublime text 3快捷键 2015/10/23</h3>
     <p>首先安装插件，按住ctrl+~，粘贴下面这一段<br>import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ','%20')).read())</p>
     <p>然后按确定，等待几分钟，安装好以后，按住ctrl+shift+p,出现如下图片</p>
     <img src="../build/images/sdfsdf.jpg" alt="">
@@ -261,17 +153,16 @@
     <p>将一个文件夹，里面装着各种代码的文件拉入sublime text选择框内，则可出现如下图片，十分方便！</p>
     <img src="../build/images/QQ截图20151023201455.jpg" alt="">
   </div>
-
-  <div class="bootstrapt-context" id="11">
-    <h1>plupload图片上传插件如何使用</h1>
+  <div class="col-sm-12" id="11">
+    <h3>plupload图片上传插件如何使用</h3>
     <p>首先下载<a href="https://codeload.github.com/moxiecode/plupload/zip/v2.1.8">plupload</a>插件,将其放入你的项目文件里面。首先引入然后引入<br>jquery插件<br>&lt;script src="http://1.pengliheng.sinaapp.com/mywy/jQuery-1.10.2/jquery-1.10.2.min.js" type="text/javascript">&lt;/script></p>
     <p>plupload插件<br>&lt;script src="/assets/js/modules/plupload/plupload.full.min.min.js?v=20150722">&lt;/script></p>
     <img src="../build/images/plupload.jpg" alt="">
     <p>红色部分需要添加属于你自己的函数,首先这个插件会将图片上传到后端，然后通过后端传回图片，你通过js调用该图片地址</p>
     <img src="../build/images/plupload_html.jpg">
   </div>
-  <div class="bootstrapt-context" id="10">
-    <h1>百度分享如何使用，为你导入更多流量</h1>
+  <div class="col-sm-12" id="10">
+    <h3>百度分享如何使用，为你导入更多流量</h3>
     <p>首先打开<a href="http://http://share.baidu.com/code">百度分享</a>，点击直接复制代码，然后打开你的编辑器，直接粘贴，即可在网页中见到效果，步骤如下图：</p>
 
     
@@ -290,39 +181,29 @@
     <p>bdUrl指的是分享的页面，默认指定当前页面，当然也可以指定其他页面。</p>
     <p>bdSize指的是分享图标的大小，3种尺寸，16,24,32。分别对应大中小尺寸。</p>
   </div>
-
-
-
-
-  <div class="bootstrapt-context" 2015/10/23>
+  <div class="col-sm-12">
     <img src="../build/images/bd-shage.jpg" alt="">
     <p>bdPic，，，导入流量，百度封装好的函数租，任意调用，虽然说，with不是很好！</p>
   </div>
-  <div class="bootstrapt-context" id="9">
-    <h1>关于CoffeeScript使用方法&nbsp;&nbsp;2015/10/23 1:00</h1>
+  <div class="col-sm-12" id="9">
+    <h3>关于CoffeeScript使用方法&nbsp;&nbsp;2015/10/23 1:00</h3>
     <p>首先打开<a href="http://coffee-script.org/">coffeescript</a>点击上面的试一试,进入到页面如下图所示</p>
     <img src="../build/images/coffeescript-try.jpg" alt="">
     <p>首先如何封装一个函数， 只需要输入如下代码 func = ->,将会自动编译成func = function(){}</p>
     <p>如何写for循环， 如图所示，coffeescript将会自动编译成js的代码，至于如何编译可以去下载一个<a href="http://dl1.cr173.com/soft1/koala_setup.zip">koala</a>,里面自带编译coffeescript，以及scss</p>
     <p>关于delegate,(jquery)函数，用delegate绑定click事件，有一个好处就是，当你使用js动态加载出的div，或者其他元素，你想给他们增加绑定事件，这个时候就需要用到delegate了，delegate可以将新添加的div元素也让他们绑定click事件，最好不要使用live，因为在更高版本的jquery中，取消了live。同样道理，coffeescirpt编译成的js代码进过了压缩及优化，大大减小了代码所占内存，大大优化了js加载速度</p>
-    <h1>关于学习coffeescript</h1>
+    <h4>关于学习coffeescript</h4>
     <p>同样道理，js也可以编译成coffeescript，虽然没什么实际意义，但是通过这种方法来学习还是不错滴，网站：<a href="http://js2coffee.thomaskalka.de/#coffee2js">js转coffeescript</a></p>
   </div>
-
-
-  <div class="bootstrapt-context" id="8">
-    <h1>关于SCSS使用方法&nbsp;&nbsp;2015/10/23 1:00</h1>
+  <div class="col-sm-12" id="8">
+    <h3>关于SCSS使用方法&nbsp;&nbsp;2015/10/23 1:00</h3>
     <p>和css的使用方法几乎一模一样，不过有一个嵌套功能，是的其结构关系更加清晰。下图给出实例，同样可以使用<a href="http://dl1.cr173.com/soft1/koala_setup.zip">koala</a>来进行编译，使其成为压缩的css代码，更加节省内存，更加优化加载速度。</p>
     <img src="../build/images/scss.jpg" alt="">
     <p>怎么样，看完这么简介优秀的代码，是不是心动了，赶紧使用scss吧，css实在是太繁琐了，下面展示两种代码的对比图，怎么样，是不是觉得css弱爆了，而且很难看懂！</p>
     <img src="../build/images/scss_css.jpg" alt="">
   </div>
-
-
-
-
-  <div class="bootstrapt-context" id="7">
-    <h1>关于git 如何连接 github篇</h1>
+  <div class="col-sm-12" id="7">
+    <h3>关于git 如何连接 github篇</h3>
     <p>$ cd ~/.ssh    //检查计算机ssh密钥</p>
     <p>如果没有提示:No such file or directory 说明你不是第一次使用git,执行下面的操作,清理原有ssh密钥</p>
     <p>$ ssh-keygen -t rsa -C "your_email@youremail.com"</p>
@@ -330,22 +211,18 @@
     <p>然后会在 .ssh 目录生产两个文件：id_rsa和id_rsa.pub,打开id_rsa.pub，将里面内容复制到github的key里面，具体步骤如下图</p>
     <img src="../build/images/github goto settings.jpg">
   </div>
-  <div class="bootstrapt-context">
+  <div class="col-sm-12">
     <img src="../build/images/github add key.jpg">
     <p>当即可成功用git链接github了，并且可以成功push你的代码到github上面了！</p>
   </div>
-
-
-
-
-  <div class="bootstrapt-context" id="6">
-    <h1>git 基本命令使用篇</h1>
+  <div class="col-sm-12" id="6">
+    <h3>git 基本命令使用篇</h3>
     <p>首先，下载<a href="http://dlsw.baidu.com/sw-search-sp/soft/4e/30195/Git_V2.5.1_64_bit_setup.1441791170.exe">git</a>，接着安装,然后新建你的项目文件，进入文件里面，鼠标右键“Git Bash Here”,接着出现以下画面</p>
     <img src="../build/images/git_init.jpg">
     <p>输入git init，新建仓库，也可以clone本地仓库，或者远程仓库</p>
     <img src="../build/images/git_clone.jpg">
   </div>
-  <div class="bootstrapt-context">
+  <div class="col-sm-12">
     <p>当然，大多数情况是白纸一张，什么也没有，这时候在本地创建好文件</p>
     <p>然后输入以下命令</p>
     <p>git add .</p>
@@ -355,44 +232,36 @@
     <p>然后输入你的用户名，密码即可成功push上你的github仓库</p>
     <img src="../build/images/git_address.jpg">
   </div>
-
-
-
-
-  <div class="bootstrapt-context" id="5">
-    <h1>github-pages 个人博客篇</h1>
+  <div class="col-sm-12" id="5">
+    <h3>github-pages 个人博客篇</h3>
     <p>首先说明，为什么要用github，这个上面的源码全部是公开的，源码一目了然，其二，牛逼的人都在这个网站上开发自己的源码。那么闲话也不多说了，第一步，打开<a href="https://github.com/">github</a>注册一个帐号，建议用谷歌邮箱注册</p>
     <img src="../build/images/github_first.jpg">
     <img src="../build/images/github_create_repository.jpg">
   </div>
-  <div class="bootstrapt-context">
+  <div class="col-sm-12">
     <P>Repository name的命名方式必须按照：usernamne.github.io的形式来命名，username用你自己喜欢的网址</P>
     <img src="../build/images/my_github.jpg">
     <P>接下来就可以进入到一个这样的页面，点击+进入</P>
     <img src="../build/images/create_index.jpg">
   </div>
-  <div class="bootstrapt-context">
+  <div class="col-sm-12">
     <p>最后在浏览器输入username.github.io,即可访问你的github个人博客，看到helloworld！</p>
   </div>
-
-
-
-
-  <div class="bootstrapt-context" id="4">
-    <h1>10月21日，星期三的一个晚上</h1>
-    <h3>关于github-pages的个人博客的如何上线</h3>
+  <div class="col-sm-12" id="4">
+    <h3>10月21日，星期三的一个晚上</h3>
+    <h4>关于github-pages的个人博客的如何上线</h4>
     <p>经历了几天晚上的奋斗终于成功上线了我的个人博客，闲话不多说<br>下面放上我的<br><a href="https://github.com/pengliheng/pengliheng.github.io" target="_blank">源码地址</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://pengliheng.xyz" target="_blank">个人域名</a></p>
     <p>首先要有自己的个人域名，在阿里云服务器上购买一个个人域名<br><a href="http://wanwang.aliyun.com/domain/searchresult/?keyword=pengliheng&suffix=.com" target="_blank">阿里云域名购买</a></p>
     <img src="../build/images/yumingbuy.jpg">
     <p>类似一排排域名购买，花一个8元足够买一个pengliheng.xyz的域名，当你购买以后,可以点击<br><a href="http://netcn.console.aliyun.com/core/domain/list" target="_blank">域名管理</a><br>进入下面的页面。</p>
   </div>
-  <div class="bootstrapt-context">
+  <div class="col-sm-12">
     <img src="../build/images/yuming_manage.jpg">
     <img src="../build/images/dns_change.jpg">
     <p>记得一定要修改成一样的内容。接下来，首先打开<a href="https://www.dnspod.cn/Domain" target="_blank">DNSPOD</a>，接着注册一个帐号</p>
     <img src="../build/images/dnspod_add.jpg">
   </div>
-  <div class="bootstrapt-context">
+  <div class="col-sm-12">
     <P>点击你的域名进入到下面的图片</P>
     <img src="../build/images/dnspod_change.jpg">
     <P>看到下面有四条记录，中间两条是自带的，前篇内容在aliyun弄过了，就是为了让aliyun的域名管理转到DNSPOD里面</P>
@@ -401,18 +270,12 @@
     <P>将输入后获取的红色框内的ip地址放到dnspod里面的第一条的记录值里面，第二条，第三条是自带的，不需要弄，第四条需要设置，记录值是自己github个人博客的网址，接下来需要在自己的项目里面放入一个CNAME的文件，不带后缀的，然后记事本打开文件，在里面输入你的个人域名</P>
     <img src="../build/images/cname.png">
   </div>
-  <div class="bootstrapt-context">
+  <div class="col-sm-12">
     <p>CNAME文件放在项目的根目录上面</p>
     <img src="../build/images/my_production.jpg">
     <p>就这样，个人域名的指向终于搞成了，</p>
   </div>
-
-
-
-
-
-
-  <div class="bootstrapt-context" id="3">
+  <div class="col-sm-12" id="3">
     <h3>学习web前端的四个阶段</h3>
     <!-- Nav tabs -->
     <ul class="nav nav-tabs" role="tablist" >
@@ -422,7 +285,7 @@
       <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">第四阶段</a></li>
     </ul>
     <!-- Tab panes -->
-    <div class="tab-content">
+    <div class="tab-context">
       <div role="tabpanel" class="tab-pane active" id="home">
     	  可以写的东西，前端后端学习进步方法，先w3school学HTML，css，javascript，达到可以做出w3school首页静态效果，一摸一样，如果不行，可以用dreamweaverCS6做，做出来以后，你已经掌握HTML+css并且能做出简单布局，成功晋级到第二阶段
       </div>
@@ -435,10 +298,7 @@
       </div>
     </div>
   </div>
-
-
-
-  <div class="bootstrapt-context" id="2">
+  <div class="col-sm-12" id="2">
     <h3>空暇时间制作的作品见附件</h3>
     <ol>
       <li><a href="http://1.pengliheng.sinaapp.com/2048.html" target="_blank">2048(手机电脑都可以玩)</a></li>
@@ -451,7 +311,7 @@
     </ol>
   </div>
   <a id="1" href="Thinkphp.html">
-    <div class="bootstrapt-context">
+    <div class="col-sm-12">
       <h3>Thinkphp分享会</h3>
       <ol>
         <li>think安装</li>
@@ -462,7 +322,7 @@
       </ol>
     </div>
   </a>
-  <div class="bootstrapt-context">
+  <div class="col-sm-12">
     <h3>github-pages</h3>
     <ol>
       <li>个人博客的必要性</li>
@@ -473,16 +333,3 @@
     </ol>
   </div>
 </div>
-
-
-
-
-
-<footer style="width:30%">
-  <p class="pull-right"><a href="#top">回到顶部</a></p>
-</footer>
-    
-    <script src="../lib/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="../js/index2.js"></script>
-  </body>
-</html>
