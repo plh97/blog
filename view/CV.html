@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>彭立衡简历</title>
+	<script src="../lib/jquery/dist/jquery.min.js"></script>
+	<style>
+div.container{
+	width: 720px;
+	height: 1050px;
+	box-shadow: 10px 10px 50px gray;
+	margin:-20px auto;
+	padding: 40px;
+}
+div.top{
+	padding: 15px 0px 40px 0px;
+}
+h1{
+	text-align: center;
+}
+div.container ul li{
+	margin-bottom: 20px;
+}
+ul{
+	float: left;
+}
+ul.two{
+	margin-left: 60px;
+	margin-right: 30px;
+}
+div.img{
+	position: relative;
+	width: 120px;
+	height: 140px;
+	float: right;
+	overflow: hidden;
+	margin-top: 20px;
+}
+div.img img{
+	width: 120px;
+	float: right;
+	position: absolute;
+	z-index: 1;
+}
+div.img div.hide{
+	width: 100%;
+	height: 100%;
+	background-color: white;
+	position: absolute;
+	z-index: 88;
+}
+
+div.bar1,div.bar2{
+	position: fixed;
+	right:0px;
+	height: 50px;
+	width: 40px;
+	padding: 5px 10px;
+	border: 3px rgb(211,211,211) solid;
+	border-radius: 5px;
+	font-size: 19px;
+	font-weight: bold;
+	font-family: "微软雅黑";
+	overflow: hidden;
+}
+div.bar1{
+	bottom: 163px;
+	
+}
+div.bar2{
+	bottom: 100px;
+}
+div.bar1 span,div.bar2 span{
+	float: left;
+}
+div.bar1 img,div.bar2 img{
+	width: 40px;
+	height: 40px;
+}
+img.up{
+	width: 100%;
+	height: 80%;
+	float: left;
+	margin-top: 10px;
+}
+div.floatup,div.weixing{
+	position: relative;	
+}
+div.wxpic{
+	position: fixed;
+	right:67px;
+	bottom: 163px;
+}
+div.wxpic img{
+	width: 1.5px;
+	height: 2.1px;
+	transition: 0.1s linear;
+	transform-origin:right bottom;
+}
+div.bar1:hover div.wxpic img{
+	transform: scale(100);
+}
+
+ul.five li a{
+	color: black;
+}
+ul.five li a:link{
+	color: black;
+	text-decoration: none;
+}
+ul.five li a:hover{
+	color: black;
+	font-weight: bold;
+	color: red;
+	padding: 5px;
+}
+
+
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="top"><h1>个人简历</h1></div>
+		<div class="mythings">
+		<p>&nbsp;&nbsp;个人信息</p>
+			<ul class="one">
+				<li>姓名：彭立衡</li>
+				<li>手机号：18825142583</li>
+				<li>性别：男</li>
+				<li>户口所在地：广东省广州市</li>
+			</ul>
+			<ul class="two">
+				<li>邮箱：2273242448@qq.com</li>
+				<li>出生日期：1992年9月6日</li>
+				<li>现居住地：广东省广州市</li>
+				<li>民族：汉</li>
+			</ul>
+			<div class="img"><div class="hide"></div><img src="http://h.picphotos.baidu.com/album/s%3D740%3Bq%3D90/sign=2c2a4770d20735fa95f04cbdae6a7e8e/d439b6003af33a876e62e571c05c10385343b54a.jpg" alt=""></div>
+			<ul class="three">
+				<li><strong>个人技能</strong></li>
+				<li>使用sublime text3写网页，精通html，css。能手写一些JavaScript特效，jquery，也可以用于jqmobile做手机网页，已经初步具备可以写静态网页；会写一些滚动图片，slidebar，以及一款2048小游戏web版本。</li>
+			</ul>
+			<ul class="three">
+				<li><strong>项目经验</strong></li>
+				<li><a href="http://www.zunar.com.cn/group">zunar社区</a>,本人负责前端页面制作，使用git协同开发，启用gulp自动编译，前端使用scss及coffeescript以及jquery，后台使用thinkphp框架，</li>
+			</ul>
+			<ul class="five">
+				<li><strong>空暇时间制作的作品见附件、点击进入</strong></li>
+				<li><a href="2048.html" target="_blank">2048(手机电脑都可以玩)</a></li>
+				<li><a href="mywy/wangyi.html" target="_blank">网易部分首页</a></li>
+				<li><a href="mywy/58.html" target="_blank">58同城某一页招聘网站</a></li>
+				<li><a href="mywy/ghostbutton.html" target="_blank">幽灵按钮</a></li>
+				<li><a href="mywy/w3school.html" target="_blank">W3School</a></li>
+				<li><a href="mywy/chuanqisifu.html" target="_blank">传奇私服主页</a></li>
+				<li><a href="mywy/zhifu.html" target="_blank">支付中转业</a></li>
+				<li><a href="/" target="_blank">我的个人博客(定期更新)</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="bar1">
+		<div class="wxpic">
+			<img src="http://c.picphotos.baidu.com/album/s%3D740%3Bq%3D90/sign=91f9da1df41fbe09185ec1105b5b7d0e/6609c93d70cf3bc7750f2887d700baa1cd112a4a.jpg" alt="">
+		</div>
+		<div class="weixing">
+			<span>个人<br />微信</span>
+			<img src="http://a.picphotos.baidu.com/album/s%3D1000%3Bq%3D90/sign=b9a177ddcf177f3e1434f80d40ff00b6/472309f7905298221a67dca8d1ca7bcb0a46d401.jpg" alt="" class="up">
+		</div>
+	</div>
+	<div class="bar2">
+		<div class="floatup">
+			<span>回到<br />顶部</span>
+			<a href="javascript:void;" onclick="totop();">
+				<img src="http://h.picphotos.baidu.com/album/s%3D740%3Bq%3D90/sign=9c24bd79494a20a4351e3ec3a069e91f/a9d3fd1f4134970aef7cf54493cad1c8a7865d4a.jpg" alt="" class="up">
+			</a>
+		</div>
+	</div>
+	<script>
+	$(document).ready(function(){
+		i=0;
+		function lunpic(){
+			var pic=new Array(
+				"http://h.picphotos.baidu.com/album/s%3D740%3Bq%3D90/sign=2c2a4770d20735fa95f04cbdae6a7e8e/d439b6003af33a876e62e571c05c10385343b54a.jpg",
+				"http://h.picphotos.baidu.com/album/s%3D680%3Bq%3D90/sign=9e9d7c859a82d158bf825ab9b03168e5/0b7b02087bf40ad12d4d3d88512c11dfa9ecce34.jpg",
+				"http://e.picphotos.baidu.com/album/s%3D680%3Bq%3D90/sign=91c099159458d109c0e3aabae163bd82/4d086e061d950a7b4e9cb4af0cd162d9f2d3c934.jpg",
+				"http://b.picphotos.baidu.com/album/s%3D680%3Bq%3D90/sign=d4a7da2004087bf479ec54e1c2e82611/35a85edf8db1cb138066d978db54564e92584b4a.jpg"
+				);
+			$("div.img div.hide").css({opacity:"1"});
+			$("div.img div.hide").animate({opacity:"0"},500);
+			$("div.img img").attr("src",pic[i]);
+			i++;
+			setTimeout(lunpic,3000);
+			if(i==4)
+				i=0;
+		}
+		lunpic();
+
+		//滚动照片 to vx
+		$("div.wxpic").hide();
+		$("div.bar1").hover(function(){
+			$("div.weixing").animate({top:"-55px"},300);
+			$("div.wxpic").fadeIn();
+		},function(){
+			$("div.weixing").animate({top:"0px"},300);
+			$("div.wxpic").fadeOut();
+		});
+
+		//滚动图片to top
+		$("div.bar2").hover(function(){
+			$("div.floatup").animate({top:"-55px"},300)
+		},function(){
+			$("div.floatup").animate({top:"0px"},300)
+		});
+		//底部出现事件
+		$("div.bar2").hide();
+		$(window).scroll(function () {
+			if ($(window).scrollTop() >= 200) {
+				$("div.bar2").fadeIn();
+			}
+			else if($(window).scrollTop() <= 200){
+				$("div.bar2").fadeOut();
+			}
+		});
+		$("div.bar2 div.floatup img").click(function(){
+			$('body,html').animate({scrollTop:0},1000)
+		})
+	})
+	</script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+body{
+  margin: 0;
+  padding: 0;
+  background-color: #dfdfdf;
+  margin-top: 50px;
+}
+div.bootstrapt-container{
+  display: block;
+  width: 100%;
+}
+
+div.bootstrapt-context{
+  width: 100%;
+  max-width: 1000px;
+  min-height: 1300px;
+  border: 1px solid #ccc;
+  box-shadow: 7px 7px 35px #000;
+  padding: 50px;
+  margin: 30px auto;
+  background-color: #fff;
+}
+
+div.tap-context{
+  margin:0px;
+}
+
+div.tab-pane{
+  margin: 0 10px;
+}
+
+div.bootstrapt-context h3{
+  text-align: center;
+}
+
+
+h1,h2,h3,h4,h5{
+  text-align: center;
+}
+
+div.bootstrapt-context p{
+  text-indent: 2em;
+  font-size: 20px;
+  text-align: center;
+}
+
+div.bootstrapt-context a{
+  color:red;
+  font-weight: bold;
+  font-size: 25px;
+  margin-left: 10px;
+}
+
+img{
+  margin: 0 auto;
+  display: inherit;
+  max-width: 900px;
+  width: 80%;
+}
+
+ul.dropdown-menu li{
+  padding: 0 28%;
+}
+
+
+span.glyphicon{
+  float: right;
+  color: lightyellow;
+}
