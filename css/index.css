@@ -2,7 +2,6 @@ body{
   margin: 0;
   padding: 0;
   background-color: #dfdfdf;
-  margin-top: 50px;
 }
 div.bootstrapt-container{
   display: block;
@@ -16,7 +15,7 @@ div.bootstrapt-context{
   border: 1px solid #ccc;
   box-shadow: 7px 7px 35px #000;
   padding: 50px;
-  margin: 30px auto;
+  margin: 0px auto 30px;
   background-color: #fff;
 }
 
