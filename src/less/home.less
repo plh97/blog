@@ -1,0 +1,99 @@
+@nav-color:#212121; //pc端口，字体，分隔符号等灰色
+@page-avtice:#a5a4a2; //pc端口，翻页占有背景颜色，分隔符号等灰色
+@nav-slide-line:#d8d8d8;  //移动端口，slide上下边界线颜色
+@nav-hover-color:#f4f2f3; //移动端口，导航栏被选中颜色，淡灰色
+@nav-hover-background-color:#f0c541;  //pc端口导航栏鼠标选中时候，金色色的屎黄色
+@carousel-tip:#cecbcc;		//轮播图片未选中按钮颜色
+@carousel-tip-active:#908a88;//轮播图片选中按钮颜色
+@nav-context-avtive-color: #4e4b4a; //二级页面二级导航栏选中颜色
+@nav-context-color:#908e8f ;//二级页面二级导航栏未选中颜色
+@nav-context-font-color:#817f80 ;//二级页面内容字体颜色
+@screen-sm-min: 768px;  /* 小屏幕（平板，大于等于 768px） */
+@screen-md-min: 992px;  /* 中等屏幕（桌面显示器，大于等于 992px） */
+@screen-lg-min: 1200px;   /* 大屏幕（大桌面显示器，大于等于 1200px） */
+
+body{
+	padding:0px;
+	margin:0px;
+
+	.context-container{
+		@media (min-width: 768px){
+			max-width: 1200px;
+		}
+		.carousel{
+			padding-bottom: 36px;
+			@media (min-width: @screen-sm-min){
+				padding-bottom: 36px;
+			}
+
+			@media (max-width: @screen-sm-min){
+				padding-bottom: 25px;
+			}
+
+			.carousel-indicators{
+				border-color: gray;
+				color:black;
+
+				li{
+					background-color: #cecbcc;
+					border: none;
+					border-radius: 0;
+
+					@media (min-width: @screen-sm-min){
+						width: 30px;
+						height: 5px;
+						margin: 0 5px;
+					}
+
+					@media (max-width: @screen-sm-min){
+						width: 30px;
+						height: 4px;
+						margin: 0;
+					}
+					
+				}
+
+				.active{
+					background-color: @carousel-tip-active;
+				}
+			}
+
+			.carousel-inner{
+				bottom: 0px;
+				padding-bottom: 20px;
+
+				.item{
+
+					img{
+						width: 100%;
+					}
+				}
+			}
+		}
+
+		.line{
+			width: 100%;
+			height: 0;
+			border-top: 1px solid @nav-slide-line;
+			display: inherit;
+
+		}
+
+		.row{
+			padding: 20px 0 30px;
+
+			div{
+
+				img{
+					width: 100%;
+				}
+
+				p{
+					text-align: center;
+					font-size: 16px;
+					margin: 10px 0;
+				}
+			}
+		}
+	}
+}
