@@ -7,7 +7,6 @@
     <link rel="shortcut icon" href="blog.ico"/>
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
     <title>My Personal Blog 3.0</title>
-
     <!-- Bootstrap -->
     <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css">
     <!-- My_Css -->
@@ -30,63 +29,25 @@
             </button>
             <a class="navbar-brand" href="#">Peng</a>
           </div>
-
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-              <li><a ui-sref-active="active" ui-sref="blog1">Blog 2.0</a></li>
-              <li><a ui-sref-active="active" ui-sref="blog2">Blog 1.0</a></li>
-              <li><a ui-sref-active="active" ui-sref="vc">简历</a></li>
-              <li><a ui-sref-active="active" ui-sref="Interview">作品集</a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-              <li class="bdsharebuttonbox">
-                <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信">SHARE</a>
-              </li>
+              <li ui-sref-active="active"><a ui-sref="blog2">Blog 2.0</a></li>
+              <li ui-sref-active="active"><a ui-sref="blog1">Blog 1.0</a></li>
+              <li ui-sref-active="active"><a ui-sref="cv">简历</a></li>
+              <li ui-sref-active="active"><a ui-sref="Interview">作品集</a></li>
             </ul>
           </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
       </nav>
     </header>
     <!-- 导航条 -->
-    
-    <div ui-view></div>    
-    
+    <ui-view></ui-view>  
     <footer>
     </footer>
-    
     <script src="lib/jquery/dist/jquery.min.js"></script>
     <script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="js/basic.js"></script>
-    <script>
-      /*百度分享*/
-      window._bd_share_config={
-          "common":
-            {"bdSnsKey":
-              {
-                "tsina": "3185645315",
-                "douban": "0741f32a7258ef8715c5d97f570ace95"
-              },
-              "bdText":"",
-              "bdMini":"2",
-              "bdPic":"https://ss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=1539114134,3234144676&fm=58",
-               "bdStyle":"0",
-              "bdSize":"24"
-            },
-          "share":{}
-        };
-      with(document)0[(getElementsByTagName('head')[0]||body)
-      .appendChild(createElement('script'))
-      .src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
-
-
-      window.onload=canvas_func();
-
-
-      $(document).ready(function(){
-        SyntaxHighlighter.config.clipboardSwf = 'http://static.oschina.net/js/syntax-highlighter-2.1.382/scripts/clipboard.swf';
-        SyntaxHighlighter.all();
-      });
-    </script>
+    <script src="build/js/basic.js"></script>
+    </div>
   </body>
 </html>

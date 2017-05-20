@@ -40,8 +40,8 @@ gulp.task('scripts', ['cleanScript'], function() {
   return gulp.src(paths.scripts)
     .pipe(sourcemaps.init())
       .pipe(coffee())
-      .pipe(uglify())
-      .pipe(rename({suffix: '.min'}))
+      //.pipe(uglify())
+      //.pipe(rename({suffix: '.min'}))
       //.pipe(concat('*.min.js'))
     .pipe(sourcemaps.write())
     .pipe(gulp.dest('build/js'));

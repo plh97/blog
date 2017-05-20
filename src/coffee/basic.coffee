@@ -1,27 +1,25 @@
 angular.module('uirouter', ['ui.router'])
 .config ($stateProvider) -> 
-	blogScecondState = 
-		name: 'blogScecond',
-		url: '',
+	blogFirstState = 
+		name: 'blog1',
+		url: '/blog1',
 		templateUrl: 'view/blog1.html'
 
-	blogFirstState = 
-		name: 'blogFirst',
-		url: '/blog2',
+	blogSecondState = 
+		name: 'blog2',
+		url: '',
 		templateUrl: 'view/blog2.html'
 
-	vcStateState = 
-		name: 'vc',
-		url: '/vc',
-		templateUrl: 'view/vc.html'
+	cvStateState = 
+		name: 'cv',
+		url: '/cv',
+		templateUrl: 'view/cv.html'
 
 	InterviewState = 
 		name: 'Interview',
 		url: '/Interview',
-		templateUrl: 'view/cv.html'
-	$stateProvider.state(blogScecondState)
-	.state(blogFirstState)
-	.state(vcStateState)
+		templateUrl: 'view/2048.html'
+	$stateProvider.state(blogFirstState)
+	.state(blogSecondState)
+	.state(cvStateState)
 	.state(InterviewState);
-
-
