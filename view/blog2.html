@@ -1,4 +1,152 @@
     <div class="container-context container">
+
+      <div class="col-sm-12">
+        <h3>object</h3>
+        <h4>no-new-object</h4>
+        <pre>
+          //bad 
+          const item = new Object();
+
+          //god
+          const item = {};
+        </pre>
+        <h4>property names</h4>
+        <pre>
+          function getKey(k){
+            return 'a key named ${k}';
+          }
+
+          //bad
+          const obj = {
+            id : 5,
+            name:"San francisco"
+          };
+          obj[getKey('enabled')] = true;
+
+          //good
+          const obj = {
+            id:5,
+            name:"san francisco",
+            [getKey('enabled')]:true
+          };
+        </pre>
+        <h4>use boject method </h4>
+        <pre>
+          //bad
+          const atom = {
+            value:1,
+            addValue: function(value){
+              return atom.value + value;
+            }
+          }
+          //good 
+          const atom = {
+            value:1,
+            addValue(value){
+              return atom.value + value;
+            }
+          }
+        </pre>
+        <h4>short to descript</h4>
+        <pre>
+          const luckPerson = "luck person";
+
+          //bad
+          cosnt obj = {
+            luckPerson:luckPerson
+          }
+
+          //good
+          const obj = {
+            luckPerson
+          }
+        </pre>
+        <h4>shorthand properties first</h4>
+        <pre>
+          const anakinSkywalker = 'Anakin Skywalker';
+          const lukeSkywalker = 'Luke Skywalker';
+
+          // bad
+          const obj = {
+            episodeOne: 1,
+            twoJediWalkIntoACantina: 2,
+            lukeSkywalker,
+            episodeThree: 3,
+            mayTheFourth: 4,
+            anakinSkywalker,
+          };
+
+          // good
+          const obj = {
+            lukeSkywalker,
+            anakinSkywalker,
+            episodeOne: 1,
+            twoJediWalkIntoACantina: 2,
+            episodeThree: 3,
+            mayTheFourth: 4,
+          };
+        </pre>
+        <pre>
+          // bad
+          const bad = {
+            'foo': 3,
+            'bar': 4,
+            'data-blah': 5,
+          };
+
+          // good
+          const good = {
+            foo: 3,
+            bar: 4,
+            'data-blah': 5,
+          };
+        </pre>
+        
+      </div>
+      <div class="col-sm-12">
+        <h3>The different between let var and const</h3>
+        <p><a target="_blank" href="https://github.com/airbnb/javascript">ES5 (Deprecated)</a>ES5(javascript已经被弃用)，ES6已经更新，事实上呢，前端发展飞速，众多框架，react，angular，vue，前端自动化工具gulp，grunt，包管理工具bower，甚至webpack项目搭建工具，node服务器搭建，等等五花八门迅速膨胀。以前以为变化再多，万变不离其宗，HTML,CSS,JS,这三大基础是不变的，现在css4即将出来，javascript甚至连基本的Var也将要被弃用。javascript使用人数迅速增加，github已经有50k星了，javascript开启"use strict"模式</p>
+        <h4>the bug of var</h4>
+        <pre class='brush: javascript'>
+          var a = "b";
+          var a = "a";//居然可以重复命名，c
+          console.log(a);//输出"a"
+
+          for(var i = 10 ; i>0; i--){
+            var a = "a";
+          }
+          console.log(a);//输出:"a",,明明已经跳出循环了，居然还可以访问到里面的a变量，i=0，这不得不说是一个重大bug
+
+          for(var i = 10; i>10; i--){
+            setTimeout(function(){
+              console.log(i); //so intersting with what will i console ;
+                              //it console tenth of zero;if it's var ,the next turn can change the one before var it;
+                              //that a big bug;so many people say that javascript is a lazy computer language;
+            },1000)
+          }
+        </pre>
+        <h4>let</h4>
+        <p>Tip: 必须先声明"use strict"才能使用let变量进行声明，否则浏览器不会显示。</p>
+        <p>首先声明，let和var很像，都是用来声明变量的，let声明的变量拥有块级作用域,let声明的全局变量不是全局对象的属性</p>
+        <pre>
+          var abs = "123";
+          console.log(abs);//123
+
+          let abs = "123";
+          console.log(abs);//undefined
+        </pre>
+        <p>对于for循环这样的闭包函数，被一次循环let的变量虽然名字相同，但是是不同的变量名称。</p>
+        <h4>const</h4>
+        <p>const常量的命名，这没什么好说的。不能重复命名常量。</p>
+        <p>both let and const are block-scoped</p>
+        <pre>
+          {
+            let a = 1;
+            const b = 2;
+          }
+          console.log(a,b);//referenceError ,both are undefined
+        </pre>
+      </div>
       <div class="col-sm-12">
         <h3>关于javascript----基础知识篇;</h3>
         <h4>注释(Comments)</h4>

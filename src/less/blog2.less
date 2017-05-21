@@ -23,8 +23,32 @@ body{
         start:1;
       }
 
-      h3,h4{
+      h3{
         text-align: center;
+        border-bottom: 1px solid lightgray;
+        padding: 8px 0;
+        font-weight: bold;
+      }
+      h3:after{
+        content: "--大标题";
+        margin: 10px;
+        font-size: 12px;
+        font-weight: 500;
+      }
+      h4{
+        text-align: left;
+        border-bottom: 1px solid lightgray;
+        padding: 8px 0;
+        font-weight: bold;
+      }
+      h4:after{
+        content: "--小标题";
+        margin-left:10px;
+        font-size: 12px;
+        font-weight: 100;
+      }
+      h4+pre{
+        //margin-left:3em;
       }
 
       b{
