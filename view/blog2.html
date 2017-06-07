@@ -101,7 +101,25 @@
             'data-blah': 5,
           };
         </pre>
-        
+        <pre>
+          //very bad
+          const ori = {a:1,b:2};
+          const copy = Object.assign(ori,{c:3});
+          delete copy.a;
+          //{ b: 2, c: 3}
+          
+          //bad
+          const ori = {a:1,b:2};
+          const copy = Object.assign({},ori,{c:3});
+          //{a: 1, b: 2, c: 3}
+
+          //good
+          const ori = {a:1,b:2};
+          const copy = {...ori,c:3}//copy=>{a: 1, b: 2, c: 3}
+          const copy = {a,...noA} //noA=>{ b: 2, c: 3}
+
+          console.log(copy)
+        </pre>
       </div>
       <div class="col-sm-12">
         <h3>The different between let var and const</h3>

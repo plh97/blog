@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>XX00</title>
+	<style>
+	h1{
+		text-align: center;
+	}
+		.container{
+			background-color:gray;
+			width: 490px;
+			height: 490px;
+			border-radius: 20px;
+			box-sizing: border-box;
+			margin: 0px auto;
+			padding: 5px;
+		}
+		.container div{
+			display: inline-block;
+			width: 150px;
+			height: 150px;
+			background-color: lightyellow;
+			border-radius: 20px;
+			margin: 5px;
+			box-sizing: border-box;
+			float: left;
+			font-size: 5em;
+			text-align: center;
+			line-height: 1.8em;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<h1>You Are X!</h1>
+	<div class="container">
+		<div class="innerdiv" id="00"></div>
+		<div class="innerdiv" id="01"></div>
+		<div class="innerdiv" id="02"></div> 
+		<div class="innerdiv" id="10"></div>
+		<div class="innerdiv" id="11"></div>
+		<div class="innerdiv" id="12"></div> 
+		<div class="innerdiv" id="20"></div>
+		<div class="innerdiv" id="21"></div>
+		<div class="innerdiv" id="22"></div> 
+	</div>
+	<script>
+		let abs=false;
+		let couse=0;
+		let times= 0;
+		//是否满格？??目测没有BUG
+		function isFull(){
+			couse=0;
+			for(let i =0;i<3;i++ ){
+				for(let j=0;j<3;j++){
+					//为九个格子都绑定点击加入X事件;
+					if(document.getElementById(i.toString()+j).innerHTML.length == 1){
+						couse++;
+					};
+					if (couse==9) {
+						return true;
+					};
+				}
+			}
+		}
+		function isAlmostWin(whs){
+			abs = false;
+			for(let i =0;i<3;i++ ){
+				if(
+					//如果打横连成一排,全部长度相加等于3，且类型一致
+					(document.getElementById(0+i.toString()).innerHTML+
+					document.getElementById(1+i.toString()).innerHTML+
+					document.getElementById(2+i.toString()).innerHTML==whs+whs)
+				){
+					for(let j=0;j<3;j++){
+						if(document.getElementById(j+i.toString()).innerHTML.length==0){
+							abs = j.toString() + i;
+						}
+					}
+					return abs; 
+				}else if(
+					//如果打竖练成一排
+					document.getElementById(i.toString()+0).innerHTML+
+					document.getElementById(i.toString()+1).innerHTML+
+					document.getElementById(i.toString()+2).innerHTML==whs+whs)
+				{
+					for(let j=0;j<3;j++){
+						if(document.getElementById(i.toString()+j).innerHTML.length==0){
+							abs = i + j.toString();
+						}
+					}
+					return abs; 
+				}
+			}
+			//如果打斜练成一排//其实也就2种情况,不用i循环了;
+			if(
+				//当左上到右下
+				document.getElementById("00").innerHTML+
+				document.getElementById("11").innerHTML+
+				document.getElementById("22").innerHTML==whs+whs)
+			{
+				for(let j=0;j<3;j++){
+					if(document.getElementById(j+j.toString()).innerHTML.length==0){
+						abs = j + j.toString();
+					}
+				}
+				return abs; 
+			}else if(
+				//当左下到右上
+				document.getElementById("20").innerHTML+
+				document.getElementById("11").innerHTML+
+				document.getElementById("02").innerHTML==whs+whs)
+			{
+				for(let j=0;j<3;j++){
+					if(document.getElementById((2-Number(j)).toString()+j).innerHTML.length==0){
+						abs = (2-Number(j)).toString() + j;
+					}
+				}
+				return abs; 
+			}
+		}
+		function refresh(me,you){
+			for(let i =0;i<3;i++ ){
+				for(let j=0;j<3;j++){
+					setTimeout('document.getElementById('+i+j+'.toString()).innerHTML=""',200)
+				}
+			}
+			if(me=="O"){
+				document.getElementById("11").innerHTML=you;
+			}
+		}
+		function howmany(){
+			times=0;
+			for(let i =0;i<3;i++ ){
+				for(let j=0;j<3;j++){
+					times += document.getElementById(i+j.toString()).innerHTML.length;
+				}
+			}
+			return times;
+		}
+		//isLineTwo，是否同时连线2个，
+		function isLineTwo(num){
+			for(let i =0;i<3;i++ ){
+				for(let j=0;j<3;j++){
+					if(document.getElementById(i+j.toString()).innerHTML.length>0){
+						continue;
+					}else if(document.getElementById(i+j.toString()).innerHTML.length==0){
+						//当位置为空的时候，可以添加
+						//判断它是否能连成2线
+						//先判断打横
+						if(
+							document.getElementById(i+"0").innerHTML+
+							document.getElementById(i+"1").innerHTML+
+							document.getElementById(i+"2").innerHTML==num
+							){
+							times++;
+						}
+						if(
+							document.getElementById("0"+j).innerHTML+
+							document.getElementById("1"+j).innerHTML+
+							document.getElementById("2"+j).innerHTML==num
+							){
+							times++;
+						}
+						if(i+j.toString()=="00"||i+j.toString()=="22"||i+j.toString()=="20"||i+j.toString()=="02"){
+							times++;
+						}
+						if(times>1){
+							abs=i+j.toString();
+							times=0;
+						}
+						console.log(times)
+						times=0;
+					}
+				}
+			}
+			if(abs){
+
+			}
+			return abs;
+		}
+		//随机一个格子产生数字;,重新写，按照算法产生数字，
+		//ok，先做第一步，敌人2个练成一排了，怎么办，电脑堵死第三个，这个好像可以写，就和检测3个是否成一排一样的逻辑;
+		function RandomNum (me,you){
+			if(isAlmostWin(me)){
+				//XX有没有形成2个连成
+				isAlmostWin(me)
+			}
+			if(isAlmostWin(you)){
+				//OO有没有形成2个连成
+				isAlmostWin(you)
+			}else if(!isAlmostWin(me)){//如果XX没有连成2个，随机点降落一个，但是还要优先选取，能够同时构成2个连线的位置
+				if(isLineTwo(you)){
+					isLineTwo(you);
+				}else{
+					abs = Math.floor(Math.random()*3).toString() + Math.floor(Math.random()*3);
+				}
+			}
+			//优先下中间那个子，算法优化！
+			if(document.getElementById('11').innerHTML.length==0){
+				abs="11";
+			}else if(howmany()==2&&document.getElementById('00').innerHTML.length==1){
+				abs="22";
+			}else if(howmany()==2&&document.getElementById('22').innerHTML.length==1){
+				abs="00";
+			}else if(howmany()==2&&document.getElementById('02').innerHTML.length==1){
+				abs="20";
+			}else if(howmany()==2&&document.getElementById('20').innerHTML.length==1){
+				abs="02";
+			}
+			if(document.getElementById(abs).innerHTML.length === 0){
+				document.getElementById( abs ).innerHTML = you;
+			}else{
+				RandomNum(you);
+				return;
+			}
+		}
+		//检测是否成胜利;over,做晚了
+		function isWin(num){
+			//横向胜利
+			for(let i =0;i<3;i++ ){
+				if(
+					//如果打横连成一排,全部长度相加等于3，且类型一致
+					document.getElementById(0+i.toString()).innerHTML+
+					document.getElementById(1+i.toString()).innerHTML+
+					document.getElementById(2+i.toString()).innerHTML===num
+				){
+					document.getElementById(0+i.toString()).style.backgroundColor="yellow";
+					document.getElementById(1+i.toString()).style.backgroundColor="yellow";
+					document.getElementById(2+i.toString()).style.backgroundColor="yellow";
+					return true; 
+				}else if(
+					//如果打竖练成一排
+					document.getElementById(i.toString()+0).innerHTML+
+					document.getElementById(i.toString()+1).innerHTML+
+					document.getElementById(i.toString()+2).innerHTML===num
+				){
+					document.getElementById(i.toString()+0).style.backgroundColor="yellow";
+					document.getElementById(i.toString()+1).style.backgroundColor="yellow";
+					document.getElementById(i.toString()+2).style.backgroundColor="yellow";
+					return true; 
+				}
+			}
+			//如果打斜练成一排//其实也就2种情况,不用i循环了;
+			if(
+				//当左上到右下
+				document.getElementById("00").innerHTML+
+				document.getElementById("11").innerHTML+
+				document.getElementById("22").innerHTML===num)
+			{
+				document.getElementById("00").style.backgroundColor="yellow";
+				document.getElementById("11").style.backgroundColor="yellow";
+				document.getElementById("22").style.backgroundColor="yellow";
+				return true;
+			}else if(
+				//当左下到右上
+				(document.getElementById("20").innerHTML+
+				document.getElementById("11").innerHTML+
+				document.getElementById("02").innerHTML===num)
+			){
+				document.getElementById("20").style.backgroundColor="yellow";
+				document.getElementById("11").style.backgroundColor="yellow";
+				document.getElementById("02").style.backgroundColor="yellow";
+				return true;
+			}
+		}
+		function init(me,you){
+			if(me=="O"){
+				document.getElementById('11').innerHTML=you;
+			}
+			document.getElementsByTagName('h1')[0].innerHTML="You Are "+me+"!";
+			for(let i =0;i<3;i++ ){
+				for(let j=0;j<3;j++){
+					//为九个格子都绑定点击加入X事件;
+					document.getElementById(i.toString()+j).onclick = function () {
+						if(this.innerHTML.length===0){
+							this.innerHTML = me;
+							if(isWin(me+me+me)){
+								//alert("您先赢了");
+								//refresh(me,you);
+								return;
+							}else if(isFull()){
+								alert("平局")
+								//refresh(me,you);
+								return;
+							}
+							//成功添加数字了电脑随机添加一个数;依靠算法来计算，
+
+							RandomNum(me,you);
+							if(isWin(you+you+you)){
+								//alert("敌人先赢了");
+								//refresh(me,you);
+								return;
+							}else if(isFull()){
+								alert("平局")
+								//refresh(me,you);
+								return;
+							}
+						}
+					}
+				}
+			}
+		}
+		var ret1 = confirm("Do You Want To Be X?");
+		if(ret1){  
+		    init("X","O");           
+		}else{
+		    init("O","X");           
+		}
+		
+	</script>
+</body>
+</html>

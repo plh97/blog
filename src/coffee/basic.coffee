@@ -20,12 +20,7 @@ angular.module('uirouter', ['ui.router'])
 		url: '/cv',
 		templateUrl: 'view/cv.html'
 
-	InterviewState = 
-		name: 'Interview',
-		url: '/Interview',
-		templateUrl: 'view/2048.html'
 	$stateProvider.state(blogFirstState)
 	.state(blogSecondState)
 	.state(homeState)
-	.state(cvStateState)
-	.state(InterviewState);
+	.state(cvStateState);
