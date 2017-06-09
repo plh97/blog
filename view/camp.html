@@ -5,8 +5,34 @@
 	<title>js</title>
 </head>
 <body>
+	<script src="../lib/jquery/dist/jquery.min.js"></script>
 	<script>
-		
+		$.ajax({
+			url:'http://v.juhe.cn/weather/index?cityname=%E4%B8%AD%E5%B1%B1&dtype=json&format=1&key=30b4ccbd7bcd71cbbf66b22434d5e8a6',
+			type:'GET', //GET
+			async:true,    //或false,是否异步
+			data:{
+			},
+			timeout:5000,    //超时时间
+			dataType:'json',    //返回的数据格式：json/xml/html/script/jsonp/text
+			beforeSend:function(xhr){
+			    console.log(xhr)
+			    console.log('发送前')
+			},
+			success:function(data,textStatus,jqXHR){
+			    console.log(data)
+			    console.log(textStatus)
+			    console.log(jqXHR)
+			},
+			error:function(xhr,textStatus){
+			    console.log('错误')
+			    console.log(xhr)
+			    console.log(textStatus)
+			},
+			complete:function(){
+			    console.log('结束')
+			}
+		})
 	</script>
 </body>
 </html>
