@@ -9,29 +9,19 @@
 	<script src="../lib/jquery/dist/jquery.min.js"></script>
 	<script>
 		$.ajax({
-			url:'https://www.sojson.com/open/api/weather/json.shtml?city=中山',
-			type:'GET', //GET
-			dataType: 'jsonp',
-			data:{
-			},
-			beforeSend:function(xhr){
-			    console.log(xhr)
-			    console.log('发送前')
-			},
-			success:function(data,textStatus,jqXHR){
-			    console.log(data)
-			    console.log(textStatus)
-			    console.log(jqXHR)
-			},
-			error:function(xhr,textStatus){
-			    console.log('错误')
-			    console.log(xhr)
-			    console.log(textStatus)
-			},
-			complete:function(){
-			    console.log('结束')
-			}
-		})
+			    url:'https://v.juhe.cn/weather/index',
+			    type:'GET', //GET
+			    async:true,    //或false,是否异步
+			    data:{
+			    	cityname:"中山",
+			    	key:"30b4ccbd7bcd71cbbf66b22434d5e8a6"
+			    },
+			    timeout:5000,    //超时时间
+			    dataType:'jsonp',    //返回的数据格式：json/xml/html/script/jsonp/text
+			    success:function(res){
+			        console.log(res.result.today)
+			    }
+			})
 	</script>
 </body>
 </html>
