@@ -10,10 +10,27 @@
 		img{
 			display: inline-block;
 		}
+		#future{
+			margin-top: 60px;
+		}
+		#future .future_block{
+			display: inline-block;
+			margin: 0 15px;
+		}
 	</style>
 </head>
 <body>
 	<img src="https://www.juhe.cn/themes/v5/public/images/loginlogo.png" alt="">
+	<h1>今天天气</h1>
+	<p id="city">城市：</p>
+	<span id="date_y">日期：</span>
+	<span id="week"></span>
+	<p id="weather">天气：</p>
+	<p id="temperature">温度：</p>
+	<p id="dressing_advice">穿衣建议：</p>
+	<div id="future">
+		<h1>未来6天天气</h1>
+	</div>
 	<script src="../lib/jquery/dist/jquery.min.js"></script>
 	<script>
 		$.ajax({
@@ -25,7 +42,21 @@
 		    },
 		    dataType:'jsonp',//返回的数据格式：json/xml/html/script/jsonp/text
 		    success:function(res){
-		        console.log(res.result.today)
+		    	console.log( res.result.future[Object.keys(res.result.future)[0]] );
+		       document.getElementById('city').innerHTML+=res.result.today.city;
+		       document.getElementById('date_y').innerHTML+=res.result.today.date_y;
+		       document.getElementById('week').innerHTML+=res.result.today.week;
+		       document.getElementById('weather').innerHTML+=res.result.today.weather;
+		       document.getElementById('temperature').innerHTML+=res.result.today.temperature;
+		       document.getElementById('dressing_advice').innerHTML+=res.result.today.dressing_advice;
+		       for(var i in Object.keys(res.result.future)){
+		       		document.getElementById('future').innerHTML+=
+		       			'<div class="future_block"><h2>' + res.result.future[Object.keys(res.result.future)[i]].week +
+		       			'</h2><p id="date_y">日期：' + res.result.future[Object.keys(res.result.future)[i]].date +
+		       			'</p><p id="weather">天气：' + res.result.future[Object.keys(res.result.future)[i]].weather +
+		       			'</p><p id="temperature">温度：' + res.result.future[Object.keys(res.result.future)[i]].temperature +
+		       			'</p></div>'
+		       }
 		    }
 		})
 	</script>
