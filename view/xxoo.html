@@ -6,6 +6,7 @@
 	<style>
 	h1{
 		text-align: center;
+		font-size: 3em;
 	}
 		.container{
 			background-color:gray;
@@ -30,10 +31,21 @@
 			line-height: 1.8em;
 			cursor: pointer;
 		}
+		button.new{
+			display: block;
+			margin: 20px auto;
+			font-size: 2em;
+			padding: 10px;
+			border-radius: 18px;
+		}
+		button.new:hover{
+			background-color: brown;
+		}
 	</style>
 </head>
 <body>
 	<h1>You Are X!</h1>
+	<button class="new" id="new">New Game</button>
 	<div class="container">
 		<div class="innerdiv" id="00"></div>
 		<div class="innerdiv" id="01"></div>
@@ -117,7 +129,8 @@
 		function refresh(me,you){
 			for(let i =0;i<3;i++ ){
 				for(let j=0;j<3;j++){
-					setTimeout('document.getElementById('+i+j+'.toString()).innerHTML=""',200)
+					document.getElementById(i+j.toString()).innerHTML="";
+					document.getElementById(i+j.toString()).style.backgroundColor="lightyellow";
 				}
 			}
 			if(me=="O"){
@@ -240,6 +253,10 @@
 			}
 		}
 		function init(me,you){
+			document.getElementById('new').onclick=function(me,you){
+				refresh(me,you);
+				over=false;
+			}
 			if(me=="O"){
 				document.getElementById('11').innerHTML=you;
 			}
