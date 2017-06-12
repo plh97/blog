@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>calculator</title>
+	<style>
+		body{
+			text-align: left;
+			background-color: lightyellow;
+		}
+		.title{
+			position: absolute;
+			top: 0;
+		}
+		.container{
+			border: 1px solid gray;
+			width: 400px;
+			height: auto;
+			margin:100px auto;
+			border-radius: 20px;
+			padding: 30px;
+			background-color: yellow;
+			position: relative;
+		}
+		.container #screen {
+			background-color: white;
+			width: 89%;
+			height: 70px;
+			border-radius: 20px;
+			padding: 0 12px;
+			margin: 20px auto;
+			border:1px solid yellow;
+			font-size: 3em;
+			line-height: 1.5em;
+			text-align: right;
+			overflow: hidden;
+		}
+		.container .btn,.container #clear,.container #analyse,.container #delete,.container #opposite{
+			display: inline-block;
+			border-radius: 10px;
+			margin: 5px;
+			width: 22%;
+			height: 80px;
+			background-color: white;
+			float: left;
+			text-align: center;
+			font-size: 3em;
+			line-height: 1.6em;
+			cursor: pointer;
+			-moz-user-select:none;/*火狐*/
+			-webkit-user-select:none;/*webkit浏览器*/
+			-ms-user-select:none;/*IE10*/
+			-khtml-user-select:none;/*早期浏览器*/
+			user-select:none;
+		}
+		.clear{
+			clear: both;
+		}
+		
+	</style>
+</head>
+<body>
+	<div class="container">
+	<h3 class="title">calculator</h3>
+		<div id="screen"></div>
+		<span class="btn"></span>
+		<span id="clear">C</span>
+		<span id="delete">←</span>
+		<span class="btn">/</span>
+		<span class="btn">7</span>
+		<span class="btn">8</span>
+		<span class="btn">9</span>
+		<span class="btn">+</span>
+		<span class="btn">4</span>
+		<span class="btn">5</span>
+		<span class="btn">6</span>
+		<span class="btn">-</span>
+		<span class="btn">1</span>
+		<span class="btn">2</span>
+		<span class="btn">3</span>
+		<span class="btn">*</span>
+		<span id="opposite">±</span>
+		<span class="btn">0</span>
+		<span class="btn">.</span>
+		<span id="analyse">=</span>
+		<div class="clear"></div>
+	</div>
+	<script>
+		let screen;
+		let analyse;
+		for(let i in document.getElementsByClassName('btn')){
+			document.getElementsByClassName('btn')[i].onclick=function(){
+				document.getElementById('screen').innerHTML+=document.getElementsByClassName('btn')[i].innerHTML;
+				if(document.getElementById('screen').innerHTML.length<11){
+					document.getElementById('screen').style.fontSize="";
+					document.getElementById('screen').style.lineHeight="";
+				}else if(document.getElementById('screen').innerHTML.length<18){
+					document.getElementById('screen').style.fontSize="2em";
+					document.getElementById('screen').style.lineHeight="2em";
+				}else if(document.getElementById('screen').innerHTML.length>17){
+					screen = document.getElementById('screen').innerHTML;
+					document.getElementById('screen').innerHTML=screen.slice(0,17);
+				}
+			}
+		}
+		document.getElementById('clear').onclick=function(){
+			document.getElementById('screen').innerHTML="";
+		}
+		document.getElementById('delete').onclick=function(){
+			document.getElementById('screen').innerHTML=document.getElementById('screen').innerHTML.slice(0,document.getElementById('screen').innerHTML.length-1);
+		}
+		document.getElementById('analyse').onclick=function(){
+			screen = document.getElementById('screen').innerHTML;
+			document.getElementById('screen').innerHTML = eval(screen);
+			if(document.getElementById('screen').innerHTML.length<11){
+				document.getElementById('screen').style.fontSize="";
+				document.getElementById('screen').style.lineHeight="";
+			}else if(document.getElementById('screen').innerHTML.length<18){
+				document.getElementById('screen').style.fontSize="2em";
+				document.getElementById('screen').style.lineHeight="2em";
+			}else if(document.getElementById('screen').innerHTML.length>17){
+				screen = document.getElementById('screen').innerHTML;
+				document.getElementById('screen').innerHTML=screen.slice(0,17);
+			}
+		}
+		document.getElementById('opposite').onclick=function(){
+			screen = document.getElementById('screen').innerHTML;
+			if( screen.split("")[screen.split("").length-1]!=")" ){
+				screen+=")"
+				screen=screen.split("");
+				screen.unshift("-(");
+				screen = screen.join("")
+			}else if(screen.split("")[0]=="-" && screen.split("")[screen.split("").length-1]==")"){
+				screen=screen.split("");
+				screen.shift();
+				screen.shift();
+				screen.pop();
+				screen = screen.join("")
+			}
+			document.getElementById('screen').innerHTML = screen;
+		}
+		document.onkeydown = function(e){
+			if(!isNaN(parseInt(e.key,10))||e.key=="*"||e.key=="+"||e.key=="-"||e.key=="/"){
+				document.getElementById('screen').innerHTML+=e.key;
+				if(document.getElementById('screen').innerHTML.length<11){
+					document.getElementById('screen').style.fontSize="";
+					document.getElementById('screen').style.lineHeight="";
+				}else if(document.getElementById('screen').innerHTML.length<18){
+					document.getElementById('screen').style.fontSize="2em";
+					document.getElementById('screen').style.lineHeight="2em";
+				}else if(document.getElementById('screen').innerHTML.length>17){
+					screen = document.getElementById('screen').innerHTML;
+					document.getElementById('screen').innerHTML=screen.slice(0,17);
+				}
+			}else if(e.key=="Enter"){
+				screen = document.getElementById('screen').innerHTML;
+				document.getElementById('screen').innerHTML = eval(screen);
+				if(document.getElementById('screen').innerHTML.length<11){
+					document.getElementById('screen').style.fontSize="";
+					document.getElementById('screen').style.lineHeight="";
+				}else if(document.getElementById('screen').innerHTML.length<18){
+					document.getElementById('screen').style.fontSize="2em";
+					document.getElementById('screen').style.lineHeight="2em";
+				}else if(document.getElementById('screen').innerHTML.length>17){
+					screen = document.getElementById('screen').innerHTML;
+					document.getElementById('screen').innerHTML=screen.slice(0,17);
+				}
+			}
+		}
+	</script>
+</body>
+</html>
