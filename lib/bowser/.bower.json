@@ -1,0 +1,43 @@
+{
+  "name": "bowser",
+  "description": "Lightweight browser detector",
+  "keywords": [
+    "browser",
+    "useragent",
+    "user-agent",
+    "parser",
+    "ua",
+    "detection",
+    "ender",
+    "sniff"
+  ],
+  "version": "1.7.0",
+  "homepage": "https://github.com/lancedikson/bowser",
+  "scripts": [
+    "src/bowser.js"
+  ],
+  "authors": [
+    "Dustin Diaz <dustin@dustindiaz.com> (http://dustindiaz.com)",
+    "Denis Demchenko <lance@dikson.me>"
+  ],
+  "moduleType": [],
+  "license": "MIT",
+  "main": "src/bowser.js",
+  "ignore": [
+    "node_modules",
+    "test",
+    "make",
+    "**/.*",
+    "Makefile"
+  ],
+  "_release": "1.7.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "1.7.0",
+    "commit": "9893bdc1ccdeff9f975c78c62d99d0afbd39edf1"
+  },
+  "_source": "https://github.com/ded/bowser.git",
+  "_target": "^1.7.0",
+  "_originalSource": "browser",
+  "_direct": true
+}

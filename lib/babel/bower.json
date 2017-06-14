@@ -1,0 +1,23 @@
+{
+  "name": "babel",
+  "main": "browser.js",
+  "license": "MIT",
+  "keywords": [
+    "babel",
+    "javascript",
+    "browser",
+    "library"
+  ],
+  "homepage": "https://github.com/zce/babel",
+  "authors": [
+    "iceStone <ice@micua.com>"
+  ],
+  "description": "A package of babel-core browser lib in bower",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

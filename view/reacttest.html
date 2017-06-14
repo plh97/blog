@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>react</title>
+	<script src=../lib/react/react.js></script>
+	<script src=../lib/react/react-dom.js></script>
+	<script src=../lib/babel/browser.js></script>
+	<style>
+		body{
+		}
+		textarea{
+			position:absolute;
+			left:0;
+			top:0;
+			display: inline-block;
+			width: 49%;
+			min-height: 98%;
+			font-size: 40px;
+			overflow: auto;
+		}
+		.pre{
+			position: absolute;
+			left: 50%;
+			top: 0;
+			border:1px solid lightgray;
+			margin:0;
+			padding: 2px;
+			display: inline-block;
+			min-height: 98%;
+			width: 49%;
+			font-size: 40px;
+			user-select:none;
+		}
+		p{
+			margin:0;
+		}
+		.pre{
+			position: absolute;
+			left: 50%;
+			top: 0;
+			border:1px solid lightgray;
+			margin:0;
+			padding: 2px;
+			display: inline-block;
+			min-height: 98%;
+			width: 49%;
+			font-size: 40px;
+			user-select:none;
+		}
+	</style>
+</head>
+<body>
+	<div id="example"></div>
+	<script type="text/babel">
+		function tostring(date){
+			return date.toLocaleDateString();
+		}
+		function Avatar(props){
+			return (<img className="Avatar" src={props.author.avatarUrl} alt={props.author.name}/>)
+		}
+		function UserInfo(props){
+			return(<div className="UserInfo">
+					<Avatar author={props.author}/>
+					<div className="UserInfo-name">{props.author.name}</div>
+				</div>)
+		}
+		function App(props){
+			return (
+				<div className="Comment">
+					<UserInfo author={props.author}/>
+					<div className="Comment-text">
+						{props.text}
+					</div>
+					<div className="Comment-data">
+						{props.date}
+					</div>
+				</div>);
+		}
+		var app={
+			author:{
+				avatarUrl:"../build/images/case1.jpg",
+				name:"peng"
+			},
+			text:"this is my text!",
+			date:(new Date().toLocaleDateString())
+		}
+		ReactDOM.render(
+			<App
+				author={app.author}
+				text={app.text}
+				date={app.date}
+			/>,
+			document.getElementById('example')
+		);
+	</script>
+</body>
+</html>
