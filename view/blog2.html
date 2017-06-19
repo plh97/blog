@@ -1,5 +1,349 @@
     <div class="container-context container">
       <div class="col-sm-12">
+        <h3>State和生命周期</h3>
+        <p>思考时钟这个例子，可以在前面几个章节查询一下。</p>
+        <p>到目前为止，我们唯一学过的更新UI的方式。</p>
+        <p>我们调用ReactDOM.render()来改变那些已经渲染过的输出。</p>
+        <pre>
+          function tick(){
+            const element = (
+              &lt;div>
+                &lt;h1>hello,world!&lt;/h1>
+                &lt;h2>it is {new Date().toLocaleTimeString()}&lt;/h2>
+              &lt;/div>
+            );
+            ReactDOM.render(
+              element,
+              document.getElementById('example')
+            );
+          }
+          setInterval(tick,1000);
+        </pre>
+        <p>在这一章节，我们将会学习如何制作一个Clock组件,这组件将会真正的复用化封装化的。他将会设置自己的计时器，并每秒更新一次。</p>
+        <p>我们可以从封装时钟开始：</p>
+        <pre>
+          function Clock (props){
+            return (
+              &lt;div>
+                &lt;h1>hello,world! &lt;/h1>
+                &lt;h2>it is {props.date.toLocaleTimeString()}&lt;/h2>
+              &lt;/div>
+            )
+          }
+          function tick(){
+            ReactDOM.render(
+              &lt;Clock date={new Date()}/>,
+              document.getElementById('example')
+            );
+          }
+          setInterval(tick,1000);
+        </pre>
+        <p>然而，它忽略了一个关键的要求：事实上，Clock组件设置了一个计时器，并时刻更新UI，这要求他是一个Clock组件的实现细节。</p>
+        <p>更理想化的是，我们想要它写一次并且Clock组件可以自我更新。</p>
+        <pre>
+          ReactDOM.render(
+            &lt;Clock />,
+            document.getElementById('example')
+          )
+        </pre>
+        <p>为了实现这个，我们需要加入一个'state'属性给Clock组件</p>
+        <p>State和props类似，但是他是私有化，并完全由组件控制。</p>
+        <p>我们<a href="https://facebook.github.io/react/docs/components-and-props.html#functional-and-class-components">之前</a>提到,组件被定义成类(classes)会多一些新增功能，局部state就恰好是一个只可用于类的特性。</p>
+        <h4>Function转化为Class</h4>
+        <p>你可以通过以下五个步骤，来让function转化成class</p>
+        <ol type="1">
+          <li>创造一个ES6的class，名字字样，然后加上extends React.Component.</li>
+          <li>增加一个单一的空的方法，让他可以调用render()</li>
+          <li>将所有div元素移入render()里面。</li>
+          <li>将props替换为this.props,并且放置在render()里面。</li>
+          <li>删除空的function声明。</li>
+        </ol>
+        <pre>
+          class Clock extends React.Component{
+            render(){
+              return(
+                &le;div>
+                  &lt;h1>Hello,world!&lt;/h1>
+                  &lt;h2>It is {this.props.date.toLocaleTimeString()}.&lt;/h2>
+                &lt;/div>
+              )
+            }
+          }
+        </pre>
+        <p>你可以在<a href="https://codepen.io/gaearon/pen/zKRGpo?editors=0010">CodePen</a>里面看看~</p>
+        <p>现在Clock被定义成一个class而不是一个function。</p>
+        <p>这让我们用一些新增的功能，例如local state，lifecycle hooks。</p>
+        <h4>将Local State添加到class里面</h4>
+        <p>我们将会通过下面三个步骤把date从props转化为state：</p>
+        <p>1)将this.props.date替换为this.state.date,在render()方法里面：</p>
+        <pre>
+          class Clock extends React.Component {
+            render(){
+              return(
+                &lt;div>
+                  &lt;h1>Hello, world!&lt;/h1>
+                  &lt;h2>It is {this.state.date.toLocaleTimeString().}&lt;/h2>
+                &lt;/div>
+              )
+            }
+          }
+        </pre>
+        <p>2)添加一个类的构造函数并且指定初始化值this.state,super(props)出现的目的是为了this这个值能够使用，在子类constructor中必须先调用super才能调用this。</p>
+        <pre>
+          class Clock extends React.Component{
+            constructor(props){
+              super(props);
+              this.state={date:new Date()}S
+            }
+            render(){
+              return(
+                &lt;div>
+                  &lt;h1>Hello,world!&lt;/h1>
+                  &lt;h2>it is {this.state.date.toLocaleTimeString()}.&lt;/h2>
+                &lt;/div>
+              );
+            }
+          }
+        </pre>
+        <p>注意，我们是如何将porps参数传递给子类constructor的：</p>
+        <pre>
+          constructor(){
+            super(props);
+            this.state:{date:new Date()};
+          }
+        </pre>
+        <p>类组件应该经常调用基层constructor，通过props</p>
+        <p>3)将date属性从Clock元素中移除。</p>
+        <pre>
+          ReactDOM.render(
+            &lt;Clock/>,
+            document.getElement('example')
+          )
+        </pre>
+        <p>接下来我们将会将计时器的代码重新加回给组件自身。</p>
+        <pre>
+          class Clock extends React.Component{
+            constructor(){
+              super(props);
+              this.state={date:new Date()}
+            }
+            render(
+              return(
+                &lt;div>
+                  &lt;h1>Hello,world!&lt;/h1>
+                  &lt;h2>it is {this.state.date.toLocaleTimeString()}.&lt;/h2>
+                &lt;/div>
+              )
+            )
+          }
+          ReactDOM.render(
+            &lt;Clock/>,
+            document.getElement('example')
+          )
+        </pre>
+        <p>现在Clock设置好了他自己的计时器，并时刻自我更新。</p>
+        
+      </div>
+      <div class="col-sm-12">
+        <h3>Components(组件)和Props(道具)</h3>
+        <p>组件让你可以将整个UI分解成独立的可重复使用的，并且独立思考每一部分。</p>
+        <p>从概念上讲，组件像js函数，他们可以接受任意参数(props)并且返回那些将要出现在屏幕上面的React元素</p>
+        <h4>function组件和class组件</h4>
+        <p>最简单的去定义一个组件是写一个js函数</p>
+        <pre>
+          function Welcome(props){
+            return &lt;h1>Hello, {props.name}&lt;/h1>;
+          }
+        </pre>
+        <p>这个函数是一个有效的React组件因为它可以接受一个单一的'props'对象，参数携带数据并且返回一个React元素，我们叫这样的组件为函数化因为他是真真的js函数。</p>
+        <p>你也可以用ES6 class来定义一个组件:</p>
+        <pre>
+          class Welcome extends React.Component {
+            render(){
+              return &lt;h1>Hello,{this.props.name}&lt;/h1>
+            }
+          }
+        </pre>
+        <p>以上这两种组件从React的角度来看是相等的。</p>
+        <p>Classes有一些额外功能，下一章节会探讨。到目前为止，我们将会使用函数化组件，因为简洁。</p>
+        <h4>渲染一个组件</h4>
+        <p>上一章节，我们仅仅只遇到React元素的纯标签。</p>
+        <pre>const element = &lt;div/></pre>
+        <p>然而，元素也能扮演用户自定义组件。</p>
+        <pre>const element = &lt;div name="Sara"/></pre>
+        <p>当React看到一个元素有用户自定义组件，他会通过JSX属性来执行组件作为一个单一的对象，我们将这对象称之为props对象。</p>
+        <p>例如，下面这个，将会渲染"Hello,Sara"到页面上。</p>
+        <pre>
+          function Welcome(props){
+            return &lt;h1>hello,{props,name}&lt;/h1>
+          }
+
+          const element = &lt;Welcome name="Sara"/>;
+          ReactDOM.render(
+            element,
+            document.getElementById('root')
+          )
+        </pre>
+        <p>你可以在<a href="https://codepen.io/gaearon/pen/YGYmEG?editors=0010">CodePen</a>里面尝试一下。</p>
+        <p>让我们大概分析一下，例子中到底发生了什么</p>
+        <ol type="1">
+          <li>我们调用ReactDOM.render(),里面带有&lt;welcome name="Sara"/>元素</li>
+          <li>React调用welcome组件，并把{name:'Sara'}当作props。</li>
+          <li>我们的Welcome组件返回一个&lt;h1>hello, Sara&lt;/h1>元素作为结果。</li>
+          <li>React DOM快速更新DOM来匹配&lt;h1>hello, Sara&lt;/h1></li>
+        </ol>
+        <h4>警告：</h4>
+        <p>组件名称必须大写开头</p>
+        <p>例如&lt;div/>是一个DOM标签,而&lt;Welcome/>是一个组件，并且需要Welcome作用。</p>
+        <h4>组件构成</h4>
+        <p>组件可以参照其他组件，在输出，这让我们用一样的组件</p>
+        <p>例如，我们可以创造一个App组件，他可以在Welcome组件里面渲染很多次。</p>
+        <pre>
+          function Welcome(props){
+            return &lt;h1>Hello,{props.name}&lt;/h1>
+          }
+          function App(){
+            return(
+              &lt;div>
+                &lt;Welcome name="Sara"/>
+                &lt;Welcome name="Cahal"/>
+                &lt;Welcome name="Edite"/>
+              &lt;/div>
+            )
+          }
+          ReactDOM.render(
+            &lt;App/>,
+            document.getElementById('root')
+          );
+        </pre>
+        <p>你可以在<a href="https://codepen.io/gaearon/pen/KgQKPr?editors=0010">CodePen</a>里面尝试一下。</p>
+        <p>通常，新的React程序有一个单一的App组件在顶部。然而，如果你想把React整合到一个已经存在的app里面，你可能要开始一个按钮附带一个组件，像"Button"这样，并逐步工作到视图层次结构的顶部。</p>
+        <h4>警告：</h4>
+        <p>组件必须返回一个单一的根元素，这就是为什么我们上一个例子中要用一个div元素包裹所有的Welcome组件。</p>
+        <h4>提取组件</h4>
+        <p>不要害怕把组件split成更小的组件。</p>
+        <p>例如，思考一下下面这个Comment组件吧。</p>
+        <pre>
+          function Comment(prop){
+            return(
+              &lt;div className="Comment">
+                &lt;div className="UserInfo">
+                  &lt;img 
+                    src={props.author.avatarUrl}
+                    alt={prop.author.name} 
+                    className="Avatar"
+                  />
+                  &lt;div className="UserInfo-name">
+                    {props.author.name}
+                  &lt;/div>
+                &lt;/div>
+                &lt;div className="Comment-text">
+                  {props.text}
+                &lt;/div>
+                &lt;div className="Comment-date">
+                  {formatDate(props.date)}
+                &lt;/div>
+              &lt;/div>
+            );
+          }
+        </pre>
+        <p>你可以在<a href="https://codepen.io/gaearon/pen/VKQwEo?editors=0010">CodePen</a>里面尝试一下。</p>
+        <p>它接收author(对象)，text(字符串)，date(数据)作为参数，并且描述一个评论在社交媒体网站</p>
+        <p>这个组件由于有很多嵌套，所以它难以修改，并且他的各个部分也很难重复利用，因此，建议从中提取一小部分组件。</p>
+        <p>首先我们会提取Avatar组件，</p>
+        <pre>
+          function Avatar(props){
+            return (
+              &lt;img 
+                src={props.author.avatarUrl}
+                alt={prop.author.name} 
+                className="Avatar"
+              />
+            )
+          }
+        </pre>
+        <p>这个Avatar不需要知道要被渲染在Comment的哪个地方。这也是为什么我们给他传递的参数是一个更加通用的名称user而不是author</p>
+        <p>我们建议命名参数的名字的时候应该从组件本身的角度来命名，而不是通过它正在使用的上下文。</p>
+        <P>我们现在可以开始简化Comment组件一丝丝。</P>
+        <pre>
+
+          function Avatar(props){
+            return (
+              &lt;img 
+                src={props.author.avatarUrl}
+                alt={prop.author.name} 
+                className="Avatar"
+              />
+            )
+          };
+
+          function Comment(prop){
+            return(
+              &lt;div className="Comment">
+                &lt;div className="UserInfo">
+                  &lt;Avatar user={props.author}/>
+                  &lt;div className="UserInfo-name">
+                    {props.author.name}
+                  &lt;/div>
+                &lt;/div>
+                &lt;div className="Comment-text">
+                  {props.text}
+                &lt;/div>
+                &lt;div className="Comment-date">
+                  {formatDate(props.date)}
+                &lt;/div>
+              &lt;/div>
+            );
+          }
+        </pre>
+        <p>接下来，我们将会提取一个UserInfo组件，这个组件会渲染一个Avatar组件在用户名后面。</p>
+        <pre>
+          function UserInfo(props){
+            return(
+              &lt;div className="UserInfo">
+                &lt;Avatar user={props.user}/>
+                &lt;div className="UserInfo-name">
+                  {props.user.name}
+                &lt;/div>
+              &lt;/div>
+            )
+          }
+        </pre>
+        <p>这将会更加简化Comment组件</p>
+        <pre>
+          function Comment(props){
+            return(
+              &lt;div className="Comment">
+                &lt;UserInfo user={props.author}/>
+                &lt;div className="Comment-text">{props.text}&lt;/div>
+                &lt;div className="Comment-date">{props.date}&lt;/div>
+              &lt;/div>
+            )
+          }
+        </pre>
+        <p>你可以在<a href="https://codepen.io/gaearon/pen/rrJNJY?editors=0010">CodePen</a>里面尝试一下。</p>
+        <p>刚开始的时候提取组件也许像是一件简单乏味的工作，但是拥有一个可重复使用的组件调色板，在更大的app中是会有很大回报的。一个很好的经验，如果你的UI的一部分被重复使用了很多次(Button,Panel,Avatar),或者它足够复杂(App,FeedStory,Comment),这种组件化仍旧是一种不错的选择，</p>
+        <h4>个人经验：</h4>
+        <p>从最开始的一个组件Comment,它拥有属性，author，我们给他赋予{comment.author}花括号开始用js解析，括号开始解析html，变量comment.text,于是这个属性就能传递下去，接下来看Comment组件的构成，他有一个props参数，先看里面Comment组件最简单的div元素，他直接赋予变量{props.text},这个变量props参数里面的text是从上一个Comment里面传递下来的参数，props.text，于是就会从之前里面去查询text属性，有，就看text属性等于comment.text，这就是最基本的传递参数。。拥有最基本的js概念就能看懂react了。花括号开始解析js，括号开始解析html，参数传递概念，传递的就是所运用的属性，但是不建议在每一个内嵌组件里面运用同样的属性，例如comment.author，已经有author，那么里面的内嵌组件UserInfo不建议再次使用author属性，防止js可读性降低，例如再次使用UserInfo.author.</p>
+        <h4>Props 是仅仅之能读取</h4>
+        <p>无论你function一个组件或者class一个组件，他必须是从不能修改他自己的props参数，思考一下下面这个sum函数吧。</p>
+        <pre>
+          function sum(a,b){
+            return a+b;
+          }
+        </pre>
+        <p>这叫做纯函数'pure'，因为他们不会去改变他们的输入值，并且在同样参数的情况下会输出同样的结果。</p>
+        <p>下面例子刚好相反，因为他改变了他自己的输入。</p>
+        <pre>
+          function withdraw(account,amount){
+            account.total -= amount;
+          }
+        </pre>
+        <p>React反应灵活，但是他有一个非常严格的规则：</p>
+        <p>所有React组件必须表现的像纯函数那样来尊重他们的props参数</p>
+        <p>当然，UI应用是动态的，并且时刻变化的，在下一章节，我们将会介绍一个新的概念'state',State允许所有的React组件随着时间和用户操作来响应，来改变通过用户行为和网络响应或者其他东西多次改变输出，但是不能改变这条规则。</p>
+      </div>
+      <div class="col-sm-12">
         <h3>渲染元素</h3>
         <p>element是Reactapps里面最小的构建块。</p>
         <p>把一个element写成你想要见到的样子，出现在屏幕上。</p>
@@ -14,6 +358,44 @@
         <pre>
           &lt;div id="root">&lt;/div>
         </pre>
+        <p>我们称它为'root'DOM节点，因为所有里面的东西都被ReactDOM掌控，用React构建的应用通常只有一个根DOM节点。如果你想要整合一个React到一个已经存在的app里面，你可能会有任意多个DOM根节点。如果你想要渲染一个React元素，请将两者都传递给ReactDOM.render();</p>
+        <pre>
+          const element = &lt;h1>hello,world&lt;/h1>;
+          ReactDOM.render(
+            element,
+            document.getElementById('root')
+          );
+        </pre>
+        <p>你可以在<a href="https://codepen.io/gaearon/pen/rrpgNB?editors=1010">CodePen</a>里面尝试一下。</p>
+        <p>页面会显示“hello world！”</p>
+        <h4>更新已渲染的元素</h4>
+        <p>React元素是<a href="https://en.wikipedia.org/wiki/Immutable_object">immutable</a>(不可变的)，一旦你创建了一个元素，你不可改变他的子元素或者属性，一个元素就像电影中某一帧，他代表某一时间节点上面的UI，到目前为止根据我们的认知，唯一改变UI的方法就是创造一个新的元素并把他传递给ReactDOM.render()</p>
+        <p>思考下面这个时钟案例</p>
+        <pre>
+          function tick (){
+            const element={
+              &lt;div>
+                &lt;h1>Hello,wrold!&lt;/h1>
+                &lt;h2>it is {new.Date().toLocaleTimeString()}.&lt;/h2>
+              &lt;/div>
+            };
+            ReactDOM.render(
+              element,
+              document.getElementById('root')
+            )
+          }
+          setInterval(tick,1000);
+        </pre>
+        <p>你可以在<a href="https://codepen.io/gaearon/pen/gwoJZk?editors=0010">CodePen</a>里面尝试一下。</p>
+        <p>它每秒都通过serInterval回掉函数执行一次ReactDOM</p>
+        <h4>Note:</h4>
+        <p>实际上，大多数Reactapp只呼叫一次ReactDOM.render(),再下一章节，我们将会学习如何将这些代码封装在组件里面.</p>
+        <h4>React只更新必需品。</h4>
+        <p>ReactDOM会拿它本身的元素及子元素去和上一个相比较，并且只应用更新必要的DOM使得DOM实现它想要的状态。</p>
+        <p>你可以用浏览器工具来检查最后一个例子</p>
+        <img src="https://facebook.github.io/react/img/docs/granular-dom-updates.gif">
+        <p>尽管我们创建了一个元素每秒来描述整个UI树，仅仅只有变化的文本节点会通过ReactDOM获得更新。</p>
+        <p>在我们的这些实验中，思考UI应该如何关注给定的时刻，而不是如何随着时间而改变它，从而消除了一类bug。</p>
       </div>
       <div class="col-sm-12">
         <h3>介绍JXP</h3>
@@ -120,16 +502,6 @@
         <h4>Tip:</h4>
         <p>建议您search一个叫"Babel"的语法格式来供你的编辑器选择，这样的话无论是ES6还是JSX代码都可以正确的高亮。</p>
       </div>
-
-
-
-
-
-
-
-
-
-
       <div class="col-sm-12">
         <h3>object</h3>
         <h4>no-new-object</h4>
@@ -344,7 +716,7 @@
         </script>
       </div>
       <div class="col-sm-12">
-        <img src="build/images/QQ截图20151027223135.jpg" alt="">
+        <img src="build/images/QQ截图20151027223135.jpg">
         <p>抛出错误如图所示，当然你要在Firefox浏览器上才能看。</p>
         <p>你可以使用undefined来确定变量是否已赋值。以下代码中，变量input未被赋值，因而if条件语   句的求值结果是true。</p>
         <pre class='brush: javascript'>

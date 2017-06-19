@@ -53,16 +53,59 @@
 <body>
 	<div id="example"></div>
 	<script type="text/babel">
-		function addictiveHash(key='',prime){
-			let hash=0;
-			for (let i = 0; i < key.length; ++i) {
-				hash = (hash << 4) ^ (hash >> 28) ^ key.charCodeAt(i);
+		class Clock extends React.Component{
+			constructor(props){
+				super(props);
+				this.state={date: new Date()};
 			}
-			return hash%prime;
+			componentDidMount(){
+				this.timerID = setInterval(
+					() => this.tick(),
+					1000
+				);
+			}
+			componentWillUnmount(){
+				clearInterval(this.timerID);
+			}
+			tick (){
+				this.setState({
+					date:new Date()
+				});
+			}
+			render(){
+				return (
+					<div>
+						<h1>hello,world!.</h1>
+						<h2>It is {this.state.date.toLocaleTimeString()}.</h2>
+					</div>
+				)
+			}
 		}
-		console.log(addictiveHash('test',31));
-		console.log(addictiveHash('abc',31));
-		console.log(addictiveHash('abb',31));
+		ReactDOM.render(
+			<Clock/>,
+			document.getElementById('example')
+		);
+
+		class Animal {
+			constructor(name){
+				this.name = name;
+				this.state = {date:new Date().toLocaleTimeString()};
+			}
+			speak(){
+				console.log(this.state+" make a noisy")
+			}
+			eat(){
+				console.log(this.name+' want eat')
+			}
+		}
+		class Dog extends Animal{
+			speak(){
+				console.log(this.state.date+" make inner noisy")
+			}
+		};
+		var d = new Dog('dolors')
+		d.speak();
+		d.eat();
 	</script>
 </body>
 </html>
