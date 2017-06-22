@@ -928,6 +928,44 @@
 					document.getElementById('example')
   				)
   			</pre>
+  			<p>当声明一个变量并且用if来陈述是一个好的方式来条件化的渲染一个组件，有时候，你也许想要用一个更短的语法。有几个内联条件的JSX，下面解释一下。</p>
+  			<h4>内联if带有逻辑运算符&&</h4>
+  			<p>你可能会在JSX中嵌入任何表达式，通过将它们封装在{}中。这个包括了js&&逻辑运算符。他可以便捷的有条件的报过一个元素。</p>
+  			<pre class="brush:applescript">
+  				function Mailbox(props){
+  					const unreadMessages = props.unreadMessage;
+  					return(
+						<div>
+							<h1>Hello!</h1>
+							{unreadMessage.length > 0 &&
+								<h2>
+									You have {unreadMessages.length} unread message.
+								</h2>
+							}
+						</div>
+  					)
+  				}
+  				const message = ['React','Re: React','Re:Re: React'];
+  				ReactDOM.render(
+					<Mailbox unreadMessage={message}/>,
+					document.getElementById('example')
+  				)
+  			</pre>
+  			<p>在js里面这个是可以运行的，<code>true && expression</code>等价于<code>expression</code>,<code>false && expression</code>等价于<code>false</code>.</p>
+  			<p>因此，如果条件为ture，这个元素在&&后面的会输出，反之相反，React会跳过它。</p>
+  			<h4>内联if-else条件运算符</h4>
+  			<p>另一个方法，渲染内联元素，可以使用js条件运算符<code>condition ? true : false</code></p>
+  			<p>在下面这个例子，我们用它条件化渲染一个小块</p>
+  			<pre class="brush: applescript">
+  				render(){
+  					const isLoggedIn = this.state.isLoggedIn;
+  					return (
+						<div>
+							The user is <b>{isLoggedIn ? 'currently' : 'not'}</b> logged in.
+						</div>
+  					)
+  				}
+  			</pre>
   		</div>
 	</div>
 
