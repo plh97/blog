@@ -1,111 +1,949 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>react</title>
-	<script src=../lib/react/react.js></script>
-	<script src=../lib/react/react-dom.js></script>
-	<script src=../lib/babel/browser.js></script>
-	<style>
-		body{
-		}
-		textarea{
-			position:absolute;
-			left:0;
-			top:0;
-			display: inline-block;
-			width: 49%;
-			min-height: 98%;
-			font-size: 40px;
-			overflow: auto;
-		}
-		.pre{
-			position: absolute;
-			left: 50%;
-			top: 0;
-			border:1px solid lightgray;
-			margin:0;
-			padding: 2px;
-			display: inline-block;
-			min-height: 98%;
-			width: 49%;
-			font-size: 40px;
-			user-select:none;
-		}
-		p{
-			margin:0;
-		}
-		.pre{
-			position: absolute;
-			left: 50%;
-			top: 0;
-			border:1px solid lightgray;
-			margin:0;
-			padding: 2px;
-			display: inline-block;
-			min-height: 98%;
-			width: 49%;
-			font-size: 40px;
-			user-select:none;
-		}
-	</style>
-</head>
-<body>
-	<div id="example"></div>
-	<script type="text/babel">
-		class Clock extends React.Component{
-			constructor(props){
-				super(props);
-				this.state={date: new Date()};
-			}
-			componentDidMount(){
-				this.timerID = setInterval(
-					() => this.tick(),
-					1000
-				);
-			}
-			componentWillUnmount(){
-				clearInterval(this.timerID);
-			}
-			tick (){
-				this.setState({
-					date:new Date()
-				});
-			}
-			render(){
-				return (
-					<div>
-						<h1>hello,world!.</h1>
-						<h2>It is {this.state.date.toLocaleTimeString()}.</h2>
-					</div>
-				)
-			}
-		}
-		ReactDOM.render(
-			<Clock/>,
-			document.getElementById('example')
-		);
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="baidu-site-verification" content="dttAbY7QVf" />
+    <link rel="shortcut icon" href="../blog.ico"/>
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../lib/SyntaxHighlighter/styles/shCore.css">
+    <link rel="stylesheet" href="../lib/SyntaxHighlighter/styles/shCoreRDark.css">
+    <title>Peng React</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="../lib/bootstrap/dist/css/bootstrap.min.css">
+    <!-- My_Css -->
+    <link rel="stylesheet" href="../build/css/basic.min.css">
+    <link rel="stylesheet" href="../build/css/blog2.min.css">
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Peng</a>
+          </div>
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+              <li><a href="view/intro.html">简历</a></li>
+              <li><a href="#" onclick="return false">OK,Through the hurt and pain ,i'll never use angualr1.5 + angular-ui-router,because the js innerHTML which creat by angular-ui-router doesn't work!</a></li>
+            </ul>
+          </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+      </nav>
+    </header>
+    <!-- 导航条 -->
+	<div class="container-context container">
+		<h1>&nbsp;</h1>
+		<div class="col-sm-12">
+		  <h3>介绍JXP</h3>
+		  <p>接下来看看下面这个声明:</p>
+		  <pre class="brush: js">const element = &lt;h1>Hello World!;&lt;/h1></pre>
+		  <p>这个有趣的标记语法既不是字符串，也不是HTML。</p>
+		  <p>它叫是JSX，是Javascript的语法扩展。使用它的目的是为了让大家在写代码的时候更加舒适。JSX让你看起来像HTML模板语言，但她同时又具备Javascript的全部功能。</p>
+		  <p>JSX生成React元素，我们将在下一章节中探索如何将他们渲染到DOM上。下面，你可以找到一些必要的JSX基础来让你更好的展开学习React。</p>
+		  <h4>在JSX中嵌入表达式</h4>
+		  <p>你可以在JSX中用'{}'嵌入任何js表达式。</p>
+		  <p>例如，2+2，user.firstName，formatName(user)，这些都是有效的表达式。</p>
+		  <pre class="brush:applescript">
+		  function formatName(user){
+		    return user.firstName+' '+user.lastName;
+		  };
 
-		class Animal {
-			constructor(name){
-				this.name = name;
-				this.state = {date:new Date().toLocaleTimeString()};
-			}
-			speak(){
-				console.log(this.state+" make a noisy")
-			}
-			eat(){
-				console.log(this.name+' want eat')
-			}
-		}
-		class Dog extends Animal{
-			speak(){
-				console.log(this.state.date+" make inner noisy")
-			}
-		};
-		var d = new Dog('dolors')
-		d.speak();
-		d.eat();
-	</script>
-</body>
+		  const user = {
+		    firstName:"peng",
+		    lastName:'liheng'
+		  };
+
+		  function element=(){
+		    &lt;h1>
+		      hello! {formatName(user)}.
+		    &lt;/h1>
+		  };
+
+		  ReactDOM.Render(
+		    element,
+		    document.getElementById('example')
+		  );
+		  </pre>
+		  <p>可以在
+		    <a href="https://codepen.io/gaearon/pen/PGEjdG?editors=0010">CodePen</a>上面尝试一下。
+		  </p>
+		  <p>我们将JSX分割成多行，使其更加语义化。虽然这是不必要的，但我们仍然建议将他写在一个'{}'里面，用来避免自动插入分号的陷阱。</p>
+		  <h4>JSX也是一个表达式</h4>
+		  <p>编译后，JSX表达式变成常规的js对象</p>
+		  <p>这意味着你可以在if语句for循环中使用JSX，给他传入变量，或者参数，并从函数中返回。</p>
+		  <h4>用JSX指定属性</h4>
+		  <p>maybe you can 用引号为字符串中文字指定属性。</p>
+		  <pre class="brush:applescript">
+		    const element = &lt;div tabindex="0">&lt;/div>
+		  </pre>
+		  <p>你也可以将js表达式用花括号包住嵌入到一个属性中</p>
+		  <pre class="brush:applescript">
+		    const element = &lt;img src={user.avatarUrl}/>
+		  </pre>
+		  <p>当你想要将js表达式嵌入到一个属性中，不要'{}'或者"{}"这样，因为JSX会将这个属性原封不动的当作变量而不是一个表达式，你要么用''表示字符串值，要么用{}表示js表达式，但是不要一起用在一个属性中。</p>
+		  <h4>用JSX指定子元素</h4>
+		  <p>如果是空标签，要用/>来闭合，就像XML那样</p>
+		  <pre class="brush:applescript">
+		    const element = &lt;img src={user.avatarUrl}/>
+		  </pre>
+		  <p>JSX标签也许会包含子标签</p>
+		  <pre class="brush:applescript">
+		    const element = (
+		      &lt;div>
+		        &lt;h1>hello!&lt;/h1>
+		        &lt;h2>good to see you here.&lt;/h2>
+		      &lt;/div>
+		    )
+		  </pre>
+		  <h4>警告！</h4>
+		  <p>自从JSX比HTML更接近Javascript后，ReactDOM使用camlCase将属性重命名，用来替代HTML属性名。</p>
+		  <p>例如，class变成了className，tabindex变成了tabIndex。</p>
+		  <h4>JSX可防御注入攻击</h4>
+		  <p>在JSX里面嵌入用户信息相对安全</p>
+		  <pre class="brush:applescript">
+		    const title = response.pontentiallyMaliciousInput;
+		    //This is safe;
+		    const element = &lt;h1>{title}&lt;/h1>;
+		  </pre>
+		  <p>默认情况下，ReactDOM在其渲染之前转义任意值并嵌入JSX中。因此它可以确保你绝不注射任何东西在你未明确写在要注射的应用程序，所有的东西都被转换成一个字符串直到要渲染的时候。这有助于防御XSS(跨域名脚本)攻击</p>
+		  <h4>JSX的代表性对象</h4>
+		  <p>Babel将JSX编译与React.createrElement()的区别</p>
+		  <p>以下这两个例子是相同的。</p>
+		  <pre class="brush:applescript">
+		    const element=(
+		      &lt;h1 className="greeting">
+		        Hello,world!
+		      &lt;/h1>
+		    );
+
+		    const element=React.createElement(
+		      'h1',
+		      {className:'greeting'},
+		      'Hello world!'
+		    );
+		  </pre>
+		  React.createElement()执行一些检查来帮助你来写无BUG代码，但是它本质上是创造了一个这样的对象。
+		  <pre class="brush:applescript">
+		    //Note:这个结构是简化的
+		    const element={
+		      type:'h1',
+		      props:{
+		        className:'greeting',
+		        children:'Hello,world'
+		      }
+		    }
+		  </pre>
+		  <p>这些对象叫做“React元素”，你可以想象他们作为描述你所想在屏幕上看到的，React 读取这些对象并用他们构建DOM并时刻保持更新。</p>
+		  <p>我们将会在下一章节继续探索渲染React元素到DOM上面。</p>
+		  <h4>Tip:</h4>
+		  <p>建议您search一个叫"Babel"的语法格式来供你的编辑器选择，这样的话无论是ES6还是JSX代码都可以正确的高亮。</p>
+		</div>
+		<div class="col-sm-12">
+		  <h3>渲染元素</h3>
+		  <p>element是Reactapps里面最小的构建块。</p>
+		  <p>把一个element写成你想要见到的样子，出现在屏幕上。</p>
+		  <pre class="brush:applescript">
+		    const element = &lt;h1>Hello,world&lt;/h1>;
+		  </pre>
+		  <p>和浏览器的DOM不一样，React element是简单的对象，而且便于创造。React DOM负责更新DOM来和React element相匹配。</p>
+		  <h4>Note:</h4>
+		  <p>有人可能会混淆element与另一个更为人知的概念--components相混淆，我们将会在下一章节介绍components(组件)，组件由元素构成，本章以下内容希望你不要跳过。</p>
+		  <h4>渲染一个元素到DOM上面</h4>
+		  <p>这有一个&lt;div>在你的HTML文档中某一处</p>
+		  <pre class="brush:applescript">
+		    &lt;div id="root">&lt;/div>
+		  </pre>
+		  <p>我们称它为'root'DOM节点，因为所有里面的东西都被ReactDOM掌控，用React构建的应用通常只有一个根DOM节点。如果你想要整合一个React到一个已经存在的app里面，你可能会有任意多个DOM根节点。如果你想要渲染一个React元素，请将两者都传递给ReactDOM.render();</p>
+		  <pre class="brush:applescript">
+		    const element = &lt;h1>hello,world&lt;/h1>;
+		    ReactDOM.render(
+		      element,
+		      document.getElementById('root')
+		    );
+		  </pre>
+		  <p>你可以在<a href="https://codepen.io/gaearon/pen/rrpgNB?editors=1010">CodePen</a>里面尝试一下。</p>
+		  <p>页面会显示“hello world！”</p>
+		  <h4>更新已渲染的元素</h4>
+		  <p>React元素是<a href="https://en.wikipedia.org/wiki/Immutable_object">immutable</a>(不可变的)，一旦你创建了一个元素，你不可改变他的子元素或者属性，一个元素就像电影中某一帧，他代表某一时间节点上面的UI，到目前为止根据我们的认知，唯一改变UI的方法就是创造一个新的元素并把他传递给ReactDOM.render()</p>
+		  <p>思考下面这个时钟案例</p>
+		  <pre class="brush:applescript">
+		    function tick (){
+		      const element={
+		        &lt;div>
+		          &lt;h1>Hello,wrold!&lt;/h1>
+		          &lt;h2>it is {new.Date().toLocaleTimeString()}.&lt;/h2>
+		        &lt;/div>
+		      };
+		      ReactDOM.render(
+		        element,
+		        document.getElementById('root')
+		      )
+		    }
+		    setInterval(tick,1000);
+		  </pre>
+		  <p>你可以在<a href="https://codepen.io/gaearon/pen/gwoJZk?editors=0010">CodePen</a>里面尝试一下。</p>
+		  <p>它每秒都通过serInterval回掉函数执行一次ReactDOM</p>
+		  <h4>Note:</h4>
+		  <p>实际上，大多数Reactapp只呼叫一次ReactDOM.render(),再下一章节，我们将会学习如何将这些代码封装在组件里面.</p>
+		  <h4>React只更新必需品。</h4>
+		  <p>ReactDOM会拿它本身的元素及子元素去和上一个相比较，并且只应用更新必要的DOM使得DOM实现它想要的状态。</p>
+		  <p>你可以用浏览器工具来检查最后一个例子</p>
+		  <img src="https://facebook.github.io/react/img/docs/granular-dom-updates.gif">
+		  <p>尽管我们创建了一个元素每秒来描述整个UI树，仅仅只有变化的文本节点会通过ReactDOM获得更新。</p>
+		  <p>在我们的这些实验中，思考UI应该如何关注给定的时刻，而不是如何随着时间而改变它，从而消除了一类bug。</p>
+		</div>
+		<div class="col-sm-12">
+		  <h3>Components(组件)和Props(道具)</h3>
+		  <p>组件让你可以将整个UI分解成独立的可重复使用的，并且独立思考每一部分。</p>
+		  <p>从概念上讲，组件像js函数，他们可以接受任意参数(props)并且返回那些将要出现在屏幕上面的React元素</p>
+		  <h4>function组件和class组件</h4>
+		  <p>最简单的去定义一个组件是写一个js函数</p>
+		  <pre class="brush:applescript">
+		    function Welcome(props){
+		      return &lt;h1>Hello, {props.name}&lt;/h1>;
+		    }
+		  </pre>
+		  <p>这个函数是一个有效的React组件因为它可以接受一个单一的'props'对象，参数携带数据并且返回一个React元素，我们叫这样的组件为函数化因为他是真真的js函数。</p>
+		  <p>你也可以用ES6 class来定义一个组件:</p>
+		  <pre class="brush:applescript">
+		    class Welcome extends React.Component {
+		      render(){
+		        return &lt;h1>Hello,{this.props.name}&lt;/h1>
+		      }
+		    }
+		  </pre>
+		  <p>以上这两种组件从React的角度来看是相等的。</p>
+		  <p>Classes有一些额外功能，下一章节会探讨。到目前为止，我们将会使用函数化组件，因为简洁。</p>
+		  <h4>渲染一个组件</h4>
+		  <p>上一章节，我们仅仅只遇到React元素的纯标签。</p>
+		  <pre class="brush:applescript">const element = &lt;div/></pre>
+		  <p>然而，元素也能扮演用户自定义组件。</p>
+		  <pre class="brush:applescript">const element = &lt;div name="Sara"/></pre>
+		  <p>当React看到一个元素有用户自定义组件，他会通过JSX属性来执行组件作为一个单一的对象，我们将这对象称之为props对象。</p>
+		  <p>例如，下面这个，将会渲染"Hello,Sara"到页面上。</p>
+		  <pre class="brush:applescript">
+		    function Welcome(props){
+		      return &lt;h1>hello,{props,name}&lt;/h1>
+		    }
+
+		    const element = &lt;Welcome name="Sara"/>;
+		    ReactDOM.render(
+		      element,
+		      document.getElementById('root')
+		    )
+		  </pre>
+		  <p>你可以在<a href="https://codepen.io/gaearon/pen/YGYmEG?editors=0010">CodePen</a>里面尝试一下。</p>
+		  <p>让我们大概分析一下，例子中到底发生了什么</p>
+		  <ol type="1">
+		    <li>我们调用ReactDOM.render(),里面带有&lt;welcome name="Sara"/>元素</li>
+		    <li>React调用welcome组件，并把{name:'Sara'}当作props。</li>
+		    <li>我们的Welcome组件返回一个&lt;h1>hello, Sara&lt;/h1>元素作为结果。</li>
+		    <li>React DOM快速更新DOM来匹配&lt;h1>hello, Sara&lt;/h1></li>
+		  </ol>
+		  <h4>警告：</h4>
+		  <p>组件名称必须大写开头</p>
+		  <p>例如&lt;div/>是一个DOM标签,而&lt;Welcome/>是一个组件，并且需要Welcome作用。</p>
+		  <h4>组件构成</h4>
+		  <p>组件可以参照其他组件，在输出，这让我们用一样的组件</p>
+		  <p>例如，我们可以创造一个App组件，他可以在Welcome组件里面渲染很多次。</p>
+		  <pre class="brush:applescript">
+		    function Welcome(props){
+		      return &lt;h1>Hello,{props.name}&lt;/h1>
+		    }
+		    function App(){
+		      return(
+		        &lt;div>
+		          &lt;Welcome name="Sara"/>
+		          &lt;Welcome name="Cahal"/>
+		          &lt;Welcome name="Edite"/>
+		        &lt;/div>
+		      )
+		    }
+		    ReactDOM.render(
+		      &lt;App/>,
+		      document.getElementById('root')
+		    );
+		  </pre>
+		  <p>你可以在<a href="https://codepen.io/gaearon/pen/KgQKPr?editors=0010">CodePen</a>里面尝试一下。</p>
+		  <p>通常，新的React程序有一个单一的App组件在顶部。然而，如果你想把React整合到一个已经存在的app里面，你可能要开始一个按钮附带一个组件，像"Button"这样，并逐步工作到视图层次结构的顶部。</p>
+		  <h4>警告：</h4>
+		  <p>组件必须返回一个单一的根元素，这就是为什么我们上一个例子中要用一个div元素包裹所有的Welcome组件。</p>
+		  <h4>提取组件</h4>
+		  <p>不要害怕把组件split成更小的组件。</p>
+		  <p>例如，思考一下下面这个Comment组件吧。</p>
+		  <pre class="brush:applescript">
+		    function Comment(prop){
+		      return(
+		        &lt;div className="Comment">
+		          &lt;div className="UserInfo">
+		            &lt;img 
+		              src={props.author.avatarUrl}
+		              alt={prop.author.name} 
+		              className="Avatar"
+		            />
+		            &lt;div className="UserInfo-name">
+		              {props.author.name}
+		            &lt;/div>
+		          &lt;/div>
+		          &lt;div className="Comment-text">
+		            {props.text}
+		          &lt;/div>
+		          &lt;div className="Comment-date">
+		            {formatDate(props.date)}
+		          &lt;/div>
+		        &lt;/div>
+		      );
+		    }
+		  </pre>
+		  <p>你可以在<a href="https://codepen.io/gaearon/pen/VKQwEo?editors=0010">CodePen</a>里面尝试一下。</p>
+		  <p>它接收author(对象)，text(字符串)，date(数据)作为参数，并且描述一个评论在社交媒体网站</p>
+		  <p>这个组件由于有很多嵌套，所以它难以修改，并且他的各个部分也很难重复利用，因此，建议从中提取一小部分组件。</p>
+		  <p>首先我们会提取Avatar组件，</p>
+		  <pre class="brush:applescript">
+		    function Avatar(props){
+		      return (
+		        &lt;img 
+		          src={props.author.avatarUrl}
+		          alt={prop.author.name} 
+		          className="Avatar"
+		        />
+		      )
+		    }
+		  </pre>
+		  <p>这个Avatar不需要知道要被渲染在Comment的哪个地方。这也是为什么我们给他传递的参数是一个更加通用的名称user而不是author</p>
+		  <p>我们建议命名参数的名字的时候应该从组件本身的角度来命名，而不是通过它正在使用的上下文。</p>
+		  <P>我们现在可以开始简化Comment组件一丝丝。</P>
+		  <pre class="brush:applescript">
+
+		    function Avatar(props){
+		      return (
+		        &lt;img 
+		          src={props.author.avatarUrl}
+		          alt={prop.author.name} 
+		          className="Avatar"
+		        />
+		      )
+		    };
+
+		    function Comment(prop){
+		      return(
+		        &lt;div className="Comment">
+		          &lt;div className="UserInfo">
+		            &lt;Avatar user={props.author}/>
+		            &lt;div className="UserInfo-name">
+		              {props.author.name}
+		            &lt;/div>
+		          &lt;/div>
+		          &lt;div className="Comment-text">
+		            {props.text}
+		          &lt;/div>
+		          &lt;div className="Comment-date">
+		            {formatDate(props.date)}
+		          &lt;/div>
+		        &lt;/div>
+		      );
+		    }
+		  </pre>
+		  <p>接下来，我们将会提取一个UserInfo组件，这个组件会渲染一个Avatar组件在用户名后面。</p>
+		  <pre class="brush:applescript">
+		    function UserInfo(props){
+		      return(
+		        &lt;div className="UserInfo">
+		          &lt;Avatar user={props.user}/>
+		          &lt;div className="UserInfo-name">
+		            {props.user.name}
+		          &lt;/div>
+		        &lt;/div>
+		      )
+		    }
+		  </pre>
+		  <p>这将会更加简化Comment组件</p>
+		  <pre class="brush:applescript">
+		    function Comment(props){
+		      return(
+		        &lt;div className="Comment">
+		          &lt;UserInfo user={props.author}/>
+		          &lt;div className="Comment-text">{props.text}&lt;/div>
+		          &lt;div className="Comment-date">{props.date}&lt;/div>
+		        &lt;/div>
+		      )
+		    }
+		  </pre>
+		  <p>你可以在<a href="https://codepen.io/gaearon/pen/rrJNJY?editors=0010">CodePen</a>里面尝试一下。</p>
+		  <p>刚开始的时候提取组件也许像是一件简单乏味的工作，但是拥有一个可重复使用的组件调色板，在更大的app中是会有很大回报的。一个很好的经验，如果你的UI的一部分被重复使用了很多次(Button,Panel,Avatar),或者它足够复杂(App,FeedStory,Comment),这种组件化仍旧是一种不错的选择，</p>
+		  <h4>个人经验：</h4>
+		  <p>从最开始的一个组件Comment,它拥有属性，author，我们给他赋予{comment.author}花括号开始用js解析，括号开始解析html，变量comment.text,于是这个属性就能传递下去，接下来看Comment组件的构成，他有一个props参数，先看里面Comment组件最简单的div元素，他直接赋予变量{props.text},这个变量props参数里面的text是从上一个Comment里面传递下来的参数，props.text，于是就会从之前里面去查询text属性，有，就看text属性等于comment.text，这就是最基本的传递参数。。拥有最基本的js概念就能看懂react了。花括号开始解析js，括号开始解析html，参数传递概念，传递的就是所运用的属性，但是不建议在每一个内嵌组件里面运用同样的属性，例如comment.author，已经有author，那么里面的内嵌组件UserInfo不建议再次使用author属性，防止js可读性降低，例如再次使用UserInfo.author.</p>
+		  <h4>Props 是仅仅之能读取</h4>
+		  <p>无论你function一个组件或者class一个组件，他必须是从不能修改他自己的props参数，思考一下下面这个sum函数吧。</p>
+		  <pre class="brush:applescript">
+		    function sum(a,b){
+		      return a+b;
+		    }
+		  </pre>
+		  <p>这叫做纯函数'pure'，因为他们不会去改变他们的输入值，并且在同样参数的情况下会输出同样的结果。</p>
+		  <p>下面例子刚好相反，因为他改变了他自己的输入。</p>
+		  <pre class="brush:applescript">
+		    function withdraw(account,amount){
+		      account.total -= amount;
+		    }
+		  </pre>
+		  <p>React反应灵活，但是他有一个非常严格的规则：</p>
+		  <p>所有React组件必须表现的像纯函数那样来尊重他们的props参数</p>
+		  <p>当然，UI应用是动态的，并且时刻变化的，在下一章节，我们将会介绍一个新的概念'state',State允许所有的React组件随着时间和用户操作来响应，来改变通过用户行为和网络响应或者其他东西多次改变输出，但是不能改变这条规则。</p>
+		</div>
+		<div class="col-sm-12">
+		  <h3>State和生命周期</h3>
+		  <p>思考时钟这个例子，可以在前面几个章节查询一下。</p>
+		  <p>到目前为止，我们唯一学过的更新UI的方式。</p>
+		  <p>我们调用ReactDOM.render()来改变那些已经渲染过的输出。</p>
+		  <pre class="brush:js">
+		    function tick(){
+		      const element = (
+		        &lt;div>
+		          &lt;h1>hello,world!&lt;/h1>
+		          &lt;h2>it is {new Date().toLocaleTimeString()}&lt;/h2>
+		        &lt;/div>
+		      );
+		      ReactDOM.render(
+		        element,
+		        document.getElementById('example')
+		      );
+		    }
+		    setInterval(tick,1000);
+		  </pre>
+		  <p>在这一章节，我们将会学习如何制作一个Clock组件,这组件将会真正的复用化封装化的。他将会设置自己的计时器，并每秒更新一次。</p>
+		  <p>我们可以从封装时钟开始：</p>
+		  <pre class="brush:applescript">
+		    function Clock (props){
+		      return (
+		        &lt;div>
+		          &lt;h1>hello,world! &lt;/h1>
+		          &lt;h2>it is {props.date.toLocaleTimeString()}&lt;/h2>
+		        &lt;/div>
+		      )
+		    }
+		    function tick(){
+		      ReactDOM.render(
+		        &lt;Clock date={new Date()}/>,
+		        document.getElementById('example')
+		      );
+		    }
+		    setInterval(tick,1000);
+		  </pre>
+		  <p>然而，它忽略了一个关键的要求：事实上，Clock组件设置了一个计时器，并时刻更新UI，这要求他是一个Clock组件的实现细节。</p>
+		  <p>更理想化的是，我们想要它写一次并且Clock组件可以自我更新。</p>
+		  <pre class="brush:applescript">
+		    ReactDOM.render(
+		      &lt;Clock />,
+		      document.getElementById('example')
+		    )
+		  </pre>
+		  <p>为了实现这个，我们需要加入一个'state'属性给Clock组件</p>
+		  <p>State和props类似，但是他是私有化，并完全由组件控制。</p>
+		  <p>我们<a href="https://facebook.github.io/react/docs/components-and-props.html#functional-and-class-components">之前</a>提到,组件被定义成类(classes)会多一些新增功能，局部state就恰好是一个只可用于类的特性。</p>
+		  <h4>Function转化为Class</h4>
+		  <p>你可以通过以下五个步骤，来让function转化成class</p>
+		  <ol type="1">
+		    <li>创造一个ES6的class，名字字样，然后加上extends React.Component.</li>
+		    <li>增加一个单一的空的方法，让他可以调用render()</li>
+		    <li>将所有div元素移入render()里面。</li>
+		    <li>将props替换为this.props,并且放置在render()里面。</li>
+		    <li>删除空的function声明。</li>
+		  </ol>
+		  <pre class="brush:applescript">
+		    class Clock extends React.Component{
+		      render(){
+		        return(
+		          &le;div>
+		            &lt;h1>Hello,world!&lt;/h1>
+		            &lt;h2>It is {this.props.date.toLocaleTimeString()}.&lt;/h2>
+		          &lt;/div>
+		        )
+		      }
+		    }
+		  </pre>
+		  <p>你可以在<a href="https://codepen.io/gaearon/pen/zKRGpo?editors=0010">CodePen</a>里面看看~</p>
+		  <p>现在Clock被定义成一个class而不是一个function。</p>
+		  <p>这让我们用一些新增的功能，例如local state，lifecycle hooks。</p>
+		  <h4>将Local State添加到class里面</h4>
+		  <p>我们将会通过下面三个步骤把date从props转化为state：</p>
+		  <p>1)将this.props.date替换为this.state.date,在render()方法里面：</p>
+		  <pre class="brush:applescript">
+		    class Clock extends React.Component {
+		      render(){
+		        return(
+		          &lt;div>
+		            &lt;h1>Hello, world!&lt;/h1>
+		            &lt;h2>It is {this.state.date.toLocaleTimeString().}&lt;/h2>
+		          &lt;/div>
+		        )
+		      }
+		    }
+		  </pre>
+		  <p>2)添加一个类的构造函数并且指定初始化值this.state,super(props)出现的目的是为了this这个值能够使用，在子类constructor中必须先调用super才能调用this。</p>
+		  <pre class="brush:applescript">
+		    class Clock extends React.Component{
+		      constructor(props){
+		        super(props);
+		        this.state={date:new Date()}S
+		      }
+		      render(){
+		        return(
+		          &lt;div>
+		            &lt;h1>Hello,world!&lt;/h1>
+		            &lt;h2>it is {this.state.date.toLocaleTimeString()}.&lt;/h2>
+		          &lt;/div>
+		        );
+		      }
+		    }
+		  </pre>
+		  <p>注意，我们是如何将porps参数传递给子类constructor的：</p>
+		  <pre class="brush:applescript">
+		    constructor(){
+		      super(props);
+		      this.state:{date:new Date()};
+		    }
+		  </pre>
+		  <p>类组件应该经常调用基层constructor，通过props</p>
+		  <p>3)将date属性从Clock元素中移除。</p>
+		  <pre class="brush:applescript">
+		    ReactDOM.render(
+		      &lt;Clock/>,
+		      document.getElement('example')
+		    )
+		  </pre>
+		  <p>接下来我们将会将计时器的代码重新加回给组件自身。</p>
+		  <pre class="brush:applescript">
+		    class Clock extends React.Component{
+		      constructor(){
+		        super(props);
+		        this.state={date:new Date()}
+		      }
+		      render(
+		        return(
+		          &lt;div>
+		            &lt;h1>Hello,world!&lt;/h1>
+		            &lt;h2>it is {this.state.date.toLocaleTimeString()}.&lt;/h2>
+		          &lt;/div>
+		        )
+		      )
+		    }
+		    ReactDOM.render(
+		      &lt;Clock/>,
+		      document.getElement('example')
+		    )
+		  </pre>
+		  <p>现在Clock设置好了他自己的计时器，并时刻自我更新。</p>
+		  <h4>增加lifecycle方法到class里面</h4>
+		  <p>在一个应用，里面有很多组件，那么当应用销毁的时候，释放资源是非常重要的。</p>
+		  <p>每当Clock组件第一次渲染在DOM上面，我们就像设置一个计时器，在React里面这个就叫做'mounting'。</p>
+		  <p>我们也想清除计时器，每当这个Clock组件创造的DOM被移除的时候，这个在React里面叫做'unmounting'</p>
+		  <p>我可以声明特殊方法在组件class里面，比如执行一些代码，当组件mounts或者unmounts的时候</p>
+		  <pre class='brush: js'>
+		    class Clock extends React.Component{
+		      constructor(props){
+		        super(props);
+		        this.state = {date:new Date()};
+		      }
+		      componentDidMount(){
+		        //
+		      }
+		      componentWillUnmount(){
+		        //
+		      }
+		      render(){
+		        return (
+		          &lt;div>
+		            &lt;h1>Hello,world!&lt;/h1>
+		            &lt;h2>It is {this.state.date.toLocaleTimeString()}.&lt;/h2>
+		          &lt;/div>
+		        )
+		      }
+		    }
+		  </pre>
+		  <p>这个方法叫做生命周期钩子'lifecycle hooks'.</p>
+		  <p>componentDidMount()钩子在组件输出渲染到DOM之后运行，这是一个设置解释器的好地方。</p>
+		  <pre class="brush:applescript">
+		    componentDidMount(){
+		      this.timerID=serInterval(
+		        ()=>this.tick(),
+		        1000
+		      )
+		    }
+		  </pre>
+		  <p>注意我们是如何正确保存timer ID在this中。</p>
+		  <p>当this.props被React自己设置好后，this.state有了一个特殊的意义，你可以手动添加一些额外存储到class里面，如果你需要存储一些不需要可视化输出的东西。</p>
+		  <p>如果你不需要使用一些东西在render()里面，他不应该在state里面。</p>
+		  <p>我们将会拆除计时器在componentWillUnmount()生命钩子里面:</p>
+		  <pre class="brush:applescript">
+		    compinentWillUnmount(){
+		      clearInterval(this.timerID);
+		    }
+		  </pre>
+		  <p>最终，我们将会完善tick()方法，让他运行每一秒。</p>
+		  <p>他将会用到this.setState()来计划性更新component local state：</p>
+		  <pre class="brush:applescript">
+		    class Clock extends React.Component{
+		      constructor(props){
+		        super(props);
+		        this.state={date:new Date()};
+		      }
+		      componentDidMount(){
+		        this.timerId=setInterval(
+		          () => this.tick(),
+		          1000
+		        )
+		      }
+		      componentWillUnmout(){
+		        clearInterVal(this.tinerID);
+		      }
+		      tick(){
+		        this.setState({
+		          date:new Date()
+		        })
+		      }
+		      render(){
+		        return (
+		          &lt;div>
+		            &lt;h1>Hello,world!&lt;/h1>
+		            &lt;h2>It is {this.state.date.toLocaleTimeString()}.&lt;/h2>
+		          &lt;/div>
+		        )
+		      }
+		    }
+		    ReactDOM.render(
+		      &lt;Clock />,
+		      document.getElementById("example")
+		    );
+		  </pre>
+		  <p>现在，滴答时钟响应每一秒了。</p>
+		  <p>让我们快速复述一次，到底发生了什么，以及方法调用的顺序。</p>
+		  <p>1)当&lt;CLock/>被传递给ReactDOM.render()时,React调用Clock组件构造器，知道Clock需要显示当前时间，它初始化this.state通过一个对象包括当前时间，我们之后就会更新这个state。</p>
+		  <p>2)React接着会调用Clock组件的render()方法，这就是React如何得知什么东西应该显示在屏幕上面。React接着会更新DOM来匹配Clock的渲染输出。</p>
+		  <p>3)当Clock输出并且被嵌入到DOM中，React调用componentDidMount()lifecycle hook，其中，Clock组件请求浏览器来加载一个计时器来时刻调用tick()</p>
+		  <p>4)每秒浏览器都会调用tick()方法,里面,Click组件安排UI更新通过调用setState(),通过一个对象包括当前时间，多亏了setState()的调用，React知道state已经被改变了，并且再次调用render()方法来得知什么需要显示在屏幕上。这个时候，this.state.date在render()方法里面将会不同，并且英雌渲染输出将会包括这个更新的时间，React也因此更新DOM。</p>
+		  <p>5)如果Clock组件是曾经被从DOM中移除，React调用componentWillUnmount()生命钩子，以便于停止计时器。</p>
+		  <h4>正确使用State</h4>
+		  <p>这里有三件，你必须了解的关于setState().</p>
+		  <h4>不要直接修改State</h4>
+		  <p>例如，浙江不会再次渲染一个组件</p>
+		  <pre class="brush:applescript">
+		    //Wrong
+		    this.state.comment = 'Hello';
+		  </pre>
+		  <p>相反，应该使用setState():</p>
+		  <pre class="brush:applescript">
+		    //Correct
+		    this.setState({comment:'Hello'});
+		  </pre>
+		  <p>你只能在constructor里面给this.state赋值。</p>
+		  <h4>State更新也许是异步的</h4>
+		  <p>React也许会调用多个setState()来进行一次性能更新。</p>
+		  <p>因为this.props和this.state是异步的，你应该不依赖他们的值来计算下一个state。</p>
+		  <p>例如，这个代码是错误的来更新counter</p>
+		  <pre class="brush:applescript">
+		    //wrong
+		    this.setState({
+		      counter:this.state.counter+this.props.increment,
+		    })
+		  </pre>
+		  <p>来修复他把，用setState()的另一种形式来接受一个函数而不是一个对象，这个函数将会接受之前的state来作为第一个argument，并且props在这个时间将会依赖第二个argument来更新</p>
+		  <pre class="brush:applescript">
+		    //Correct
+		    this.setState((prevState,props) => ({
+		      counter:prevState.counter + props.increment
+		    }));
+		  </pre>
+		  <p>上边例子我们用一个箭头函数，但是它的依赖一般函数来运转。</p>
+		  <pre class="brush:applescript">
+		    //Correct
+		    this.setState(function(prevState,props){
+		      return {
+		        counter: prevState.counter + props.increment
+		      }
+		    })
+		  </pre>
+		  <h4>state 更新合并</h4>
+		  <p>当你调用<code>setState()</code>,<code>React</code>合并这个对象，你提供的当前state.</p>
+		  <p>例如，你的state也许包含数个独立的变量。</p>
+		  <pre class="brush:applescript">
+		    constructor(props){
+		      super(props);
+		      this.state = {
+		        props:[],
+		        comments:[]
+		      };
+		    }
+		  </pre>
+		  <p>那么你可以独立的更新他们通过分开的setState()调用：</p>
+		  <pre class="brush:applescript">
+		    componentDidMount(){
+		      fetchPosts().then(response => {
+		        this.setState({
+		          posts: response.posts
+		        });
+		      });
+		      fetchComments().then(response => {
+		        this.setState({
+		          comments: response.comments
+		        });
+		      });
+		    }
+		  </pre>
+		  <p>这个合并是很浅显的，所以this.setState({comments})完整的分离了this.state.posts,并且完全取代了this.state.comments.</p>
+		  <h4>数据流</h4>
+		  <p>既不是父元素或者子元素组件可以知道，如果一个确定的组件是有状态或者无状态的，并且他们不应该在意，不管他是被定义成一个函数或者一个class.</p>
+		  <p>这就是为什么state时常被调用在本地或者被封装，它是不被一些组件访问，除了一些他自己或者它设置的。</p>
+		  <p>一个组件也许是选择当作props来传递他的state给他自己的子组件。</p>
+		  <pre class="brush:applescript">
+		    &lt;h2>It is {this.state.date.toLocaleTimeString()}.&lt;/h2>
+		  </pre>
+		  <p>他也为未定义组件工作。</p>
+		  <pre class="brush:applescript">
+		    &lt;FormattedDate date={this.state.date} />
+		  </pre>
+		  <p>这个FormattedDate组件将会接受这个date在他自己的props并且不知道它来自于Clock的state或者来自于Clock的props或者是手写的：</p>
+		  <pre class="brush:applescript">
+		    function FormattedDate(props){
+		      return &ltl;h2>It is {props.date.toLocaleTimeString()}.&lt;/h2>
+		    }
+		  </pre>
+		  <p>这一般叫做‘top-down’或者“unidirectional”数据流。一些state经常备用有，通过一些特定的组件，而且许多数据或者UI得到的state只能影响以下的组件，在这个结构树中。</p>
+		  <p>如果你想一个组件书作为一种瀑布props，每个组件的state像一个新增的资源刘，可以加入它作为一个运动点也作为一个流动的。</p>
+		  <p>为了展示所有的组件都孤立了，我们可以创造一个app组件渲染3个Clock</p>
+		  <pre class="brush:applescript">
+		    function App(){
+		      return(
+		        &lt;div>
+		          &lt;Clock/>
+		          &lt;Clock/>
+		          &lt;Clock/>
+		        &lt;/div>
+		      )
+		    }
+		    ReactDOM.render(
+		      &lt;App/>,
+		      document.getElementById('example')
+		    )
+		  </pre>
+		  <p>每一个Clock设置了他们自己的计时器并且独立更新。</p>
+		  <p>在React app，无论组件是有状态或者无状态，被考虑成一个组件的实现细节，他可能时刻改变。你可以用无状态组件在有状态组件里面，反之亦然。</p>
+		</div>
+  		<div class="col-sm-12">
+  		  <h3>处理事件</h3>
+  		  <p>处理React元素的事件，和处理DOM元素事件很像，这里有一些语法不一致</p>
+  		  <ul>
+  		    <li>React事件是驼峰命名，而不是小写</li>
+  		    <li>通过JSX，你传递了一个函数作事件处理，而不是一个字符串。</li>
+  		  </ul>
+  		  <p>例如,下面两个HTML和React对比</p>
+  		  <pre  class="brush: applescript">
+  		   	<button onclick="activateLasers()">
+  		      Active Lasers
+  		    </button>
+  		  </pre>
+  		  <p>有轻微的不同在React里面</p>
+  		  <pre class="brush: applescript">
+  		    <button onclick="{activateLasers}">
+  		      Activate Lasers
+  		    </button>
+  		  </pre class="brush: applescript">
+  		  <p>另外一个不同是不能输出false来阻止不履行行为在React里面，你必须明确的调用preventDefault，例如，为了阻止HTML里面a标签的默认事件，你可以做以下代码</p>
+  		  <pre class="brush: applescript">
+  		    <a href="#" onclick="console.log('the link was clicked.') return false">Click me</a>
+  		  </pre>
+  		  <p>在react里面，应该这么写</p>
+  		  <pre class="brush: applescript">
+  		    function ActionLink(){
+  		      function handleClick(e){
+  		        e.preventDefault();
+  		        console.log("The link was Clicked!")
+  		      }
+
+  		      return (
+  		        <a href="#" onclick={handleClick}>
+  		          Click me
+  		        </a>
+  		      )
+  		    }
+  		  </pre>
+  		  <p>这里e是一个合成的事件，React丁一这些合成事件通过W3C标准，所以你不用担心浏览器兼容问题，去看一下<a href="https://facebook.github.io/react/docs/events.html">SyntheticEvent</a>文献来指导你学习。</p>
+  		  <p>当使用React你通常不用调用addEventListener来增加DOM元素的监听，在他被创造之后，相反的，只要提供一个监听器当元素被初始化渲染。</p>
+  		  <p>当你定义一个组件用ES6class，通常模式是在class上使用时间处理器来作为一个方法。例如，这个Toggle组件渲染一个按钮，让使用者在ON和OFF之间切换。</p>
+  		  <pre class="brush: applescript">
+  		    class Toggle extends React.Component{
+  		      constructor(props){
+  		        super(props);
+  		        this.state = {isToggleOn:true};
+
+  		        //这个绑定是必须的 来制作this通过回调来作用
+  		        this.handleClick = this.handleClick.bind(this);
+  		      }
+  		      handleClick(){
+  		        this.setState(prevState => ({
+  		          isToggleOn: !prevState.isToggleOn
+  		        }));
+  		      }
+  		      render(){
+  		        <button>
+  		          {this.state.isToggleOn ? 'No' : 'OFF'}
+  		        </button>
+  		      }
+  		    }
+  		    ReactDOM.render(
+  		      <Toggle />,
+  		      document.getElementById('example')
+  		    )
+  		  </pre>
+  		  <p>你不得不小心，关于this在JSX回调里面的含义。在js，class方法是不不被default绑定，如果你忘记绑定this.handleClick,并且传递它到onclick，this将会undefined，当函数被调用的时候。</p>
+  		  <p>这不是React的特定行为，这是function在js中运行的一部分，一般来说，如果你提到方法，不用()在这之后，例如onclick={this.handleClick},你必须绑定这个方法。</p>
+  		  <p>如果调用bind困扰你，这里有两条路你可以绕过，，如果你用实验，你可以用property初始化来准确绑定回调</p>
+  		  <pre class="brush: applescript">
+  		    class LoggingButton extends React.Component{
+  		      //这个语法确保this是绑定在handleClick里面
+  		      //注意：this是实验性语法
+  		      handleClick() => {
+  		        console.log('this is:',this);
+  		      }
+  		      render(){
+  		        return (
+  		          <button onclick={this.handleClick}>
+  		            Click me
+  		          </button>
+  		        )
+  		      }
+  		    }
+  		  </pre>
+  		  <p>在默认情况下启动该语法在<a href="https://github.com/facebookincubator/create-react-app">Create React App</a></p>
+  		  <p>如果你不用属性初始化语法，你可以用一个箭头函数在回调里面。</p>
+  		  <pre class="brush:applescript">
+  		  	class LoggingButton extends React.Component{
+  		  		handleClick(){
+  		  			console.log('this is:',this);
+  		  		}
+  		  		render(){
+  		  			//这个语法确保this被绑定在handleClick内
+  		  			return(
+						<button onclick={(e) => this.handleClick(e)}>
+							Click me
+						</button>
+  		  			)
+  		  		}
+  		  	}
+  		  </pre>
+  		  <p>这个问题带有这些语法，是一个不同的回调。在大多数情况，这是OK的，然而，如果这个回调被作为一个prop来传递给内部组件，这些组件也许会做多一个额外的重复渲染，我们通常建议绑定在构造器或者用属性初始化语法，来避免这类性能问题。</p>
+  		</div>
+  		<div class="col-sm-12">
+  			<h3>有条件的渲染</h3>
+  			<p>在react，你可以创建一个独特的组件，封装一些你需要的行为，然后，你可以只渲染他，这取决于你的应用的state。</p>
+  			<p>有条件的渲染在react里面，工作于同一种条件工作于js，用js运算符，像if这样的，或者条件运算符<code>condition ? expr1 : expr2</code>来创建元素来呈现当前state，并且让React更新UI来匹配他们。</p>
+  			<p>思考这两个组件:</p>
+  			<pre class="brush:applescript">
+  				function UserGreeting(props){
+  					return <h1>Welcome back!</h1>;
+  				}
+  				function GuestGreeting(props){
+  					return <h1>Please sign up.</h1>;
+  				}
+  			</pre>
+  			<p>我们将会创建一个Greeting组件，会显示，无论用户登录与否:</p>
+  			<pre class="brush:applescript">
+  				function Greeting(props){
+  					const isLoggedIn = props.isLoggedIn;
+  					if(isLoggedIn){
+  						return &lt;UserGreeting />;
+  					}
+  					return &lt;GuestGreeting />;
+  				}
+  				ReactDOM.render(
+					//Try changing to isLoggedIn = {true};
+					&lt;Greeting isLoggedIn={false} />,
+					document.getElementById('root')
+  				)
+  			</pre>
+  			<p>这个例子渲染了两个不同的greeting，依靠isLoggedIn给prop传递的值。</p>
+  			<h4>元素变量</h4>
+  			<p>你可以用变量储存元素，这可以帮助你有条件的渲染组件的一部分，当输出的一部分不用改变的时候。</p>
+  			<pre class="brush:applescript">
+  				function LoginButton(props){
+  					return (
+						<button onClick={props.onClick}>
+							Login
+						</button>
+  					)
+  				}
+  				function LogoutButton(props){
+  					return (
+						<button onClick={props.onClick}>
+							Logout
+						</button>
+  					)
+  				}
+  			</pre>
+  			<p>在下面这个例子，我们将会创造一个有状态的组件被LoginControl调用。</p>
+  			<p>它将会渲染<code>&lt;LoginButton /></code>和<code>&lt;LogoutButton /></code>,并且去取决于他们当前的状态，它也会渲染一个<code>&lt;Greeting/></code>,请查看之前的例子。</p>
+  			<pre class="brush:applescript">
+  				class LoginControl extends React.Component{
+  					constructor(props){
+  						super(props);
+						this.handleLoginClick = this.handleLoginClick.bind(this);
+						this.handleLogoutClick = this.handleLogoutClick.bind(this);
+						this.state = {isLoggedIn:false}
+  					}
+  					handleLoginClick(){
+  						this.setState({isLoggedIn:true});
+  					}
+  					handleLogoutClick(){
+  						this.setState({isLoggedIn:false});
+  					}
+  					render(){
+  						const isLoggedIn = this.state.isLoggedIn;
+  						let button = null;
+  						if(isLoggedIn){
+  							button = &lt;LogoutButton onClick={this.handleLogoutClick}/>;
+  						}else{
+  							button = &lt;LogoutButton onClick={this.handleLoginClick}/>;
+  						}
+  						return (
+							<div>
+								<Greeting isLoggedIn={isLoggedIn}/>
+								{buttton}
+							</div>
+  						)
+  					}
+  				}
+
+  				ReactDOM.render(
+					&lt;LoginControl/>,
+					document.getElementById('example')
+  				)
+  			</pre>
+  		</div>
+	</div>
+
+    <script src="../lib/jquery/dist/jquery.min.js"></script>
+    <script src="../lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../lib/SyntaxHighlighter/scripts/XRegExp.js"></script>
+    <script type="text/javascript" src="../lib/SyntaxHighlighter/scripts/shCore.js"></script>
+    <script type="text/javascript" src="../lib/SyntaxHighlighter/scripts/shAutoloader.js"></script>
+    <script> 
+      SyntaxHighlighter.autoloader(
+        'applescript  		    ../lib/SyntaxHighlighter/scripts/shBrushAppleScript.js',
+        'js jscript javascript  ../lib/SyntaxHighlighter/scripts/shBrushJScript.js',
+      );
+      SyntaxHighlighter.all(); 
+    </script>
+    <!-- <script src="../build/js/basic.js"></script> -->
+    </div>
+  </body>
 </html>

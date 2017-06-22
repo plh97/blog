@@ -1,1112 +1,1299 @@
-    <div class="container-context container">
-      <div class="col-sm-12">
-        <h3>State和生命周期</h3>
-        <p>思考时钟这个例子，可以在前面几个章节查询一下。</p>
-        <p>到目前为止，我们唯一学过的更新UI的方式。</p>
-        <p>我们调用ReactDOM.render()来改变那些已经渲染过的输出。</p>
-        <pre>
-          function tick(){
-            const element = (
-              &lt;div>
-                &lt;h1>hello,world!&lt;/h1>
-                &lt;h2>it is {new Date().toLocaleTimeString()}&lt;/h2>
-              &lt;/div>
-            );
-            ReactDOM.render(
-              element,
-              document.getElementById('example')
-            );
-          }
-          setInterval(tick,1000);
-        </pre>
-        <p>在这一章节，我们将会学习如何制作一个Clock组件,这组件将会真正的复用化封装化的。他将会设置自己的计时器，并每秒更新一次。</p>
-        <p>我们可以从封装时钟开始：</p>
-        <pre>
-          function Clock (props){
-            return (
-              &lt;div>
-                &lt;h1>hello,world! &lt;/h1>
-                &lt;h2>it is {props.date.toLocaleTimeString()}&lt;/h2>
-              &lt;/div>
-            )
-          }
-          function tick(){
-            ReactDOM.render(
-              &lt;Clock date={new Date()}/>,
-              document.getElementById('example')
-            );
-          }
-          setInterval(tick,1000);
-        </pre>
-        <p>然而，它忽略了一个关键的要求：事实上，Clock组件设置了一个计时器，并时刻更新UI，这要求他是一个Clock组件的实现细节。</p>
-        <p>更理想化的是，我们想要它写一次并且Clock组件可以自我更新。</p>
-        <pre>
-          ReactDOM.render(
-            &lt;Clock />,
-            document.getElementById('example')
-          )
-        </pre>
-        <p>为了实现这个，我们需要加入一个'state'属性给Clock组件</p>
-        <p>State和props类似，但是他是私有化，并完全由组件控制。</p>
-        <p>我们<a href="https://facebook.github.io/react/docs/components-and-props.html#functional-and-class-components">之前</a>提到,组件被定义成类(classes)会多一些新增功能，局部state就恰好是一个只可用于类的特性。</p>
-        <h4>Function转化为Class</h4>
-        <p>你可以通过以下五个步骤，来让function转化成class</p>
-        <ol type="1">
-          <li>创造一个ES6的class，名字字样，然后加上extends React.Component.</li>
-          <li>增加一个单一的空的方法，让他可以调用render()</li>
-          <li>将所有div元素移入render()里面。</li>
-          <li>将props替换为this.props,并且放置在render()里面。</li>
-          <li>删除空的function声明。</li>
-        </ol>
-        <pre>
-          class Clock extends React.Component{
-            render(){
-              return(
-                &le;div>
-                  &lt;h1>Hello,world!&lt;/h1>
-                  &lt;h2>It is {this.props.date.toLocaleTimeString()}.&lt;/h2>
-                &lt;/div>
-              )
-            }
-          }
-        </pre>
-        <p>你可以在<a href="https://codepen.io/gaearon/pen/zKRGpo?editors=0010">CodePen</a>里面看看~</p>
-        <p>现在Clock被定义成一个class而不是一个function。</p>
-        <p>这让我们用一些新增的功能，例如local state，lifecycle hooks。</p>
-        <h4>将Local State添加到class里面</h4>
-        <p>我们将会通过下面三个步骤把date从props转化为state：</p>
-        <p>1)将this.props.date替换为this.state.date,在render()方法里面：</p>
-        <pre>
-          class Clock extends React.Component {
-            render(){
-              return(
-                &lt;div>
-                  &lt;h1>Hello, world!&lt;/h1>
-                  &lt;h2>It is {this.state.date.toLocaleTimeString().}&lt;/h2>
-                &lt;/div>
-              )
-            }
-          }
-        </pre>
-        <p>2)添加一个类的构造函数并且指定初始化值this.state,super(props)出现的目的是为了this这个值能够使用，在子类constructor中必须先调用super才能调用this。</p>
-        <pre>
-          class Clock extends React.Component{
-            constructor(props){
-              super(props);
-              this.state={date:new Date()}S
-            }
-            render(){
-              return(
-                &lt;div>
-                  &lt;h1>Hello,world!&lt;/h1>
-                  &lt;h2>it is {this.state.date.toLocaleTimeString()}.&lt;/h2>
-                &lt;/div>
-              );
-            }
-          }
-        </pre>
-        <p>注意，我们是如何将porps参数传递给子类constructor的：</p>
-        <pre>
-          constructor(){
-            super(props);
-            this.state:{date:new Date()};
-          }
-        </pre>
-        <p>类组件应该经常调用基层constructor，通过props</p>
-        <p>3)将date属性从Clock元素中移除。</p>
-        <pre>
-          ReactDOM.render(
-            &lt;Clock/>,
-            document.getElement('example')
-          )
-        </pre>
-        <p>接下来我们将会将计时器的代码重新加回给组件自身。</p>
-        <pre>
-          class Clock extends React.Component{
-            constructor(){
-              super(props);
-              this.state={date:new Date()}
-            }
-            render(
-              return(
-                &lt;div>
-                  &lt;h1>Hello,world!&lt;/h1>
-                  &lt;h2>it is {this.state.date.toLocaleTimeString()}.&lt;/h2>
-                &lt;/div>
-              )
-            )
-          }
-          ReactDOM.render(
-            &lt;Clock/>,
-            document.getElement('example')
-          )
-        </pre>
-        <p>现在Clock设置好了他自己的计时器，并时刻自我更新。</p>
-        
-      </div>
-      <div class="col-sm-12">
-        <h3>Components(组件)和Props(道具)</h3>
-        <p>组件让你可以将整个UI分解成独立的可重复使用的，并且独立思考每一部分。</p>
-        <p>从概念上讲，组件像js函数，他们可以接受任意参数(props)并且返回那些将要出现在屏幕上面的React元素</p>
-        <h4>function组件和class组件</h4>
-        <p>最简单的去定义一个组件是写一个js函数</p>
-        <pre>
-          function Welcome(props){
-            return &lt;h1>Hello, {props.name}&lt;/h1>;
-          }
-        </pre>
-        <p>这个函数是一个有效的React组件因为它可以接受一个单一的'props'对象，参数携带数据并且返回一个React元素，我们叫这样的组件为函数化因为他是真真的js函数。</p>
-        <p>你也可以用ES6 class来定义一个组件:</p>
-        <pre>
-          class Welcome extends React.Component {
-            render(){
-              return &lt;h1>Hello,{this.props.name}&lt;/h1>
-            }
-          }
-        </pre>
-        <p>以上这两种组件从React的角度来看是相等的。</p>
-        <p>Classes有一些额外功能，下一章节会探讨。到目前为止，我们将会使用函数化组件，因为简洁。</p>
-        <h4>渲染一个组件</h4>
-        <p>上一章节，我们仅仅只遇到React元素的纯标签。</p>
-        <pre>const element = &lt;div/></pre>
-        <p>然而，元素也能扮演用户自定义组件。</p>
-        <pre>const element = &lt;div name="Sara"/></pre>
-        <p>当React看到一个元素有用户自定义组件，他会通过JSX属性来执行组件作为一个单一的对象，我们将这对象称之为props对象。</p>
-        <p>例如，下面这个，将会渲染"Hello,Sara"到页面上。</p>
-        <pre>
-          function Welcome(props){
-            return &lt;h1>hello,{props,name}&lt;/h1>
-          }
-
-          const element = &lt;Welcome name="Sara"/>;
-          ReactDOM.render(
-            element,
-            document.getElementById('root')
-          )
-        </pre>
-        <p>你可以在<a href="https://codepen.io/gaearon/pen/YGYmEG?editors=0010">CodePen</a>里面尝试一下。</p>
-        <p>让我们大概分析一下，例子中到底发生了什么</p>
-        <ol type="1">
-          <li>我们调用ReactDOM.render(),里面带有&lt;welcome name="Sara"/>元素</li>
-          <li>React调用welcome组件，并把{name:'Sara'}当作props。</li>
-          <li>我们的Welcome组件返回一个&lt;h1>hello, Sara&lt;/h1>元素作为结果。</li>
-          <li>React DOM快速更新DOM来匹配&lt;h1>hello, Sara&lt;/h1></li>
-        </ol>
-        <h4>警告：</h4>
-        <p>组件名称必须大写开头</p>
-        <p>例如&lt;div/>是一个DOM标签,而&lt;Welcome/>是一个组件，并且需要Welcome作用。</p>
-        <h4>组件构成</h4>
-        <p>组件可以参照其他组件，在输出，这让我们用一样的组件</p>
-        <p>例如，我们可以创造一个App组件，他可以在Welcome组件里面渲染很多次。</p>
-        <pre>
-          function Welcome(props){
-            return &lt;h1>Hello,{props.name}&lt;/h1>
-          }
-          function App(){
-            return(
-              &lt;div>
-                &lt;Welcome name="Sara"/>
-                &lt;Welcome name="Cahal"/>
-                &lt;Welcome name="Edite"/>
-              &lt;/div>
-            )
-          }
-          ReactDOM.render(
-            &lt;App/>,
-            document.getElementById('root')
-          );
-        </pre>
-        <p>你可以在<a href="https://codepen.io/gaearon/pen/KgQKPr?editors=0010">CodePen</a>里面尝试一下。</p>
-        <p>通常，新的React程序有一个单一的App组件在顶部。然而，如果你想把React整合到一个已经存在的app里面，你可能要开始一个按钮附带一个组件，像"Button"这样，并逐步工作到视图层次结构的顶部。</p>
-        <h4>警告：</h4>
-        <p>组件必须返回一个单一的根元素，这就是为什么我们上一个例子中要用一个div元素包裹所有的Welcome组件。</p>
-        <h4>提取组件</h4>
-        <p>不要害怕把组件split成更小的组件。</p>
-        <p>例如，思考一下下面这个Comment组件吧。</p>
-        <pre>
-          function Comment(prop){
-            return(
-              &lt;div className="Comment">
-                &lt;div className="UserInfo">
-                  &lt;img 
-                    src={props.author.avatarUrl}
-                    alt={prop.author.name} 
-                    className="Avatar"
-                  />
-                  &lt;div className="UserInfo-name">
-                    {props.author.name}
-                  &lt;/div>
-                &lt;/div>
-                &lt;div className="Comment-text">
-                  {props.text}
-                &lt;/div>
-                &lt;div className="Comment-date">
-                  {formatDate(props.date)}
-                &lt;/div>
-              &lt;/div>
-            );
-          }
-        </pre>
-        <p>你可以在<a href="https://codepen.io/gaearon/pen/VKQwEo?editors=0010">CodePen</a>里面尝试一下。</p>
-        <p>它接收author(对象)，text(字符串)，date(数据)作为参数，并且描述一个评论在社交媒体网站</p>
-        <p>这个组件由于有很多嵌套，所以它难以修改，并且他的各个部分也很难重复利用，因此，建议从中提取一小部分组件。</p>
-        <p>首先我们会提取Avatar组件，</p>
-        <pre>
-          function Avatar(props){
-            return (
-              &lt;img 
-                src={props.author.avatarUrl}
-                alt={prop.author.name} 
-                className="Avatar"
-              />
-            )
-          }
-        </pre>
-        <p>这个Avatar不需要知道要被渲染在Comment的哪个地方。这也是为什么我们给他传递的参数是一个更加通用的名称user而不是author</p>
-        <p>我们建议命名参数的名字的时候应该从组件本身的角度来命名，而不是通过它正在使用的上下文。</p>
-        <P>我们现在可以开始简化Comment组件一丝丝。</P>
-        <pre>
-
-          function Avatar(props){
-            return (
-              &lt;img 
-                src={props.author.avatarUrl}
-                alt={prop.author.name} 
-                className="Avatar"
-              />
-            )
-          };
-
-          function Comment(prop){
-            return(
-              &lt;div className="Comment">
-                &lt;div className="UserInfo">
-                  &lt;Avatar user={props.author}/>
-                  &lt;div className="UserInfo-name">
-                    {props.author.name}
-                  &lt;/div>
-                &lt;/div>
-                &lt;div className="Comment-text">
-                  {props.text}
-                &lt;/div>
-                &lt;div className="Comment-date">
-                  {formatDate(props.date)}
-                &lt;/div>
-              &lt;/div>
-            );
-          }
-        </pre>
-        <p>接下来，我们将会提取一个UserInfo组件，这个组件会渲染一个Avatar组件在用户名后面。</p>
-        <pre>
-          function UserInfo(props){
-            return(
-              &lt;div className="UserInfo">
-                &lt;Avatar user={props.user}/>
-                &lt;div className="UserInfo-name">
-                  {props.user.name}
-                &lt;/div>
-              &lt;/div>
-            )
-          }
-        </pre>
-        <p>这将会更加简化Comment组件</p>
-        <pre>
-          function Comment(props){
-            return(
-              &lt;div className="Comment">
-                &lt;UserInfo user={props.author}/>
-                &lt;div className="Comment-text">{props.text}&lt;/div>
-                &lt;div className="Comment-date">{props.date}&lt;/div>
-              &lt;/div>
-            )
-          }
-        </pre>
-        <p>你可以在<a href="https://codepen.io/gaearon/pen/rrJNJY?editors=0010">CodePen</a>里面尝试一下。</p>
-        <p>刚开始的时候提取组件也许像是一件简单乏味的工作，但是拥有一个可重复使用的组件调色板，在更大的app中是会有很大回报的。一个很好的经验，如果你的UI的一部分被重复使用了很多次(Button,Panel,Avatar),或者它足够复杂(App,FeedStory,Comment),这种组件化仍旧是一种不错的选择，</p>
-        <h4>个人经验：</h4>
-        <p>从最开始的一个组件Comment,它拥有属性，author，我们给他赋予{comment.author}花括号开始用js解析，括号开始解析html，变量comment.text,于是这个属性就能传递下去，接下来看Comment组件的构成，他有一个props参数，先看里面Comment组件最简单的div元素，他直接赋予变量{props.text},这个变量props参数里面的text是从上一个Comment里面传递下来的参数，props.text，于是就会从之前里面去查询text属性，有，就看text属性等于comment.text，这就是最基本的传递参数。。拥有最基本的js概念就能看懂react了。花括号开始解析js，括号开始解析html，参数传递概念，传递的就是所运用的属性，但是不建议在每一个内嵌组件里面运用同样的属性，例如comment.author，已经有author，那么里面的内嵌组件UserInfo不建议再次使用author属性，防止js可读性降低，例如再次使用UserInfo.author.</p>
-        <h4>Props 是仅仅之能读取</h4>
-        <p>无论你function一个组件或者class一个组件，他必须是从不能修改他自己的props参数，思考一下下面这个sum函数吧。</p>
-        <pre>
-          function sum(a,b){
-            return a+b;
-          }
-        </pre>
-        <p>这叫做纯函数'pure'，因为他们不会去改变他们的输入值，并且在同样参数的情况下会输出同样的结果。</p>
-        <p>下面例子刚好相反，因为他改变了他自己的输入。</p>
-        <pre>
-          function withdraw(account,amount){
-            account.total -= amount;
-          }
-        </pre>
-        <p>React反应灵活，但是他有一个非常严格的规则：</p>
-        <p>所有React组件必须表现的像纯函数那样来尊重他们的props参数</p>
-        <p>当然，UI应用是动态的，并且时刻变化的，在下一章节，我们将会介绍一个新的概念'state',State允许所有的React组件随着时间和用户操作来响应，来改变通过用户行为和网络响应或者其他东西多次改变输出，但是不能改变这条规则。</p>
-      </div>
-      <div class="col-sm-12">
-        <h3>渲染元素</h3>
-        <p>element是Reactapps里面最小的构建块。</p>
-        <p>把一个element写成你想要见到的样子，出现在屏幕上。</p>
-        <pre>
-          const element = &lt;h1>Hello,world&lt;/h1>;
-        </pre>
-        <p>和浏览器的DOM不一样，React element是简单的对象，而且便于创造。React DOM负责更新DOM来和React element相匹配。</p>
-        <h4>Note:</h4>
-        <p>有人可能会混淆element与另一个更为人知的概念--components相混淆，我们将会在下一章节介绍components(组件)，组件由元素构成，本章以下内容希望你不要跳过。</p>
-        <h4>渲染一个元素到DOM上面</h4>
-        <p>这有一个&lt;div>在你的HTML文档中某一处</p>
-        <pre>
-          &lt;div id="root">&lt;/div>
-        </pre>
-        <p>我们称它为'root'DOM节点，因为所有里面的东西都被ReactDOM掌控，用React构建的应用通常只有一个根DOM节点。如果你想要整合一个React到一个已经存在的app里面，你可能会有任意多个DOM根节点。如果你想要渲染一个React元素，请将两者都传递给ReactDOM.render();</p>
-        <pre>
-          const element = &lt;h1>hello,world&lt;/h1>;
-          ReactDOM.render(
-            element,
-            document.getElementById('root')
-          );
-        </pre>
-        <p>你可以在<a href="https://codepen.io/gaearon/pen/rrpgNB?editors=1010">CodePen</a>里面尝试一下。</p>
-        <p>页面会显示“hello world！”</p>
-        <h4>更新已渲染的元素</h4>
-        <p>React元素是<a href="https://en.wikipedia.org/wiki/Immutable_object">immutable</a>(不可变的)，一旦你创建了一个元素，你不可改变他的子元素或者属性，一个元素就像电影中某一帧，他代表某一时间节点上面的UI，到目前为止根据我们的认知，唯一改变UI的方法就是创造一个新的元素并把他传递给ReactDOM.render()</p>
-        <p>思考下面这个时钟案例</p>
-        <pre>
-          function tick (){
-            const element={
-              &lt;div>
-                &lt;h1>Hello,wrold!&lt;/h1>
-                &lt;h2>it is {new.Date().toLocaleTimeString()}.&lt;/h2>
-              &lt;/div>
-            };
-            ReactDOM.render(
-              element,
-              document.getElementById('root')
-            )
-          }
-          setInterval(tick,1000);
-        </pre>
-        <p>你可以在<a href="https://codepen.io/gaearon/pen/gwoJZk?editors=0010">CodePen</a>里面尝试一下。</p>
-        <p>它每秒都通过serInterval回掉函数执行一次ReactDOM</p>
-        <h4>Note:</h4>
-        <p>实际上，大多数Reactapp只呼叫一次ReactDOM.render(),再下一章节，我们将会学习如何将这些代码封装在组件里面.</p>
-        <h4>React只更新必需品。</h4>
-        <p>ReactDOM会拿它本身的元素及子元素去和上一个相比较，并且只应用更新必要的DOM使得DOM实现它想要的状态。</p>
-        <p>你可以用浏览器工具来检查最后一个例子</p>
-        <img src="https://facebook.github.io/react/img/docs/granular-dom-updates.gif">
-        <p>尽管我们创建了一个元素每秒来描述整个UI树，仅仅只有变化的文本节点会通过ReactDOM获得更新。</p>
-        <p>在我们的这些实验中，思考UI应该如何关注给定的时刻，而不是如何随着时间而改变它，从而消除了一类bug。</p>
-      </div>
-      <div class="col-sm-12">
-        <h3>介绍JXP</h3>
-        <p>接下来看看下面这个声明:</p>
-        <pre  type="syntaxhighlighter" class="brush: js">const element = &lt;h1>Hello World!;&lt;/h1></pre>
-        <p>这个有趣的标记语法既不是字符串，也不是HTML。</p>
-        <p>它叫是JSX，是Javascript的语法扩展。使用它的目的是为了让大家在写代码的时候更加舒适。JSX让你看起来像HTML模板语言，但她同时又具备Javascript的全部功能。</p>
-        <p>JSX生成React元素，我们将在下一章节中探索如何将他们渲染到DOM上。下面，你可以找到一些必要的JSX基础来让你更好的展开学习React。</p>
-        <h4>在JSX中嵌入表达式</h4>
-        <p>你可以在JSX中用'{}'嵌入任何js表达式。</p>
-        <p>例如，2+2，user.firstName，formatName(user)，这些都是有效的表达式。</p>
-        <pre>
-        function formatName(user){
-          return user.firstName+' '+user.lastName;
-        };
-
-        const user = {
-          firstName:"peng",
-          lastName:'liheng'
-        };
-
-        function element=(){
-          &lt;h1>
-            hello! {formatName(user)}.
-          &lt;/h1>
-        };
-
-        ReactDOM.Render(
+<div class="container-context container">
+  <div class="col-sm-12">
+    <h3>State和生命周期</h3>
+    <p>思考时钟这个例子，可以在前面几个章节查询一下。</p>
+    <p>到目前为止，我们唯一学过的更新UI的方式。</p>
+    <p>我们调用ReactDOM.render()来改变那些已经渲染过的输出。</p>
+    <pre class="brush:js">
+      function tick(){
+        const element = (
+          &lt;div>
+            &lt;h1>hello,world!&lt;/h1>
+            &lt;h2>it is {new Date().toLocaleTimeString()}&lt;/h2>
+          &lt;/div>
+        );
+        ReactDOM.render(
           element,
           document.getElementById('example')
         );
-        </pre>
-        <p>可以在
-          <a href="https://codepen.io/gaearon/pen/PGEjdG?editors=0010">CodePen</a>上面尝试一下。
-        </p>
-        <p>我们将JSX分割成多行，使其更加语义化。虽然这是不必要的，但我们仍然建议将他写在一个'{}'里面，用来避免自动插入分号的陷阱。</p>
-        <h4>JSX也是一个表达式</h4>
-        <p>编译后，JSX表达式变成常规的js对象</p>
-        <p>这意味着你可以在if语句for循环中使用JSX，给他传入变量，或者参数，并从函数中返回。</p>
-        <h4>用JSX指定属性</h4>
-        <p>maybe you can 用引号为字符串中文字指定属性。</p>
-        <pre>
-          const element = &lt;div tabindex="0">&lt;/div>
-        </pre>
-        <p>你也可以将js表达式用花括号包住嵌入到一个属性中</p>
-        <pre>
-          const element = &lt;img src={user.avatarUrl}/>
-        </pre>
-        <p>当你想要将js表达式嵌入到一个属性中，不要'{}'或者"{}"这样，因为JSX会将这个属性原封不动的当作变量而不是一个表达式，你要么用''表示字符串值，要么用{}表示js表达式，但是不要一起用在一个属性中。</p>
-        <h4>用JSX指定子元素</h4>
-        <p>如果是空标签，要用/>来闭合，就像XML那样</p>
-        <pre>
-          const element = &lt;img src={user.avatarUrl}/>
-        </pre>
-        <p>JSX标签也许会包含子标签</p>
-        <pre>
-          const element = (
-            &lt;div>
-              &lt;h1>hello!&lt;/h1>
-              &lt;h2>good to see you here.&lt;/h2>
+      }
+      setInterval(tick,1000);
+    </pre>
+    <p>在这一章节，我们将会学习如何制作一个Clock组件,这组件将会真正的复用化封装化的。他将会设置自己的计时器，并每秒更新一次。</p>
+    <p>我们可以从封装时钟开始：</p>
+    <pre>
+      function Clock (props){
+        return (
+          &lt;div>
+            &lt;h1>hello,world! &lt;/h1>
+            &lt;h2>it is {props.date.toLocaleTimeString()}&lt;/h2>
+          &lt;/div>
+        )
+      }
+      function tick(){
+        ReactDOM.render(
+          &lt;Clock date={new Date()}/>,
+          document.getElementById('example')
+        );
+      }
+      setInterval(tick,1000);
+    </pre>
+    <p>然而，它忽略了一个关键的要求：事实上，Clock组件设置了一个计时器，并时刻更新UI，这要求他是一个Clock组件的实现细节。</p>
+    <p>更理想化的是，我们想要它写一次并且Clock组件可以自我更新。</p>
+    <pre>
+      ReactDOM.render(
+        &lt;Clock />,
+        document.getElementById('example')
+      )
+    </pre>
+    <p>为了实现这个，我们需要加入一个'state'属性给Clock组件</p>
+    <p>State和props类似，但是他是私有化，并完全由组件控制。</p>
+    <p>我们<a href="https://facebook.github.io/react/docs/components-and-props.html#functional-and-class-components">之前</a>提到,组件被定义成类(classes)会多一些新增功能，局部state就恰好是一个只可用于类的特性。</p>
+    <h4>Function转化为Class</h4>
+    <p>你可以通过以下五个步骤，来让function转化成class</p>
+    <ol type="1">
+      <li>创造一个ES6的class，名字字样，然后加上extends React.Component.</li>
+      <li>增加一个单一的空的方法，让他可以调用render()</li>
+      <li>将所有div元素移入render()里面。</li>
+      <li>将props替换为this.props,并且放置在render()里面。</li>
+      <li>删除空的function声明。</li>
+    </ol>
+    <pre>
+      class Clock extends React.Component{
+        render(){
+          return(
+            &le;div>
+              &lt;h1>Hello,world!&lt;/h1>
+              &lt;h2>It is {this.props.date.toLocaleTimeString()}.&lt;/h2>
             &lt;/div>
           )
-        </pre>
-        <h4>警告！</h4>
-        <p>自从JSX比HTML更接近Javascript后，ReactDOM使用camlCase将属性重命名，用来替代HTML属性名。</p>
-        <p>例如，class变成了className，tabindex变成了tabIndex。</p>
-        <h4>JSX可防御注入攻击</h4>
-        <p>在JSX里面嵌入用户信息相对安全</p>
-        <pre>
-          const title = response.pontentiallyMaliciousInput;
-          //This is safe;
-          const element = &lt;h1>{title}&lt;/h1>;
-        </pre>
-        <p>默认情况下，ReactDOM在其渲染之前转义任意值并嵌入JSX中。因此它可以确保你绝不注射任何东西在你未明确写在要注射的应用程序，所有的东西都被转换成一个字符串直到要渲染的时候。这有助于防御XSS(跨域名脚本)攻击</p>
-        <h4>JSX的代表性对象</h4>
-        <p>Babel将JSX编译与React.createrElement()的区别</p>
-        <p>以下这两个例子是相同的。</p>
-        <pre>
-          const element=(
-            &lt;h1 className="greeting">
-              Hello,world!
-            &lt;/h1>
+        }
+      }
+    </pre>
+    <p>你可以在<a href="https://codepen.io/gaearon/pen/zKRGpo?editors=0010">CodePen</a>里面看看~</p>
+    <p>现在Clock被定义成一个class而不是一个function。</p>
+    <p>这让我们用一些新增的功能，例如local state，lifecycle hooks。</p>
+    <h4>将Local State添加到class里面</h4>
+    <p>我们将会通过下面三个步骤把date从props转化为state：</p>
+    <p>1)将this.props.date替换为this.state.date,在render()方法里面：</p>
+    <pre>
+      class Clock extends React.Component {
+        render(){
+          return(
+            &lt;div>
+              &lt;h1>Hello, world!&lt;/h1>
+              &lt;h2>It is {this.state.date.toLocaleTimeString().}&lt;/h2>
+            &lt;/div>
+          )
+        }
+      }
+    </pre>
+    <p>2)添加一个类的构造函数并且指定初始化值this.state,super(props)出现的目的是为了this这个值能够使用，在子类constructor中必须先调用super才能调用this。</p>
+    <pre>
+      class Clock extends React.Component{
+        constructor(props){
+          super(props);
+          this.state={date:new Date()}S
+        }
+        render(){
+          return(
+            &lt;div>
+              &lt;h1>Hello,world!&lt;/h1>
+              &lt;h2>it is {this.state.date.toLocaleTimeString()}.&lt;/h2>
+            &lt;/div>
           );
-
-          const element=React.createElement(
-            'h1',
-            {className:'greeting'},
-            'Hello world!'
-          );
-        </pre>
-        React.createElement()执行一些检查来帮助你来写无BUG代码，但是它本质上是创造了一个这样的对象。
-        <pre>
-          //Note:这个结构是简化的
-          const element={
-            type:'h1',
-            props:{
-              className:'greeting',
-              children:'Hello,world'
-            }
-          }
-        </pre>
-        <p>这些对象叫做“React元素”，你可以想象他们作为描述你所想在屏幕上看到的，React 读取这些对象并用他们构建DOM并时刻保持更新。</p>
-        <p>我们将会在下一章节继续探索渲染React元素到DOM上面。</p>
-        <h4>Tip:</h4>
-        <p>建议您search一个叫"Babel"的语法格式来供你的编辑器选择，这样的话无论是ES6还是JSX代码都可以正确的高亮。</p>
-      </div>
-      <div class="col-sm-12">
-        <h3>object</h3>
-        <h4>no-new-object</h4>
-        <pre>
-          //bad 
-          const item = new Object();
-
-          //god
-          const item = {};
-        </pre>
-        <h4>property names</h4>
-        <pre>
-          function getKey(k){
-            return 'a key named ${k}';
-          }
-
-          //bad
-          const obj = {
-            id : 5,
-            name:"San francisco"
-          };
-          obj[getKey('enabled')] = true;
-
-          //good
-          const obj = {
-            id:5,
-            name:"san francisco",
-            [getKey('enabled')]:true
-          };
-        </pre>
-        <h4>use boject method </h4>
-        <pre>
-          //bad
-          const atom = {
-            value:1,
-            addValue: function(value){
-              return atom.value + value;
-            }
-          }
-          //good 
-          const atom = {
-            value:1,
-            addValue(value){
-              return atom.value + value;
-            }
-          }
-        </pre>
-        <h4>short to descript</h4>
-        <pre>
-          const luckPerson = "luck person";
-
-          //bad
-          cosnt obj = {
-            luckPerson:luckPerson
-          }
-
-          //good
-          const obj = {
-            luckPerson
-          }
-        </pre>
-        <h4>shorthand properties first</h4>
-        <pre>
-          const anakinSkywalker = 'Anakin Skywalker';
-          const lukeSkywalker = 'Luke Skywalker';
-
-          // bad
-          const obj = {
-            episodeOne: 1,
-            twoJediWalkIntoACantina: 2,
-            lukeSkywalker,
-            episodeThree: 3,
-            mayTheFourth: 4,
-            anakinSkywalker,
-          };
-
-          // good
-          const obj = {
-            lukeSkywalker,
-            anakinSkywalker,
-            episodeOne: 1,
-            twoJediWalkIntoACantina: 2,
-            episodeThree: 3,
-            mayTheFourth: 4,
-          };
-        </pre>
-        <pre>
-          // bad
-          const bad = {
-            'foo': 3,
-            'bar': 4,
-            'data-blah': 5,
-          };
-
-          // good
-          const good = {
-            foo: 3,
-            bar: 4,
-            'data-blah': 5,
-          };
-        </pre>
-        <pre>
-          //very bad
-          const ori = {a:1,b:2};
-          const copy = Object.assign(ori,{c:3});
-          delete copy.a;
-          //{ b: 2, c: 3}
-          
-          //bad
-          const ori = {a:1,b:2};
-          const copy = Object.assign({},ori,{c:3});
-          //{a: 1, b: 2, c: 3}
-
-          //good
-          const ori = {a:1,b:2};
-          const copy = {...ori,c:3}//copy=>{a: 1, b: 2, c: 3}
-          const copy = {a,...noA} //noA=>{ b: 2, c: 3}
-
-          console.log(copy)
-        </pre>
-      </div>
-      <div class="col-sm-12">
-        <h3>The different between let var and const</h3>
-        <p><a target="_blank" href="https://github.com/airbnb/javascript">ES5 (Deprecated)</a>ES5(javascript已经被弃用)，ES6已经更新，事实上呢，前端发展飞速，众多框架，react，angular，vue，前端自动化工具gulp，grunt，包管理工具bower，甚至webpack项目搭建工具，node服务器搭建，等等五花八门迅速膨胀。以前以为变化再多，万变不离其宗，HTML,CSS,JS,这三大基础是不变的，现在css4即将出来，javascript甚至连基本的Var也将要被弃用。javascript使用人数迅速增加，github已经有50k星了，javascript开启"use strict"模式</p>
-        <h4>the bug of var</h4>
-        <pre class='brush: javascript'>
-          var a = "b";
-          var a = "a";//居然可以重复命名，c
-          console.log(a);//输出"a"
-
-          for(var i = 10 ; i>0; i--){
-            var a = "a";
-          }
-          console.log(a);//输出:"a",,明明已经跳出循环了，居然还可以访问到里面的a变量，i=0，这不得不说是一个重大bug
-
-          for(var i = 10; i>10; i--){
-            setTimeout(function(){
-              console.log(i); //so intersting with what will i console ;
-                              //it console tenth of zero;if it's var ,the next turn can change the one before var it;
-                              //that a big bug;so many people say that javascript is a lazy computer language;
-            },1000)
-          }
-        </pre>
-        <h4>let</h4>
-        <p>Tip: 必须先声明"use strict"才能使用let变量进行声明，否则浏览器不会显示。</p>
-        <p>首先声明，let和var很像，都是用来声明变量的，let声明的变量拥有块级作用域,let声明的全局变量不是全局对象的属性</p>
-        <pre>
-          var abs = "123";
-          console.log(abs);//123
-
-          let abs = "123";
-          console.log(abs);//undefined
-        </pre>
-        <p>对于for循环这样的闭包函数，被一次循环let的变量虽然名字相同，但是是不同的变量名称。</p>
-        <h4>const</h4>
-        <p>const常量的命名，这没什么好说的。不能重复命名常量。</p>
-        <p>both let and const are block-scoped</p>
-        <pre>
-          {
-            let a = 1;
-            const b = 2;
-          }
-          console.log(a,b);//referenceError ,both are undefined
-        </pre>
-      </div>
-      <div class="col-sm-12">
-        <h3>关于javascript----基础知识篇;</h3>
-        <h4>注释(Comments)</h4>
-        <pre class='brush: javascript'>
-          // 单行注释
-          
-          /*这个是一个多行注释
-           多行注释
-          */
-          
-          /*你不能，但是，/*嵌套注释*/语法错误*/
-        </pre>
-        <h4>声明(Declarations)</h4>
-        <p>javascript有三种声名。</p>
-        <p>var</p>
-        <p>声明变量，可选初始化值。</p>
-        <p>let</p>
-        <p>声明块范围局部变量，可选初始化值。</p>
-        <p>const</p>
-        <p>声明一个只读命名常量。</p>
-        <h4>变量</h4>
-        <p>在应用程序中，一个标识符必须以字母、下划线(_)或者美元符号开头;后续字母可以含(0~9)    。因为javascript语言是区分大小写的，这里所指的字母可以是大写英文字母也可以是小写的。</p>
-        <p>var</p>
-        <p>声明变量，可选初始化值。</p>
-        <p>let</p>
-        <p>声明块范围局部变量，可选初始化值。</p>
-        <p>const</p>
-        <p>声明一个只读命名常量。</p>
-        <h4>声明变量</h4>
-        <p>你可以用以下两种方式声明变量：</p>
-        <pre class='brush: javascript'>
-          使用关键词var。例如，var x = 42。这个语法可以同时声明局部和全局变量。
-          直接赋值。例如，x = 42。这样就声明了一个全局变量，并导致javascript编译时候产生一个严格   警告。因而你应该避免使用这种非常规格式。
-        </pre>
-        <h4>对变量求值</h4>
-        <p>用 var 或 let    声明时未赋初值的变量，值会被设定为undefined（即使未定义，本身也是一个值）。</p>
-        <p>试图访问一个未初始化的变量会导致一个ReferenceError异常被抛出：</p>
-        <pre class='brush: javascript'>
-          var a;
-          console.log("The value of a is " + a); // logs"The value of a is undefined"
-          console.log("The value of b is " + b); // throw ReferenceError expection
-        </pre>
-        <script>
-          /*var a;
-          console.log("The value of a is "+a);
-          console.log("The value of a is "+b);*/
-        </script>
-      </div>
-      <div class="col-sm-12">
-        <img src="build/images/QQ截图20151027223135.jpg">
-        <p>抛出错误如图所示，当然你要在Firefox浏览器上才能看。</p>
-        <p>你可以使用undefined来确定变量是否已赋值。以下代码中，变量input未被赋值，因而if条件语   句的求值结果是true。</p>
-        <pre class='brush: javascript'>
-          var input;
-          if(input === undefined){
-            doThis();
-          }else{
-            doThat();
-          }
-        </pre>
-    
-        <script>
-          /*var input;
-          if (input === undefined) {
-            console.log("undefined")
-            console.log(input)
-          }else{
-            console.log("defined")
-            console.log(input)
-          }*/
-        </script>
-        <P>soso~,input is undefined!and you can see this in firbug</P>
-        <img src="build/images/QQ截图20151027224323.jpg" alt="">
-        <p>undefined值在布尔类型环境中会被当作false。例如，下面的代码将运行函数myFunction，因为   数组myArray中的元素未被赋值：</p>
-        <pre class='brush: javascript'>
-          var myArray = new Array();
-          if(!myArray[0])myFunction();
-        </pre>
-        <script>
-          /*var myArray = new Array();
-          if (!myArray[0]) {myFunction()};
-          function myFunction (){
-            console.log(myArray[0]);
-          }*/
-        </script>
-        <img src="build/images/haserror.jpg" alt="">
-        <img src="build/images/noerror.jpg" alt="">
-        <p>请仔细观察下面两张图，包含三个点的内容</p>
-        <pre class='brush: javascript'>
-          undefined值在布尔类环境中会被当作false。如图所示
-          第一张图我们用var func = function(){}来定义函数。
-          第二张图我们用functionfunc(){}来定义函数，该函数的优先解释等级先于同一语句级的其他语    句
-        </pre>
-      </div>
-      <div class="col-sm-12">
-        <p>数值类型环境中undefined值会被转换为NaN(not a number)。</p>
-        <pre class='brush: javascript'>
-          var a;
-          a + 2 = NaN;
-        </pre>
-    
-          <script>
-            /*var a;
-            console.log(a+2)*/
-          </script>
-        <img src="build/images/QQ截图20151027234142.jpg" alt="">
-        <p>当你对一个空变量求值时候，空值null在数值类型环境中会被当作0来对待，而布尔类型环境中会    被当作false</p>
-        <pre class='brush: javascript'>
-          var n = null;
-          console.log(n*32);
-        </pre>
-        <script>
-          /*var n = null;
-          if (!n) {
-            console.log(n*32);
-            console.log(typeof n);
-          };*/
-        </script>
-        <img src="build/images/QQ截图20151027235101.jpg" alt="">
-        <img src="build/images/QQ截图20151028000001.jpg" alt="">
-      </div>
-      <div class="col-sm-12">
-        <h3>变量的域</h3>
-        <p>在所有函数之外声明的变量，叫做全局变量，因为它可能被当作文档中的其他代码所访问。在函数    内部声明的变量，叫做局部变量名，因为它只能在该函数内部访问。</p>
-        <p>Javascript没有语句块作用域;相反，语句块中声明的变量将成为语句块所在代码段的局部变量。   例如，如下的代码将在控制台输出5,因为x的作用域是声明了x的那个函数(或全局范围)   ，而不是if语句块。</p>
-        <pre class='brush: javascript'>
-            if(true){
-              var x = 5;
-            }
-            console.log(x); //5
-        </pre>
-        <h4>变量声明提示</h4>
-        <p>Javascript变量的另一特别之处在于，你可以引用稍后声明的变量，而不会发生异常。这一概念称   为变量声明提升(hoisting);javascript变量感觉上是被“举起”或者提升到了所有函数和语句之前。   但是，未被初始化的变量仍然返回undefined值。</p>
-        <pre class='brush: javascript'>
-          /**
-          * Example 1
-          */
-          console.log(x===undefined); // log "true"
-          var x = 3;
-          
-          
-          /**
-          * Example 2
-          */
-          // will return a value of undefined
-          var myvar = "my value"
-          
-          (function(){  //匿名函数
-            console.log(myvar); //undefined
-            var myvar = "local value";
-          })();
-        </pre>
-        <p>上面的例子2，也可以写作：</p>
-        <pre class='brush: javascript'>
-          /**
-          * Example 1
-          */
-          var x = 3;
-          console.log(x===undefined); // log "true"
-          x = 3;
-          
-          /**
-          * Example 2
-          */
-          // will return a value of undefined
-          var myvar = "my value"
-          
-          (function(){  //匿名函数
-            var myvar;
-            console.log(myvar); //undefined
-            var myvar = "local value";
-          })();
-        </pre>
-        <p>由于存在变量声明提升，一个函数中所有的var语句应尽可能的放在接近函数顶部的地方。这大大   提升了函数代码的清晰度。</p>
-        <h4>全局变量</h4>
-        <p>全局变量实际上是<i>全局对象的</i>属性。在网页中，（译注：缺省的）全局对象是window，所    以你可用形如window.variable的语法来设置和访问全局变量。</p>
-        <p>因此，你可以通过指定window或frame的名字，从一个window或frame访问另一个window或frame   中声明的变量。例如，设想一个叫phoneNumber的变量在文档FRAMESET里被声明，你可以在子框架里   用parent.phoneNumber来引用它。</p>
-        <h4>常量</h4>
-        <p>你可以用关键字const创建一个只读的常量。常量标识符的命令规则和变量的相同：必须以字母、下   划线或美元符号开头并可以包含有字母、数字、下划线。</p>
-        <pre class="brush: javascript">const prefix = '212';</pre>
-      </div>
-    
-      <div class="col-sm-12">
-        <p>常量不可以通过赋值改变其值，也不可以在脚本运行时候重新声明。</p>
-        <p>常量，包括全局常量，都必须带const关键字，除此之外，常量的作用域规则与变量相同。若const   关键字被省略了，该标识符将被视为变量。</p>
-        <p>在同一作用域中，不能用与变量或函数同样的名字来命名常量。例如：</p>
-        <pre class="brush: javascript">
-          // THIS WILL CAUSE AN ERROR
-          function f() {};
-          const f = 5;
-          
-          // THIS WILL CAUSE AN ERROR
-          function f(){
-            
-          }
-        </pre>
-        <h4>关于对象的创建</h4>
-        <p>关于创建对象的两种方法</p>
-        <pre class="brush: javascript">
-          var obj = new object();
-        </pre>
-        <p>和：</p>
-        <pre class="brush: javascript">
-          var obj =  {};
-        </pre>
-        <p>这两种方法在语义上是相同的。第二种更方便的方法叫做“对象字面量（object     literal）”法。这种也是JSON格式的核心语法，一般我们优先选择第二种方法。</p>
-        <p>"对象字面量"也可以用来在对象实例中定义一个对象：</p>
-        <pre class="brush: javascript">
-          var obj = {
-            name: "Carrot",
-            "for": "Max",
-            details: {
-              color: "orange",
-              size: 12,
-            },
-          }
-        </pre>
-        <p>对象的属性也可以通过链式（chain）表示方法进行访问：</p>
-        <pre class="brush: javascript">
-          obj.details.color; //orange
-          obj['details']['size']; //12
-        </pre>
-        <p>下面的例子创建了一个对象原型，Person，和这个原型的实例，You。</p>
-        <pre class="brush: javascript">
-          function Person(name,age){
-            this.name = name;
-            this.age = age;
-          }
-    
-          //定义一个对象
-          var You = new Person("You" , 24);
-          // 我们创建了一个新的Person，名称是 "You"
-          // ("You" 是第一个参数，24 是第二个参数..)
-        </pre>
-    
-        <p>关于循环</p>
-        <pre class="brush: javascript">
-          var a = [1,1,1,1];
-          /*低效循环*/
-          for(var i = 0 ; i < a.length ; i++) {
-            console.log(i)
-          }
-    
-          /*中效循环*/
-          for(var i = 0 , len = a.length ; i < len ; i++) {
-            console.log(i)
-          }
-    
-          /*高效循环，但是与前两种有区别，当遇到一个元素为undefined时候，循环结束，这个技巧只能    当你知道数组中不含假元素（如undefined）时，循环结束。*/
-          for(var i = 0 , item ; item = a[i++];) {
-            console.log(i)
-          }
-    
-          /*另一种循环方式，便利数组的另一种方式是使用for...in循环。注意，如果有人向Array.protot    ype添加了新的属性，使用这样的循环这些属性也同样会被遍历，但并不推荐这种方法：*/
-          
-          var a = [1,1,1,1]
-          for(var i in a){
-            console.log(a[i])
-          }
-        </pre>
-        </div>
-      <div class="col-sm-12">
-        <p>ECMAScript 5 增加了遍历数组的另一种方法 foreach():</p>
-        <pre class="brush: javascript">
-          ["dog", "cat", "hen"].forEach(function(currentValue, index, array) {
-            // Do soomething with currentValue or array[index]
+        }
+      }
+    </pre>
+    <p>注意，我们是如何将porps参数传递给子类constructor的：</p>
+    <pre>
+      constructor(){
+        super(props);
+        this.state:{date:new Date()};
+      }
+    </pre>
+    <p>类组件应该经常调用基层constructor，通过props</p>
+    <p>3)将date属性从Clock元素中移除。</p>
+    <pre>
+      ReactDOM.render(
+        &lt;Clock/>,
+        document.getElement('example')
+      )
+    </pre>
+    <p>接下来我们将会将计时器的代码重新加回给组件自身。</p>
+    <pre>
+      class Clock extends React.Component{
+        constructor(){
+          super(props);
+          this.state={date:new Date()}
+        }
+        render(
+          return(
+            &lt;div>
+              &lt;h1>Hello,world!&lt;/h1>
+              &lt;h2>it is {this.state.date.toLocaleTimeString()}.&lt;/h2>
+            &lt;/div>
+          )
+        )
+      }
+      ReactDOM.render(
+        &lt;Clock/>,
+        document.getElement('example')
+      )
+    </pre>
+    <p>现在Clock设置好了他自己的计时器，并时刻自我更新。</p>
+    <h4>增加lifecycle方法到class里面</h4>
+    <p>在一个应用，里面有很多组件，那么当应用销毁的时候，释放资源是非常重要的。</p>
+    <p>每当Clock组件第一次渲染在DOM上面，我们就像设置一个计时器，在React里面这个就叫做'mounting'。</p>
+    <p>我们也想清除计时器，每当这个Clock组件创造的DOM被移除的时候，这个在React里面叫做'unmounting'</p>
+    <p>我可以声明特殊方法在组件class里面，比如执行一些代码，当组件mounts或者unmounts的时候</p>
+    <pre class='brush: js'>
+      class Clock extends React.Component{
+        constructor(props){
+          super(props);
+          this.state = {date:new Date()};
+        }
+        componentDidMount(){
+          //
+        }
+        componentWillUnmount(){
+          //
+        }
+        render(){
+          return (
+            &lt;div>
+              &lt;h1>Hello,world!&lt;/h1>
+              &lt;h2>It is {this.state.date.toLocaleTimeString()}.&lt;/h2>
+            &lt;/div>
+          )
+        }
+      }
+    </pre>
+    <p>这个方法叫做生命周期钩子'lifecycle hooks'.</p>
+    <p>componentDidMount()钩子在组件输出渲染到DOM之后运行，这是一个设置解释器的好地方。</p>
+    <pre>
+      componentDidMount(){
+        this.timerID=serInterval(
+          ()=>this.tick(),
+          1000
+        )
+      }
+    </pre>
+    <p>注意我们是如何正确保存timer ID在this中。</p>
+    <p>当this.props被React自己设置好后，this.state有了一个特殊的意义，你可以手动添加一些额外存储到class里面，如果你需要存储一些不需要可视化输出的东西。</p>
+    <p>如果你不需要使用一些东西在render()里面，他不应该在state里面。</p>
+    <p>我们将会拆除计时器在componentWillUnmount()生命钩子里面:</p>
+    <pre>
+      compinentWillUnmount(){
+        clearInterval(this.timerID);
+      }
+    </pre>
+    <p>最终，我们将会完善tick()方法，让他运行每一秒。</p>
+    <p>他将会用到this.setState()来计划性更新component local state：</p>
+    <pre>
+      class Clock extends React.Component{
+        constructor(props){
+          super(props);
+          this.state={date:new Date()};
+        }
+        componentDidMount(){
+          this.timerId=setInterval(
+            () => this.tick(),
+            1000
+          )
+        }
+        componentWillUnmout(){
+          clearInterVal(this.tinerID);
+        }
+        tick(){
+          this.setState({
+            date:new Date()
+          })
+        }
+        render(){
+          return (
+            &lt;div>
+              &lt;h1>Hello,world!&lt;/h1>
+              &lt;h2>It is {this.state.date.toLocaleTimeString()}.&lt;/h2>
+            &lt;/div>
+          )
+        }
+      }
+      ReactDOM.render(
+        &lt;Clock />,
+        document.getElementById("example")
+      );
+    </pre>
+    <p>现在，滴答时钟响应每一秒了。</p>
+    <p>让我们快速复述一次，到底发生了什么，以及方法调用的顺序。</p>
+    <p>1)当&lt;CLock/>被传递给ReactDOM.render()时,React调用Clock组件构造器，知道Clock需要显示当前时间，它初始化this.state通过一个对象包括当前时间，我们之后就会更新这个state。</p>
+    <p>2)React接着会调用Clock组件的render()方法，这就是React如何得知什么东西应该显示在屏幕上面。React接着会更新DOM来匹配Clock的渲染输出。</p>
+    <p>3)当Clock输出并且被嵌入到DOM中，React调用componentDidMount()lifecycle hook，其中，Clock组件请求浏览器来加载一个计时器来时刻调用tick()</p>
+    <p>4)每秒浏览器都会调用tick()方法,里面,Click组件安排UI更新通过调用setState(),通过一个对象包括当前时间，多亏了setState()的调用，React知道state已经被改变了，并且再次调用render()方法来得知什么需要显示在屏幕上。这个时候，this.state.date在render()方法里面将会不同，并且英雌渲染输出将会包括这个更新的时间，React也因此更新DOM。</p>
+    <p>5)如果Clock组件是曾经被从DOM中移除，React调用componentWillUnmount()生命钩子，以便于停止计时器。</p>
+    <h4>正确使用State</h4>
+    <p>这里有三件，你必须了解的关于setState().</p>
+    <h4>不要直接修改State</h4>
+    <p>例如，浙江不会再次渲染一个组件</p>
+    <pre>
+      //Wrong
+      this.state.comment = 'Hello';
+    </pre>
+    <p>相反，应该使用setState():</p>
+    <pre>
+      //Correct
+      this.setState({comment:'Hello'});
+    </pre>
+    <p>你只能在constructor里面给this.state赋值。</p>
+    <h4>State更新也许是异步的</h4>
+    <p>React也许会调用多个setState()来进行一次性能更新。</p>
+    <p>因为this.props和this.state是异步的，你应该不依赖他们的值来计算下一个state。</p>
+    <p>例如，这个代码是错误的来更新counter</p>
+    <pre>
+      //wrong
+      this.setState({
+        counter:this.state.counter+this.props.increment,
+      })
+    </pre>
+    <p>来修复他把，用setState()的另一种形式来接受一个函数而不是一个对象，这个函数将会接受之前的state来作为第一个argument，并且props在这个时间将会依赖第二个argument来更新</p>
+    <pre>
+      //Correct
+      this.setState((prevState,props) => ({
+        counter:prevState.counter + props.increment
+      }));
+    </pre>
+    <p>上边例子我们用一个箭头函数，但是它的依赖一般函数来运转。</p>
+    <pre>
+      //Correct
+      this.setState(function(prevState,props){
+        return {
+          counter: prevState.counter + props.increment
+        }
+      })
+    </pre>
+    <h4>state 更新合并</h4>
+    <pre>当你调用setState(),React合并这个对象，你提供的当前state.</pre>
+    <p>例如，你的state也许包含数个独立的变量。</p>
+    <pre>
+      constructor(props){
+        super(props);
+        this.state = {
+          props:[],
+          comments:[]
+        };
+      }
+    </pre>
+    <p>那么你可以独立的更新他们通过分开的setState()调用：</p>
+    <pre>
+      componentDidMount(){
+        fetchPosts().then(response => {
+          this.setState({
+            posts: response.posts
           });
-        </pre>
-        <h4>函数</h4>
-        <p>学习javascript最重要的是要去理解对象和函数两个部分。最简单的函数就像下面这个这么简单：   </p>
-        <pre class="brush: javascript">
-          function add(x,y){
-            var total = x + y;
-            return total;
-          }
-        </pre>
-        <p>这个例子包括你需要了解的关于基本函数的所有部分。一个javascript函数可以包含0个或多个已   命名的变量。函数体中的表达式数量也没有限制。你可以声明函数自己的局部变量。return语句在返回  一个值并结束函数。如果没有使用return语句，或者一个没有值得return语句，javascript会返回un   defined。</p>
-        <p>已命名的参数更像是一个指示而没有其他作用。如果调用函数没有提供足够的参数，缺少的参数会    被undefined替代。</p>
-        <pre class="brush: javascript">
-          add(); //NaN
-          // 不能在 undefined 对象上进行加法操作
-        </pre>
-        <p>你还可以传入多余函数本身需要参数个数的参数：</p>
-        <pre class="brush: javascript">
-          add(2,3,4); // 5
-          // 将前面两个值相加，4被忽略了
-        </pre>
-        <p>这个看上去有点蠢。函数实际上是访问了函数体中一个名为 arguments 的内部对象，这个对象就   如同一个类似于数组的对象一样，包括了所有被传入的参数。让我们重写上面的函数，使它可以接收任   意个数的参数：</p>
-        <pre class="brush: javascript">
-          function add(){
-            var sum = 0;
-            for (var i = 0, j = arguments.length; i < j ; i++){
-              sum += arguments[i];
-            }
-            return sum;
-          }
-    
-          add(2,3,4,5);
-        </pre>
-        <h4>匿名函数</h4>
-        <pre class="brush: javascript">
-          var avg = function() {
-            var sum = 0;
-            for (var i = 0 , j = arguments.length ; i < j.length; i++) {
-              sum += arguments[i];
-            };
-            return sum / arguments.length;
-          }
-          console.log(avg([2,3,4,4]));
-        <h4>匿名函数之有趣的技巧</h4>
-        <pre class="brush: javascript">
-          var a = 1;
-          var b = 2;
-          (function(){
-            var b = 3;
-            a += b;
-          })();
-          console.log(a); //4
-          console.log(b); //2
-        <h4>递归函数</h4>
-        <p>javascript允许以递归方式调用函数。递归在处理树形结构（比如浏览器DOM）时非常有用。</p>
-        <pre class="brush: javascript">
-          function countchars(elm) {
-            if (elm.nodeType == 3) {
-              return elm.nodeValue.length;
-            }
-            var count = 0;
-            for (var i = 0, child; child = elm.childNodes[i]; i++) {
-              count += countchars(child);
-            };
-            return count;
-          }
-        </pre>
-        <p>这里需要说明一个潜在问题--既然匿名函数没有名字，那么该怎么递归调用它呢？在这一点上，ja    vascript允许你命名这个函数表达式。你可以命名立即调用函数表达式（IIFES--Immediately    Invoked Function Expressions）,如下所示：</p>
-        <pre class="brush: javascript">
-          var charsInBody = (function counter(elm) {
-            if (elm.nodeType == 3) { //文本节点
-              return elm.nodeValue.length;
-            }
-            var count = 0;
-            for (var i = 0, child; child = elm.childNodes[i]; i++) {
-              count += counter(child);
-            }
-            return count;
-          })(document.body);
-        </pre>
-      </div>
-    
-      <div class="col-sm-12">
-        <h3>关于canvas的应用</h3>
-        <p>canvas属于html5里面最强大的元素。canvas，顾名思义就是指的画板，运用canvas+javascrip   t，可以绘制出一片美丽的星空,下面首先我先做一个demo吧，下面的demo是最基本直线绘制。</p>
-        <canvas id="canvas" style="border:1px solid #aaa;display:block;margin:50px auto;"   ></canvas>
-        <script>
-          function canvas_func(){
-            var canvas = document.getElementById("canvas");
-            canvas.width = 800;
-            canvas.height = 800;
-            var context = canvas.getContext("2d");
-            context.lineWidth=10;
-            context.beginPath();
-            context.moveTo(100,100);
-            context.lineTo(400,400);
-            context.lineTo(100,700);
-            context.strokeStyle = "red";
-            context.stroke();
-            context.closePath();
-            context.beginPath();
-            context.moveTo(200,100);
-            context.lineTo(500,400);
-            context.lineTo(200,700);
-            context.strokeStyle = "green";
-            context.stroke();
-            context.closePath();
-            context.beginPath();
-            context.moveTo(300,100);
-            context.lineTo(600,400);
-            context.lineTo(300,700);
-            context.strokeStyle = "blue";
-            context.stroke();
-            context.closePath();
-            context.beginPath();
-            context.moveTo(400,100);
-            context.lineTo(700,400);
-            context.lineTo(400,700);
-            context.strokeStyle = "yellow";
-            context.stroke();
-            context.closePath();
-          }
-        </script>
-        <p>首先在HTML页面引入canvas元素！</p>
-        <pre class='brush: javascript'>
-          <canvas id="canvas" style="border:1px solid #aaa;display:block;margin:50px auto   ;"></canvas>
-        </pre>
-      </div>
-      <div class="col-sm-12">
-        <p>然后就需要我们引入js代码</p>
-        <pre class='brush: javascript'>
-          <script>
-            function canvas_func(){
-              var canvas = document.getElementById("canvas");
-              canvas.width = 800;
-              canvas.height = 800;
-              var context = canvas.getContext("2d");
-              context.lineWidth=10;
-              context.beginPath();
-              context.moveTo(100,100);
-              context.lineTo(400,400);
-              context.lineTo(100,700);
-              context.strokeStyle = "red";
-              context.stroke();
-              context.closePath();
-              context.beginPath();
-              context.moveTo(200,100);
-              context.lineTo(500,400);
-              context.lineTo(200,700);
-              context.strokeStyle = "green";
-              context.stroke();
-              context.closePath();
-              context.beginPath();
-              context.moveTo(300,100);
-              context.lineTo(600,400);
-              context.lineTo(300,700);
-              context.strokeStyle = "blue";
-              context.stroke();
-              context.closePath();
-              context.beginPath();
-              context.moveTo(400,100);
-              context.lineTo(700,400);
-              context.lineTo(400,700);
-              context.strokeStyle = "yellow";
-              context.stroke();
-              context.closePath();
-            }
-          </script>
-        </pre>
-      </div>
+        });
+        fetchComments().then(response => {
+          this.setState({
+            comments: response.comments
+          });
+        });
+      }
+    </pre>
+    <p>这个合并是很浅显的，所以this.setState({comments})完整的分离了this.state.posts,并且完全取代了this.state.comments.</p>
+    <h4>数据流</h4>
+    <p>既不是父元素或者子元素组件可以知道，如果一个确定的组件是有状态或者无状态的，并且他们不应该在意，不管他是被定义成一个函数或者一个class.</p>
+    <p>这就是为什么state时常被调用在本地或者被封装，它是不被一些组件访问，除了一些他自己或者它设置的。</p>
+    <p>一个组件也许是选择当作props来传递他的state给他自己的子组件。</p>
+    <pre>
+      &lt;h2>It is {this.state.date.toLocaleTimeString()}.&lt;/h2>
+    </pre>
+    <p>他也为未定义组件工作。</p>
+    <pre>
+      &lt;FormattedDate date={this.state.date} />
+    </pre>
+    <p>这个FormattedDate组件将会接受这个date在他自己的props并且不知道它来自于Clock的state或者来自于Clock的props或者是手写的：</p>
+    <pre>
+      function FormattedDate(props){
+        return &ltl;h2>It is {props.date.toLocaleTimeString()}.&lt;/h2>
+      }
+    </pre>
+    <p>这一般叫做‘top-down’或者“unidirectional”数据流。一些state经常备用有，通过一些特定的组件，而且许多数据或者UI得到的state只能影响以下的组件，在这个结构树中。</p>
+    <p>如果你想一个组件书作为一种瀑布props，每个组件的state像一个新增的资源刘，可以加入它作为一个运动点也作为一个流动的。</p>
+    <p>为了展示所有的组件都孤立了，我们可以创造一个app组件渲染3个Clock</p>
+    <pre>
+      function App(){
+        return(
+          &lt;div>
+            &lt;Clock/>
+            &lt;Clock/>
+            &lt;Clock/>
+          &lt;/div>
+        )
+      }
+      ReactDOM.render(
+        &lt;App/>,
+        document.getElementById('example')
+      )
+    </pre>
+    <p>每一个Clock设置了他们自己的计时器并且独立更新。</p>
+    <p>在React app，无论组件是有状态或者无状态，被考虑成一个组件的实现细节，他可能时刻改变。你可以用无状态组件在有状态组件里面，反之亦然。</p>
+  </div>
+  <div class="col-sm-12">
+    <h3>Components(组件)和Props(道具)</h3>
+    <p>组件让你可以将整个UI分解成独立的可重复使用的，并且独立思考每一部分。</p>
+    <p>从概念上讲，组件像js函数，他们可以接受任意参数(props)并且返回那些将要出现在屏幕上面的React元素</p>
+    <h4>function组件和class组件</h4>
+    <p>最简单的去定义一个组件是写一个js函数</p>
+    <pre>
+      function Welcome(props){
+        return &lt;h1>Hello, {props.name}&lt;/h1>;
+      }
+    </pre>
+    <p>这个函数是一个有效的React组件因为它可以接受一个单一的'props'对象，参数携带数据并且返回一个React元素，我们叫这样的组件为函数化因为他是真真的js函数。</p>
+    <p>你也可以用ES6 class来定义一个组件:</p>
+    <pre>
+      class Welcome extends React.Component {
+        render(){
+          return &lt;h1>Hello,{this.props.name}&lt;/h1>
+        }
+      }
+    </pre>
+    <p>以上这两种组件从React的角度来看是相等的。</p>
+    <p>Classes有一些额外功能，下一章节会探讨。到目前为止，我们将会使用函数化组件，因为简洁。</p>
+    <h4>渲染一个组件</h4>
+    <p>上一章节，我们仅仅只遇到React元素的纯标签。</p>
+    <pre>const element = &lt;div/></pre>
+    <p>然而，元素也能扮演用户自定义组件。</p>
+    <pre>const element = &lt;div name="Sara"/></pre>
+    <p>当React看到一个元素有用户自定义组件，他会通过JSX属性来执行组件作为一个单一的对象，我们将这对象称之为props对象。</p>
+    <p>例如，下面这个，将会渲染"Hello,Sara"到页面上。</p>
+    <pre>
+      function Welcome(props){
+        return &lt;h1>hello,{props,name}&lt;/h1>
+      }
+
+      const element = &lt;Welcome name="Sara"/>;
+      ReactDOM.render(
+        element,
+        document.getElementById('root')
+      )
+    </pre>
+    <p>你可以在<a href="https://codepen.io/gaearon/pen/YGYmEG?editors=0010">CodePen</a>里面尝试一下。</p>
+    <p>让我们大概分析一下，例子中到底发生了什么</p>
+    <ol type="1">
+      <li>我们调用ReactDOM.render(),里面带有&lt;welcome name="Sara"/>元素</li>
+      <li>React调用welcome组件，并把{name:'Sara'}当作props。</li>
+      <li>我们的Welcome组件返回一个&lt;h1>hello, Sara&lt;/h1>元素作为结果。</li>
+      <li>React DOM快速更新DOM来匹配&lt;h1>hello, Sara&lt;/h1></li>
+    </ol>
+    <h4>警告：</h4>
+    <p>组件名称必须大写开头</p>
+    <p>例如&lt;div/>是一个DOM标签,而&lt;Welcome/>是一个组件，并且需要Welcome作用。</p>
+    <h4>组件构成</h4>
+    <p>组件可以参照其他组件，在输出，这让我们用一样的组件</p>
+    <p>例如，我们可以创造一个App组件，他可以在Welcome组件里面渲染很多次。</p>
+    <pre>
+      function Welcome(props){
+        return &lt;h1>Hello,{props.name}&lt;/h1>
+      }
+      function App(){
+        return(
+          &lt;div>
+            &lt;Welcome name="Sara"/>
+            &lt;Welcome name="Cahal"/>
+            &lt;Welcome name="Edite"/>
+          &lt;/div>
+        )
+      }
+      ReactDOM.render(
+        &lt;App/>,
+        document.getElementById('root')
+      );
+    </pre>
+    <p>你可以在<a href="https://codepen.io/gaearon/pen/KgQKPr?editors=0010">CodePen</a>里面尝试一下。</p>
+    <p>通常，新的React程序有一个单一的App组件在顶部。然而，如果你想把React整合到一个已经存在的app里面，你可能要开始一个按钮附带一个组件，像"Button"这样，并逐步工作到视图层次结构的顶部。</p>
+    <h4>警告：</h4>
+    <p>组件必须返回一个单一的根元素，这就是为什么我们上一个例子中要用一个div元素包裹所有的Welcome组件。</p>
+    <h4>提取组件</h4>
+    <p>不要害怕把组件split成更小的组件。</p>
+    <p>例如，思考一下下面这个Comment组件吧。</p>
+    <pre>
+      function Comment(prop){
+        return(
+          &lt;div className="Comment">
+            &lt;div className="UserInfo">
+              &lt;img 
+                src={props.author.avatarUrl}
+                alt={prop.author.name} 
+                className="Avatar"
+              />
+              &lt;div className="UserInfo-name">
+                {props.author.name}
+              &lt;/div>
+            &lt;/div>
+            &lt;div className="Comment-text">
+              {props.text}
+            &lt;/div>
+            &lt;div className="Comment-date">
+              {formatDate(props.date)}
+            &lt;/div>
+          &lt;/div>
+        );
+      }
+    </pre>
+    <p>你可以在<a href="https://codepen.io/gaearon/pen/VKQwEo?editors=0010">CodePen</a>里面尝试一下。</p>
+    <p>它接收author(对象)，text(字符串)，date(数据)作为参数，并且描述一个评论在社交媒体网站</p>
+    <p>这个组件由于有很多嵌套，所以它难以修改，并且他的各个部分也很难重复利用，因此，建议从中提取一小部分组件。</p>
+    <p>首先我们会提取Avatar组件，</p>
+    <pre>
+      function Avatar(props){
+        return (
+          &lt;img 
+            src={props.author.avatarUrl}
+            alt={prop.author.name} 
+            className="Avatar"
+          />
+        )
+      }
+    </pre>
+    <p>这个Avatar不需要知道要被渲染在Comment的哪个地方。这也是为什么我们给他传递的参数是一个更加通用的名称user而不是author</p>
+    <p>我们建议命名参数的名字的时候应该从组件本身的角度来命名，而不是通过它正在使用的上下文。</p>
+    <P>我们现在可以开始简化Comment组件一丝丝。</P>
+    <pre>
+
+      function Avatar(props){
+        return (
+          &lt;img 
+            src={props.author.avatarUrl}
+            alt={prop.author.name} 
+            className="Avatar"
+          />
+        )
+      };
+
+      function Comment(prop){
+        return(
+          &lt;div className="Comment">
+            &lt;div className="UserInfo">
+              &lt;Avatar user={props.author}/>
+              &lt;div className="UserInfo-name">
+                {props.author.name}
+              &lt;/div>
+            &lt;/div>
+            &lt;div className="Comment-text">
+              {props.text}
+            &lt;/div>
+            &lt;div className="Comment-date">
+              {formatDate(props.date)}
+            &lt;/div>
+          &lt;/div>
+        );
+      }
+    </pre>
+    <p>接下来，我们将会提取一个UserInfo组件，这个组件会渲染一个Avatar组件在用户名后面。</p>
+    <pre>
+      function UserInfo(props){
+        return(
+          &lt;div className="UserInfo">
+            &lt;Avatar user={props.user}/>
+            &lt;div className="UserInfo-name">
+              {props.user.name}
+            &lt;/div>
+          &lt;/div>
+        )
+      }
+    </pre>
+    <p>这将会更加简化Comment组件</p>
+    <pre>
+      function Comment(props){
+        return(
+          &lt;div className="Comment">
+            &lt;UserInfo user={props.author}/>
+            &lt;div className="Comment-text">{props.text}&lt;/div>
+            &lt;div className="Comment-date">{props.date}&lt;/div>
+          &lt;/div>
+        )
+      }
+    </pre>
+    <p>你可以在<a href="https://codepen.io/gaearon/pen/rrJNJY?editors=0010">CodePen</a>里面尝试一下。</p>
+    <p>刚开始的时候提取组件也许像是一件简单乏味的工作，但是拥有一个可重复使用的组件调色板，在更大的app中是会有很大回报的。一个很好的经验，如果你的UI的一部分被重复使用了很多次(Button,Panel,Avatar),或者它足够复杂(App,FeedStory,Comment),这种组件化仍旧是一种不错的选择，</p>
+    <h4>个人经验：</h4>
+    <p>从最开始的一个组件Comment,它拥有属性，author，我们给他赋予{comment.author}花括号开始用js解析，括号开始解析html，变量comment.text,于是这个属性就能传递下去，接下来看Comment组件的构成，他有一个props参数，先看里面Comment组件最简单的div元素，他直接赋予变量{props.text},这个变量props参数里面的text是从上一个Comment里面传递下来的参数，props.text，于是就会从之前里面去查询text属性，有，就看text属性等于comment.text，这就是最基本的传递参数。。拥有最基本的js概念就能看懂react了。花括号开始解析js，括号开始解析html，参数传递概念，传递的就是所运用的属性，但是不建议在每一个内嵌组件里面运用同样的属性，例如comment.author，已经有author，那么里面的内嵌组件UserInfo不建议再次使用author属性，防止js可读性降低，例如再次使用UserInfo.author.</p>
+    <h4>Props 是仅仅之能读取</h4>
+    <p>无论你function一个组件或者class一个组件，他必须是从不能修改他自己的props参数，思考一下下面这个sum函数吧。</p>
+    <pre>
+      function sum(a,b){
+        return a+b;
+      }
+    </pre>
+    <p>这叫做纯函数'pure'，因为他们不会去改变他们的输入值，并且在同样参数的情况下会输出同样的结果。</p>
+    <p>下面例子刚好相反，因为他改变了他自己的输入。</p>
+    <pre>
+      function withdraw(account,amount){
+        account.total -= amount;
+      }
+    </pre>
+    <p>React反应灵活，但是他有一个非常严格的规则：</p>
+    <p>所有React组件必须表现的像纯函数那样来尊重他们的props参数</p>
+    <p>当然，UI应用是动态的，并且时刻变化的，在下一章节，我们将会介绍一个新的概念'state',State允许所有的React组件随着时间和用户操作来响应，来改变通过用户行为和网络响应或者其他东西多次改变输出，但是不能改变这条规则。</p>
+  </div>
+  <div class="col-sm-12">
+    <h3>渲染元素</h3>
+    <p>element是Reactapps里面最小的构建块。</p>
+    <p>把一个element写成你想要见到的样子，出现在屏幕上。</p>
+    <pre>
+      const element = &lt;h1>Hello,world&lt;/h1>;
+    </pre>
+    <p>和浏览器的DOM不一样，React element是简单的对象，而且便于创造。React DOM负责更新DOM来和React element相匹配。</p>
+    <h4>Note:</h4>
+    <p>有人可能会混淆element与另一个更为人知的概念--components相混淆，我们将会在下一章节介绍components(组件)，组件由元素构成，本章以下内容希望你不要跳过。</p>
+    <h4>渲染一个元素到DOM上面</h4>
+    <p>这有一个&lt;div>在你的HTML文档中某一处</p>
+    <pre>
+      &lt;div id="root">&lt;/div>
+    </pre>
+    <p>我们称它为'root'DOM节点，因为所有里面的东西都被ReactDOM掌控，用React构建的应用通常只有一个根DOM节点。如果你想要整合一个React到一个已经存在的app里面，你可能会有任意多个DOM根节点。如果你想要渲染一个React元素，请将两者都传递给ReactDOM.render();</p>
+    <pre>
+      const element = &lt;h1>hello,world&lt;/h1>;
+      ReactDOM.render(
+        element,
+        document.getElementById('root')
+      );
+    </pre>
+    <p>你可以在<a href="https://codepen.io/gaearon/pen/rrpgNB?editors=1010">CodePen</a>里面尝试一下。</p>
+    <p>页面会显示“hello world！”</p>
+    <h4>更新已渲染的元素</h4>
+    <p>React元素是<a href="https://en.wikipedia.org/wiki/Immutable_object">immutable</a>(不可变的)，一旦你创建了一个元素，你不可改变他的子元素或者属性，一个元素就像电影中某一帧，他代表某一时间节点上面的UI，到目前为止根据我们的认知，唯一改变UI的方法就是创造一个新的元素并把他传递给ReactDOM.render()</p>
+    <p>思考下面这个时钟案例</p>
+    <pre>
+      function tick (){
+        const element={
+          &lt;div>
+            &lt;h1>Hello,wrold!&lt;/h1>
+            &lt;h2>it is {new.Date().toLocaleTimeString()}.&lt;/h2>
+          &lt;/div>
+        };
+        ReactDOM.render(
+          element,
+          document.getElementById('root')
+        )
+      }
+      setInterval(tick,1000);
+    </pre>
+    <p>你可以在<a href="https://codepen.io/gaearon/pen/gwoJZk?editors=0010">CodePen</a>里面尝试一下。</p>
+    <p>它每秒都通过serInterval回掉函数执行一次ReactDOM</p>
+    <h4>Note:</h4>
+    <p>实际上，大多数Reactapp只呼叫一次ReactDOM.render(),再下一章节，我们将会学习如何将这些代码封装在组件里面.</p>
+    <h4>React只更新必需品。</h4>
+    <p>ReactDOM会拿它本身的元素及子元素去和上一个相比较，并且只应用更新必要的DOM使得DOM实现它想要的状态。</p>
+    <p>你可以用浏览器工具来检查最后一个例子</p>
+    <img src="https://facebook.github.io/react/img/docs/granular-dom-updates.gif">
+    <p>尽管我们创建了一个元素每秒来描述整个UI树，仅仅只有变化的文本节点会通过ReactDOM获得更新。</p>
+    <p>在我们的这些实验中，思考UI应该如何关注给定的时刻，而不是如何随着时间而改变它，从而消除了一类bug。</p>
+  </div>
+  <div class="col-sm-12">
+    <h3>介绍JXP</h3>
+    <p>接下来看看下面这个声明:</p>
+    <pre  type="syntaxhighlighter" class="brush: js">const element = &lt;h1>Hello World!;&lt;/h1></pre>
+    <p>这个有趣的标记语法既不是字符串，也不是HTML。</p>
+    <p>它叫是JSX，是Javascript的语法扩展。使用它的目的是为了让大家在写代码的时候更加舒适。JSX让你看起来像HTML模板语言，但她同时又具备Javascript的全部功能。</p>
+    <p>JSX生成React元素，我们将在下一章节中探索如何将他们渲染到DOM上。下面，你可以找到一些必要的JSX基础来让你更好的展开学习React。</p>
+    <h4>在JSX中嵌入表达式</h4>
+    <p>你可以在JSX中用'{}'嵌入任何js表达式。</p>
+    <p>例如，2+2，user.firstName，formatName(user)，这些都是有效的表达式。</p>
+    <pre>
+    function formatName(user){
+      return user.firstName+' '+user.lastName;
+    };
+
+    const user = {
+      firstName:"peng",
+      lastName:'liheng'
+    };
+
+    function element=(){
+      &lt;h1>
+        hello! {formatName(user)}.
+      &lt;/h1>
+    };
+
+    ReactDOM.Render(
+      element,
+      document.getElementById('example')
+    );
+    </pre>
+    <p>可以在
+      <a href="https://codepen.io/gaearon/pen/PGEjdG?editors=0010">CodePen</a>上面尝试一下。
+    </p>
+    <p>我们将JSX分割成多行，使其更加语义化。虽然这是不必要的，但我们仍然建议将他写在一个'{}'里面，用来避免自动插入分号的陷阱。</p>
+    <h4>JSX也是一个表达式</h4>
+    <p>编译后，JSX表达式变成常规的js对象</p>
+    <p>这意味着你可以在if语句for循环中使用JSX，给他传入变量，或者参数，并从函数中返回。</p>
+    <h4>用JSX指定属性</h4>
+    <p>maybe you can 用引号为字符串中文字指定属性。</p>
+    <pre>
+      const element = &lt;div tabindex="0">&lt;/div>
+    </pre>
+    <p>你也可以将js表达式用花括号包住嵌入到一个属性中</p>
+    <pre>
+      const element = &lt;img src={user.avatarUrl}/>
+    </pre>
+    <p>当你想要将js表达式嵌入到一个属性中，不要'{}'或者"{}"这样，因为JSX会将这个属性原封不动的当作变量而不是一个表达式，你要么用''表示字符串值，要么用{}表示js表达式，但是不要一起用在一个属性中。</p>
+    <h4>用JSX指定子元素</h4>
+    <p>如果是空标签，要用/>来闭合，就像XML那样</p>
+    <pre>
+      const element = &lt;img src={user.avatarUrl}/>
+    </pre>
+    <p>JSX标签也许会包含子标签</p>
+    <pre>
+      const element = (
+        &lt;div>
+          &lt;h1>hello!&lt;/h1>
+          &lt;h2>good to see you here.&lt;/h2>
+        &lt;/div>
+      )
+    </pre>
+    <h4>警告！</h4>
+    <p>自从JSX比HTML更接近Javascript后，ReactDOM使用camlCase将属性重命名，用来替代HTML属性名。</p>
+    <p>例如，class变成了className，tabindex变成了tabIndex。</p>
+    <h4>JSX可防御注入攻击</h4>
+    <p>在JSX里面嵌入用户信息相对安全</p>
+    <pre>
+      const title = response.pontentiallyMaliciousInput;
+      //This is safe;
+      const element = &lt;h1>{title}&lt;/h1>;
+    </pre>
+    <p>默认情况下，ReactDOM在其渲染之前转义任意值并嵌入JSX中。因此它可以确保你绝不注射任何东西在你未明确写在要注射的应用程序，所有的东西都被转换成一个字符串直到要渲染的时候。这有助于防御XSS(跨域名脚本)攻击</p>
+    <h4>JSX的代表性对象</h4>
+    <p>Babel将JSX编译与React.createrElement()的区别</p>
+    <p>以下这两个例子是相同的。</p>
+    <pre>
+      const element=(
+        &lt;h1 className="greeting">
+          Hello,world!
+        &lt;/h1>
+      );
+
+      const element=React.createElement(
+        'h1',
+        {className:'greeting'},
+        'Hello world!'
+      );
+    </pre>
+    React.createElement()执行一些检查来帮助你来写无BUG代码，但是它本质上是创造了一个这样的对象。
+    <pre>
+      //Note:这个结构是简化的
+      const element={
+        type:'h1',
+        props:{
+          className:'greeting',
+          children:'Hello,world'
+        }
+      }
+    </pre>
+    <p>这些对象叫做“React元素”，你可以想象他们作为描述你所想在屏幕上看到的，React 读取这些对象并用他们构建DOM并时刻保持更新。</p>
+    <p>我们将会在下一章节继续探索渲染React元素到DOM上面。</p>
+    <h4>Tip:</h4>
+    <p>建议您search一个叫"Babel"的语法格式来供你的编辑器选择，这样的话无论是ES6还是JSX代码都可以正确的高亮。</p>
+  </div>
+  <div class="col-sm-12">
+    <h3>object</h3>
+    <h4>no-new-object</h4>
+    <pre>
+      //bad 
+      const item = new Object();
+
+      //god
+      const item = {};
+    </pre>
+    <h4>property names</h4>
+    <pre>
+      function getKey(k){
+        return 'a key named ${k}';
+      }
+
+      //bad
+      const obj = {
+        id : 5,
+        name:"San francisco"
+      };
+      obj[getKey('enabled')] = true;
+
+      //good
+      const obj = {
+        id:5,
+        name:"san francisco",
+        [getKey('enabled')]:true
+      };
+    </pre>
+    <h4>use boject method </h4>
+    <pre>
+      //bad
+      const atom = {
+        value:1,
+        addValue: function(value){
+          return atom.value + value;
+        }
+      }
+      //good 
+      const atom = {
+        value:1,
+        addValue(value){
+          return atom.value + value;
+        }
+      }
+    </pre>
+    <h4>short to descript</h4>
+    <pre>
+      const luckPerson = "luck person";
+
+      //bad
+      cosnt obj = {
+        luckPerson:luckPerson
+      }
+
+      //good
+      const obj = {
+        luckPerson
+      }
+    </pre>
+    <h4>shorthand properties first</h4>
+    <pre>
+      const anakinSkywalker = 'Anakin Skywalker';
+      const lukeSkywalker = 'Luke Skywalker';
+
+      // bad
+      const obj = {
+        episodeOne: 1,
+        twoJediWalkIntoACantina: 2,
+        lukeSkywalker,
+        episodeThree: 3,
+        mayTheFourth: 4,
+        anakinSkywalker,
+      };
+
+      // good
+      const obj = {
+        lukeSkywalker,
+        anakinSkywalker,
+        episodeOne: 1,
+        twoJediWalkIntoACantina: 2,
+        episodeThree: 3,
+        mayTheFourth: 4,
+      };
+    </pre>
+    <pre>
+      // bad
+      const bad = {
+        'foo': 3,
+        'bar': 4,
+        'data-blah': 5,
+      };
+
+      // good
+      const good = {
+        foo: 3,
+        bar: 4,
+        'data-blah': 5,
+      };
+    </pre>
+    <pre>
+      //very bad
+      const ori = {a:1,b:2};
+      const copy = Object.assign(ori,{c:3});
+      delete copy.a;
+      //{ b: 2, c: 3}
+      
+      //bad
+      const ori = {a:1,b:2};
+      const copy = Object.assign({},ori,{c:3});
+      //{a: 1, b: 2, c: 3}
+
+      //good
+      const ori = {a:1,b:2};
+      const copy = {...ori,c:3}//copy=>{a: 1, b: 2, c: 3}
+      const copy = {a,...noA} //noA=>{ b: 2, c: 3}
+
+      console.log(copy)
+    </pre>
+  </div>
+  <div class="col-sm-12">
+    <h3>The different between let var and const</h3>
+    <p><a target="_blank" href="https://github.com/airbnb/javascript">ES5 (Deprecated)</a>ES5(javascript已经被弃用)，ES6已经更新，事实上呢，前端发展飞速，众多框架，react，angular，vue，前端自动化工具gulp，grunt，包管理工具bower，甚至webpack项目搭建工具，node服务器搭建，等等五花八门迅速膨胀。以前以为变化再多，万变不离其宗，HTML,CSS,JS,这三大基础是不变的，现在css4即将出来，javascript甚至连基本的Var也将要被弃用。javascript使用人数迅速增加，github已经有50k星了，javascript开启"use strict"模式</p>
+    <h4>the bug of var</h4>
+    <pre class='brush: javascript'>
+      var a = "b";
+      var a = "a";//居然可以重复命名，c
+      console.log(a);//输出"a"
+
+      for(var i = 10 ; i>0; i--){
+        var a = "a";
+      }
+      console.log(a);//输出:"a",,明明已经跳出循环了，居然还可以访问到里面的a变量，i=0，这不得不说是一个重大bug
+
+      for(var i = 10; i>10; i--){
+        setTimeout(function(){
+          console.log(i); //so intersting with what will i console ;
+                          //it console tenth of zero;if it's var ,the next turn can change the one before var it;
+                          //that a big bug;so many people say that javascript is a lazy computer language;
+        },1000)
+      }
+    </pre>
+    <h4>let</h4>
+    <p>Tip: 必须先声明"use strict"才能使用let变量进行声明，否则浏览器不会显示。</p>
+    <p>首先声明，let和var很像，都是用来声明变量的，let声明的变量拥有块级作用域,let声明的全局变量不是全局对象的属性</p>
+    <pre>
+      var abs = "123";
+      console.log(abs);//123
+
+      let abs = "123";
+      console.log(abs);//undefined
+    </pre>
+    <p>对于for循环这样的闭包函数，被一次循环let的变量虽然名字相同，但是是不同的变量名称。</p>
+    <h4>const</h4>
+    <p>const常量的命名，这没什么好说的。不能重复命名常量。</p>
+    <p>both let and const are block-scoped</p>
+    <pre>
+      {
+        let a = 1;
+        const b = 2;
+      }
+      console.log(a,b);//referenceError ,both are undefined
+    </pre>
+  </div>
+  <div class="col-sm-12">
+    <h3>关于javascript----基础知识篇;</h3>
+    <h4>注释(Comments)</h4>
+    <pre class='brush: javascript'>
+      // 单行注释
+      
+      /*这个是一个多行注释
+       多行注释
+      */
+      
+      /*你不能，但是，/*嵌套注释*/语法错误*/
+    </pre>
+    <h4>声明(Declarations)</h4>
+    <p>javascript有三种声名。</p>
+    <p>var</p>
+    <p>声明变量，可选初始化值。</p>
+    <p>let</p>
+    <p>声明块范围局部变量，可选初始化值。</p>
+    <p>const</p>
+    <p>声明一个只读命名常量。</p>
+    <h4>变量</h4>
+    <p>在应用程序中，一个标识符必须以字母、下划线(_)或者美元符号开头;后续字母可以含(0~9)    。因为javascript语言是区分大小写的，这里所指的字母可以是大写英文字母也可以是小写的。</p>
+    <p>var</p>
+    <p>声明变量，可选初始化值。</p>
+    <p>let</p>
+    <p>声明块范围局部变量，可选初始化值。</p>
+    <p>const</p>
+    <p>声明一个只读命名常量。</p>
+    <h4>声明变量</h4>
+    <p>你可以用以下两种方式声明变量：</p>
+    <pre class='brush: javascript'>
+      使用关键词var。例如，var x = 42。这个语法可以同时声明局部和全局变量。
+      直接赋值。例如，x = 42。这样就声明了一个全局变量，并导致javascript编译时候产生一个严格   警告。因而你应该避免使用这种非常规格式。
+    </pre>
+    <h4>对变量求值</h4>
+    <p>用 var 或 let    声明时未赋初值的变量，值会被设定为undefined（即使未定义，本身也是一个值）。</p>
+    <p>试图访问一个未初始化的变量会导致一个ReferenceError异常被抛出：</p>
+    <pre class='brush: javascript'>
+      var a;
+      console.log("The value of a is " + a); // logs"The value of a is undefined"
+      console.log("The value of b is " + b); // throw ReferenceError expection
+    </pre>
+    <script>
+      /*var a;
+      console.log("The value of a is "+a);
+      console.log("The value of a is "+b);*/
+    </script>
+  </div>
+  <div class="col-sm-12">
+    <img src="build/images/QQ截图20151027223135.jpg">
+    <p>抛出错误如图所示，当然你要在Firefox浏览器上才能看。</p>
+    <p>你可以使用undefined来确定变量是否已赋值。以下代码中，变量input未被赋值，因而if条件语   句的求值结果是true。</p>
+    <pre class='brush: javascript'>
+      var input;
+      if(input === undefined){
+        doThis();
+      }else{
+        doThat();
+      }
+    </pre>
+
+    <script>
+      /*var input;
+      if (input === undefined) {
+        console.log("undefined")
+        console.log(input)
+      }else{
+        console.log("defined")
+        console.log(input)
+      }*/
+    </script>
+    <P>soso~,input is undefined!and you can see this in firbug</P>
+    <img src="build/images/QQ截图20151027224323.jpg" alt="">
+    <p>undefined值在布尔类型环境中会被当作false。例如，下面的代码将运行函数myFunction，因为   数组myArray中的元素未被赋值：</p>
+    <pre class='brush: javascript'>
+      var myArray = new Array();
+      if(!myArray[0])myFunction();
+    </pre>
+    <script>
+      /*var myArray = new Array();
+      if (!myArray[0]) {myFunction()};
+      function myFunction (){
+        console.log(myArray[0]);
+      }*/
+    </script>
+    <img src="build/images/haserror.jpg" alt="">
+    <img src="build/images/noerror.jpg" alt="">
+    <p>请仔细观察下面两张图，包含三个点的内容</p>
+    <pre class='brush: javascript'>
+      undefined值在布尔类环境中会被当作false。如图所示
+      第一张图我们用var func = function(){}来定义函数。
+      第二张图我们用functionfunc(){}来定义函数，该函数的优先解释等级先于同一语句级的其他语    句
+    </pre>
+  </div>
+  <div class="col-sm-12">
+    <p>数值类型环境中undefined值会被转换为NaN(not a number)。</p>
+    <pre class='brush: javascript'>
+      var a;
+      a + 2 = NaN;
+    </pre>
+
+      <script>
+        /*var a;
+        console.log(a+2)*/
+      </script>
+    <img src="build/images/QQ截图20151027234142.jpg" alt="">
+    <p>当你对一个空变量求值时候，空值null在数值类型环境中会被当作0来对待，而布尔类型环境中会    被当作false</p>
+    <pre class='brush: javascript'>
+      var n = null;
+      console.log(n*32);
+    </pre>
+    <script>
+      /*var n = null;
+      if (!n) {
+        console.log(n*32);
+        console.log(typeof n);
+      };*/
+    </script>
+    <img src="build/images/QQ截图20151027235101.jpg" alt="">
+    <img src="build/images/QQ截图20151028000001.jpg" alt="">
+  </div>
+  <div class="col-sm-12">
+    <h3>变量的域</h3>
+    <p>在所有函数之外声明的变量，叫做全局变量，因为它可能被当作文档中的其他代码所访问。在函数    内部声明的变量，叫做局部变量名，因为它只能在该函数内部访问。</p>
+    <p>Javascript没有语句块作用域;相反，语句块中声明的变量将成为语句块所在代码段的局部变量。   例如，如下的代码将在控制台输出5,因为x的作用域是声明了x的那个函数(或全局范围)   ，而不是if语句块。</p>
+    <pre class='brush: javascript'>
+        if(true){
+          var x = 5;
+        }
+        console.log(x); //5
+    </pre>
+    <h4>变量声明提示</h4>
+    <p>Javascript变量的另一特别之处在于，你可以引用稍后声明的变量，而不会发生异常。这一概念称   为变量声明提升(hoisting);javascript变量感觉上是被“举起”或者提升到了所有函数和语句之前。   但是，未被初始化的变量仍然返回undefined值。</p>
+    <pre class='brush: javascript'>
+      /**
+      * Example 1
+      */
+      console.log(x===undefined); // log "true"
+      var x = 3;
+      
+      
+      /**
+      * Example 2
+      */
+      // will return a value of undefined
+      var myvar = "my value"
+      
+      (function(){  //匿名函数
+        console.log(myvar); //undefined
+        var myvar = "local value";
+      })();
+    </pre>
+    <p>上面的例子2，也可以写作：</p>
+    <pre class='brush: javascript'>
+      /**
+      * Example 1
+      */
+      var x = 3;
+      console.log(x===undefined); // log "true"
+      x = 3;
+      
+      /**
+      * Example 2
+      */
+      // will return a value of undefined
+      var myvar = "my value"
+      
+      (function(){  //匿名函数
+        var myvar;
+        console.log(myvar); //undefined
+        var myvar = "local value";
+      })();
+    </pre>
+    <p>由于存在变量声明提升，一个函数中所有的var语句应尽可能的放在接近函数顶部的地方。这大大   提升了函数代码的清晰度。</p>
+    <h4>全局变量</h4>
+    <p>全局变量实际上是<i>全局对象的</i>属性。在网页中，（译注：缺省的）全局对象是window，所    以你可用形如window.variable的语法来设置和访问全局变量。</p>
+    <p>因此，你可以通过指定window或frame的名字，从一个window或frame访问另一个window或frame   中声明的变量。例如，设想一个叫phoneNumber的变量在文档FRAMESET里被声明，你可以在子框架里   用parent.phoneNumber来引用它。</p>
+    <h4>常量</h4>
+    <p>你可以用关键字const创建一个只读的常量。常量标识符的命令规则和变量的相同：必须以字母、下   划线或美元符号开头并可以包含有字母、数字、下划线。</p>
+    <pre class="brush: javascript">const prefix = '212';</pre>
+  </div>
+
+  <div class="col-sm-12">
+    <p>常量不可以通过赋值改变其值，也不可以在脚本运行时候重新声明。</p>
+    <p>常量，包括全局常量，都必须带const关键字，除此之外，常量的作用域规则与变量相同。若const   关键字被省略了，该标识符将被视为变量。</p>
+    <p>在同一作用域中，不能用与变量或函数同样的名字来命名常量。例如：</p>
+    <pre class="brush: javascript">
+      // THIS WILL CAUSE AN ERROR
+      function f() {};
+      const f = 5;
+      
+      // THIS WILL CAUSE AN ERROR
+      function f(){
+        
+      }
+    </pre>
+    <h4>关于对象的创建</h4>
+    <p>关于创建对象的两种方法</p>
+    <pre class="brush: javascript">
+      var obj = new object();
+    </pre>
+    <p>和：</p>
+    <pre class="brush: javascript">
+      var obj =  {};
+    </pre>
+    <p>这两种方法在语义上是相同的。第二种更方便的方法叫做“对象字面量（object     literal）”法。这种也是JSON格式的核心语法，一般我们优先选择第二种方法。</p>
+    <p>"对象字面量"也可以用来在对象实例中定义一个对象：</p>
+    <pre class="brush: javascript">
+      var obj = {
+        name: "Carrot",
+        "for": "Max",
+        details: {
+          color: "orange",
+          size: 12,
+        },
+      }
+    </pre>
+    <p>对象的属性也可以通过链式（chain）表示方法进行访问：</p>
+    <pre class="brush: javascript">
+      obj.details.color; //orange
+      obj['details']['size']; //12
+    </pre>
+    <p>下面的例子创建了一个对象原型，Person，和这个原型的实例，You。</p>
+    <pre class="brush: javascript">
+      function Person(name,age){
+        this.name = name;
+        this.age = age;
+      }
+
+      //定义一个对象
+      var You = new Person("You" , 24);
+      // 我们创建了一个新的Person，名称是 "You"
+      // ("You" 是第一个参数，24 是第二个参数..)
+    </pre>
+
+    <p>关于循环</p>
+    <pre class="brush: javascript">
+      var a = [1,1,1,1];
+      /*低效循环*/
+      for(var i = 0 ; i < a.length ; i++) {
+        console.log(i)
+      }
+
+      /*中效循环*/
+      for(var i = 0 , len = a.length ; i < len ; i++) {
+        console.log(i)
+      }
+
+      /*高效循环，但是与前两种有区别，当遇到一个元素为undefined时候，循环结束，这个技巧只能    当你知道数组中不含假元素（如undefined）时，循环结束。*/
+      for(var i = 0 , item ; item = a[i++];) {
+        console.log(i)
+      }
+
+      /*另一种循环方式，便利数组的另一种方式是使用for...in循环。注意，如果有人向Array.protot    ype添加了新的属性，使用这样的循环这些属性也同样会被遍历，但并不推荐这种方法：*/
+      
+      var a = [1,1,1,1]
+      for(var i in a){
+        console.log(a[i])
+      }
+    </pre>
     </div>
-    
-    
-    <footer>
-    </footer>
-    
-    <script src="../lib/bootstrap/dist/js/bootstrap.min.js"></script>
+  <div class="col-sm-12">
+    <p>ECMAScript 5 增加了遍历数组的另一种方法 foreach():</p>
+    <pre class="brush: javascript">
+      ["dog", "cat", "hen"].forEach(function(currentValue, index, array) {
+        // Do soomething with currentValue or array[index]
+      });
+    </pre>
+    <h4>函数</h4>
+    <p>学习javascript最重要的是要去理解对象和函数两个部分。最简单的函数就像下面这个这么简单：   </p>
+    <pre class="brush: javascript">
+      function add(x,y){
+        var total = x + y;
+        return total;
+      }
+    </pre>
+    <p>这个例子包括你需要了解的关于基本函数的所有部分。一个javascript函数可以包含0个或多个已   命名的变量。函数体中的表达式数量也没有限制。你可以声明函数自己的局部变量。return语句在返回  一个值并结束函数。如果没有使用return语句，或者一个没有值得return语句，javascript会返回un   defined。</p>
+    <p>已命名的参数更像是一个指示而没有其他作用。如果调用函数没有提供足够的参数，缺少的参数会    被undefined替代。</p>
+    <pre class="brush: javascript">
+      add(); //NaN
+      // 不能在 undefined 对象上进行加法操作
+    </pre>
+    <p>你还可以传入多余函数本身需要参数个数的参数：</p>
+    <pre class="brush: javascript">
+      add(2,3,4); // 5
+      // 将前面两个值相加，4被忽略了
+    </pre>
+    <p>这个看上去有点蠢。函数实际上是访问了函数体中一个名为 arguments 的内部对象，这个对象就   如同一个类似于数组的对象一样，包括了所有被传入的参数。让我们重写上面的函数，使它可以接收任   意个数的参数：</p>
+    <pre class="brush: javascript">
+      function add(){
+        var sum = 0;
+        for (var i = 0, j = arguments.length; i < j ; i++){
+          sum += arguments[i];
+        }
+        return sum;
+      }
+
+      add(2,3,4,5);
+    </pre>
+    <h4>匿名函数</h4>
+    <pre class="brush: javascript">
+      var avg = function() {
+        var sum = 0;
+        for (var i = 0 , j = arguments.length ; i < j.length; i++) {
+          sum += arguments[i];
+        };
+        return sum / arguments.length;
+      }
+      console.log(avg([2,3,4,4]));
+    <h4>匿名函数之有趣的技巧</h4>
+    <pre class="brush: javascript">
+      var a = 1;
+      var b = 2;
+      (function(){
+        var b = 3;
+        a += b;
+      })();
+      console.log(a); //4
+      console.log(b); //2
+    <h4>递归函数</h4>
+    <p>javascript允许以递归方式调用函数。递归在处理树形结构（比如浏览器DOM）时非常有用。</p>
+    <pre class="brush: javascript">
+      function countchars(elm) {
+        if (elm.nodeType == 3) {
+          return elm.nodeValue.length;
+        }
+        var count = 0;
+        for (var i = 0, child; child = elm.childNodes[i]; i++) {
+          count += countchars(child);
+        };
+        return count;
+      }
+    </pre>
+    <p>这里需要说明一个潜在问题--既然匿名函数没有名字，那么该怎么递归调用它呢？在这一点上，ja    vascript允许你命名这个函数表达式。你可以命名立即调用函数表达式（IIFES--Immediately    Invoked Function Expressions）,如下所示：</p>
+    <pre class="brush: javascript">
+      var charsInBody = (function counter(elm) {
+        if (elm.nodeType == 3) { //文本节点
+          return elm.nodeValue.length;
+        }
+        var count = 0;
+        for (var i = 0, child; child = elm.childNodes[i]; i++) {
+          count += counter(child);
+        }
+        return count;
+      })(document.body);
+    </pre>
+  </div>
+
+  <div class="col-sm-12">
+    <h3>关于canvas的应用</h3>
+    <p>canvas属于html5里面最强大的元素。canvas，顾名思义就是指的画板，运用canvas+javascrip   t，可以绘制出一片美丽的星空,下面首先我先做一个demo吧，下面的demo是最基本直线绘制。</p>
+    <canvas id="canvas" style="border:1px solid #aaa;display:block;margin:50px auto;"   ></canvas>
+    <script>
+      function canvas_func(){
+        var canvas = document.getElementById("canvas");
+        canvas.width = 800;
+        canvas.height = 800;
+        var context = canvas.getContext("2d");
+        context.lineWidth=10;
+        context.beginPath();
+        context.moveTo(100,100);
+        context.lineTo(400,400);
+        context.lineTo(100,700);
+        context.strokeStyle = "red";
+        context.stroke();
+        context.closePath();
+        context.beginPath();
+        context.moveTo(200,100);
+        context.lineTo(500,400);
+        context.lineTo(200,700);
+        context.strokeStyle = "green";
+        context.stroke();
+        context.closePath();
+        context.beginPath();
+        context.moveTo(300,100);
+        context.lineTo(600,400);
+        context.lineTo(300,700);
+        context.strokeStyle = "blue";
+        context.stroke();
+        context.closePath();
+        context.beginPath();
+        context.moveTo(400,100);
+        context.lineTo(700,400);
+        context.lineTo(400,700);
+        context.strokeStyle = "yellow";
+        context.stroke();
+        context.closePath();
+      }
+    </script>
+    <p>首先在HTML页面引入canvas元素！</p>
+    <pre class='brush: javascript'>
+      <canvas id="canvas" style="border:1px solid #aaa;display:block;margin:50px auto   ;"></canvas>
+    </pre>
+  </div>
+  <div class="col-sm-12">
+    <p>然后就需要我们引入js代码</p>
+    <pre class='brush: javascript'>
+      <script>
+        function canvas_func(){
+          var canvas = document.getElementById("canvas");
+          canvas.width = 800;
+          canvas.height = 800;
+          var context = canvas.getContext("2d");
+          context.lineWidth=10;
+          context.beginPath();
+          context.moveTo(100,100);
+          context.lineTo(400,400);
+          context.lineTo(100,700);
+          context.strokeStyle = "red";
+          context.stroke();
+          context.closePath();
+          context.beginPath();
+          context.moveTo(200,100);
+          context.lineTo(500,400);
+          context.lineTo(200,700);
+          context.strokeStyle = "green";
+          context.stroke();
+          context.closePath();
+          context.beginPath();
+          context.moveTo(300,100);
+          context.lineTo(600,400);
+          context.lineTo(300,700);
+          context.strokeStyle = "blue";
+          context.stroke();
+          context.closePath();
+          context.beginPath();
+          context.moveTo(400,100);
+          context.lineTo(700,400);
+          context.lineTo(400,700);
+          context.strokeStyle = "yellow";
+          context.stroke();
+          context.closePath();
+        }
+      </script>
+    </pre>
+  </div>
+</div>
