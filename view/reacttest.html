@@ -34,7 +34,7 @@
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
               <li><a href="intro.html">简历</a></li>
-              <li><a href="#" onclick="return false">OK,Through the hurt and pain ,i'll never use angualr1.5 + angular-ui-router,because the js innerHTML which creat by angular-ui-router doesn't work!</a></li>
+              <li><a target="_blank" href="http://bbs.csdn.net/topics/390987933">OK,Through the hurt and pain ,i'll never use angualr1.X + ui-router,because the js embeded to the HTML page which created by angular-ui-router doesn't work!</a></li>
             </ul>
           </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
@@ -966,9 +966,132 @@
   					)
   				}
   			</pre>
+  			<p>他也经常被用来给一些大的表达式，尽管他明显小于接下来的</p>
+  			<pre class="brush:applescript">
+  				render(){
+  					const isLoggedIn=this.state.isLoggedIn;
+  					return (
+						<div>
+							{isLoggedIn ?(
+								<LogoutButton onClick={this.handleLogoutClick}/>
+							):(
+								<LogoutButton onClick={this.handleLoginClick}/>
+							)}
+						</div>
+  					)
+  				}
+  			</pre>
+  			<p>就像在js里面，这取决于你选择一个适当的风格基于，基于你和你的团队考虑让他更具可读性。也要记得，无论条件变得过于复杂，这可能是一个好时机来精炼一个函数。</p>
+  			<h4>Preventing组件渲染</h4>
+  			<p>在极少数情况，你可能想要一个组件隐藏他自己，甚至他是被另一个组件渲染，来实现这个可以通过返回<code>null</code>替代他的渲染输出。</p>
+  			<p>在下面这个例子，<code>&lt;WarningBanner /></code>是被渲染，取决于这个prop调用的<code>warn</code>值，如果这个prop的值是<code>false</code>,那么组件不会被渲染。</p>
+  			<pre class="brush:applescript">
+  				function WarningBanner(props){
+  					if(!props.warn){
+  						return null;
+  					}
+  					return(
+						<div className="warning">
+							Warning!
+						</div>
+  					)
+  				}
+
+  				class Page extends React.Component{
+  					constructor(props){
+  						super(props);
+  						this.state={showWarning:true}
+  						this.handleToggleClick = this.handleToggleClick.bind(this)
+  					}
+  					handleToggleClick(){
+  						this.setState(prevState =>({
+  							showWarning:!prevState.showWarning
+  						}))
+  					}
+  					render(){
+  						return(
+							<div>
+								<WarningBanner warn={this.state.showWarning} />
+								<button onClick={this.handleToggleClick}>
+									{this.state.showWarning ? 'Hide' : 'Show'}
+								</button>
+							</div>
+  						)
+  					}
+  					ReactDOM.render(
+						<Page />
+						,document.getElementById('root')
+  					)
+  				}
+  			</pre>
+  			<p>返回<code>null</code>,来自组建的<code>render</code>方法不影响组件的生命周期方法。例如<code>componentWillUpdate</code>和<code>componentDidUpdate</code>仍被调用。</p>
+  		</div>
+  		<div class="col-sm-12">
+  			<h3>列表和键值</h3>
+  			<p>首先，让我们回顾，你如何转换列表到js里面</p>
+  			<p>下面代码，我们用<code>map()</code>函数来吧一个数组<code>numbers</code>并把他的值双倍。我们加入新数组，通过<code>map()</code>讲新数组返回给<code>doubled</code>并且<code>console.log</code>他。</p>
+  			<pre class="brush:applescript">
+  				const numbers = [1,2,3,4,5];
+  				const doubled = number.map((number) => number*2);
+  				console.log(doubled);
+  			</pre>
+  			<p>这代码会输出<code>[2,4,6,8,10]</code></p>
+  			<p>在React里面，将数组转化成元素列表是等价转换。</p>
+  			<h4>渲染多个组件</h4>
+  			<p>你可以建立一个元素收集器并且用{}将他们包括在JSX里面</p>
+  			<p>下面，我们循环<code>numbers</code>数组，通过js <code>map()</code>函数，我们可以返回一个<code>&lt;li></code>元素，给每个数组，最终，我们将会分配这些数组给<code>listItems</code>:</p>
+  			<pre class="brush:applescript">
+  				const numbers = [1,2,3,4,5];
+  				const listItems = numbers.map((number) => 
+					<li>{number}</li>
+  				);
+  				ReactDOM.render(
+					<ul>{listItems}</ul>,
+					document.getElementById('root')
+  				);
+  			</pre>
+			<p>这个代码会显示1到5</p>
+			<h4>基础列表组件</h4>
+			<p>经常，你可能会把列表渲染到一个组件上面。</p>
+			<p>我们可以重构上一个例子，通过一个组件，接受一个数组<code>numbers</code>并且输出一个无序列表元素。</p>
+			<pre class="brush:applescript">
+				function NumberList(props){
+					const numberts = props.numbers;
+					const listItems = numbers.map((number) =>
+						<li>{number}</li>
+					);
+					return (
+						<ul>{listItems}</ul>
+					);
+				}
+				const numbers = [1,2,3,4,5];
+				ReactDOM.render(
+					<NumberLish number={numbers} />,
+					document.getElementById('root')
+				);
+			</pre>
+			<p>当你运行这个代码，你将会得到一个警告，一个兼职应该提供给这个列表项。一个'Key'兼职是一个特殊的字符串属性，你应该包括，每当创建一个列表元素，我们将会讨论，为什么这个这个重要，在下一个章节。</p>
+			<p>让我们加入一个<code>key</code>到我们列表项目通过<code>numbers.map()</code>,并且修复这个丢失键值的错误</p>
+			<pre class="brush:applescript">
+				function NumberList(props){
+					const numbers = props.numbers;
+					const listItems = numbers.map((number) =>
+						<li key={number.toString()}>
+							{number}
+						</li>
+					);
+					return (
+						<ul>{listItems}</ul>
+					);
+				}
+				const numbers = [1,2,3,4,5];
+				ReactDOM.render(
+					&lt;NumberList numbers = {numbers} />,
+					document.getElementById('root')
+				);
+			</pre>
   		</div>
 	</div>
-
     <script src="../lib/jquery/dist/jquery.min.js"></script>
     <script src="../lib/bootstrap/dist/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../lib/SyntaxHighlighter/scripts/XRegExp.js"></script>
