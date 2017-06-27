@@ -1269,7 +1269,7 @@
 				)
 			</pre>
 			<p>JSX允许嵌入任何表达式在花括号中，所以我们可以内联<code>map()</code>的结果：</p>
-			<pre>
+			<pre class="brush:applescript">
 				function NumberList(props){
 					const numbers = props.numbers;
 					return (
@@ -1283,6 +1283,329 @@
 			</pre>
 			<p>在<a href="https://codepen.io/gaearon/pen/BLvYrB?editors=0010" target="_blank">CodePen</a>里面试试吧！</p>
 			<p>有时候，这可以是更加清晰的代码，但样式也可能被滥用，就像在js里面，这取决于你的决定是否为了可读性而提取一个变量。记住，如果map()的主体是嵌套的，这可能就需要去提取一个组件了。</p>
+  		</div>
+  		<div class="col-sm-12">
+  			<h3>Forms</h3>
+  			<p>in React,HTML form元素和HTML的其他元素相比，工作方式略有不同，应为表格元素天然的保存一些internal状态，例如，下面这个表格就是为了HTML接受一个单一的名字。</p>
+  			<pre class="brush:applescript">
+  				<form>
+  					<label>
+  						Name:
+  						<input type="text" name="name">
+  					</label>
+  					<input type="submit" value="Submit">
+  				</form>
+  			</pre>
+  			<p>当用户提交信息的时候，这个表格有默认的浏览器行为来跳到新页面。如果你想要在React里面也有这个行为，他只是运行。但是在大多数例子里面。如果让js函数来处理表单提交，并且接受用户输入的数据，这是很方便的。标准方式来获取这个可以通过一个技巧“控制组件”</p>
+  			<h4>受控的组件</h4>
+  			<p>在HTML里面，表单元素例如<code>&lt;input></code><code>&lt;textarea></code>和<code>&lt;select></code>经常维护他们自己的状态并且基于用户输入来更新。in react，可变的状态通常保存在组件的state属性里面，并且只能用<code>setState()</code>来更新。</p>
+  			<p>我们可以将两者结合起来，使React state成为“单一来源的真理”。所以，React组件渲染一个表格同时也控制用户表格输入。一个输入表格元素的值同时也被react控制着，这种方式叫做“controlled component”。</p>
+  			<p>例如。如果你想使得上一个例子输出名字，当用户提交的时候。我们可以写表格，按照一个控制组件来写。</p>
+  			<pre class="brush:applescript">
+  				calss NmaeForm extends React.Component {
+  					constructor(props){
+  						super(props);
+  						this.state={value:''}
+  						this.handleChange = this.handleChange.bind(this);
+  						this.handleSubmit = this.handleSubmit.bind(this);
+  					}
+  					handleChange(event){
+  						this.setState({value:event.target.value});
+  					}
+  					handleSubmit(event){
+  						alert('A name was submit: '+this.state.value);
+  						event.preventDefault()
+  					}
+  					render(){
+  						return (
+							<form onSubmit={this.handleSubmit}>
+								<label>
+									Name:
+									<input type="text" value={this.state.value} onChange={this.handleChange}>
+								</label>
+								<input type="submit" value="Submit" />
+							</form>
+  						)
+  					}
+  				}
+  			</pre>
+  			<p>直到<code>value</code>属性被设置在我们的表格元素中，它显示的值永远是<code>this.state.value</code>，使得React状态准确。直到<code>handleChange</code>运行，使得每一个键盘敲击都会更新React状态，这个显示的值会按照用户种类进行更新。</p>
+  			<p>with一个被控制的组件，每一个state的变化都会有一个被关联的函数处理器。这使得它更简单的修改或者验证用户输出。举栗，如果我们想强制用户大写字母，我们可以将<code>handleChange</code>这样写:</p>
+  			<pre class="brush:applescript">
+  				handleChange(event){
+  					this.setState({value:e.target.value.toUpperCase()});
+  				}
+  			</pre>
+  			<h4>textarea标签</h4>
+  			<p>在HTML，一个<code>&lt;textarea></code>这样写:</p>
+  			<pre class="brush:applescript">
+  				<textarea>Hello there, this is some text in a text area</textarea>
+  			</pre>
+			<p>in React，一个<code>&lt;textarea></code>用一个<code>value</code>属性代替。这样，一个表单用一个<code>&lt;textarea></code>，可以写成非常相似于一个表单，这样使用单行输出。</p>
+			<pre class="brush:applescript">
+  				calss NmaeForm extends React.Component {
+  					constructor(props){
+  						super(props);
+  						this.state={value:'please write an essay about your favorite DOM element!'};
+  						this.handleChange = this.handleChange.bind(this);
+  						this.handleSubmit = this.handleSubmit.bind(this);
+  					}
+  					handleChange(event){
+  						this.setState({value:event.target.value});
+  					}
+  					handleSubmit(event){
+  						alert('A name was submit: '+this.state.value);
+  						event.preventDefault()
+  					}
+  					render(){
+  						return (
+							<form onSubmit={this.handleSubmit}>
+								<label>
+									Name:
+									&lt;textarea value={this.state.value} onChange={this.handleChange}/>
+								</label>
+								<input type="submit" value="Submit" />
+							</form>
+  						)
+  					}
+  				}
+  			</pre>
+  			<p>注意了，<code>this.state.value</code>在constructor中初始化，所以里面有一些内容。</p>
+  			<h4>select标签</h4>
+  			<p>在HTML,<code>&lt;select></code>创建了一个下拉列表，</p>
+  			<pre class="brush:applescript">
+  				<select>
+  				  <option value="grapefruit">Grapefruit</option>
+  				  <option value="lime">Lime</option>
+  				  <option selected value="coconut">Coconut</option>
+  				  <option value="mango">Mango</option>
+  				</select>
+  			</pre>
+  			<p>注意，这个Coconut是最初选项，因为他有<code>selected</code>属性，in React,替代selected属性的是，使用一个<code>value</code>属性在他的根标签，<code>select</code>里面。这样在一个控制组件里面更便捷，因为你只需要更新一个地方。下面代码例子：</p>
+  			<pre class="brush:applescript">
+  				calss FlavorForm extends React.Component {
+  					constructor(props){
+  						super(props);
+  						this.state={value:'coconut'};
+  						this.handleChange = this.handleChange.bind(this);
+  						this.handleSubmit = this.handleSubmit.bind(this);
+  					}
+  					handleChange(event){
+  						this.setState({value:event.target.value});
+  					}
+  					handleSubmit(event){
+  						alert('A name was submit: '+this.state.value);
+  						event.preventDefault()
+  					}
+  					render(){
+  						return (
+							<form onSubmit={this.handleSubmit}>
+								<label>
+									Pick your favorite La Croix flavor:
+									<select value={this.state.value} onChange={this.handleChange}>
+										<option value="grapefruit">Grapefruit</option>
+										<option value="lime">Lime</option>
+										<option value="coconut">Coconut</option>
+										<option value="mango">Mango</option>
+									</select>
+								</label>
+								<input type="submit" value="Submit" />
+							</form>
+  						)
+  					}
+  				}
+  			</pre>
+  			<p>你可以在<a href="https://codepen.io/gaearon/pen/JbbEzX?editors=0010">CodePen</a>里面尝试一下</p>
+  			<p>以上，这使得<code>&lt;input type="text"></code><code>&lt;textarea/></code><code>&lt;l>select</code>全部都工作很相似，他们都接受一个<code>value</code>属性，你可以用它来实现一个控制组件。</p>
+  			<h4>处理多个inputs</h4>
+  			<p>当你需要处理多个被控制的<code>input</code>元素，你可以加入一个<code>name</code>属性给每个元素，并且让函数处理器来基于<code>event.target.name</code>来做一些事情。</p>
+  			<pre class="brush:applescript">
+  				class EssayForm extends React.Component {
+  				  constructor(props) {
+  				    super(props);
+  				    this.state = {
+  				    	isGoing: true,
+  				    	numberOfGuests: 2
+  				    };
+  				    this.handleChange = this.handleChange.bind(this);
+  				  }
+  				  handleChange(event) {
+  				  	const target = event.target;
+  				  	const value = target.type === 'checkbox' ? target.check : target.value;
+  				  	const name = target.name;
+  				    this.setState({[name]: value});
+  				  }
+  				  render() {
+  				    return (
+  				      <form>
+  				        <label>
+  				          is going:
+  				          <input 
+  				          	name="isGoing" 
+  				          	type="checkbox" 
+  				          	checked={this.state.isGoing}
+  				          	onChange={this.handleChange}/>
+  				        </label>
+  				        <br/>
+  				        <label>
+  				          Number of guests:
+  				          <input 
+  				          	name="numberOfGuests" 
+  				          	type="number" 
+  				          	checked={this.state.numberOfGuests}
+  				          	onChange={this.handleChange}/>
+  				        </label>
+  				      </form>
+  				    );
+  				  }
+  				}
+  			</pre>
+  			<p>注意，我们是如何使用ES6的<a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Object_initializer#Computed_property_names">computed property name</a>语法来更新state的键值，并相应的给定输出名称：</p>
+  			<pre class="brush:applescript">
+  				this.setState({
+  					[name]:value
+  				})
+  			</pre>
+  			<p>same to es5 below</p>
+  			<pre class="brush:applescript">
+  				var partiaState = {};
+  				partiaState[name] = value;
+  				this.setState(partiaState);
+  			</pre>
+  			<p>also,现在<code>setState()</code>自动的合并一部分state到当前state，我们只需要调用改变的部分。</p>
+  			<h4>Controlled Component备胎</h4>
+  			<p>有时候用控制组件很烦，因为你需要为数据更改来编写一个事件处理并且通过React组件管理全部的输入state。更烦的是，当你给react转换一个预存代码库给React,或者整合一个React应用通过一个没有React的library。这种情况下，你可能会想要试试uncontrolled components,一个输入表格的备用技术。</p>
+  		</div>
+  		<div class="col-sm-12">
+  			<h3>state状态提升</h3>
+  			<p>经常，多个组件需要映射同一变化的数据，我们考虑提升共享状态，给他们最近的共同祖先，让我们看看这是如何工作的。</p>
+  			<p>在这一章节，我们将会创造一个温度计算器来计算在我们给定温度下，水是否会沸腾。</p>
+  			<p>我们将会通过一个组件<code>BoilingVerdict</code>开始.它接受<code>celsius</code>温度作为一个传递的参数，并且打印它是否足够让水沸腾。</p>
+  			<pre class="brush:applescript">
+  				function BoilingVerdict(props){
+  					if(props.celsius >= 100){
+  						return <p>The water would boil.</p>
+  					}
+  					return <p>The water would not boil.</p>
+  				}
+  			</pre>
+  			<p>接下来，我们将会创造一个组件<code>BoilingVerdict</code>。它渲染一个<code>&lt;input/></code>让你输入温度，并且将值保存在<code>this.state.temperature</code>.</p>
+  			<p>另外，它为当前输出值渲染<code>BoilingVerdict</code>.</p>
+  			<pre class="brush:applescript">
+  				class Calculator extends React.Component{
+  					constructor(props){
+  						super(props);
+  						this.handleChange = this.handleChange.bind(this);
+  						this.state = {tempeature:''}
+  					}
+  					handleChange(e){
+  						this.setState({temperature:e.target.value})
+  					}
+  					render(){
+  						const temperature = this.state.temperature;
+  						return(
+							<fieldset>
+								<legend>Enter temperature in Celsius:</legend>
+								<input
+									value={temperature}
+									onChange={this.handleChange}
+								/>
+								&lt;BoilingVerdict
+									celsius={parseFloat(tempareture)}/>
+							</fieldset>
+  						)
+  					}
+  				}
+  			</pre>
+			<h3>增加第二个input</h3>
+			<p>我们新的需求是这样，另外增加一个摄氏度的输入框，我们提供一个华氏度输入框。他们是保持同步更新的。</p>
+			<p>我们可以从<code>Calculator</code>中提取一个<code>TemparetureInput</code>组件，我们还增加一个新的<code>scale</code>给他，这既可以是'c'也可以是'f':</p>
+			<pre class="brush:applescript">
+				const scaleName = {
+					c:'Celsius',
+					f:'Fahrenheit'
+				}
+				class TemparetureInput extends React.Component{
+					constructor(props){
+						super(props);
+						this.handleChange = this.handleChange.bind(this);
+						this.state={temperature:''};
+					}
+					handleChange(e){
+						this.setState({temperature: e.target.value});
+					}
+					render(){
+						const temperature = this.state.temperature;
+						const scale = this.props.scale;
+						return(
+							<fieldset>
+								<legend>Enter temperature in {scaleName[scale]}:</legend>
+								<input value = {temperature} 
+									onChange = {this.handleChange}/>
+							</fieldset>
+						)
+					}
+				}
+			</pre>
+			<p>我们可以现在改变<code>Calculate</code>来渲染两个分离的温度输出。</p>
+			<pre class="brush:applescript">
+				class Calculator extends React.Component{
+					render(){
+						return(
+							<div>
+								<TemperatureInput scale="c"/>
+								<TemperatureInput scale="f"/>
+							</div>
+						)
+					}
+				}
+			</pre>
+			<p>你可以在<a href="http://codepen.io/valscion/pen/GWKbao?editors=0010">CodePen</a>里面尝试一下。</p>
+			<p>我们有两个input，现在，但是，当你登入任何一个input的时候，另外一个不运行，这与我们需求相矛盾：我希望他们保持同步：</p>
+			<p>我们也不希望显示这个<code>BoilingVerdict</code>,which come from <code>Calculator</code>,这个计算器组件不知道当前温度，因为它发生在<code>TemperatureInput</code>里面。</p>
+			<h4>写转换函数</h4>
+			<p>首先，我们将会写两个函数将摄氏度与温度之间相互转换，并返回；</p>
+			<pre class="brush:applescript">
+				function toCelsius(fahrenheit){
+					return (fahrenheit-32)*5/9;
+				}
+				function toFahrenheit(celsius){
+					return (fahrenheit*9/5)+32;
+				}
+			</pre>
+			<p>这两个函数转换数字，我们将会写另一个函数，这个函数需要一个字符串<code>temperature</code>,并且转换一个函数当作一个内置对象<code>arguments</code>,并且返回一个字符串。我们将会用它来计算出一个input的值基于另一个input。</p>
+			<p>它返回一个空的字符串在一个无效的<code>temperature</code>,并且它保持输出小数后面三位数。</p>
+			<pre class="brush:applescript">
+				function tryConvert (temperature,convert){
+					const input = parseFloor(temperature);
+					if(Number.isNaN(input)){
+						return '';
+					}
+					const output = convert(input);
+					const rounded = Math.round(output * 1000)/1000;
+					return rounded.toString();
+				}
+			</pre>
+			<p>例如，<code>tryConvert('abc',toCelsius)</code>返回一个空的字符串，然而<code>tryConvert('10.22',toFahrenheit)</code>返回<code>'50.396'</code></p>
+			<h4>状态提升(Lifting State Up)</h4>
+			<p>目前，俩个<code>TemperatureInput</code>组件独立的保存他们的值在本地状态。</p>
+			<pre class="brush:applescript">
+				class TemperatureInput extends React.Component{
+					consturctor(props){
+						super(props);
+						this.handleChange = this. handleChange.bind(this);
+						this.state = {temperature:''};
+					}
+					handleChange(e){
+						this.setState({temperature:e.target.value});
+					}
+					render(){
+						const temperature = this.state.temperature;
+					}
+				}
+			</pre>
+			<p>然而，我们想要这两个input同步，我们应该更新摄氏度输出，并且华氏度输出应该反应转换温度，反之亦然。</p>
+			<p>在React里面，共享状态可以通过提升他到最近的被需要的父元素来完成。这个就叫做状态提升。我们将会从<code>TemperatureInput</code>组件中移除本地状态，并且将他移入<code>Calcultor</code>里面。如果<code>Calcultor</code>拥有共享的状态，这就变成真理之源为当前温度提供到两个inputs。</p>
   		</div>
 	</div>
     <script src="../lib/jquery/dist/jquery.min.js"></script>
