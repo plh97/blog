@@ -35,7 +35,7 @@
             <ul class="nav navbar-nav">
             	<li>
             		<a href="#" onclick="return false;" style="padding-top: 8px;padding-bottom: 4px;">
-    					<audio controls="controls" id="audio" src="../mp3/callstar.mp3" autoplay loop="loop" perload="meta"></audio>
+    					<audio controls="controls" id="audio" src="../mp3/flymetothemoon.mp3" loop="loop" perload="meta"></audio>
             		</a>
             	</li>
               <li><a href="intro.html">简历</a></li>
@@ -1731,114 +1731,256 @@
 			<p>那英语学来有什么用，为了看代码里面那些for,in,if????所以奉劝一句，不想翻墙，那么英语你也没有必要学了。u can't make sense of learning english。</p>
 			<p>我想翻墙看得懂国外的资源视频，所以我学英语，多么简单的逻辑，但是在国内学英语，这逻辑变得极为奢侈。</p>
   		</div>
-			<div class="col-sm-12">
-				<h3>组件与继承</h3>
-				<p>React有强大的构成模型，并且我们考虑使用，构成替代继承来复用组件。</p>
-				<p>在这一章，我们将会考虑一些问题，开发者刚开始用react经常遇到继承，并且展示我们如何通过composition来解决这些的问题。</p>
-				<h4>Comtainment</h4>
-				<p>一些组件不会提前知道他们的子元素，这在<code>sidebar</code>和<code>Dialog</code>中很常见，代表通用盒子</p>
-				<p>我们考虑这样的组件用特殊的子元素，</p>
-				<pre class="brush:applescript">
-					function FancyBorder (props){
-						return (
-							<div className={'FancyBorder FancyBorder-'+props.color}>
-								{props.children}
+		<div class="col-sm-12">
+			<h3>组件与继承</h3>
+			<p>React有强大的构成模型，并且我们考虑使用，构成替代继承来复用组件。</p>
+			<p>在这一章，我们将会考虑一些问题，开发者刚开始用react经常遇到继承，并且展示我们如何通过composition来解决这些的问题。</p>
+			<h4>Comtainment</h4>
+			<p>一些组件不会提前知道他们的子元素，这在<code>sidebar</code>和<code>Dialog</code>中很常见，代表通用盒子</p>
+			<p>我们考虑这样的组件用特殊的子元素，</p>
+			<pre class="brush:applescript">
+				function FancyBorder (props){
+					return (
+						<div className={'FancyBorder FancyBorder-'+props.color}>
+							{props.children}
+						</div>
+					)
+				}
+			</pre>
+			<p>通过嵌套JSX，这可以让其他的组件传递任意个数的子元素：</p>
+			<pre class="brush:applescript">
+				function WelcomeDialog(){
+					return{
+						<FancyBorder color='blue'>
+							<h1 className="Dialog-title">
+								Welcome
+							</h1>
+							<p className="Dialog-message">
+								Thanking for visiting our spacecraft!
+							</p>
+						</FancyBorder>
+					}
+				}
+			</pre>
+			<p>所有在<code>&lt;FancyBorder></code>里面的JSX标签都会传递props.children，具体看代码，很浅显，不解释。</p>
+			<p>你也可以这么写</p>
+			<pre class="brush:applescript">
+				function SplitPane(props){
+					return{
+						<div class="SplitPane">
+							<div class="SplitPane-left">
+								{props.left}
 							</div>
-						)
-					}
-				</pre>
-				<p>通过嵌套JSX，这可以让其他的组件传递任意个数的子元素：</p>
-				<pre class="brush:applescript">
-					function WelcomeDialog(){
-						return{
-							<FancyBorder color='blue'>
-								<h1 className="Dialog-title">
-									Welcome
-								</h1>
-								<p className="Dialog-message">
-									Thanking for visiting our spacecraft!
-								</p>
-							</FancyBorder>
-						}
-					}
-				</pre>
-				<p>所有在<code>&lt;FancyBorder></code>里面的JSX标签都会传递props.children，具体看代码，很浅显，不解释。</p>
-				<p>你也可以这么写</p>
-				<pre class="brush:applescript">
-					function SplitPane(props){
-						return{
-							<div class="SplitPane">
-								<div class="SplitPane-left">
-									{props.left}
-								</div>
-								<div class="SplitPane-right">
-									{props.right}
-								</div>
+							<div class="SplitPane-right">
+								{props.right}
 							</div>
-						}
+						</div>
 					}
-					function App(props){
+				}
+				function App(props){
+					return(
+						<!--//are author foolish to create this useless things?-->
+						<SplitPane left={<contact/>} right={<chat/>}/>
+					)
+				}
+			</pre>
+			<p>像COntact,Chat这样的元素仅仅只是对象，所以你可以传递他们通过props就像其他data那样。</p>
+			<h4>专业化用法？</h4>
+			<p>有时候我们考虑组件的特殊情况对于其他组件而言，例如，我们可能会用WlcomeDialog是Dialog的特例。</p>
+			<p>在react里面，下面也是用组合实现的，一个特殊组件渲染一个通用组件并且通过props来配置。</p>
+			<pre class="brush:applescript">
+				function Dialog(props){
+					return(
+						<FancyBorder color="blue">
+							<h1 className="Dialog-title">
+								{props.title}
+							</h1>
+							<p className="Dialog-message">
+								{props.message}
+							</p>
+						</FancyBorder>
+					);
+				}
+				function WelcomeDialog(){
+					return(
+						<Dialog title="Welcome"
+							message='thanks for your visiting'/>
+					)
+				}
+			</pre>
+			<p>组合对于定义为class的组件同样适用</p>
+			<pre class="brush:applescript">
+				function Dialog(props){
+					return(
+						<FancyBorder color="blue">
+							<h1 className="Dialog-title">
+								{props.title}
+							</h1>
+							<p className="Dialog-message">
+								{props.message}
+							</p>
+							{props.children}
+						</FancyBorder>
+					)
+				}
+				class SignUpDialog extends ReactDOM.Component{
+					constructor(props){
+						super(props);
+						this.handleChange = this.handleChange.bind(this)
+						this.handleSignUp = this.handleSignUp.bind(this)
+						this.state = {login:''}
+					}
+					render(){
 						return(
-							<!--//are author foolish to create this useless things?-->
-							<SplitPane left={<contact/>} right={<chat/>}/>
+							<Dialog title='Mars Exploration Program' message='How should we refer to you?'>
+								<input value={this.state.login} onChange={this.handleChange} />
+								<button onClick={this.handleSignUp}>
+									Sign My Up!
+								</button>
+							</Dialog>
 						)
 					}
-				</pre>
-				<p>像COntact,Chat这样的元素仅仅只是对象，所以你可以传递他们通过props就像其他data那样。</p>
-				<h4>专业化用法？</h4>
-				<p>有时候我们考虑组件的特殊情况对于其他组件而言，例如，我们可能会用WlcomeDialog是Dialog的特例。</p>
-				<p>在react里面，下面也是用组合实现的，一个特殊组件渲染一个通用组件并且通过props来配置。</p>
-				<pre class="brush:applescript">
-					function Dialog(props){
+					handleChange(e){
+						this.setState({login:e.target.value})
+					}
+					handleSignUp(e){
+						alert('Welcome aboard， $'{this.state.login})
+					}
+				}
+			</pre>
+			<h3>那么继承又是如何呢？</h3>
+			<p>在脸书，我们使用react上千的组件，然而我们还没有找到案例，我们可以考虑创造组件继承阶层。</p>
+			<p>props和构成给了你灵活性，你所需要定做组件的外观和行为，用一种明确的可靠地方式。记住组件可以任意props，包括原始的value，React元素，或者函数。</p>
+			<p>如果你想要在组件之间使用没有UI功能，我们建议提取他到一个分离的js模块，组件会导入他，用他的函数，对象，类，而不用扩展他。</p>
+		</div>
+		<div class="col-sm-12">
+			<h3>思考React</h3>
+			<p>React是，在我们的观点中，第一方式要建立一个快大的webapp通过js来写，他在facebook和instagram中对我们影响非常大。</p>
+			<p>React的一个最伟大的部分就是是你考虑关于app正如你说建造的。在这篇文中，我们将会带你建立一个可搜索的产品数据。</p>
+			<h4>通过一个模仿开始</h4>
+			<p>想象我们已经有一个json api，和一个设计稿，样子如下。</p>
+			<img src="https://facebook.github.io/react/img/blog/thinking-in-react-mock.png">
+			<p>我们的jsonapi输出一些数据，像下面这个样子。</p>
+			<pre class="brush:applescript">
+				[
+				  {category: "Sporting Goods", price: "$49.99", stocked: true, name: "Football"},
+				  {category: "Sporting Goods", price: "$9.99", stocked: true, name: "Baseball"},
+				  {category: "Sporting Goods", price: "$29.99", stocked: false, name: "Basketball"},
+				  {category: "Electronics", price: "$99.99", stocked: true, name: "iPod Touch"},
+				  {category: "Electronics", price: "$399.99", stocked: false, name: "iPhone 5"},
+				  {category: "Electronics", price: "$199.99", stocked: true, name: "Nexus 7"}
+				];
+			</pre>
+			<h4>第一步：将UI化解成组件层次结构</h4>
+			<p>你所需要做的第一件事情。就是在模拟中给每一个组件(子组件)绘制一个边框，并给他们命名。如果你和设计师一起工作，他们可能已经做完这些了，所以就只需要和他们讨论，他们ps的层次命名可能成为你组件的名字。</p>
+			<p>但是如何才能知道这是他自己的组件呢，如果你需要创建函数或者对象，用相同的技术来决定。一个这样的技术是单一负责责任，这就是为什么一个组件制作好一件事。如果他成熟了，那么应该被分解成更小的组件。因为你经常向用户展示一个json数据模型。你将会发现，如果你的模型建设准确，你的UI(组件结构)将会很好的映射。这个就是因为UI和数据模型倾向于坚持用样的信息结构。这意味着将UI分离成组件常常是微不足道的。只需要将他分解成只表示数据模型的一部分。</p>
+			<img src="https://facebook.github.io/react/img/blog/thinking-in-react-components.png">
+			<p>你将会看到我们有5个组件在你的单页面应用里面。我们将会对每个组件表示的数据结构进行分析。</p>
+			<ol>
+				<li><code>FilterableProductTable</code>(orange):包含这个例子的全部。</li>
+				<li><code>SearchBar</code>(blue):接受全部用户输入。</li>
+				<li><code>ProductTable</code>(green):基于用户输入，显示并且过滤信息收集</li>
+				<li><code>ProductCategoryRow</code>(turquoise):显示每个种类的标题。</li>
+				<li><code>ProductRow</code>(red):为每个产品显示一行。</li>
+			</ol>
+			<p>如果你在看<code>ProducTable</code>，你将会看到顶部表格(包括Name，Price标签)，不是他自己的组件。这是偏好的问题，并且无论哪种方式都是有理由的。例如我们将它作为<code>ProductTable</code>的一部分。因为这是渲染数据收集的一部分，这个是他的责任。然而如果这个头变得复杂(如果我么你要为排序添加可提供的系统)，这绝对是有意义的去做他自己的<code>ProductTableHeader</code>组件.</p>
+			<p>现在我们已经确定了模型中的组件。让我们把它排列成一个层次结构。这个简单。这个模型中，组件出现在另一个组件之内，这个应该作为一个子元素出现，如下层次结构</p>
+			<ul>
+				<li><code>FilterableProductTable</code></li>
+				<ul>
+					<li><code>SearchBar</code></li>
+					<li><code>ProductTable</code></li>
+					<ul>
+						<li><code>ProductCategoryRow</code></li>
+						<li><code>ProductRow</code></li>
+					</ul>
+				</ul>
+			</ul>
+            <h4>第二步，建立React版本的静态页面</h4>
+            <pre class="brush:applescript">
+            	class ProductCategoryRow extends React.Component{
+            		render(){
+						return <tr><th colSpan="2">{this.props.category}</th></tr>
+            		}
+            	}
+
+            	class ProductRow extends React.Component{
+            		render(){
+            			var name = this.props.product.stocked ?
+            				this.props.product.name :
+            				<span style={{color:'red'}}>
+            					{this.props.product.price}
+            				</span>;
+            			return(
+							<tr>
+								<td>{name}</td>
+								<td>{this.props.product.price}</td>
+							</tr>
+            			);
+            		}
+            	}
+
+            	class ProducTable extends React.Component{
+            		render(){
+            			return(
+							<table>
+								<thead>
+									<tr>Name</tr>
+									<tr>Price</tr>
+								</thead>
+								<tbody>{rows}</tbody>
+							</table>
+            			)
+            		}
+            	}
+
+            	class SearchBar extends React.Component{
+            		render(){
 						return(
-							<FancyBorder color="blue">
-								<h1 className="Dialog-title">
-									{props.title}
-								</h1>
-								<p className="Dialog-message">
-									{props.message}
+							<form>
+								<input type="text" placeholder="Search.....">
+								<p>
+									<input type="checkbox" />
+									{' '}
+									only show products in stock
 								</p>
-							</FancyBorder>
-						);
-					}
-					function WelcomeDialog(){
-						return(
-							<Dialog title="Welcome"
-								message='thanks for your visiting'/>
+							</form>
 						)
-					}
-				</pre>
-				<p>组合对于定义为class的组件同样适用</p>
-				<pre class="brush:applescript">
-					function Dialog(props){
-						return(
-							<FancyBorder color="blue">
-								<h1 className="Dialog-title">
-									{props.title}
-								</h1>
-								<p className="Dialog-message">
-									{props.message}
-								</p>
-								{props.children}
-							</FancyBorder>
-						)
-					}
-					class SignUpDialog extends ReactDOM.Component{
-						constructor(props){
-							super(props);
-							this.handleChange = this.handleChange.bind(this)
-							this.handleSignUp = this.handleSignUp.bind(this)
-							this.state = {login:''}
-						}
-					}
-				</pre>
-			</div>
+            		}
+            	}
+
+            	class FilterableProductTable extends React.Component{
+            		render(){
+            			return(
+							<div>
+								&lt;SearchBar />
+								&lt;ProductTable products={this.props.products}/>
+							</div>
+            			)
+            		}
+            	}
+
+				var PRODUCTS = [
+					{category: 'Sporting Goods', price: '$49.99', stocked: true, name: 'Football'},
+					{category: 'Sporting Goods', price: '$9.99', stocked: true, name: 'Baseball'},
+					{category: 'Sporting Goods', price: '$29.99', stocked: false, name: 'Basketball'},
+					{category: 'Electronics', price: '$99.99', stocked: true, name: 'iPod Touch'},
+					{category: 'Electronics', price: '$399.99', stocked: false, name: 'iPhone 5'},
+					{category: 'Electronics', price: '$199.99', stocked: true, name: 'Nexus 7'}
+            	]
+
+            	ReactDOM.render(
+					&lt;FilterableProductTable products={PRODUCTS}/>,
+					document.getElementById('root')
+            	);
+            </pre>
+		</div>
 	</div>
     <script src="../lib/jquery/dist/jquery.min.js"></script>
     <script src="../lib/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="../lib/SyntaxHighlighter/scripts/XRegExp.js"></script>
-    <script type="text/javascript" src="../lib/SyntaxHighlighter/scripts/shCore.js"></script>
-    <script type="text/javascript" src="../lib/SyntaxHighlighter/scripts/shAutoloader.js"></script>
+    <script src="../lib/SyntaxHighlighter/scripts/XRegExp.js"></script>
+    <script src="../lib/SyntaxHighlighter/scripts/shCore.js"></script>
+    <script src="../lib/SyntaxHighlighter/scripts/shAutoloader.js"></script>
     <script> 
       SyntaxHighlighter.autoloader(
         'applescript  		    ../lib/SyntaxHighlighter/scripts/shBrushAppleScript.js',
