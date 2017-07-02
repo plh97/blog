@@ -8,7 +8,7 @@ import Blog1 from './blog/Blog1';
 import Blog2 from './blog/Blog2';
 import ReactAPI from './blog/reactapi';
 import ReactRouterDom from './blog/React-router-dom';
-
+import $ from "jquery";
 
 const Reacts = ({ match }) => (
 	<div>

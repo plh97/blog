@@ -4,8 +4,10 @@
   "description": "this is for write personal blog!",
   "main": "gulpfile.js",
   "dependencies": {
+    "bootstrap": "^3.3.7",
     "highlight.js": "^9.12.0",
     "history": "^1.17.0",
+    "jquery": "^3.2.1",
     "lodash": "^4.17.4",
     "react-highlight": "^0.10.0",
     "react-highlighter": "^0.4.0",
