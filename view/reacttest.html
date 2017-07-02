@@ -2109,7 +2109,7 @@
 				<li>这个公共拥有者组件是<code>FilterableProductTable</code></li>
 				<li>这个概念的意义是过滤文本并且检查状态，可以在<code>FilterableProductTable</code>中生效。</li>
 			</ul>
-			<p>cool，我们决定我们的状态在<code>FilterableProductTable</code>中生效，首先，添加一个例子属性<code>this.state={filterText:'', inStockOnly:false}</code>给组件<code>FilterableProductTable's</code>的<code>constructor</code>来为你的应用初始化state。然后，作为一个props传递filterText和inStockOnly给ProductTable和SearchBar组件。最后，使用这些props来过滤<code>ProductTable</code>组件中的rows，并在SearchBar中设置表单字段值。</p>
+			<p>cool，我们决定我们的状态在<code>FilterableProductTable</code>中生效，首先，添加一个例子属性<code>this.state={filterText:'',inStockOnly:false}</code>给组件<code>FilterableProductTable's</code>的<code>constructor</code>来为你的应用初始化state。然后，作为一个props传递filterText和inStockOnly给ProductTable和SearchBar组件。最后，使用这些props来过滤<code>ProductTable</code>组件中的rows，并在SearchBar中设置表单字段值。</p>
 			<p>你可以开始看看你的app如何运作，用‘ball’来过滤并更新app，你可以看到数据表单准确更新。</p>
 			<pre class="brush:applescript">
 				class ProductCategoryRow extends React.Component {
