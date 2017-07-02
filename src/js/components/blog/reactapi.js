@@ -10,6 +10,9 @@ export default class ReactAPI extends React.Component{
       showLineNumbers: true,
     }
   }
+  componentWillUnmount(){
+    console.log("玩命加载中。。。。")
+  }
   render(){
     const showLineNumbers = this.state.showLineNumbers;
     const language = this.state.language;
@@ -218,14 +221,14 @@ ReactDOM.render(
 <p>你可以在<a href="https://codepen.io/gaearon/pen/YGYmEG?editors=0010">CodePen</a>里面尝试一下。</p>
 <p>让我们大概分析一下，例子中到底发生了什么</p>
 <ol type="1">
-<li>我们调用ReactDOM.render(),里面带有<welcome name="Sara"/>元素</li>
+<li>我们调用ReactDOM.render(),里面带有&lt;welcome name="Sara"/>元素</li>
 <li>React调用welcome组件，并把{`name:'Sara'`}当作props。</li>
-<li>我们的Welcome组件返回一个<h1>hello, Sara</h1>元素作为结果。</li>
-<li>React DOM快速更新DOM来匹配<h1>hello, Sara</h1></li>
+<li>我们的Welcome组件返回一个&lt;h1>hello, Sara&lt;/h1>元素作为结果。</li>
+<li>React DOM快速更新DOM来匹配&lt;h1>hello, Sara&lt;/h1></li>
 </ol>
 <h4>警告：</h4>
 <p>组件名称必须大写开头</p>
-<p>例如<div/>是一个DOM标签,而&lt;Welcome/>是一个组件，并且需要Welcome作用。</p>
+<p>例如&lt;div/>是一个DOM标签,而&lt;Welcome/>是一个组件，并且需要Welcome作用。</p>
 <h4>组件构成</h4>
 <p>组件可以参照其他组件，在输出，这让我们用一样的组件</p>
 <p>例如，我们可以创造一个App组件，他可以在Welcome组件里面渲染很多次。</p>
