@@ -10,9 +10,6 @@ export default class ReactAPI extends React.Component{
       showLineNumbers: true,
     }
   }
-  componentWillUnmount(){
-    console.log("玩命加载中。。。。")
-  }
   render(){
     const showLineNumbers = this.state.showLineNumbers;
     const language = this.state.language;
