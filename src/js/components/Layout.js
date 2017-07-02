@@ -8,27 +8,8 @@ import Blog1 from './blog/Blog1';
 import Blog2 from './blog/Blog2';
 import ReactAPI from './blog/reactapi';
 import ReactRouterDom from './blog/React-router-dom';
-
-
-const Reacts = ({ match }) => (
-	<div>
-		<ul>
-			<li>
-				<Link to={`${match.url}/reactapi`}>
-					React API
-				</Link>
-			</li>
-			<li>
-				<Link to={`${match.url}/react-router-dom`}>
-					React-router-dom
-				</Link>
-			</li>
-		</ul>
-
-		<Route path={`${match.url}/reactapi`} component={ReactAPI}/>
-		<Route path={`${match.url}/react-router-dom`} component={ReactRouterDom}/>
-	</div>
-)
+import { NavDropdown,MenuItem, Button ,Navbar, Nav, NavItem } from 'react-bootstrap';
+import { IndexLinkContainer , LinkContainer } from 'react-router-bootstrap';
 
 export default class Layout extends React.Component{
 	render(){
@@ -36,37 +17,39 @@ export default class Layout extends React.Component{
 			<Router>
 				<div>
 					<header>
-						<nav class="navbar navbar-default">
-							<div class="container">
-								<div class="navbar-header">
-								  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-								    <span class="sr-only">Toggle navigation</span>
-								    <span class="icon-bar"></span>
-								    <span class="icon-bar"></span>
-								    <span class="icon-bar"></span>
-								  </button>
-								  <a class="navbar-brand" href="#">Peng</a>
-								</div>
-								<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-									<ul class="nav navbar-nav">
-										<li><Link to="/">Technology Blog</Link></li>
-										<li><Link to="/blog1">Living Blog</Link></li>
-										<li><Link to="/react">React</Link></li>
-										<li><a href="view/intro.html">简历</a></li>
-										<li><a href="view/2048.html">2048</a></li>
-										<li><a href="view/xxoo.html">xxoo</a></li>
-										<li><a href="zjdesign.html">正觉设计</a></li>
-									</ul>
-								</div>
-							</div>
-						</nav>
+						<Navbar inverse fixedTop>
+							<Navbar.Header>
+								<Navbar.Brand>
+									<a target="_blank" href="https://pengliheng.github.io/view/intro.html">Peng</a>
+								</Navbar.Brand>
+								<Navbar.Toggle />
+							</Navbar.Header>
+							<Navbar.Collapse>
+								<Nav >
+									<IndexLinkContainer to="/">
+										<NavItem eventKey={1}>Technology Blog</NavItem>
+									</IndexLinkContainer>
+									<LinkContainer to="/blog1">
+										<NavItem eventKey={2}>Living Blog</NavItem>
+									</LinkContainer>
+									<NavDropdown eventKey={3} title="React" id="basic-nav-dropdown">
+										<LinkContainer to="/react/reactapi">
+											<NavItem eventKey={3.1}>React</NavItem>
+										</LinkContainer>
+										<MenuItem divider />
+										<LinkContainer to="/react/react-router-dom">
+											<NavItem eventKey={3.2}>react-router-dom</NavItem>
+										</LinkContainer>
+									</NavDropdown>
+									<NavItem target="_blank" eventKey={4} href="https://pengliheng.github.io/view/2048.html">2048</NavItem>
+								</Nav>
+							</Navbar.Collapse>
+						</Navbar>
 					</header>
-					<audio src="https://pengliheng.github.io/mp3/callstar.mp3" autoPlay></audio>
-					<div class="container-context container">
-						<Route exact path="/" component={Blog2}/>
-						<Route path="/blog1" component={Blog1}/>
-						<Route path="/react" component={Reacts}/>
-					</div>
+					<Route exact path="/" component={Blog2}/>
+					<Route path="/blog1" component={Blog1}/>
+					<Route path="/react/reactapi" component={ReactAPI}/>
+					<Route path="/react/react-router-dom" component={ReactRouterDom}/>
 				</div>
 			</Router>
 		)

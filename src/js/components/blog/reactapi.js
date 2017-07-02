@@ -1,6 +1,7 @@
 import React from 'react';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { monokai,androidstudio } from 'react-syntax-highlighter/dist/styles';
+import { Grid ,Row, Col } from 'react-bootstrap';
 export default class ReactAPI extends React.Component{
   constructor(){
     super();
@@ -15,8 +16,8 @@ export default class ReactAPI extends React.Component{
     const language = this.state.language;
     const style = this.state.style;
     return(
-<div class="container-context container">
-<div class="col-sm-12">
+<Grid className="container-context">
+<Col sm={12}>
   <h3>介绍JXP</h3>
   <p>接下来看看下面这个声明:</p>
   <SyntaxHighlighter showLineNumbers={showLineNumbers} language={language} style={style}>{`const element = <h1>Hello World!;</h1>`}</SyntaxHighlighter>
@@ -120,8 +121,8 @@ const element={
 <p>我们将会在下一章节继续探索渲染React元素到DOM上面。</p>
 <h4>Tip:</h4>
 <p>建议您search一个叫"Babel"的语法格式来供你的编辑器选择，这样的话无论是ES6还是JSX代码都可以正确的高亮。</p>
-</div>
-<div class="col-sm-12">
+</Col>
+<Col sm={12}>
 <h3>渲染元素</h3>
 <p>element是Reactapps里面最小的构建块。</p>
 <p>把一个element写成你想要见到的样子，出现在屏幕上。</p>
@@ -174,8 +175,8 @@ setInterval(tick,1000);
 <img src="https://facebook.github.io/react/img/docs/granular-dom-updates.gif"/>
 <p>尽管我们创建了一个元素每秒来描述整个UI树，仅仅只有变化的文本节点会通过ReactDOM获得更新。</p>
 <p>在我们的这些实验中，思考UI应该如何关注给定的时刻，而不是如何随着时间而改变它，从而消除了一类bug。</p>
-</div>
-<div class="col-sm-12">
+</Col>
+<Col sm={12}>
 <h3>Components(组件)和Props(道具)</h3>
 <p>组件让你可以将整个UI分解成独立的可重复使用的，并且独立思考每一部分。</p>
 <p>从概念上讲，组件像js函数，他们可以接受任意参数(props)并且返回那些将要出现在屏幕上面的React元素</p>
@@ -373,8 +374,8 @@ function withdraw(account,amount){
 <p>React反应灵活，但是他有一个非常严格的规则：</p>
 <p>所有React组件必须表现的像纯函数那样来尊重他们的props参数</p>
 <p>当然，UI应用是动态的，并且时刻变化的，在下一章节，我们将会介绍一个新的概念'state',State允许所有的React组件随着时间和用户操作来响应，来改变通过用户行为和网络响应或者其他东西多次改变输出，但是不能改变这条规则。</p>
-</div>
-<div class="col-sm-12">
+</Col>
+<Col sm={12}>
 <h3>State和生命周期</h3>
 <p>思考时钟这个例子，可以在前面几个章节查询一下。</p>
 <p>到目前为止，我们唯一学过的更新UI的方式。</p>
@@ -711,8 +712,8 @@ ReactDOM.render(
 `}</SyntaxHighlighter>
 <p>每一个Clock设置了他们自己的计时器并且独立更新。</p>
 <p>在React app，无论组件是有状态或者无状态，被考虑成一个组件的实现细节，他可能时刻改变。你可以用无状态组件在有状态组件里面，反之亦然。</p>
-</div>
-<div class="col-sm-12">
+</Col>
+<Col sm={12}>
 <h3>处理事件</h3>
 <p>处理React元素的事件，和处理DOM元素事件很像，这里有一些语法不一致</p>
 <ul>
@@ -815,8 +816,8 @@ class LoggingButton extends React.Component{
 }
 `}</SyntaxHighlighter>
 <p>这个问题带有这些语法，是一个不同的回调。在大多数情况，这是OK的，然而，如果这个回调被作为一个prop来传递给内部组件，这些组件也许会做多一个额外的重复渲染，我们通常建议绑定在构造器或者用属性初始化语法，来避免这类性能问题。</p>
-</div>
-<div class="col-sm-12">
+</Col>
+<Col sm={12}>
 <h3>有条件的渲染</h3>
 <p>在react，你可以创建一个独特的组件，封装一些你需要的行为，然后，你可以只渲染他，这取决于你的应用的state。</p>
 <p>有条件的渲染在react里面，工作于同一种条件工作于js，用js运算符，像if这样的，或者条件运算符<code>condition ? expr1 : expr2</code>来创建元素来呈现当前state，并且让React更新UI来匹配他们。</p>
@@ -998,8 +999,8 @@ class Page extends React.Component{
 }
 `}</SyntaxHighlighter>
 <p>返回<code>null</code>,来自组建的<code>render</code>方法不影响组件的生命周期方法。例如<code>componentWillUpdate</code>和<code>componentDidUpdate</code>仍被调用。</p>
-</div>
-<div class="col-sm-12">
+</Col>
+<Col sm={12}>
 <h3>列表和键值<a class="hash-link" href="#key">#</a></h3>
 <p>首先，让我们回顾，你如何转换列表到js里面</p>
 <p>下面代码，我们用<code>map()</code>函数来吧一个数组<code>numbers</code>并把他的值双倍。我们加入新数组，通过<code>map()</code>讲新数组返回给<code>doubled</code>并且<code>console.log</code>他。</p>
@@ -1238,8 +1239,8 @@ function NumberList(props){
 `}</SyntaxHighlighter>
 <p>在<a href="https://codepen.io/gaearon/pen/BLvYrB?editors=0010" target="_blank">CodePen</a>里面试试吧！</p>
 <p>有时候，这可以是更加清晰的代码，但样式也可能被滥用，就像在js里面，这取决于你的决定是否为了可读性而提取一个变量。记住，如果map()的主体是嵌套的，这可能就需要去提取一个组件了。</p>
-</div>
-<div class="col-sm-12">
+</Col>
+<Col sm={12}>
 <h3>Forms</h3>
 <p>in React,HTML form元素和HTML的其他元素相比，工作方式略有不同，应为表格元素天然的保存一些internal状态，例如，下面这个表格就是为了HTML接受一个单一的名字。</p>
 <SyntaxHighlighter showLineNumbers={showLineNumbers} language={language} style={style}>{`
@@ -1430,8 +1431,8 @@ this.setState(partiaState);
 <p>also,现在<code>setState()</code>自动的合并一部分state到当前state，我们只需要调用改变的部分。</p>
 <h4>Controlled Component备胎</h4>
 <p>有时候用控制组件很烦，因为你需要为数据更改来编写一个事件处理并且通过React组件管理全部的输入state。更烦的是，当你给react转换一个预存代码库给React,或者整合一个React应用通过一个没有React的library。这种情况下，你可能会想要试试uncontrolled components,一个输入表格的备用技术。</p>
-</div>
-<div class="col-sm-12">
+</Col>
+<Col sm={12}>
 <h3>state状态提升</h3>
 <p>经常，多个组件需要映射同一变化的数据，我们考虑提升共享状态，给他们最近的共同祖先，让我们看看这是如何工作的。</p>
 <p>在这一章节，我们将会创造一个温度计算器来计算在我们给定温度下，水是否会沸腾。</p>
@@ -1680,8 +1681,8 @@ class Calculator extends React.Component{
 <p>有些程序员喜欢看国内什么慕课网，极客学院视频，为什么不上YouTube看呢，稍微分析一下，看，因为他不会翻墙，</p>
 <p>那英语学来有什么用，为了看代码里面那些for,in,if????所以奉劝一句，不想翻墙，那么英语你也没有必要学了。u can't make sense of learning english。</p>
 <p>我想翻墙看得懂国外的资源视频，所以我学英语，多么简单的逻辑，但是在国内学英语，这逻辑变得极为奢侈。</p>
-</div>
-<div class="col-sm-12">
+</Col>
+<Col sm={12}>
 <h3>组件与继承</h3>
 <p>React有强大的构成模型，并且我们考虑使用，构成替代继承来复用组件。</p>
 <p>在这一章，我们将会考虑一些问题，开发者刚开始用react经常遇到继承，并且展示我们如何通过composition来解决这些的问题。</p>
@@ -1802,8 +1803,8 @@ class SignUpDialog extends ReactDOM.Component{
 <p>在脸书，我们使用react上千的组件，然而我们还没有找到案例，我们可以考虑创造组件继承阶层。</p>
 <p>props和构成给了你灵活性，你所需要定做组件的外观和行为，用一种明确的可靠地方式。记住组件可以任意props，包括原始的value，React元素，或者函数。</p>
 <p>如果你想要在组件之间使用没有UI功能，我们建议提取他到一个分离的js模块，组件会导入他，用他的函数，对象，类，而不用扩展他。</p>
-</div>
-<div class="col-sm-12">
+</Col>
+<Col sm={12}>
 <h3>思考React</h3>
 <p>React是，在我们的观点中，第一方式要建立一个快大的webapp通过js来写，他在facebook和instagram中对我们影响非常大。</p>
 <p>React的一个最伟大的部分就是是你考虑关于app正如你说建造的。在这篇文中，我们将会带你建立一个可搜索的产品数据。</p>
@@ -2216,8 +2217,8 @@ ReactDOM.render(
         <p>尽管这听起来复杂，但其实就几行代码，并且他真的准切的，在App中你的数据是如何流动的。</p>
         <h4>就这样吧</h4>
         <p>希望，这能给你idear关于通过react如何建造组件和应用，他可能比以前需要写更多代码，记住代码读取远超过编写，并且这个模块易读明确，当你开始建立一个大的组件图书馆，你会欣赏这种明确性和模块性，通过代码复用，你的代码数列开始大大减小。</p>
-      </div>
-    </div>
+      </Col>
+    </Grid>
     )
   }
 }

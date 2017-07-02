@@ -1,6 +1,7 @@
 import React from 'react';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { monokai,androidstudio } from 'react-syntax-highlighter/dist/styles';
+import { Grid ,Row, Col } from 'react-bootstrap';
 export default class Blog2 extends React.Component{
   constructor(){
     super();
@@ -12,9 +13,8 @@ export default class Blog2 extends React.Component{
   }
   render(){
     return(
-      <div>
-        <div class="container-context container">
-          <div class="col-sm-12">
+        <Grid className="container-context">
+          <Col sm={12}>
             <h3>object</h3>
             <h4>no-new-object</h4>
             <SyntaxHighlighter showLineNumbers={this.state.showLineNumbers} language={this.state.language} style={this.state.style}>{`
@@ -134,8 +134,8 @@ const copy = {a,...noA} //noA=>{ b: 2, c: 3}
 
 console.log(copy)
             `}</SyntaxHighlighter>
-          </div>
-          <div class="col-sm-12">
+          </Col>
+          <Col sm={12}>
             <h3>The different between let var and const</h3>
             <p><a target="_blank" href="https://github.com/airbnb/javascript">ES5 (Deprecated)</a>ES5(javascript已经被弃用)，ES6已经更新，事实上呢，前端发展飞速，众多框架，react，angular，vue，前端自动化工具gulp，grunt，包管理工具bower，甚至webpack项目搭建工具，node服务器搭建，等等五花八门迅速膨胀。以前以为变化再多，万变不离其宗，HTML,CSS,JS,这三大基础是不变的，现在css4即将出来，javascript甚至连基本的Var也将要被弃用。javascript使用人数迅速增加，github已经有50k星了，javascript开启"use strict"模式</p>
             <h4>the bug of var</h4>
@@ -178,8 +178,8 @@ console.log(abs);//undefined
 }
 console.log(a,b);//referenceError ,both are undefined
             `}</SyntaxHighlighter>
-          </div>
-          <div class="col-sm-12">
+          </Col>
+          <Col sm={12}>
             <h3>关于javascript----基础知识篇;</h3>
             <h4>注释(Comments)</h4>
             <SyntaxHighlighter showLineNumbers={this.state.showLineNumbers} language={this.state.language} style={this.state.style}>{`
@@ -220,9 +220,8 @@ var a;
 console.log("The value of a is " + a); // logs"The value of a is undefined"
 console.log("The value of b is " + b); // throw ReferenceError expection
             `}</SyntaxHighlighter>
-          </div>
-        </div>
-      </div>
+          </Col>
+        </Grid>
     )
   }
 }
