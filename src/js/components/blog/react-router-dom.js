@@ -14,7 +14,7 @@ export default class ReactRouterDom extends React.Component{
     return(
       <div>
         <h1>&nbsp;</h1>
-        <h1>React-router-dom</h1>
+        <h1>日后再写。</h1>
       </div>
     )
   }
