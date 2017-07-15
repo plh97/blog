@@ -59,8 +59,6 @@ module.exports = {
 				use:[{
 					loader:'html-loader',
 					options: {
-						title: 'react',
-						favicon:'./favicon.ico',
 						minimize: true,
 						removeComments: true,
 						collapseWhitespace: true
