@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>淘宝 - 购物车</title>
+    <link href="../lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../build/css/cartTaobao.min.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="lib/bootstrapt/html5shiv.min.js"></script>
+      <script src="lib/bootstrapt/respond.min.js"></script>
+    <![endif]-->
+    <!-- <script src="../lib/angular/angular.js"></script> -->
+    <!-- <script src="../lib/angular-ui-router/release/angular-ui-router.js"></script> -->
+  </head>
+  <body ng-app="uirouterdemo">
+    <header>
+      <nav class="navbar navbar-default">
+        <!-- 导航栏 -->
+        <div class="container nav-container">
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-left">
+              <li><a>pengliheng32</a></li>
+              <li><a>消息</a></li>
+              <li><a>手机逛淘宝</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href='#'>淘宝网首页</a></li>
+              <li><a href='#'>我的淘宝</a></li>
+              <li><a href='#'>购物车</a></li>
+              <li><a href='#'>收藏夹</a></li>
+              <li><a href='#'>商品分类</a></li>
+              <li><a href='#'>卖家中心</a></li>
+              <li><a href='#'>联系客服</a></li>
+              <li><a href='#'>网站导航</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="container context-container">
+      <div class="row fir">
+        <div class="col-md-4 pull-left">
+          <a href="http://www.taobao.com">
+            <img class="cartTaobao" src="../build/images/cartTaobao.jpg">
+          </a>
+        </div>
+        <div class="col-md-6 pull-right">
+          <div class="input-group">
+            <span class="goods input-group-addon" id="basic-addon2">宝贝 ^</span>
+            <input type="text" class="form-control" placeholder="输入商品" aria-describedby="basic-addon2">
+            <span class="btn-search input-group-addon" id="basic-addon2">搜索</span>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="clear"></div> -->
+      <a href="https://pages.tmall.com/wow/try/act/tmall-welfare?spm=a1z0d.6639537.0.0.4mpm1p&wh_weex=true&sourceId=jf75" class="close-a">
+          <span class="pull-left">
+            您还没有可用的618优惠卷，快去领取哦>
+          </span>
+          <span onclick="$(this).parent().remove();return false" class="pull-right">X</span>
+      </a>
+      <nav class="navbar navbar-default">
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-left">
+            <li class="active"><a>全部商品 <span class="num">1</span></a></li>
+            <span class="line"></span>
+            <li><a>降价商品 <span class="num">2</span></a></li>
+            <span class="line"></span>
+            <li><a>库存紧张 <span class="num">3</span></a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <span class="right">
+                已选择商品（不含运费）
+                <span class="num">0.00</span>
+                <span class="btn-calculator">结算</span>
+              </span>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <div class="row row-table">
+        <span class="col-md-2">
+          <input type="checkbox">&nbsp;&nbsp;全选&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>
+        <span class="col-md-2">商品信息</span>
+        <span class="col-md-1 col-md-offset-4">单价</span>
+        <span class="col-md-1">数量</span>
+        <span class="col-md-1">金额</span>
+        <span class="col-md-1">操作</span>
+      </div>
+      <div class="context-list">
+        <div class="list row">
+          <div class="col-md-12 tip">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="checkbox">&nbsp;&nbsp;店铺:尼班诗官方旗舰店
+          </div>
+          <div class="context">
+            <div class="context-tip">
+              <span>每满300减60，可跨店</span>
+              <a href="https://cart.taobao.com/addOnItem.htm">去凑单 ></a>
+            </div>
+            <div class="context-container">
+              <input type="checkbox">&nbsp;&nbsp;
+              <img src="https://img.alicdn.com/bao/uploaded/i2/1652742042/TB25Bo1el4lpuFjy1zjXXcAKpXa_!!1652742042.jpg_80x80.jpg" alt="">
+              <div class="detail">
+                <a class="a" href="https://detail.tmall.com/item.htm?spm=a1z0d.6639537.1997196601.5.SsQyiE&id=545227270643">【618狂欢价】尼班诗欧美2017夏装新款女装荷叶边上衣喇叭袖立领短袖t恤女宽松</a>
+                <span class="span">理想生活狂欢节</span>
+                <span class="span">7天</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <footer>
+      <p>COPYRIGHT 中山正觉设计 ALL RIGHTS RESERVED</p>
+      <p>粤-CP备00000000号-1</p>
+      <p>DESIGN BY 中山正觉设计</p>
+      <img class="img-circle" src="../build/images/wechat.jpg" alt="">
+    </footer>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="../lib/jquery/dist/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="../lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../build/js/cartTaobao.js"></script>
+  </body>
+</html>

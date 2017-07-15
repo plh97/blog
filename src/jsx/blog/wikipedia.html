@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>wikipedia</title>
+	<style>
+		body{
+			text-align: left;
+		}
+		#text{
+			width: 81%;
+			min-width: 473px;
+			height: 40px;
+			margin: 0 1% 6px 0;
+			float: left;
+    		font-size: 2em;
+    		padding: 5px 16px;
+		}
+		#submit{
+			width: 11%;
+			float: right;
+			height: 54px;
+			font-size: 1.7em;
+			padding: 5px 16px;
+		}
+		.clear{
+			clear: both;
+		}
+		.container{
+			border: 1px solid lightgray;
+		}
+		.container .context{
+			height: 60px;
+			overflow: hidden;
+			padding: 2px 13px;
+		}
+		.container .context:hover{
+			background-color: black;
+			color:white;
+			cursor: pointer;
+		}
+		.container .context .title{
+			display: block;
+			font-size: 1.2em;
+			color: red;
+			text-decoration:none;
+			font-weight: bold;
+		}
+		.container .context .title:hover{
+			opacity: 0.9;
+		}
+		.container .context img{
+			max-height:56%; 
+		}
+		.container .context .extract{
+			width:100%;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			course:hand;
+		}
+		#future{
+			margin-top: 60px;
+		}
+		#future .future_block{
+			display: inline-block;
+			margin: 0 15px;
+		}
+	</style>
+</head>
+<body>
+	<h1>wikipedia</h1>
+	<input id="text" type="text" placeholder="未收录内容无法检索">
+	<input id="submit" type="submit">
+	<div class="clear"></div>
+	<div class="container" id="container">
+
+	</div>
+	<script src="../lib/jquery/dist/jquery.min.js"></script>
+	<script>
+		document.getElementById('submit').onclick=function(){
+			let text=document.getElementById('text').value;
+			$.ajax({
+				url:'https://en.wikipedia.org/w/api.php?exintro=&explaintext=',
+				type:'GET', //GET
+				data:{
+					format:'json',
+					action:'query',
+					generator:'search',
+					gsrnamespace:0,
+					gsrlimit:10,
+					prop:'pageimages|extracts',
+					pilimit:'max',
+					exsentences:1,
+					exlimit:'max',
+					origin:'*',
+					gsrsearch:text
+				},
+				success:function(res){
+					console.log( res.query.pages[Object.keys(res.query.pages)[0]]);
+					console.log(res);
+					let html="";
+					for(var i in Object.keys(res.query.pages)){
+						html+="<div class='context'>";
+						html+="<a target='_blank' href='http://en.wikipedia.org/wiki/"+res.query.pages[Object.keys(res.query.pages)[i]].title+"' class='title'>" +
+								res.query.pages[Object.keys(res.query.pages)[i]].title+
+							"</a>";
+						if(res.query.pages[Object.keys(res.query.pages)[i]].hasOwnProperty('thumbnail')){
+							html+=
+								"<img src="+res.query.pages[Object.keys(res.query.pages)[i]].thumbnail.source+
+								" height="+res.query.pages[Object.keys(res.query.pages)[i]].thumbnail.height+" class='pageimage'>"
+						}
+						if(res.query.pages[Object.keys(res.query.pages)[i]].extract){
+							html+=
+								"<span class='extract'>"+res.query.pages[Object.keys(res.query.pages)[i]].extract+"</span>";
+						}
+						html+="</div>"
+					}
+					document.getElementById('container').innerHTML=html;
+				}
+			})
+		}
+		$.ajax({
+			url:'https://en.wikipedia.org/w/api.php?exintro=&explaintext=',
+			type:'GET', //GET
+			data:{
+				format:'json',
+				action:'query',
+				generator:'search',
+				gsrnamespace:0,
+				gsrlimit:10,
+				prop:'pageimages|extracts',
+				pilimit:'max',
+				exsentences:1,
+				exlimit:'max',
+				origin:'*',
+				gsrsearch:'baidu'
+			},
+			success:function(res){
+				console.log( res.query.pages[Object.keys(res.query.pages)[0]]);
+				console.log(res);
+				let html="";
+				for(var i in Object.keys(res.query.pages)){
+					html+="<div class='context'>";
+					html+="<a target='_blank' href='http://en.wikipedia.org/wiki/"+res.query.pages[Object.keys(res.query.pages)[i]].title+"' class='title'>" +
+							res.query.pages[Object.keys(res.query.pages)[i]].title+
+						"</a>";
+					if(res.query.pages[Object.keys(res.query.pages)[i]].hasOwnProperty('thumbnail')){
+						html+=
+							"<img src="+res.query.pages[Object.keys(res.query.pages)[i]].thumbnail.source+
+							" height="+res.query.pages[Object.keys(res.query.pages)[i]].thumbnail.height+" class='pageimage'>"
+					}
+					if(res.query.pages[Object.keys(res.query.pages)[i]].extract){
+						html+=
+							"<span class='extract'>"+res.query.pages[Object.keys(res.query.pages)[i]].extract+"</span>";
+					}
+					html+="</div>"
+				}
+				document.getElementById('container').innerHTML=html;
+			}
+		})
+	</script>
+</body>
+</html>
