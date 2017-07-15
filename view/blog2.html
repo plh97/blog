@@ -1,0 +1,603 @@
+<div class="container-context container">
+  <div class="col-sm-12">
+    <h3>object</h3>
+    <h4>no-new-object</h4>
+    <pre>
+      //bad 
+      const item = new Object();
+
+      //god
+      const item = {};
+    </pre>
+    <h4>property names</h4>
+    <pre>
+      function getKey(k){
+        return 'a key named ${k}';
+      }
+
+      //bad
+      const obj = {
+        id : 5,
+        name:"San francisco"
+      };
+      obj[getKey('enabled')] = true;
+
+      //good
+      const obj = {
+        id:5,
+        name:"san francisco",
+        [getKey('enabled')]:true
+      };
+    </pre>
+    <h4>use boject method </h4>
+    <pre>
+      //bad
+      const atom = {
+        value:1,
+        addValue: function(value){
+          return atom.value + value;
+        }
+      }
+      //good 
+      const atom = {
+        value:1,
+        addValue(value){
+          return atom.value + value;
+        }
+      }
+    </pre>
+    <h4>short to descript</h4>
+    <pre>
+      const luckPerson = "luck person";
+
+      //bad
+      cosnt obj = {
+        luckPerson:luckPerson
+      }
+
+      //good
+      const obj = {
+        luckPerson
+      }
+    </pre>
+    <h4>shorthand properties first</h4>
+    <pre>
+      const anakinSkywalker = 'Anakin Skywalker';
+      const lukeSkywalker = 'Luke Skywalker';
+
+      // bad
+      const obj = {
+        episodeOne: 1,
+        twoJediWalkIntoACantina: 2,
+        lukeSkywalker,
+        episodeThree: 3,
+        mayTheFourth: 4,
+        anakinSkywalker,
+      };
+
+      // good
+      const obj = {
+        lukeSkywalker,
+        anakinSkywalker,
+        episodeOne: 1,
+        twoJediWalkIntoACantina: 2,
+        episodeThree: 3,
+        mayTheFourth: 4,
+      };
+    </pre>
+    <pre>
+      // bad
+      const bad = {
+        'foo': 3,
+        'bar': 4,
+        'data-blah': 5,
+      };
+
+      // good
+      const good = {
+        foo: 3,
+        bar: 4,
+        'data-blah': 5,
+      };
+    </pre>
+    <pre>
+      //very bad
+      const ori = {a:1,b:2};
+      const copy = Object.assign(ori,{c:3});
+      delete copy.a;
+      //{ b: 2, c: 3}
+      
+      //bad
+      const ori = {a:1,b:2};
+      const copy = Object.assign({},ori,{c:3});
+      //{a: 1, b: 2, c: 3}
+
+      //good
+      const ori = {a:1,b:2};
+      const copy = {...ori,c:3}//copy=>{a: 1, b: 2, c: 3}
+      const copy = {a,...noA} //noA=>{ b: 2, c: 3}
+
+      console.log(copy)
+    </pre>
+  </div>
+  <div class="col-sm-12">
+    <h3>The different between let var and const</h3>
+    <p><a target="_blank" href="https://github.com/airbnb/javascript">ES5 (Deprecated)</a>ES5(javascript已经被弃用)，ES6已经更新，事实上呢，前端发展飞速，众多框架，react，angular，vue，前端自动化工具gulp，grunt，包管理工具bower，甚至webpack项目搭建工具，node服务器搭建，等等五花八门迅速膨胀。以前以为变化再多，万变不离其宗，HTML,CSS,JS,这三大基础是不变的，现在css4即将出来，javascript甚至连基本的Var也将要被弃用。javascript使用人数迅速增加，github已经有50k星了，javascript开启"use strict"模式</p>
+    <h4>the bug of var</h4>
+    <pre class='brush: javascript'>
+      var a = "b";
+      var a = "a";//居然可以重复命名，c
+      console.log(a);//输出"a"
+
+      for(var i = 10 ; i>0; i--){
+        var a = "a";
+      }
+      console.log(a);//输出:"a",,明明已经跳出循环了，居然还可以访问到里面的a变量，i=0，这不得不说是一个重大bug
+
+      for(var i = 10; i>10; i--){
+        setTimeout(function(){
+          console.log(i); //so intersting with what will i console ;
+                          //it console tenth of zero;if it's var ,the next turn can change the one before var it;
+                          //that a big bug;so many people say that javascript is a lazy computer language;
+        },1000)
+      }
+    </pre>
+    <h4>let</h4>
+    <p>Tip: 必须先声明"use strict"才能使用let变量进行声明，否则浏览器不会显示。</p>
+    <p>首先声明，let和var很像，都是用来声明变量的，let声明的变量拥有块级作用域,let声明的全局变量不是全局对象的属性</p>
+    <pre>
+      var abs = "123";
+      console.log(abs);//123
+
+      let abs = "123";
+      console.log(abs);//undefined
+    </pre>
+    <p>对于for循环这样的闭包函数，被一次循环let的变量虽然名字相同，但是是不同的变量名称。</p>
+    <h4>const</h4>
+    <p>const常量的命名，这没什么好说的。不能重复命名常量。</p>
+    <p>both let and const are block-scoped</p>
+    <pre>
+      {
+        let a = 1;
+        const b = 2;
+      }
+      console.log(a,b);//referenceError ,both are undefined
+    </pre>
+  </div>
+  <div class="col-sm-12">
+    <h3>关于javascript----基础知识篇;</h3>
+    <h4>注释(Comments)</h4>
+    <pre class='brush: javascript'>
+      // 单行注释
+      
+      /*这个是一个多行注释
+       多行注释
+      */
+      
+      /*你不能，但是，/*嵌套注释*/语法错误*/
+    </pre>
+    <h4>声明(Declarations)</h4>
+    <p>javascript有三种声名。</p>
+    <p>var</p>
+    <p>声明变量，可选初始化值。</p>
+    <p>let</p>
+    <p>声明块范围局部变量，可选初始化值。</p>
+    <p>const</p>
+    <p>声明一个只读命名常量。</p>
+    <h4>变量</h4>
+    <p>在应用程序中，一个标识符必须以字母、下划线(_)或者美元符号开头;后续字母可以含(0~9)    。因为javascript语言是区分大小写的，这里所指的字母可以是大写英文字母也可以是小写的。</p>
+    <p>var</p>
+    <p>声明变量，可选初始化值。</p>
+    <p>let</p>
+    <p>声明块范围局部变量，可选初始化值。</p>
+    <p>const</p>
+    <p>声明一个只读命名常量。</p>
+    <h4>声明变量</h4>
+    <p>你可以用以下两种方式声明变量：</p>
+    <pre class='brush: javascript'>
+      使用关键词var。例如，var x = 42。这个语法可以同时声明局部和全局变量。
+      直接赋值。例如，x = 42。这样就声明了一个全局变量，并导致javascript编译时候产生一个严格   警告。因而你应该避免使用这种非常规格式。
+    </pre>
+    <h4>对变量求值</h4>
+    <p>用 var 或 let    声明时未赋初值的变量，值会被设定为undefined（即使未定义，本身也是一个值）。</p>
+    <p>试图访问一个未初始化的变量会导致一个ReferenceError异常被抛出：</p>
+    <pre class='brush: javascript'>
+      var a;
+      console.log("The value of a is " + a); // logs"The value of a is undefined"
+      console.log("The value of b is " + b); // throw ReferenceError expection
+    </pre>
+    <script>
+      /*var a;
+      console.log("The value of a is "+a);
+      console.log("The value of a is "+b);*/
+    </script>
+  </div>
+  <div class="col-sm-12">
+    <img src="build/images/QQ截图20151027223135.jpg">
+    <p>抛出错误如图所示，当然你要在Firefox浏览器上才能看。</p>
+    <p>你可以使用undefined来确定变量是否已赋值。以下代码中，变量input未被赋值，因而if条件语   句的求值结果是true。</p>
+    <pre class='brush: javascript'>
+      var input;
+      if(input === undefined){
+        doThis();
+      }else{
+        doThat();
+      }
+    </pre>
+
+    <script>
+      /*var input;
+      if (input === undefined) {
+        console.log("undefined")
+        console.log(input)
+      }else{
+        console.log("defined")
+        console.log(input)
+      }*/
+    </script>
+    <P>soso~,input is undefined!and you can see this in firbug</P>
+    <img src="build/images/QQ截图20151027224323.jpg" alt="">
+    <p>undefined值在布尔类型环境中会被当作false。例如，下面的代码将运行函数myFunction，因为   数组myArray中的元素未被赋值：</p>
+    <pre class='brush: javascript'>
+      var myArray = new Array();
+      if(!myArray[0])myFunction();
+    </pre>
+    <script>
+      /*var myArray = new Array();
+      if (!myArray[0]) {myFunction()};
+      function myFunction (){
+        console.log(myArray[0]);
+      }*/
+    </script>
+    <img src="build/images/haserror.jpg" alt="">
+    <img src="build/images/noerror.jpg" alt="">
+    <p>请仔细观察下面两张图，包含三个点的内容</p>
+    <pre class='brush: javascript'>
+      undefined值在布尔类环境中会被当作false。如图所示
+      第一张图我们用var func = function(){}来定义函数。
+      第二张图我们用functionfunc(){}来定义函数，该函数的优先解释等级先于同一语句级的其他语    句
+    </pre>
+  </div>
+  <div class="col-sm-12">
+    <p>数值类型环境中undefined值会被转换为NaN(not a number)。</p>
+    <pre class='brush: javascript'>
+      var a;
+      a + 2 = NaN;
+    </pre>
+
+      <script>
+        /*var a;
+        console.log(a+2)*/
+      </script>
+    <img src="build/images/QQ截图20151027234142.jpg" alt="">
+    <p>当你对一个空变量求值时候，空值null在数值类型环境中会被当作0来对待，而布尔类型环境中会    被当作false</p>
+    <pre class='brush: javascript'>
+      var n = null;
+      console.log(n*32);
+    </pre>
+    <script>
+      /*var n = null;
+      if (!n) {
+        console.log(n*32);
+        console.log(typeof n);
+      };*/
+    </script>
+    <img src="build/images/QQ截图20151027235101.jpg" alt="">
+    <img src="build/images/QQ截图20151028000001.jpg" alt="">
+  </div>
+  <div class="col-sm-12">
+    <h3>变量的域</h3>
+    <p>在所有函数之外声明的变量，叫做全局变量，因为它可能被当作文档中的其他代码所访问。在函数    内部声明的变量，叫做局部变量名，因为它只能在该函数内部访问。</p>
+    <p>Javascript没有语句块作用域;相反，语句块中声明的变量将成为语句块所在代码段的局部变量。   例如，如下的代码将在控制台输出5,因为x的作用域是声明了x的那个函数(或全局范围)   ，而不是if语句块。</p>
+    <pre class='brush: javascript'>
+        if(true){
+          var x = 5;
+        }
+        console.log(x); //5
+    </pre>
+    <h4>变量声明提示</h4>
+    <p>Javascript变量的另一特别之处在于，你可以引用稍后声明的变量，而不会发生异常。这一概念称   为变量声明提升(hoisting);javascript变量感觉上是被“举起”或者提升到了所有函数和语句之前。   但是，未被初始化的变量仍然返回undefined值。</p>
+    <pre class='brush: javascript'>
+      /**
+      * Example 1
+      */
+      console.log(x===undefined); // log "true"
+      var x = 3;
+      
+      
+      /**
+      * Example 2
+      */
+      // will return a value of undefined
+      var myvar = "my value"
+      
+      (function(){  //匿名函数
+        console.log(myvar); //undefined
+        var myvar = "local value";
+      })();
+    </pre>
+    <p>上面的例子2，也可以写作：</p>
+    <pre class='brush: javascript'>
+      /**
+      * Example 1
+      */
+      var x = 3;
+      console.log(x===undefined); // log "true"
+      x = 3;
+      
+      /**
+      * Example 2
+      */
+      // will return a value of undefined
+      var myvar = "my value"
+      
+      (function(){  //匿名函数
+        var myvar;
+        console.log(myvar); //undefined
+        var myvar = "local value";
+      })();
+    </pre>
+    <p>由于存在变量声明提升，一个函数中所有的var语句应尽可能的放在接近函数顶部的地方。这大大   提升了函数代码的清晰度。</p>
+    <h4>全局变量</h4>
+    <p>全局变量实际上是<i>全局对象的</i>属性。在网页中，（译注：缺省的）全局对象是window，所    以你可用形如window.variable的语法来设置和访问全局变量。</p>
+    <p>因此，你可以通过指定window或frame的名字，从一个window或frame访问另一个window或frame   中声明的变量。例如，设想一个叫phoneNumber的变量在文档FRAMESET里被声明，你可以在子框架里   用parent.phoneNumber来引用它。</p>
+    <h4>常量</h4>
+    <p>你可以用关键字const创建一个只读的常量。常量标识符的命令规则和变量的相同：必须以字母、下   划线或美元符号开头并可以包含有字母、数字、下划线。</p>
+    <pre class="brush: javascript">const prefix = '212';</pre>
+  </div>
+
+  <div class="col-sm-12">
+    <p>常量不可以通过赋值改变其值，也不可以在脚本运行时候重新声明。</p>
+    <p>常量，包括全局常量，都必须带const关键字，除此之外，常量的作用域规则与变量相同。若const   关键字被省略了，该标识符将被视为变量。</p>
+    <p>在同一作用域中，不能用与变量或函数同样的名字来命名常量。例如：</p>
+    <pre class="brush: javascript">
+      // THIS WILL CAUSE AN ERROR
+      function f() {};
+      const f = 5;
+      
+      // THIS WILL CAUSE AN ERROR
+      function f(){
+        
+      }
+    </pre>
+    <h4>关于对象的创建</h4>
+    <p>关于创建对象的两种方法</p>
+    <pre class="brush: javascript">
+      var obj = new object();
+    </pre>
+    <p>和：</p>
+    <pre class="brush: javascript">
+      var obj =  {};
+    </pre>
+    <p>这两种方法在语义上是相同的。第二种更方便的方法叫做“对象字面量（object     literal）”法。这种也是JSON格式的核心语法，一般我们优先选择第二种方法。</p>
+    <p>"对象字面量"也可以用来在对象实例中定义一个对象：</p>
+    <pre class="brush: javascript">
+      var obj = {
+        name: "Carrot",
+        "for": "Max",
+        details: {
+          color: "orange",
+          size: 12,
+        },
+      }
+    </pre>
+    <p>对象的属性也可以通过链式（chain）表示方法进行访问：</p>
+    <pre class="brush: javascript">
+      obj.details.color; //orange
+      obj['details']['size']; //12
+    </pre>
+    <p>下面的例子创建了一个对象原型，Person，和这个原型的实例，You。</p>
+    <pre class="brush: javascript">
+      function Person(name,age){
+        this.name = name;
+        this.age = age;
+      }
+
+      //定义一个对象
+      var You = new Person("You" , 24);
+      // 我们创建了一个新的Person，名称是 "You"
+      // ("You" 是第一个参数，24 是第二个参数..)
+    </pre>
+
+    <p>关于循环</p>
+    <pre class="brush: javascript">
+      var a = [1,1,1,1];
+      /*低效循环*/
+      for(var i = 0 ; i < a.length ; i++) {
+        console.log(i)
+      }
+
+      /*中效循环*/
+      for(var i = 0 , len = a.length ; i < len ; i++) {
+        console.log(i)
+      }
+
+      /*高效循环，但是与前两种有区别，当遇到一个元素为undefined时候，循环结束，这个技巧只能    当你知道数组中不含假元素（如undefined）时，循环结束。*/
+      for(var i = 0 , item ; item = a[i++];) {
+        console.log(i)
+      }
+
+      /*另一种循环方式，便利数组的另一种方式是使用for...in循环。注意，如果有人向Array.protot    ype添加了新的属性，使用这样的循环这些属性也同样会被遍历，但并不推荐这种方法：*/
+      
+      var a = [1,1,1,1]
+      for(var i in a){
+        console.log(a[i])
+      }
+    </pre>
+    </div>
+  <div class="col-sm-12">
+    <p>ECMAScript 5 增加了遍历数组的另一种方法 foreach():</p>
+    <pre class="brush: javascript">
+      ["dog", "cat", "hen"].forEach(function(currentValue, index, array) {
+        // Do soomething with currentValue or array[index]
+      });
+    </pre>
+    <h4>函数</h4>
+    <p>学习javascript最重要的是要去理解对象和函数两个部分。最简单的函数就像下面这个这么简单：   </p>
+    <pre class="brush: javascript">
+      function add(x,y){
+        var total = x + y;
+        return total;
+      }
+    </pre>
+    <p>这个例子包括你需要了解的关于基本函数的所有部分。一个javascript函数可以包含0个或多个已   命名的变量。函数体中的表达式数量也没有限制。你可以声明函数自己的局部变量。return语句在返回  一个值并结束函数。如果没有使用return语句，或者一个没有值得return语句，javascript会返回un   defined。</p>
+    <p>已命名的参数更像是一个指示而没有其他作用。如果调用函数没有提供足够的参数，缺少的参数会    被undefined替代。</p>
+    <pre class="brush: javascript">
+      add(); //NaN
+      // 不能在 undefined 对象上进行加法操作
+    </pre>
+    <p>你还可以传入多余函数本身需要参数个数的参数：</p>
+    <pre class="brush: javascript">
+      add(2,3,4); // 5
+      // 将前面两个值相加，4被忽略了
+    </pre>
+    <p>这个看上去有点蠢。函数实际上是访问了函数体中一个名为 arguments 的内部对象，这个对象就   如同一个类似于数组的对象一样，包括了所有被传入的参数。让我们重写上面的函数，使它可以接收任   意个数的参数：</p>
+    <pre class="brush: javascript">
+      function add(){
+        var sum = 0;
+        for (var i = 0, j = arguments.length; i < j ; i++){
+          sum += arguments[i];
+        }
+        return sum;
+      }
+
+      add(2,3,4,5);
+    </pre>
+    <h4>匿名函数</h4>
+    <pre class="brush: javascript">
+      var avg = function() {
+        var sum = 0;
+        for (var i = 0 , j = arguments.length ; i < j.length; i++) {
+          sum += arguments[i];
+        };
+        return sum / arguments.length;
+      }
+      console.log(avg([2,3,4,4]));
+    <h4>匿名函数之有趣的技巧</h4>
+    <pre class="brush: javascript">
+      var a = 1;
+      var b = 2;
+      (function(){
+        var b = 3;
+        a += b;
+      })();
+      console.log(a); //4
+      console.log(b); //2
+    <h4>递归函数</h4>
+    <p>javascript允许以递归方式调用函数。递归在处理树形结构（比如浏览器DOM）时非常有用。</p>
+    <pre class="brush: javascript">
+      function countchars(elm) {
+        if (elm.nodeType == 3) {
+          return elm.nodeValue.length;
+        }
+        var count = 0;
+        for (var i = 0, child; child = elm.childNodes[i]; i++) {
+          count += countchars(child);
+        };
+        return count;
+      }
+    </pre>
+    <p>这里需要说明一个潜在问题--既然匿名函数没有名字，那么该怎么递归调用它呢？在这一点上，ja    vascript允许你命名这个函数表达式。你可以命名立即调用函数表达式（IIFES--Immediately    Invoked Function Expressions）,如下所示：</p>
+    <pre class="brush: javascript">
+      var charsInBody = (function counter(elm) {
+        if (elm.nodeType == 3) { //文本节点
+          return elm.nodeValue.length;
+        }
+        var count = 0;
+        for (var i = 0, child; child = elm.childNodes[i]; i++) {
+          count += counter(child);
+        }
+        return count;
+      })(document.body);
+    </pre>
+  </div>
+
+  <div class="col-sm-12">
+    <h3>关于canvas的应用</h3>
+    <p>canvas属于html5里面最强大的元素。canvas，顾名思义就是指的画板，运用canvas+javascrip   t，可以绘制出一片美丽的星空,下面首先我先做一个demo吧，下面的demo是最基本直线绘制。</p>
+    <canvas id="canvas" style="border:1px solid #aaa;display:block;margin:50px auto;"   ></canvas>
+    <script>
+      function canvas_func(){
+        var canvas = document.getElementById("canvas");
+        canvas.width = 800;
+        canvas.height = 800;
+        var context = canvas.getContext("2d");
+        context.lineWidth=10;
+        context.beginPath();
+        context.moveTo(100,100);
+        context.lineTo(400,400);
+        context.lineTo(100,700);
+        context.strokeStyle = "red";
+        context.stroke();
+        context.closePath();
+        context.beginPath();
+        context.moveTo(200,100);
+        context.lineTo(500,400);
+        context.lineTo(200,700);
+        context.strokeStyle = "green";
+        context.stroke();
+        context.closePath();
+        context.beginPath();
+        context.moveTo(300,100);
+        context.lineTo(600,400);
+        context.lineTo(300,700);
+        context.strokeStyle = "blue";
+        context.stroke();
+        context.closePath();
+        context.beginPath();
+        context.moveTo(400,100);
+        context.lineTo(700,400);
+        context.lineTo(400,700);
+        context.strokeStyle = "yellow";
+        context.stroke();
+        context.closePath();
+      }
+    </script>
+    <p>首先在HTML页面引入canvas元素！</p>
+    <pre class='brush: javascript'>
+      <canvas id="canvas" style="border:1px solid #aaa;display:block;margin:50px auto   ;"></canvas>
+    </pre>
+  </div>
+  <div class="col-sm-12">
+    <p>然后就需要我们引入js代码</p>
+    <pre class='brush: javascript'>
+      <script>
+        function canvas_func(){
+          var canvas = document.getElementById("canvas");
+          canvas.width = 800;
+          canvas.height = 800;
+          var context = canvas.getContext("2d");
+          context.lineWidth=10;
+          context.beginPath();
+          context.moveTo(100,100);
+          context.lineTo(400,400);
+          context.lineTo(100,700);
+          context.strokeStyle = "red";
+          context.stroke();
+          context.closePath();
+          context.beginPath();
+          context.moveTo(200,100);
+          context.lineTo(500,400);
+          context.lineTo(200,700);
+          context.strokeStyle = "green";
+          context.stroke();
+          context.closePath();
+          context.beginPath();
+          context.moveTo(300,100);
+          context.lineTo(600,400);
+          context.lineTo(300,700);
+          context.strokeStyle = "blue";
+          context.stroke();
+          context.closePath();
+          context.beginPath();
+          context.moveTo(400,100);
+          context.lineTo(700,400);
+          context.lineTo(400,700);
+          context.strokeStyle = "yellow";
+          context.stroke();
+          context.closePath();
+        }
+      </script>
+    </pre>
+  </div>
+</div>

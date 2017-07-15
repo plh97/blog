@@ -1,0 +1,245 @@
+@nav-color:#212121; //pc端口，字体，分隔符号等灰色
+@page-avtice:#a5a4a2; //pc端口，翻页占有背景颜色，分隔符号等灰色
+@nav-slide-line:#d8d8d8;  //移动端口，slide上下边界线颜色
+@nav-hover-color:#f4f2f3; //移动端口，导航栏被选中颜色，淡灰色
+@nav-hover-background-color:#f0c541;  //pc端口导航栏鼠标选中时候，金色色的屎黄色
+@carousel-tip:#cecbcc;		//轮播图片未选中按钮颜色
+@carousel-tip-active:#908a88;//轮播图片选中按钮颜色
+@nav-context-avtive-color: #4e4b4a; //二级页面二级导航栏选中颜色
+@nav-context-color:#908e8f ;//二级页面二级导航栏未选中颜色
+@nav-context-font-color:#817f80 ;//二级页面内容字体颜色
+@screen-sm-min: 768px;  /* 小屏幕（平板，大于等于 768px） */
+@screen-md-min: 992px;  /* 中等屏幕（桌面显示器，大于等于 992px） */
+@screen-lg-min: 1200px;   /* 大屏幕（大桌面显示器，大于等于 1200px） */
+
+body{
+	padding:0px;
+	margin:0px; 
+	.clear{
+		clear: both;
+	}
+
+	header{
+		padding:0px;
+		margin:0px;
+
+		.navbar{
+			min-height: 35px;
+			margin-bottom: 0px;
+			position: relative;
+			z-index: 2;
+			border: none;
+			border-radius: 0;
+			font-size: 12px;
+			
+			.nav-container{
+				//max-width: 845px;
+				max-width: 100%;
+				background-color: inherit;
+				text-align: center;
+
+				@media (min-width: 768px){
+				    width: 1010px;
+				}
+
+				//导航栏
+				.navbar-collapse{
+					@media (max-width: 768px){
+						border-bottom: 1px solid @nav-slide-line;
+						margin-bottom: 10px;
+					}
+					li{
+						a{
+							padding-top: 8px;
+							padding-bottom: 8px;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.context-container{
+		width: 1010px;
+		.fir{
+			padding: 20px 0 40px;
+			img.cartTaobao{
+				width: 200px;
+			}
+
+			.input-group{
+				border: 3px solid red;
+				box-sizing: border-box;
+				margin-top: 8px;
+				input{
+					border-color: #fff;  
+					box-shadow: 0 0 5px rgba(255, 255, 255, 0.4);  
+				}
+
+				.goods{
+					border: 0;
+					border-radius: 0;
+				}
+
+				.btn-search{
+					background-color: red;
+					border: 0;
+					border-radius: 0;
+					color: white;
+					font-weight: bold;
+					padding: 10px 30px;
+				}
+			}
+		}
+
+		.close-a{
+			display: inline-block;
+			color: yellow;
+			width: 100%;
+			height: 40px;
+			line-height: 40px;
+			font-size: 12px;
+			font-weight: 100;
+			padding: 0 20px;
+			background-image: url(//img.alicdn.com/tps/TB1XCajNpXXXXXcaXXXXXXXXXXX-990-40.png);
+			position: relative;
+			&:hover{
+				text-decoration: none;
+			}
+
+			.pull-right{
+				z-index: 1;
+				position: absolute;
+				right: 0px;
+				width: 40px;
+				text-align: center;
+			}
+		}
+
+		.navbar{
+			background-color: inherit;
+			border-top:0; 
+			border-left:0; 
+			border-right:0; 
+			border-bottom: 3;
+
+			.collapse {
+				border-bottom: 3px solid lightgray;
+				padding: 0;
+				height: 51px !important;
+				ul.nav{
+					color: #3c3c3c;
+					li{
+						cursor: pointer;
+						&.active{
+							a{
+								color: #f40;
+								background-color: inherit;
+								border-bottom: 3px solid #f40;
+							}
+						}
+						a{
+							color: inherit;
+							font-weight: bold;
+							font-size: 16px;
+							padding: 14px 28px;
+							.num{
+								color:#f40;
+								padding: 0;
+								font-size: inherit;
+							}
+						}
+
+						span.right{
+							color: inherit;
+							font-weight: bold;
+							font-size: 12px;
+							padding: 9px 17px;
+							float: right;
+							line-height: 30px;
+							.num{
+								color:#f40;
+								padding: 0;
+								font-size: inherit;
+								float: none;
+							}
+							.btn-calculator{
+								border-radius: 3px;
+								display: inline-block;
+								color: white;
+								background-color: lightgray;
+								height: 30px;
+								text-align: center;
+								width: 50px;
+								padding: 0;
+								font-weight: 100;
+								line-height: 30px;
+								margin-left: 10px;
+							}
+						}
+					}
+					.line{
+						display: inline-block;
+						width: 0;
+						height: 15px;
+						margin-top: 17px;
+						border-right: 1px solid lightgray;
+						float: left;
+					}
+				}
+			}
+		}
+		
+		.row-table{
+			text-align: center;
+			font-size: 13px;
+		}
+
+		.context-list{
+			margin-top: 15px;
+			.list{
+				.tip{
+					font-size: 13px;
+				}
+				.context{
+					border: 1px solid lightgray;
+					margin: 0 15px;
+					float: left;
+
+					.context-tip{
+						padding: 10px 25px;
+						border-bottom: 1px solid lightgray;
+					}
+					.context-container{
+						padding: 25px;
+						.detail{
+							display: inline-block;
+							width: 270px;
+							vertical-align: middle;
+							.a{
+								display: inline-block;
+							}
+							.span{
+								display: inline-block;
+								background-color: red;
+								padding: 1px 2px;
+								color: white;
+								margin-right: 40%;
+								border-radius: 2px;
+							}
+						}
+						.detail-two{
+							
+						}
+					}
+				}
+			}
+		}
+	}
+
+	footer{
+		padding:30px 0 60px;
+		margin:0px;
+		text-align: center;
+	}
+}

@@ -79,5 +79,5 @@ module.exports = {
 			favicon:'./favicon.ico',
 			template: './src/view/index.html'
 		})
-	],
+	]
 };

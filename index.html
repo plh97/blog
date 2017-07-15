@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="baidu-site-verification" content="dttAbY7QVf" />
+    <link rel="shortcut icon" href="blog.ico"/>
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+    <title>Peng Blog</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css">
+    <!-- My_Css -->
+    <link rel="stylesheet" href="build/css/basic.min.css">
+    <link rel="stylesheet" href="build/css/blog2.min.css">
+  </head>
+  <body ng-app="uirouter">
+    <header>
+      <nav class="navbar navbar-default">
+        <div class="container">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Peng</a>
+          </div>
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+              <li ui-sref-active="active"><a ui-sref="blog2">Technology Blog</a></li>
+              <li ui-sref-active="active"><a ui-sref="blog1">Living Blog</a></li>
+              <li><a href="view/intro.html">简历</a></li>
+              <li><a href="view/2048.html">2048</a></li>
+              <li><a href="view/xxoo.html">xxoo</a></li>
+              <li><a href="zjdesign.html">正觉设计</a></li>
+              <li><a href="view/reacttest.html">React API</a></li>
+            </ul>
+          </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+      </nav>
+    </header>
+    <!-- 导航条 -->
+    <ui-view></ui-view>  
+    <footer>
+    </footer>
+    <!-- Angualr -->
+    <script src="lib/angular/angular.js"></script>
+    <script src="lib/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="lib/jquery/dist/jquery.min.js"></script>
+    <script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="build/js/basic.js"></script>
+    <!-- <script src="js/index2.js"></script> -->
+    </div>
+  </body>
+</html>
