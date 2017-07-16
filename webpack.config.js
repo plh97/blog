@@ -10,6 +10,14 @@ module.exports = {
 			'babel-polyfill',
 			'react-hot-loader/patch',
 			'./src/app'
+		],
+		vendor: [
+			"react",
+			"react-dom",
+			"react-router-dom",
+			"react-router-bootstrap",
+			"react-bootstrap",
+			"react-syntax-highlighter"
 		]
 	},
 	output: {
@@ -18,9 +26,9 @@ module.exports = {
 		path: path.join(__dirname, "dist"),
 		publicPath:'/dist'
 	},
-
 	devServer: {
 		host: "localhost",
+		publicPath:'/dist',
 		port: 3004,
 		hot: true,
 		overlay: {
@@ -85,6 +93,10 @@ module.exports = {
 			title: 'react',
 			favicon:'./favicon.ico',
 			template: __dirname + '/src/view/index.html'
+		}),
+		new webpack.optimize.CommonsChunkPlugin({
+		  name: "vendor",
+		  minChunks: Infinity
 		})
 	]
 };

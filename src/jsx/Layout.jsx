@@ -3,7 +3,6 @@ import "../less/style.less";
 import {
   BrowserRouter as Router,
   Route,
-  Switch,
   Link
 } from "react-router-dom";
 import Blog1 from "./blog/Blog1.jsx";
@@ -53,16 +52,12 @@ export default class Layout extends React.Component {
 							</Navbar.Collapse>
 						</Navbar>
 					</header>
-					<div>
-						<Switch>
-							<Route exact path="/dist/" component={Blog2} />
-							<Route path="/dist/blog1" component={Blog1} />
-							<Route path="/dist/markdown" component={MarkDown} />
-							<Route path="/dist/react/reactapi" component={ReactAPI} />
-							<Route path="/dist/react/react-router-dom" component={ReactRouterDom} />
-							<Route component={NoMatch} />
-						</Switch>
-					</div>
+					<Route exact path="/dist/" component={Blog2} />
+					<Route path="/dist/blog1" component={Blog1} />
+					<Route path="/dist/markdown" component={MarkDown} />
+					<Route path="/dist/react/reactapi" component={ReactAPI} />
+					<Route path="/dist/react/react-router-dom" component={ReactRouterDom} />
+					<Route component={NoMatch} />
 				</div>
 			</Router>
 		);

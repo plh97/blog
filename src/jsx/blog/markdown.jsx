@@ -1,7 +1,7 @@
 import React from "react";
 import SyntaxHighlighter from "react-syntax-highlighter";
-import { monokai, androidstudio } from "react-syntax-highlighter/dist/styles";
-import { _markdown2, _apache2, _javascript2 } from "react-syntax-highlighter/dist/languages";
+import { androidstudio } from "react-syntax-highlighter/dist/styles";
+import { _markdown2 } from "react-syntax-highlighter/dist/languages";
 import { Grid, Row, Col, FormGroup, FormControl } from "react-bootstrap";
 export default class MarkDown extends React.Component {
   constructor() {

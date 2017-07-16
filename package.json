@@ -5,7 +5,7 @@
   "scripts": {
     "b": "webpack --colors",
     "lint": "eslint ./src/**/*.jsx --color",
-    "p": "webpack -p --colors",
+    "p": "webpack -p --colors --optimize-minimize",
     "t": "webpack-dev-server --open --colors"
   },
   "lint-staged": {

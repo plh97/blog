@@ -1,6 +1,6 @@
 import React from "react";
 import SyntaxHighlighter from "react-syntax-highlighter";
-import { monokai, androidstudio } from "react-syntax-highlighter/dist/styles";
+import { androidstudio } from "react-syntax-highlighter/dist/styles";
 export default class ReactRouterDom extends React.Component {
   constructor() {
     super();
