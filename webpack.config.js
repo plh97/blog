@@ -16,7 +16,7 @@ module.exports = {
 		filename: "[name].[hash].js",
 		chunkFilename:'[name].[chunkhash].js',
 		path: path.join(__dirname, "dist"),
-		publicPath:'/'
+		publicPath:'/dist'
 	},
 	devServer:{
 		hot:true,
