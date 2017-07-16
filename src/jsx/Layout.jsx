@@ -30,21 +30,21 @@ export default class Layout extends React.Component {
 							</Navbar.Header>
 							<Navbar.Collapse>
 								<Nav>
-									<IndexLinkContainer to="/">
+									<IndexLinkContainer to="/dist/">
 										<NavItem eventKey={1}>Technology Blog</NavItem>
 									</IndexLinkContainer>
-									<LinkContainer to="/blog1">
+									<LinkContainer to="/dist/blog1">
 										<NavItem eventKey={2}>Living Blog</NavItem>
 									</LinkContainer>
-									<LinkContainer to="/markdown">
+									<LinkContainer to="/dist/markdown">
 										<NavItem eventKey={3}>MarkDown</NavItem>
 									</LinkContainer>
 									<NavDropdown eventKey={4} title="React" id="basic-nav-dropdown">
-										<LinkContainer to="/react/reactapi">
+										<LinkContainer to="/dist/react/reactapi">
 											<NavItem eventKey={4.1}>React v15.6.1</NavItem>
 										</LinkContainer>
 										<MenuItem divider />
-										<LinkContainer to="/react/react-router-dom">
+										<LinkContainer to="/dist/react/react-router-dom">
 											<NavItem eventKey={4.2}>react-router-dom 4</NavItem>
 										</LinkContainer>
 									</NavDropdown>
@@ -55,11 +55,11 @@ export default class Layout extends React.Component {
 					</header>
 					<div>
 						<Switch>
-							<Route exact path="/" component={Blog2} />
-							<Route path="/blog1" component={Blog1} />
-							<Route path="/markdown" component={MarkDown} />
-							<Route path="/react/reactapi" component={ReactAPI} />
-							<Route path="/react/react-router-dom" component={ReactRouterDom} />
+							<Route exact path="/dist/" component={Blog2} />
+							<Route path="/dist/blog1" component={Blog1} />
+							<Route path="/dist/markdown" component={MarkDown} />
+							<Route path="/dist/react/reactapi" component={ReactAPI} />
+							<Route path="/dist/react/react-router-dom" component={ReactRouterDom} />
 							<Route component={NoMatch} />
 						</Switch>
 					</div>

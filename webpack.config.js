@@ -18,10 +18,19 @@ module.exports = {
 		path: path.join(__dirname, "dist"),
 		publicPath:'/dist'
 	},
-	devServer:{
-		hot:true,
-		contentBase: path.resolve(__dirname, 'dist'),
-		publicPath:'/'
+
+	devServer: {
+		host: "localhost",
+		port: 3004,
+		hot: true,
+		overlay: {
+			warnings: true,
+			errors: true
+		},
+		compress: true,
+		allowedHosts: [
+		    'pengliheng.github.io'
+		]
 	},
 	module:{
 		rules:[
@@ -68,14 +77,14 @@ module.exports = {
 		]
 	},
 	plugins: [
-		new CleanWebpackPlugin(['dist'],{
-			"exclude": [ "images"]
-		}),
+		// new CleanWebpackPlugin(['dist'],{
+		// 	"exclude": [ "images"]
+		// }),
 		new webpack.HotModuleReplacementPlugin(),
 		new HtmlWebpackPlugin({
 			title: 'react',
 			favicon:'./favicon.ico',
-			template: './src/view/index.html'
+			template: __dirname + '/src/view/index.html'
 		})
 	]
 };
