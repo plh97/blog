@@ -77,9 +77,9 @@ module.exports = {
 		]
 	},
 	plugins: [
-		// new CleanWebpackPlugin(['dist'],{
-		// 	"exclude": [ "images"]
-		// }),
+		new CleanWebpackPlugin(['dist'],{
+			"exclude": [ "images"]
+		}),
 		new webpack.HotModuleReplacementPlugin(),
 		new HtmlWebpackPlugin({
 			title: 'react',
