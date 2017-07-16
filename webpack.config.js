@@ -16,12 +16,12 @@ module.exports = {
 		filename: "[name].[hash].js",
 		chunkFilename:'[name].[chunkhash].js',
 		path: path.join(__dirname, "dist"),
-		publicPath:'/dist'
+		publicPath:'/'
 	},
 	devServer:{
 		hot:true,
 		contentBase: path.resolve(__dirname, 'dist'),
-		publicPath:'/dist'
+		publicPath:'/'
 	},
 	module:{
 		rules:[

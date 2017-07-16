@@ -3,9 +3,11 @@ import "../less/style.less";
 import {
   BrowserRouter as Router,
   Route,
+  Switch,
   Link
 } from "react-router-dom";
 import Blog1 from "./blog/Blog1.jsx";
+import NoMatch from "./views/404.jsx";
 import Blog2 from "./blog/Blog2.jsx";
 import MarkDown from "./blog/MarkDown.jsx";
 import ReactAPI from "./blog/reactapi.jsx";
@@ -51,11 +53,16 @@ export default class Layout extends React.Component {
 							</Navbar.Collapse>
 						</Navbar>
 					</header>
-					<Route exact path="/" component={Blog2} />
-					<Route path="/blog1" component={Blog1} />
-					<Route path="/markdown" component={MarkDown} />
-					<Route path="/react/reactapi" component={ReactAPI} />
-					<Route path="/react/react-router-dom" component={ReactRouterDom} />
+					<div>
+						<Switch>
+							<Route exact path="/" component={Blog2} />
+							<Route path="/blog1" component={Blog1} />
+							<Route path="/markdown" component={MarkDown} />
+							<Route path="/react/reactapi" component={ReactAPI} />
+							<Route path="/react/react-router-dom" component={ReactRouterDom} />
+							<Route component={NoMatch} />
+						</Switch>
+					</div>
 				</div>
 			</Router>
 		);
