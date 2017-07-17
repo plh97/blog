@@ -1,3 +1,4 @@
+import React from "react";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { androidstudio } from "react-syntax-highlighter/dist/styles";
 import { Grid, Row, Col } from "react-bootstrap";

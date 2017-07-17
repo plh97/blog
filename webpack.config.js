@@ -11,6 +11,8 @@ module.exports = {
 			'./src/app'
 		],
 		vendor: [
+			"react",
+			"react-dom",
 			"react-router-dom",
 			"react-router-bootstrap",
 			"react-bootstrap",
