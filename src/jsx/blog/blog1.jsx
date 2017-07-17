@@ -1,17 +1,8 @@
+import "../../less/style.less";
 import React from "react";
-import SyntaxHighlighter from "react-syntax-highlighter";
-import { androidstudio } from "react-syntax-highlighter/dist/styles";
 import { Grid, Row, Col } from "react-bootstrap";
 
 export default class Blog1 extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      language: "",
-      style: androidstudio,
-      showLineNumbers: true
-    };
-  }
   render() {
     return (
         <Grid className="container-context">
@@ -97,12 +88,6 @@ export default class Blog1 extends React.Component {
             <p>那么接下来就可以写jquery代码了，首先写如何让点击侧边栏，自动跳转到某个div元素</p>
             <img src="./images/QQ截图20151025030302.jpg" />
             <img src="./images/slidenav1.jpg" />
-            <SyntaxHighlighter showLineNumbers={this.state.showLineNumbers} language={this.state.language} style={this.state.style}>{`
-//获取当前选中的div元素到页面顶部的距离，
-$("#"+number_context).offset().top;
-//在1秒时间内，让屏幕滚动到指定的高度，用这段代码，很巧妙的获取的当前点击的div元素的属性，从而动态获取某篇文章的高度
-$('body,html').animate({scrollTop:context_top-100},1000);
-            `}</SyntaxHighlighter>
           </Col>
           <Col sm={12}>
             <img src="./images/slidenav1.jpg" />

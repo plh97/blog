@@ -27,7 +27,6 @@ module.exports = {
 	},
 	devServer: {
 		host: "localhost",
-		publicPath:'/dist',
 		port: 3004,
 		hot: true,
 		overlay: {

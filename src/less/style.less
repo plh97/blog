@@ -9,6 +9,14 @@ body{
     max-width: 1000px;
 
     .col-sm-12{
+      img{
+        margin: 0 auto;
+        display: inherit;
+        max-width: 100%;
+      }
+    }
+
+    .col-sm-12 , .col-xs-12{
       margin-bottom: 20px;
       max-width: 1000px;
       min-height: 1300px;
@@ -17,9 +25,16 @@ body{
       padding: 50px;
       margin: 0px auto 30px;
       background-color: #fff;
+      font-size: 20px;
 
       ol{
         start:1;
+      }
+
+      h1{
+        text-align: center;
+        padding: 8px 0;
+        font-weight: bold;
       }
 
       h3{
@@ -63,7 +78,7 @@ body{
       a{
         color:red;
         font-weight: bold;
-        font-size: 25px;
+        font-size: 21px;
         margin-left: 10px;
         word-break: break-word;
       }
@@ -75,12 +90,6 @@ body{
         word-break: break-word;
       }
 
-      img{
-        margin: 0 auto;
-        display: inherit;
-        max-width: 100%;
-      }
-
       div.tap-context{
         margin:0px;
         div.tab-pane{
@@ -89,60 +98,6 @@ body{
       }
       iframe{
         max-width: 100%;
-      }
-    }
-  }
-  div.scroll{
-    position: fixed;
-    z-index: 99;
-    top: 100px;
-    @media (max-width:1000px) {
-      display: none;
-    }
-
-    ul{
-      background-color: #fff;
-      border-radius: 10px;
-      border: 2px solid #ccc;
-      list-style-type: none;
-      padding: 0;
-      margin: 0;
-
-      .to_blue{
-        background-color: #337ab7;
-        color: red;
-      }
-
-      li{
-        border-bottom: 2px solid #ccc;
-        color: #fff;
-
-        a{
-          display: inline-block;
-          width: 300px;
-          padding: 5px 5px 5px 20px;
-          color: #000;
-          word-break: break-word;
-
-          &:hover{
-            display: inline-block;
-            width: 300px;
-            background-color: rgba(222,222,222,0.5);
-            padding: 5px 5px 5px 20px;
-            text-decoration: none;
-            cursor:pointer;
-
-            span{
-              opacity: 0.25;
-              color:#000;
-            }
-          }
-        }
-
-        span.glyphicon{
-          float: right;
-          color: lightyellow;
-        }
       }
     }
   }
