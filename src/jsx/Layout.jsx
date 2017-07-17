@@ -6,7 +6,6 @@ import {
   Link
 } from "react-router-dom";
 import Blog1 from "./blog/Blog1.jsx";
-import NoMatch from "./views/404.jsx";
 import Blog2 from "./blog/Blog2.jsx";
 import MarkDown from "./blog/MarkDown.jsx";
 import ReactAPI from "./blog/reactapi.jsx";
@@ -57,7 +56,6 @@ export default class Layout extends React.Component {
 					<Route path="/dist/markdown" component={MarkDown} />
 					<Route path="/dist/react/reactapi" component={ReactAPI} />
 					<Route path="/dist/react/react-router-dom" component={ReactRouterDom} />
-					<Route component={NoMatch} />
 				</div>
 			</Router>
 		);
