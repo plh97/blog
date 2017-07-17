@@ -1,4 +1,3 @@
-import React from "react";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { androidstudio } from "react-syntax-highlighter/dist/styles";
 export default class ReactRouterDom extends React.Component {

@@ -1,4 +1,3 @@
-import React from "react";
 import "../less/style.less";
 import {
   BrowserRouter as Router,

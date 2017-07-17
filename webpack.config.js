@@ -7,13 +7,10 @@ const
 module.exports = {
 	entry: {
 		'app': [
-			'babel-polyfill',
 			'react-hot-loader/patch',
 			'./src/app'
 		],
 		vendor: [
-			"react",
-			"react-dom",
 			"react-router-dom",
 			"react-router-bootstrap",
 			"react-bootstrap",
@@ -56,15 +53,6 @@ module.exports = {
 						noIeCompat: true
 					}
             	}]
-			},
-			{
-				test:/\.(png|svg|jpg|gif)$/,
-				use:[{
-					loader:'url-loader',
-					options:{
-						mimetype:''
-					}
-				}]
 			}
 			,{
 				test: /\.(js|jsx)$/,
@@ -90,9 +78,9 @@ module.exports = {
 		}),
 		new webpack.HotModuleReplacementPlugin(),
 		new HtmlWebpackPlugin({
-			title: 'react',
+			title: 'React',
 			favicon:'./favicon.ico',
-			template: __dirname + '/src/view/index.html'
+			template: __dirname + '/src/view/index.ejs'
 		}),
 		new webpack.optimize.CommonsChunkPlugin({
 		  name: "vendor",
