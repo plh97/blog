@@ -2,6 +2,7 @@ import React from 'react';
 import $ from 'jquery';
 import ECharts from 'react-echarts';
 import echarts from 'echarts';
+import china from './china.json'
 
 var data = [
      {name: '海门', value: 9},
@@ -499,11 +500,7 @@ const option = {
         }
     ]
 };
-
-$.get('china.json', function (chinaJson) {
-    echarts.registerMap('china', chinaJson);
-});
-
+echarts.registerMap('china', china);
 export default class Echarts extends React.Component {
   constructor(props) {
     super(props);
