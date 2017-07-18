@@ -39,7 +39,6 @@ export default class MarkDown extends React.Component {
     return (
       <Grid className="container-context">
         <Row>
-          <h1>&nbsp;</h1>
           <Col xs={6}>
             <FormGroup controlId="formControlsTextarea">
               <FormControl

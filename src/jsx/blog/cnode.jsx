@@ -5,7 +5,6 @@ export default class Cnode extends React.Component {
 	render() {
 		return (
 			<Grid className="container-context">
-        		<h1>&nbsp;</h1>
 				<Col xs={12}>
 					<center><h1> CNode 社区（国内最专业的 Node.js 开源技术社区）</h1></center>
 

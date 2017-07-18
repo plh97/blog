@@ -16,6 +16,8 @@ module.exports = {
 			"react-router-dom",
 			"react-router-bootstrap",
 			"react-bootstrap",
+			"echarts",
+			"jquery",
 			"react-syntax-highlighter"
 		]
 	},

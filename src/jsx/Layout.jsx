@@ -7,6 +7,7 @@ import {
 import Blog1 from "./blog/Blog1.jsx";
 import Blog2 from "./blog/Blog2.jsx";
 import Cnode from "./blog/cnode.jsx";
+import Echarts from "./blog/echarts.jsx";
 import MarkDown from "./blog/MarkDown.jsx";
 import ReactAPI from "./blog/reactapi.jsx";
 import ReactRouterDom from "./blog/React-router-dom.jsx";
@@ -19,7 +20,7 @@ export default class Layout extends React.Component {
 			<Router>
 				<div>
 					<header>
-						<Navbar inverse fixedTop>
+						<Navbar inverse>
 							<Navbar.Header>
 								<Navbar.Brand>
 									<a target="_blank" href="https://pengliheng.github.io/view/intro.html">Peng</a>
@@ -49,6 +50,9 @@ export default class Layout extends React.Component {
 									<LinkContainer to="/dist/cnode">
 										<NavItem eventKey={5}>cnode</NavItem>
 									</LinkContainer>
+									<LinkContainer to="/dist/echarts">
+										<NavItem eventKey={6}>echarts</NavItem>
+									</LinkContainer>
 									<NavItem target="_blank" eventKey={6} href="https://pengliheng.github.io/view/2048.html">2048</NavItem>
 								</Nav>
 							</Navbar.Collapse>
@@ -60,6 +64,7 @@ export default class Layout extends React.Component {
 					<Route path="/dist/react/reactapi" component={ReactAPI} />
 					<Route path="/dist/react/react-router-dom" component={ReactRouterDom} />
 					<Route path="/dist/cnode" component={Cnode} />
+					<Route path="/dist/echarts" component={Echarts} />
 				</div>
 			</Router>
 		);
