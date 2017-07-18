@@ -54,6 +54,7 @@
     "html-webpack-plugin": "^2.29.0",
     "http": "^0.0.0",
     "jquery": "^3.2.1",
+    "json-loader": "^0.5.4",
     "jsxobj": "^1.1.0",
     "less": "^2.7.2",
     "less-loader": "^4.0.5",
