@@ -6,6 +6,36 @@ export default class Blog1 extends React.Component {
   render() {
     return (
         <Grid className="container-context">
+          <Col sm={12} id="17">
+            <h3>生存环境进一步恶化</h3>
+            <p>说说什么好呢？你也许以为我说的是环境。。。的确，北京雾霾日益严重，如果只说自然环境的话，太狭义，我又不是小学生写作文。</p>
+            <p>先说说最近发生的几件事。</p>
+            <ul>
+              <li>
+                <h4><a target="_blank" href="https://bbs.hupu.com/19748742.html?merge_tid=19750515">广州租售同权</a></h4>
+                <p>那么有个问题，以前买不起房子，那我租房，ok现在政府这样搞，租金也涨，买不起，也租不起了，现在广州市中心天河区100平方的房子5k一个月不算贵。再涨再炒的话，1w不是梦。</p>
+                <p>先不说广州交通堵塞，人挤人挤地铁，生存环境进一步恶劣。也许不久将来，2w一个月是刚需。</p>
+                <p>房价过高，没人接盘，没关系，房屋本身其实就不具备交易属性。毕竟房子比票子值钱多了，也保值多了。拿房子换票子，你当我傻吗？</p>
+                <p>好吧，回归主题，既然没人买的起房子了，房价会降么？如果一定要降，我就不卖了，我涨租金。换一种模式接着玩。你奈我何？？？</p>
+              </li>
+              <li>
+                <h4><a target="_blank" href="https://www.botvs.com/">机器学习</a></h4>
+                <p>比特币涨价到1.5w/个(最高峰2w)说明数字化时代的到来，可能你的钱真的只是一个数字(问题是从来没有突破过5位数)。</p>
+                <p>阿尔法狗围棋打败柯林，注意，机器学习，机器是可以学习的，深度学习。</p>
+                <p>我把我的比特币交易通过机器学习挂到阿里云盘上面，那么他会自动根据我设定的策略，自动交易，高买低卖。。。等等，24h不停交易，机器永远比人理性勤快以及高智商。</p>
+                <p>好吧，说了这么多，我想说的是，我们可以可以通过机器学习编写策略以及算法，机器自动代替我做一些事情，比如说游戏外挂/炒股/交易比特币，machine never make mistake!那么人与人的差距在哪里？拼的是谁的算法更高级，谁的机器算力更强大。</p>
+                <p>好吧，转回来，计算机编程即将作为一个基本常识,不仅仅如此，人还要有法律常识，金融常识，就算你知道这么多，也仅仅说明你是一个目前暂时符合条件的未被社会所淘汰的正常人而已。</p>
+                <p>我只是想做个不被社会所淘汰的正常人咋就这么难？</p>
+                <p>那么这就是2/8定律？？？？80%的人将会被社会所淘汰，他们没钱，没有基本的常识，那么80%的人逃离北上广吧，那么差距进一步拉开，你永远赶不上一线城市精英。最终会因为没有人交配而灭绝。</p>
+                <p>好吧，我在研究一下<a target="_blank" href="https://www.botvs.com/">botvs</a>如何自动挂挡交易吧。</p>
+              </li>
+              <li>
+                <h4>罗辑思维</h4>
+                <p>好吧，具体忘记是哪一期了，罗胖是说过的，我们的生活并没有随着进化而进一步变好，人类生存环境进一步恶化。</p>
+                <p>ok,可能是我自己臆想/自己去考证去吧。</p>
+              </li>
+            </ul>
+          </Col>
           <Col sm={12} id="16">
             <h3>关于货币贬值</h3>
             <p>很感慨，根据本人粗浅短显的认知</p>
@@ -67,32 +97,6 @@ export default class Blog1 extends React.Component {
             <img src="./images/php_extend.jpg" />
             <p>最后打开C:\Windows\System32\drivers\etc的hosts文件，在里面加上一句话127.0.0.1 www.zunar.com.cn，就大功告成啦。本地环境已经配置好了。，如果你是32位的系统，请下载32位的wampserver，然后php_memcache.dll文件也要下载对应的32位文件。</p>
           </Col>
-          <Col sm={12} id="13">
-            <h3>检测是手机端访问本页面还是pc端<i className="icon-mobile-phone"></i></h3>
-            <p>先来一首安静的音乐</p>
-            <p>然而我暂时还不会写，先放一放</p>
-          </Col>
-          <Col sm={12} id="12">
-            <h3>为什么有的人觉得很懂他（她）2015/10/24</h3>
-            <p>用你的心去体会对方的心，多聆听，关于动作模仿，当然不是指的真的去做一模一样的动作，心里暗自模范，去体会着别人的心境</p>
-            <p>为什么有的人不会聊天，很多时候我们陷入一个误区，认为不会聊天，肯定是话的内容说错了，我想说的是，语言只能表达10%的意思，语气表达出40%的意思，肢体语言表达出50%的意思，说话时候，注意自己的语气是否过于冷淡，为什么你说话的语气总是那么的生硬，说话要带有丰富的情感，这样别人才能喜欢听你说话，关于肢体语言的训练，这个比较难，我还不懂。</p>
-          </Col>
-          <Col sm={12} id="11">
-            <h3>如何去写一个侧边栏滚动动态监听 2015/10/24</h3>
-            <p>先来一首安静的音乐</p>
-            <p>首先，demo已经写出来了，就在左边，然后就是第一步了，你需要先写静态的html+css代码，用position：fixed将他固定在屏幕左边，然后引入jquery。将下面这段复制到你的代码title的下面，</p>
-            <p>&lt;script src="http://1.pengliheng.sinaapp.com/mywy/jQuery-1.10.2/jquery-1.10.2.min.js" type="text/javascript">&lt;/script></p>
-            <p>然后你就可以开始写jquery代码了，第一步，固定在屏幕上的那个添加一排有规律的class，用来动态监听你点击的到底是第几个class，</p>
-            <img src="./images/slidenavHTML.jpg" />
-            <p>然后给你的每一篇内容，也就是那个需要跳转到的div元素，添加一排有规律的id属性，如1到15，总之就是与侧边栏的class属性相对于，之所以弄成1~15是为了将来用for循环更加方便。</p>
-            <p>那么接下来就可以写jquery代码了，首先写如何让点击侧边栏，自动跳转到某个div元素</p>
-            <img src="./images/QQ截图20151025030302.jpg" />
-            <img src="./images/slidenav1.jpg" />
-          </Col>
-          <Col sm={12}>
-            <img src="./images/slidenav1.jpg" />
-            12
-          </Col>
           <Col sm={12} id="10">
             <h3>sublime text 3快捷键 2015/10/23</h3>
             <p>首先安装插件，按住ctrl+~，粘贴下面这一段<br/>import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ','%20')).read())</p>
@@ -131,8 +135,6 @@ export default class Blog1 extends React.Component {
             <p>bdPic指的就是所需要分享的图片，默认的是当前页面的图片，当然也可以指定图片地址。</p>
             <p>bdUrl指的是分享的页面，默认指定当前页面，当然也可以指定其他页面。</p>
             <p>bdSize指的是分享图标的大小，3种尺寸，16,24,32。分别对应大中小尺寸。</p>
-          </Col>
-          <Col sm={12}>
             <img src="./images/bd-shage.jpg" />
             <p>bdPic，，，导入流量，百度封装好的函数租，任意调用，虽然说，with不是很好！</p>
           </Col>
@@ -161,8 +163,6 @@ export default class Blog1 extends React.Component {
             <p>创建一个新的ssh key</p>
             <p>然后会在 .ssh 目录生产两个文件：id_rsa和id_rsa.pub,打开id_rsa.pub，将里面内容复制到github的key里面，具体步骤如下图</p>
             <img src="./images/github goto settings.jpg" />
-          </Col>
-          <Col sm={12}>
             <img src="./images/github add key.jpg" />
             <p>当即可成功用git链接github了，并且可以成功push你的代码到github上面了！</p>
           </Col>
@@ -172,8 +172,6 @@ export default class Blog1 extends React.Component {
             <img src="./images/git_init.jpg" />
             <p>输入git init，新建仓库，也可以clone本地仓库，或者远程仓库</p>
             <img src="./images/git_clone.jpg" />
-          </Col>
-          <Col sm={12}>
             <p>当然，大多数情况是白纸一张，什么也没有，这时候在本地创建好文件</p>
             <p>然后输入以下命令</p>
             <p>git add .</p>
@@ -194,8 +192,6 @@ export default class Blog1 extends React.Component {
             <img src="./images/my_github.jpg" />
             <p>接下来就可以进入到一个这样的页面，点击+进入</p>
             <img src="./images/create_index.jpg" />
-          </Col>
-          <Col sm={12}>
             <p>最后在浏览器输入username.github.io,即可访问你的github个人博客，看到helloworld！</p>
           </Col>
           <Col sm={12} id="2">
@@ -222,33 +218,9 @@ export default class Blog1 extends React.Component {
               将输入后获取的红色框内的ip地址放到dnspod里面的第一条的记录值里面，第二条，第三条是自带的，不需要弄，第四条需要设置，记录值是自己github个人博客的网址，接下来需要在自己的项目里面放入一个CNAME的文件，不带后缀的，然后记事本打开文件，在里面输入你的个人域名
             </p>
             <img src="./images/cname.png" />
-          </Col>
-          <Col sm={12}>
             <p>CNAME文件放在项目的根目录上面</p>
             <img src="./images/my_production.jpg" />
             <p>就这样，个人域名的指向终于搞成了，</p>
-          </Col>
-          <a id="1" href="Thinkphp.html">
-            <div className="col-sm-12">
-              <h3>Thinkphp分享会</h3>
-              <ol>
-                <li>think安装</li>
-                <li>think目录下的文件及文件夹分别代表的含义</li>
-                <li>Volist循环标签使用方法</li>
-                <li>Foreach循环标签使用方法</li>
-                <li>IF标签使用方法</li>
-              </ol>
-            </div>
-          </a>
-          <Col sm={12}>
-            <h3>github-pages</h3>
-            <ol>
-              <li>个人博客的必要性</li>
-              <li>github帐号注册</li>
-              <li>git的使用方法及代码上传</li>
-              <li>github-pages的优点及缺点</li>
-              <li>个人域名及博客的上线</li>
-            </ol>
           </Col>
         </Grid>
     );

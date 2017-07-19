@@ -84,7 +84,8 @@
     "webpack-chunk-hash": "^0.4.0",
     "webpack-dev-middleware": "^1.11.0",
     "webpack-dev-server": "^2.5.1",
-    "webpack-merge": "^4.1.0"
+    "webpack-merge": "^4.1.0",
+    "yarn": "^0.27.5"
   },
   "devDependencies": {},
   "description": ""

@@ -1,2 +1,3 @@
 ## ok,i'd like you to click this [my blog](https://pengliheng.github.io/dist).
-# beacuse i don't know how to do more well
+# beacuse i don't know how to do better.
+### would you like to read my recently blog? click [human's trouble of lifing environment](https://pengliheng.github.io/dist/blog1) maybe it can't work i just test it. so you also need to click above link........
