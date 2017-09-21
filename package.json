@@ -60,6 +60,8 @@
     "less-loader": "^4.0.5",
     "lodash": "^4.17.4",
     "npm": "^5.1.0",
+    "preact": "^8.2.5",
+    "preact-compat": "^3.17.0",
     "prettier": "^1.5.2",
     "react": "^15.6.1",
     "react-bootstrap": "^0.31.1",
