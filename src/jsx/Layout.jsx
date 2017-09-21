@@ -4,8 +4,8 @@ import {
   Route,
   Link
 } from "react-router-dom";
-// import Blog1 from "./blog/Blog1.jsx";
-import Blog2 from "./blog/Blog2.jsx";
+import Blog1 from "./blog/Blog1.jsx";
+// import Blog2 from "./blog/Blog2.jsx";
 import Cnode from "./blog/cnode.jsx";
 // import Echarts from "./blog/echarts.jsx";
 import MarkDown from "./blog/MarkDown.jsx";

@@ -16,6 +16,7 @@ module.exports = {
 			"react-router-dom",
 			"react-router-bootstrap",
 			"react-bootstrap",
+			"echarts",
 			"jquery",
 			"react-syntax-highlighter"
 		]
@@ -26,15 +27,9 @@ module.exports = {
 		path: path.join(__dirname, "dist"),
 		publicPath:'/dist'
 	},
-	"resolve": {
-		"alias": {
-			"react": "preact-compat",
-			"react-dom": "preact-compat"
-		}
-	},
 	devServer: {
 		host: "localhost",
-		port: 3005,
+		port: 3004,
 		hot: true,
 		overlay: {
 			warnings: true,
