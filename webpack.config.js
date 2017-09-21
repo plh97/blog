@@ -7,7 +7,6 @@ const
 module.exports = {
 	entry: {
 		'app': [
-			'react-hot-loader/patch',
 			'./src/app'
 		],
 		vendor: [
@@ -16,8 +15,6 @@ module.exports = {
 			"react-router-dom",
 			"react-router-bootstrap",
 			"react-bootstrap",
-			"echarts",
-			"jquery",
 			"react-syntax-highlighter"
 		]
 	},
@@ -27,18 +24,15 @@ module.exports = {
 		path: path.join(__dirname, "dist"),
 		publicPath:'/dist'
 	},
+	"resolve": {
+	  "alias": {
+	    "react": "preact-compat",
+	    "react-dom": "preact-compat"
+	  }
+	},
 	devServer: {
 		host: "localhost",
-		port: 3004,
-		hot: true,
-		overlay: {
-			warnings: true,
-			errors: true
-		},
-		compress: true,
-		allowedHosts: [
-		    'pengliheng.github.io'
-		]
+		port: 3009,
 	},
 	module:{
 		rules:[
@@ -51,10 +45,7 @@ module.exports = {
 					loader: "css-loader"
 				}
 				, {
-					loader: "less-loader", options: {
-						strictMath: true,
-						noIeCompat: true
-					}
+					loader: "less-loader"
             	}]
 			}
 			,{
@@ -83,7 +74,6 @@ module.exports = {
 		new CleanWebpackPlugin(['dist'],{
 			"exclude": [ "images"]
 		}),
-		new webpack.HotModuleReplacementPlugin(),
 		new HtmlWebpackPlugin({
 			title: 'React',
 			favicon:'./favicon.ico',

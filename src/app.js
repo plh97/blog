@@ -1,24 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { AppContainer } from 'react-hot-loader'
 import Layout from "./jsx/Layout.jsx"
 
 ReactDOM.render(
-  <AppContainer>
-    <Layout/>
-  </AppContainer>,
+    <Layout/>,
   document.getElementById('root')
 );
 
-// Hot Module Replacement API
-if (module.hot) {
-  module.hot.accept('./jsx/Layout.jsx', () => {
-    const NextApp = require('./jsx/Layout.jsx').default;
-    ReactDOM.render(
-      <AppContainer>
-        <NextApp/>
-      </AppContainer>,
-      document.getElementById('root')
-    );
-  });
-}
