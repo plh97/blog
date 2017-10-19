@@ -31,7 +31,7 @@ app
 // })
 
 // servers.listen(443);
-server.listen(80);
+server.listen(8001);
 const config = require('./webpack.config')
 // app.use(webpackMiddleware(webpack(config), {
 //   stats: {colors: true}
