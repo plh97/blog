@@ -7,5 +7,4 @@ before_script:
 - npm install -g yarn
 - yarn install
 script:
-- yarn run eslint
-- yarn test
+- yarn run t

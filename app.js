@@ -33,6 +33,6 @@ app
 // servers.listen(443);
 server.listen(80);
 const config = require('./webpack.config')
-app.use(webpackMiddleware(webpack(config), {
-  stats: {colors: true}
-}));
+// app.use(webpackMiddleware(webpack(config), {
+//   stats: {colors: true}
+// }));
