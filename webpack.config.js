@@ -1,7 +1,9 @@
-const 
+const
 	path = require("path"),
 	CleanWebpackPlugin = require('clean-webpack-plugin'),
 	webpack = require('webpack'),
+	ExtractTextPlugin = require('extract-text-webpack-plugin'),
+	ManifestPlugin = require('webpack-manifest-plugin'),
 	HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
@@ -13,8 +15,6 @@ module.exports = {
 			"react",
 			"react-dom",
 			"react-router-dom",
-			"react-router-bootstrap",
-			"react-bootstrap",
 			"react-syntax-highlighter"
 		]
 	},
@@ -22,51 +22,25 @@ module.exports = {
 		filename: "[name].[hash].js",
 		chunkFilename:'[name].[chunkhash].js',
 		path: path.join(__dirname, "dist"),
-		publicPath:'/dist'
 	},
-	"resolve": {
-	  "alias": {
-	    "react": "preact-compat",
-	    "react-dom": "preact-compat"
-	  }
-	},
-	devServer: {
-		host: "localhost",
-		port: 3009,
-	},
+	// "resolve": {
+	//   "alias": {
+	//     "react": "preact-compat",
+	//     "react-dom": "preact-compat"
+	//   }
+	// },
 	module:{
 		rules:[
 			{
-				test: /\.less$/,
-				use: [{
-					loader: "style-loader"
-				}
-				, {
-					loader: "css-loader"
-				}
-				, {
-					loader: "less-loader"
-            	}]
-			}
-			,{
+        test: /(\.less|\.css)$/,
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: ['css-loader', 'less-loader']
+        })
+			},{
 				test: /\.(js|jsx)$/,
 				exclude: /(node_module|bower_components)/,
 				loader:'babel-loader'
-			}
-			,{
-				test: /\.html$/,
-				use:[{
-					loader:'html-loader',
-					options: {
-						minimize: true,
-						removeComments: true,
-						collapseWhitespace: true
-					}
-				}]
-			}
-			,{
-				test: /\.json$/,
-				use: 'json-loader'
 			}
 		]
 	},
@@ -74,14 +48,18 @@ module.exports = {
 		new CleanWebpackPlugin(['dist'],{
 			"exclude": [ "images"]
 		}),
+		new ManifestPlugin(path.join('dist', 'manifest.json')),
 		new HtmlWebpackPlugin({
-			title: 'React',
+			title: 'Blog',
 			favicon:'./favicon.ico',
 			template: __dirname + '/src/view/index.ejs'
 		}),
 		new webpack.optimize.CommonsChunkPlugin({
 		  name: "vendor",
 		  minChunks: Infinity
-		})
+		}),
+    new ExtractTextPlugin({
+      filename:'index.[hash].css'
+    })
 	]
 };

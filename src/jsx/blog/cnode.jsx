@@ -1,12 +1,12 @@
 import React from "react";
-import { Grid, Row, Col } from "react-bootstrap";
+import { Row, Col } from 'antd';
 
 export default class Cnode extends React.Component {
 	render() {
 		return (
-			<Grid className="container-context">
-				<Col xs={12}>
-					<center><h1> CNode 社区（国内最专业的 Node.js 开源技术社区）</h1></center>
+			<Row className="container-context" type='flex' justify='center'>
+				<Col span={24}>
+					<center><h1> CNode 社区（国内最专业的 Node.js 开源技术社区）~~爬页面是并发爬取的，所以页数有点混乱。</h1></center>
 
 					<h1>第3页</h1>
 
@@ -1629,7 +1629,7 @@ export default class Cnode extends React.Component {
 					<a target="_blank" href="https://cnodejs.org/topic/5959b82cd629da605b2f5b04">关于PM2新版本(v2.50)中，ID排序问题</a><br/><br/>
 
 				</Col>
-			</Grid>
+			</Row>
 		);
 	}
 }

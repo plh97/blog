@@ -1,9 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Layout from "./jsx/Layout.jsx"
+import Root from "./jsx/Root.jsx"
+import './less/style.less'
 
 ReactDOM.render(
-    <Layout/>,
+    <Root/>,
   document.getElementById('root')
 );
-
