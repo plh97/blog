@@ -6,6 +6,7 @@ import {
 import Life from "./blog/life/index.jsx";
 import Cnode from "./blog/cnode.jsx";
 import ReactAPI from "./blog/reactapi/index.jsx";
+import GoLang from "./blog/golang/index.jsx";
 import { Menu, Icon,Layout } from 'antd';
 const {Header,Footer,Content} = Layout
 import { Route, Redirect } from 'react-router'
@@ -35,6 +36,9 @@ export default class Root extends React.Component {
             <Menu.Item key="translation">
               <Link to='/reactapi'>React API·英译</Link>
             </Menu.Item>
+            <Menu.Item key="golang">
+              <Link to='/golang'>Go Language</Link>
+            </Menu.Item>
             <Menu.Item key="life">
               <Link to='/life'>闲情逸致</Link>
             </Menu.Item>
@@ -47,6 +51,7 @@ export default class Root extends React.Component {
           </Menu>
           <Content>
   					<Route path="/reactapi" component={ReactAPI} />
+            <Route path="/golang" component={GoLang} />
   					<Route path="/life" component={Life} />
             <Route path="/cnode" component={Cnode} />
   					<Route component={NoFound} />

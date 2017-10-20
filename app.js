@@ -24,11 +24,24 @@ app
   .use(router.allowedMethods())
   .use(require('koa-static')(staticPath))
 
-
-
-// router.get('/reactapi/:id',async ctx => {
-//   ctx.redirect('/')
-// })
+router.get('/reactapi/:id',async ctx => {
+  ctx.redirect('/')
+})
+router.get('/reactapi',async ctx => {
+  ctx.redirect('/')
+})
+router.get('/life/:id',async ctx => {
+  ctx.redirect('/')
+})
+router.get('/life',async ctx => {
+  ctx.redirect('/')
+})
+router.get('/golang/:id',async ctx => {
+  ctx.redirect('/')
+})
+router.get('/golang',async ctx => {
+  ctx.redirect('/')
+})
 
 // servers.listen(443);
 server.listen(8001);
