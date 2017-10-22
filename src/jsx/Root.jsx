@@ -1,8 +1,11 @@
 import React from "react";
 import {
   BrowserRouter as Router,
-  Link
+  Link,
 } from "react-router-dom";
+import {
+  IndexLink
+} from "react-router"
 import Life from "./blog/life/index.jsx";
 import Cnode from "./blog/cnode.jsx";
 import ReactAPI from "./blog/reactapi/index.jsx";
@@ -19,7 +22,7 @@ export default class Root extends React.Component {
     history.push('/reactapi')
   }
   state = {
-    current: 'living',
+    current: 'translation',
   }
   handleClick = (e) => {
     this.setState({

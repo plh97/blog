@@ -43,6 +43,7 @@
     "less": "^2.7.2",
     "less-loader": "^4.0.5",
     "lodash": "^4.17.4",
+    "next.js": "^1.0.3",
     "preact": "^8.2.5",
     "preact-compat": "^3.17.0",
     "react": "^16.0.0",

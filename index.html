@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Bidirectional data binding</title>
+  <script type="text/javascript">
+    class Bind {
+      constructor(type, element) {
+        this.type = type;
+        this.element = element;
+      }
+      get prop() {
+        if (this.type === 'html') {
+          return this.element.innerHTML;
+        } else if (this.type === 'value') {
+          return this.element.value
+        }
+      }
+      set prop(value) {
+        if (this.type === 'html') {
+          this.element.innerHTML = value;
+        } else if (this.type === 'value') {
+          this.element.value = value;
+        }
+      }
+    }
+
+    class Data {
+      constructor(data) {
+        this.data = data;
+        this.map = new Map();
+        const doms = document.querySelectorAll("body *");
+        for (const dom of doms) {
+          let prop;
+          let bind;
+          if (dom.dataset.html) {
+            prop = dom.dataset.html;
+            bind = new Bind('html', dom);
+          } else if (dom.dataset.value) {
+            prop = dom.dataset.value;
+            bind = new Bind('value', dom);
+          }
+          prop && this.map.set(`${prop}`, bind);
+        }
+      }
+      change(prop, value) {
+        const bind = this.map.get(prop);
+        bind.prop = value;
+        this.map.set(prop, bind);
+      }
+    }
+    const bind = (data) => {
+      const databind = new Data(data);
+      const proxy = new Proxy(data, {
+        set(target, key, value) {
+          databind.change(key, value);
+        }
+      })
+      return proxy;
+    }
+  </script>
+</head>
+
+<body>
+  <div aria-selected=true class="item-1">1</div>
+  <div aria-selected=true class="item-2">2</div>
+  <div data-html='a'></div>
+  <input data-value='b' type="text">
+  <script>
+    let view = new Proxy({
+        selected: null
+      },
+      {
+      set: function(obj, prop, newval) {
+        let oldval = obj[prop];
+
+        if (prop === 'selected') {
+          if (oldval) {
+            oldval.setAttribute('aria-selected', 'false');
+          }
+          if (newval) {
+            newval.setAttribute('aria-selected', 'true');
+          }
+        }
+
+        // The default behavior to store the value
+        obj[prop] = newval;
+      }
+      });
+
+      let i1 = view.selected = document.getElementById('item-1');
+      console.log(i1.getAttribute('aria-selected')); // 'true'
+
+      let i2 = view.selected = document.getElementById('item-2');
+      console.log(i1.getAttribute('aria-selected')); // 'false'
+      console.log(i2.getAttribute('aria-selected')); // 'true'
+      var data = {
+        a: 1,
+        b: 'retr',
+      };
+      data = bind(data);
+      data.a = 1;
+      data.b = "b";
+  </script>
+</body>
+
+</html>

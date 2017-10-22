@@ -18,6 +18,11 @@ module.exports = {
 			"react-syntax-highlighter"
 		]
 	},
+	devServer: {
+    historyApiFallback: true,
+    contentBase: './',
+    hot: true
+  },
 	output: {
 		filename: "[name].[hash].js",
 		chunkFilename:'[name].[chunkhash].js',
@@ -45,14 +50,12 @@ module.exports = {
 		]
 	},
 	plugins: [
-		new CleanWebpackPlugin(['dist'],{
-			"exclude": [ "images"]
-		}),
+		new CleanWebpackPlugin(['dist']),
 		new ManifestPlugin(path.join('dist', 'manifest.json')),
 		new HtmlWebpackPlugin({
 			title: 'Blog',
 			favicon:'./favicon.ico',
-			template: __dirname + '/src/view/index.ejs'
+			template: __dirname + '/src/jsx/views/index.ejs'
 		}),
 		new webpack.optimize.CommonsChunkPlugin({
 		  name: "vendor",
