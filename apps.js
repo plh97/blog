@@ -1,4 +1,4 @@
-const http = require('https')
+const https = require('https')
 const App = require('koa');
 const app = new App()
 // SSL options
@@ -9,7 +9,7 @@ const app = new App()
 // };
 
 // start the server
-const server = http.createServer(app.callback());
+const servers = https.createServer(app.callback());
 const static = require('koa-static');
 const bodyParser = require('koa-bodyparser');
 const router = require('koa-router')();
@@ -27,7 +27,7 @@ app
 
 servers.listen(443);
 // server.listen(8001);
-// const config = require('./webpack.config')
+const config = require('./webpack.config')
 // app.use(webpackMiddleware(webpack(config), {
 //   stats: {colors: true}
 // }));
