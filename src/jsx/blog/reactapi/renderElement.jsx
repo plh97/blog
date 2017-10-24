@@ -63,7 +63,6 @@ export default class Jsx extends React.Component {
         <h4>React只更新必需品。</h4>
         <p>ReactDOM会拿它本身的元素及子元素去和上一个相比较，并且只应用更新必要的DOM使得DOM实现它想要的状态。</p>
         <p>你可以用浏览器工具来检查最后一个例子</p>
-        <img src="https://facebook.github.io/react/img/docs/granular-dom-updates.gif" />
         <p>尽管我们创建了一个元素每秒来描述整个UI树，仅仅只有变化的文本节点会通过ReactDOM获得更新。</p>
         <p>在我们的这些实验中，思考UI应该如何关注给定的时刻，而不是如何随着时间而改变它，从而消除了一类bug。</p>
       </Col>

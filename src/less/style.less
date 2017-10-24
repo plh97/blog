@@ -105,3 +105,26 @@ body {
     }
   }
 }
+
+/* 设置滚动条的样式 */
+::-webkit-scrollbar {
+	width:8px;
+	&:end {
+	    display: none;
+	}
+}
+/* 滚动槽 */
+::-webkit-scrollbar-track {
+	background-color: rgba(0, 0, 0, 0);
+}
+/* 滚动条滑块 */
+::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
+    &:end {
+        display: none;
+    }
+}
+::-webkit-scrollbar-thumb:window-inactive {
+	background-color: rgba(0, 0, 0, 0.5);
+}

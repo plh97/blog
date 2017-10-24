@@ -22,8 +22,6 @@ export default class Thinking extends React.Component {
 <p>React是，在我们的观点中，第一方式要建立一个快大的webapp通过js来写，他在facebook和instagram中对我们影响非常大。</p>
 <p>React的一个最伟大的部分就是是你考虑关于app正如你说建造的。在这篇文中，我们将会带你建立一个可搜索的产品数据。</p>
 <h4>通过一个模仿开始</h4>
-<p>想象我们已经有一个json api，和一个设计稿，样子如下。</p>
-<img src="https://facebook.github.io/react/img/blog/thinking-in-react-mock.png" />
 <p>我们的jsonapi输出一些数据，像下面这个样子。</p>
 <SyntaxHighlighter showLineNumbers={showLineNumbers} language={language} style={style}>{`[
   {category: "Sporting Goods", price: "$49.99", stocked: true, name: "Football"},
@@ -37,7 +35,6 @@ export default class Thinking extends React.Component {
 <h4>第一步：将UI化解成组件层次结构</h4>
 <p>你所需要做的第一件事情。就是在模拟中给每一个组件(子组件)绘制一个边框，并给他们命名。如果你和设计师一起工作，他们可能已经做完这些了，所以就只需要和他们讨论，他们ps的层次命名可能成为你组件的名字。</p>
 <p>但是如何才能知道这是他自己的组件呢，如果你需要创建函数或者对象，用相同的技术来决定。一个这样的技术是单一负责责任，这就是为什么一个组件制作好一件事。如果他成熟了，那么应该被分解成更小的组件。因为你经常向用户展示一个json数据模型。你将会发现，如果你的模型建设准确，你的UI(组件结构)将会很好的映射。这个就是因为UI和数据模型倾向于坚持用样的信息结构。这意味着将UI分离成组件常常是微不足道的。只需要将他分解成只表示数据模型的一部分。</p>
-<img src="https://facebook.github.io/react/img/blog/thinking-in-react-components.png" />
 <p>你将会看到我们有5个组件在你的单页面应用里面。我们将会对每个组件表示的数据结构进行分析。</p>
 <ol>
 <li><code>FilterableProductTable</code>(orange):包含这个例子的全部。</li>

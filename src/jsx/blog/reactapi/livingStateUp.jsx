@@ -247,7 +247,6 @@ function toFahrenheit(celsius){
 <p>如果一些东西可以从state或者props中派生出来，他可能不应该在state中，例如，不要储存celsiusValue或者fahrenheitValue,我们储存最后一个被编辑的temperature和scale，这些输入值总是能通过render()方法计算出来。这让我们清除或者应用四舍五入而不用让用户丢失精准度在输入过程中。</p>
 <p>当你在UI中看到一些错误，你可以用<a href="https://github.com/facebook/react-devtools">react开发者工具</a>来检查你的代码，检查props，将鼠标移动代这个开发者工具的树状标签组件中，你可以看到state的更新</p>
 <p>这可以让你跟踪bug并且找到他们的源头。</p>
-<img src="https://facebook.github.io/react/img/docs/react-devtools-state.gif" alt="React Developer Tools" />
       </Col>
     )
   }
