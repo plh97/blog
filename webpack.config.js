@@ -50,7 +50,7 @@ module.exports = {
 		]
 	},
 	plugins: [
-		new CleanWebpackPlugin(['dist']),
+		// new CleanWebpackPlugin(['dist']),
 		new ManifestPlugin(path.join('dist', 'manifest.json')),
 		new HtmlWebpackPlugin({
 			title: 'Blog',

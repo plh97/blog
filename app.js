@@ -1,6 +1,8 @@
 const http = require('http')
 const App = require('koa');
-const app = new App()
+const xtpl = require('koa-xtpl');
+const path = require('path');
+const app = new App();
 const server = http.createServer(app.callback());
 const static = require('koa-static');
 const bodyParser = require('koa-bodyparser');
@@ -8,7 +10,7 @@ const router = require('koa-router')();
 const webpack = require('webpack');
 const webpackMiddleware = require('koa-webpack-dev-middleware');
 const staticPath = './dist';
-console.log("process.env.NODE_ENV :",process.env.NODE_ENV )
+const port = process.env.PORT || 8001;
 
 app
   .use(bodyParser())
@@ -16,8 +18,19 @@ app
   .use(router.allowedMethods())
   .use(require('koa-static')(staticPath))
 
-server.listen(8001);
+app.use(xtpl({
+  root: path.resolve(__dirname, './dist'),
+  extname: 'html',
+  commands: {}
+}));
+
+app.use(async(ctx, next) => {
+  await ctx.render('index', {});
+});
+
+server.listen(port);
 const config = require('./webpack.config')
 // app.use(webpackMiddleware(webpack(config), {
 //   stats: {colors: true}
 // }));
+console.log("process.env.PORT :", process.env.PORT)
