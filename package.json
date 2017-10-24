@@ -34,6 +34,7 @@
     "fs": "^0.0.1-security",
     "history": "^4.7.2",
     "html-webpack-plugin": "^2.29.0",
+    "https": "^1.0.0",
     "json-loader": "^0.5.4",
     "koa": "^2.3.0",
     "koa-bodyparser": "^4.2.0",
