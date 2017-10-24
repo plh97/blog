@@ -1,14 +1,8 @@
 const http = require('http')
 const App = require('koa');
-const app = new App()
-// SSL options
-// const fs = require('fs');
-// const options = {
-//     key: fs.readFileSync('./peng.pipk.top.key'),  //ssl文件路径
-//     cert: fs.readFileSync('./peng.pipk.top.crt')  //ssl文件路径
-// };
-
-// start the server
+const xtpl = require('koa-xtpl');
+const path = require('path');
+const app = new App();
 const server = http.createServer(app.callback());
 const static = require('koa-static');
 const bodyParser = require('koa-bodyparser');
@@ -16,7 +10,7 @@ const router = require('koa-router')();
 const webpack = require('webpack');
 const webpackMiddleware = require('koa-webpack-dev-middleware');
 const staticPath = './dist';
-console.log("process.env.NODE_ENV :",process.env.NODE_ENV )
+const port = process.env.PORT || 8001;
 
 app
   .use(bodyParser())
@@ -24,30 +18,19 @@ app
   .use(router.allowedMethods())
   .use(require('koa-static')(staticPath))
 
-// router.get('/reactapi/:id',async ctx => {
-//   ctx.redirect('/')
-// })
-// router.get('/reactapi',async ctx => {
-//   ctx.redirect('/')
-// })
-// router.get('/life/:id',async ctx => {
-//   ctx.redirect('/')
-// })
-// router.get('/life',async ctx => {
-//   ctx.redirect('/')
-// })
-// router.get('/golang/:id',async ctx => {
-//   ctx.redirect('/')
-// })
-// router.get('/golang',async ctx => {
-//   ctx.redirect('/')
-// })
+app.use(xtpl({
+  root: path.resolve(__dirname, './dist'),
+  extname: 'html',
+  commands: {}
+}));
 
+app.use(async(ctx, next) => {
+  await ctx.render('index', {});
+});
 
-
-// servers.listen(443);
-server.listen(8001);
+server.listen(port);
 const config = require('./webpack.config')
 // app.use(webpackMiddleware(webpack(config), {
 //   stats: {colors: true}
 // }));
+console.log("process.env.PORT :", process.env.PORT)

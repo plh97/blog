@@ -19,10 +19,10 @@ const history = createHistory()
 
 export default class Root extends React.Component {
   componentWillMount(){
-    history.push('/reactapi')
+    location.pathname=='/' && history.push('/reactapi')
   }
   state = {
-    current: 'translation',
+    current: location.pathname == '/' ? 'reactapi' : location.pathname.split('/')[1],
   }
   handleClick = (e) => {
     this.setState({
@@ -36,7 +36,7 @@ export default class Root extends React.Component {
           <Menu onClick={this.handleClick}
             selectedKeys={[this.state.current]}
             mode="horizontal">
-            <Menu.Item key="translation">
+            <Menu.Item key="reactapi">
               <Link to='/reactapi'>React API·英译</Link>
             </Menu.Item>
             <Menu.Item key="golang">
