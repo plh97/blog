@@ -3,7 +3,7 @@ const
 	CleanWebpackPlugin = require('clean-webpack-plugin'),
 	webpack = require('webpack'),
 	ExtractTextPlugin = require('extract-text-webpack-plugin'),
-	ManifestPlugin = require('webpack-manifest-plugin'),
+	// ManifestPlugin = require('webpack-manifest-plugin'),
 	HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
