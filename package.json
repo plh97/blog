@@ -40,6 +40,7 @@
     "koa-bodyparser": "^4.2.0",
     "koa-router": "^7.2.1",
     "koa-static": "^4.0.1",
+    "koa-static-cache": "^5.1.1",
     "koa-webpack-dev-middleware": "^2.0.2",
     "koa-xtpl": "^2.1.1",
     "less": "^2.7.2",
