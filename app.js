@@ -2,6 +2,7 @@ const http = require('http')
 const App = require('koa');
 const xtpl = require('koa-xtpl');
 const path = require('path');
+const enforceHttps = require('koa-sslify');
 const app = new App();
 const server = http.createServer(app.callback());
 const static = require('koa-static');
@@ -17,15 +18,15 @@ app
   .use(bodyParser())
   .use(router.routes())
   .use(router.allowedMethods())
-  // .use(require('koa-static')(staticPath))
-  .use(staticCache(path.join(__dirname, staticPath), {
-    maxAge: 365 * 24 * 60 * 60
+  .use(staticCache(path.join(__dirname, staticPath), {maxAge: 31536000}))
+  .use(xtpl({
+    root: path.resolve(__dirname, './dist'),
+    extname: 'html',
+    commands: {}
   }))
-app.use(xtpl({
-  root: path.resolve(__dirname, './dist'),
-  extname: 'html',
-  commands: {}
-}));
+  .use(enforceHttps({
+    trustProtoHeader: true
+  }))
 
 app.use(async(ctx, next) => {
   await ctx.render('index', {});
