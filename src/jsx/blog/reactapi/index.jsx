@@ -21,7 +21,6 @@ import Thinking from './thinking.jsx'
 export default class ReactAPI extends React.Component {
   render() {
     const { match } = this.props
-    console.log(location.pathname.split('/')[2]);
     return (
       <Layout>
         <Row type='flex'>
