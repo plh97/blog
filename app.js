@@ -1,4 +1,4 @@
-const http = require('http')
+const http = require('shttp')
 const App = require('koa');
 const xtpl = require('koa-xtpl');
 const path = require('path');
@@ -12,7 +12,7 @@ const router = require('koa-router')();
 const webpack = require('webpack');
 const webpackMiddleware = require('koa-webpack-dev-middleware');
 const staticPath = './dist';
-const port = process.env.PORT || 8001;
+const port = process.env.PORT || 443;
 
 app
   .use(bodyParser())
