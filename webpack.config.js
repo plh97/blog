@@ -27,6 +27,7 @@ module.exports = {
 		filename: "[name].[hash].js",
 		chunkFilename:'[name].[chunkhash].js',
 		path: path.join(__dirname, "dist"),
+		publicPath:"/",
 	},
 	// "resolve": {
 	//   "alias": {
@@ -50,8 +51,8 @@ module.exports = {
 		]
 	},
 	plugins: [
-		// new CleanWebpackPlugin(['dist']),
-		new ManifestPlugin(path.join('dist', 'manifest.json')),
+		new CleanWebpackPlugin(['dist']),
+		// new ManifestPlugin(path.join('dist', 'manifest.json')),
 		new HtmlWebpackPlugin({
 			title: 'Blog',
 			favicon:'./favicon.ico',

@@ -21,44 +21,45 @@ import Thinking from './thinking.jsx'
 export default class ReactAPI extends React.Component {
   render() {
     const { match } = this.props
+    console.log(location.pathname.split('/')[2]);
     return (
       <Layout>
         <Row type='flex'>
           <Col xs={24} sm={24} md={6} lg={4} className='slide'>
               <Menu
-                defaultSelectedKeys={['1']}
+                defaultSelectedKeys={[String(location.pathname.split('/')[2])]}
                 style={{ height: '100%', borderRight: 0 }}>
-                <Item key="1">
+                <Item key="undefined">
                   <Link to={match.path}>介绍 JSX</Link>
                 </Item>
-                <Item key="2">
+                <Item key="renderElement">
                   <Link to={`${match.path}/renderElement`}>渲染元素</Link>
                 </Item>
-                <Item key="3">
+                <Item key="componentsProps">
                   <Link to={`${match.path}/componentsProps`}>Components & props</Link>
                 </Item>
-                <Item key="4">
+                <Item key="stateCycle">
                   <Link to={`${match.path}/stateCycle`}>State & 生命周期</Link>
                 </Item>
-                <Item key="5">
+                <Item key="handleEvent">
                   <Link to={`${match.path}/handleEvent`}>处理事件</Link>
                 </Item>
-                <Item key="6">
+                <Item key="conditionRender">
                   <Link to={`${match.path}/conditionRender`}>根据条件来渲染</Link>
                 </Item>
-                <Item key="7">
+                <Item key="listKey">
                   <Link to={`${match.path}/listKey`}>列表和Key</Link>
                 </Item>
-                <Item key="8">
+                <Item key="form">
                   <Link to={`${match.path}/form`}>表格</Link>
                 </Item>
-                <Item key="9">
+                <Item key="livingStateUp">
                   <Link to={`${match.path}/livingStateUp`}>状态提升</Link>
                 </Item>
-                <Item key="10">
+                <Item key="compositionInheritance">
                   <Link to={`${match.path}/compositionInheritance`}>Composition和Inheritance</Link>
                 </Item>
-                <Item key="11">
+                <Item key="thinking">
                   <Link to={`${match.path}/thinking`}>思考React</Link>
                 </Item>
               </Menu>

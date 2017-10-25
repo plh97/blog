@@ -5,7 +5,7 @@ const path = require('path');
 const app = new App();
 const server = http.createServer(app.callback());
 const static = require('koa-static');
-const staticCache = require('koa-static-cache')
+// const staticCache = require('koa-static-cache')
 const bodyParser = require('koa-bodyparser');
 const router = require('koa-router')();
 const webpack = require('webpack');
@@ -17,7 +17,9 @@ app
   .use(bodyParser())
   .use(router.routes())
   .use(router.allowedMethods())
-  .use(staticCache(path.join(__dirname, staticPath), {maxAge: 31536000}))
+  .use(static(path.join(__dirname, staticPath), {
+    maxAge: 356 * 24 * 60 * 60
+  }))
   .use(xtpl({
     root: path.resolve(__dirname, './dist'),
     extname: 'html',
@@ -27,6 +29,7 @@ app
 app.use(async(ctx, next) => {
   await ctx.render('index', {});
 });
+
 
 server.listen(port);
 const config = require('./webpack.config')

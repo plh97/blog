@@ -20,21 +20,21 @@ export default class Blog1 extends React.Component {
         <Row type='flex'>
           <Col xs={24} sm={24} md={6} lg={4} className='slide'>
             <Menu
-              defaultSelectedKeys={['1']}
+              defaultSelectedKeys={[String(location.pathname.split('/')[2])]}
               style={{ height: '100%', borderRight: 1 }}>
-              <Item key="1">
+              <Item key="undefined">
                 <Link to={match.path}>生存环境恶化</Link>
               </Item>
-              <Item key="2">
+              <Item key="currencyDevaluation">
                 <Link to={`${match.path}/currencyDevaluation`}>货币贬值</Link>
               </Item>
-              <Item key="3">
+              <Item key="realEstate">
                 <Link to={`${match.path}/realEstate`}>房地产</Link>
               </Item>
-              <Item key="4">
+              <Item key="git">
                 <Link to={`${match.path}/git`}>git使用篇</Link>
               </Item>
-              <Item disabled key="5">
+              <Item disabled key="blog">
                 <Link to={`${match.path}/blog`}>博客搭建</Link>
               </Item>
             </Menu>
