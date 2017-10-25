@@ -2,7 +2,6 @@ const http = require('http')
 const App = require('koa');
 const xtpl = require('koa-xtpl');
 const path = require('path');
-const rewrite = require('rewrite');
 const app = new App();
 const server = http.createServer(app.callback());
 const static = require('koa-static');
