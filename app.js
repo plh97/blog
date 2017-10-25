@@ -1,8 +1,8 @@
-const http = require('https')
+const http = require('http')
 const App = require('koa');
 const xtpl = require('koa-xtpl');
 const path = require('path');
-const enforceHttps = require('koa-sslify');
+const rewrite = require('rewrite');
 const app = new App();
 const server = http.createServer(app.callback());
 const static = require('koa-static');
@@ -12,7 +12,7 @@ const router = require('koa-router')();
 const webpack = require('webpack');
 const webpackMiddleware = require('koa-webpack-dev-middleware');
 const staticPath = './dist';
-const port = process.env.PORT || 443;
+const port = process.env.PORT || 8001;
 
 app
   .use(bodyParser())
@@ -23,9 +23,6 @@ app
     root: path.resolve(__dirname, './dist'),
     extname: 'html',
     commands: {}
-  }))
-  .use(enforceHttps({
-    trustProtoHeader: true
   }))
 
 app.use(async(ctx, next) => {
