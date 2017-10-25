@@ -1,4 +1,4 @@
-const http = require('shttp')
+const http = require('https')
 const App = require('koa');
 const xtpl = require('koa-xtpl');
 const path = require('path');
