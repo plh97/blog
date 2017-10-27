@@ -48,7 +48,7 @@ export default class Nginx extends React.Component {
   gzip_buffers               16 8k;
   gzip_http_version          1.1;     //http1.1  可选http1.0   .. 根据你的个人要求来设置
   gzip_min_length            256;
-  gzip_types                 text/plain text/css application/x-javascript application/javascript text/javascript;
+  gzip_types                 text/css application/x-javascript application/javascript text/javascript;
   //https配置
   server {
     listen                   443 ssl;
