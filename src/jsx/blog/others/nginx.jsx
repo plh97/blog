@@ -64,12 +64,13 @@ export default class Nginx extends React.Component {
     // Last-Modified: Fri, 27 Oct 2017 11:57:59 GMT
     // Cache-Control: max-age=30758
     server_name              pipk.top ww.pipk.top blog.pipk.top;
-    //建议使用 https://certbot.eff.org,傻瓜式自动生成，免费证书，并且可选择多个子域名同时应用该证书，具体可以去他的官网看一下
+    //建议使用 https://certbot.eff.org
+    //傻瓜式自动生成，免费证书，并且可选择多个子域名同时应用该证书，具体可以去他的官网看一下
     ssl_certificate          /etc/letsencrypt/live/pipk.top/fullchain.pem; # managed by Certbot
     ssl_certificate_key      /etc/letsencrypt/live/pipk.top/privkey.pem; # managed by Certbot
     include                  /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
     ssl_dhparam              /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
-    /////////////////////////////////////////////////////////all above is certbot auto create///////////////////////////
+    ////////////////////////////////////////////all above is certbot auto create///////////////////////////
     ssl_session_cache         shared:SSL:1m;
     //i use the reverse proxy to both 8001 and 8080 prot such as this below
     //so that you can just easy creat http with 8001 port and use nginx's feature reverse proxy
