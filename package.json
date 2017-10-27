@@ -38,6 +38,7 @@
     "json-loader": "^0.5.4",
     "koa": "^2.3.0",
     "koa-bodyparser": "^4.2.0",
+    "koa-compress": "^2.0.0",
     "koa-router": "^7.2.1",
     "koa-sslify": "^2.1.2",
     "koa-static": "^4.0.1",
