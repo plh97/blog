@@ -10,6 +10,7 @@ import Life from "./blog/life/index.jsx";
 import Cnode from "./blog/cnode.jsx";
 import ReactAPI from "./blog/reactapi/index.jsx";
 import GoLang from "./blog/golang/index.jsx";
+import Others from "./blog/others/index.jsx";
 import { Menu, Icon,Layout } from 'antd';
 const {Header,Footer,Content} = Layout
 import { Route, Redirect } from 'react-router'
@@ -48,15 +49,15 @@ export default class Root extends React.Component {
             <Menu.Item key="chatroom">
               <a target='_blank' href='https://chat1.pipk.top'>我的聊天室</a>
             </Menu.Item>
-            <Menu.Item key="cnode">
-              <Link to='/cnode'>cnode</Link>
+            <Menu.Item key="others">
+              <Link to='/others'>其他</Link>
             </Menu.Item>
           </Menu>
           <Content>
   					<Route path="/reactapi" component={ReactAPI} />
             <Route path="/golang" component={GoLang} />
   					<Route path="/life" component={Life} />
-            <Route path="/cnode" component={Cnode} />
+            <Route path="/others" component={Others} />
   					<Route component={NoFound} />
           </Content>
 			  </Layout>
