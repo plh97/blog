@@ -47,7 +47,7 @@ export default class Root extends React.Component {
               <Link to='/life'>闲情逸致</Link>
             </Menu.Item>
             <Menu.Item key="chatroom">
-              <a target='_blank' href='https://chat.pipk.top'>我的聊天室</a>
+              <a target='_blank' href='https://chat.penlh.com'>我的聊天室</a>
             </Menu.Item>
             <Menu.Item key="others">
               <Link to='/others'>其他</Link>
