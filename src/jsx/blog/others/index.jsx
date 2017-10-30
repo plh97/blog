@@ -3,7 +3,7 @@ import {Row, Col, Menu, Icon, Layout} from 'antd';
 const {Header, Footer, Content, Sider} = Layout
 const {Item} = Menu;
 import {BrowserRouter as Router, Route, Link} from "react-router-dom";
-import Nginx from './Nginx.jsx'
+import Nginx from './nginx.jsx'
 import Vps from './Vps.jsx'
 export default class Others extends React.Component {
   render() {
