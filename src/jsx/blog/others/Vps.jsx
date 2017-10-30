@@ -152,7 +152,7 @@ export NVM_DIR="$HOME/.nvm"
         <p>throw <code>ip.ip.ip.ip:yourport</code> to your browser url. if your open your page your got it.</p>
         <p>then buy a domain (if your in china your should Domain name filing). and set DNS <code>www::::your ip::::default setting</code>,then the domain <code>www.domain.com</code> is point to your server</p>
         <p>just setting nginx ,let <code>www</code>Subdomain point to your personal port.</p>
-        <p>just refer my article <a target="_blank" href="/others/nginx">nginx setting</a></p>
+        <p>just refer my article <a target="_blank" href="/others">nginx setting</a></p>
       </Col>
     )
   }
