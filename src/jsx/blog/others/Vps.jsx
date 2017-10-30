@@ -131,18 +131,18 @@ dpkg -i linux-image-4.12.4-041204-generic_4.12.4-041204.201707271932_amd64.deb
         <SyntaxHighlighter showLineNumbers={showLineNumbers} language={language} style={style}>{
 `wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.33.6/install.sh | bash
               ||
-              \/
+              \\\/
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
               ||
-              \/
+              \\\/
         nvm install node
               ||
-              \/
+              \\\/
             node -v
             //v8.8.1
               ||
-              \/
+              \\\/
         npm install yarn
              yarn
          yarn add pm2
