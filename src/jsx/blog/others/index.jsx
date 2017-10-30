@@ -16,7 +16,7 @@ export default class Others extends React.Component {
               height: '100%',
               borderRight: 0
             }}>
-              <Item key="nginx">
+              <Item key="undefined">
                 <Link to={match.path}>Nginx 初体验</Link>
               </Item>
               <Item key="vps">
