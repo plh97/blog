@@ -74,7 +74,7 @@ Welcome to visit: https://teddysun.com/486.html
 Enjoy it!`
         }</SyntaxHighlighter>
         <p>above here ,your success install shadowsocks-server, below page i will tell your how to install shadowsocks-client. <a target="_blank" href="https://github.com/shadowsocks/shadowsocks-windows/releases">shadowsocks</a>.Just downloads it.</p>
-        <img src="http://upload-images.jianshu.io/upload_images/1359048-953d8d293c71f2ea.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="shadowsocks setting example"/>
+        <img src="https://upload-images.jianshu.io/upload_images/1359048-953d8d293c71f2ea.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="shadowsocks setting example"/>
         <p>if your use android download it <a target="_blank" href="https://github.com/shadowsocks/shadowsocks-android/releases">shadowsocks-android</a>,with the same settings of windows client.</p>
         <h4>Advance</h4>
         <p>use Google BBR algorithm to improve your speeds of ss.</p>
