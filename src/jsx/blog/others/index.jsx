@@ -33,7 +33,7 @@ export default class Others extends React.Component {
             }}>
               <Row className="container-context" type='flex' justify='center'>
                 <Route exact path={match.path} component={Nginx}/>
-                <Route exact path={match.path / vps} component={Vps}/>
+                <Route path={`${match.path}/vps`} component={Vps} />
               </Row>
             </Content>
           </Col>
