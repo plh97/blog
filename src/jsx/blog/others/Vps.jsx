@@ -36,11 +36,12 @@ export default class Vps extends React.Component {
         }</SyntaxHighlighter>
         <p>average of 20ms. tha's great.it cost me 6.8$/mo to render this vps server.only with this server details. <a target="_blank" href="https://www.gigsgigscloud.com/">gigsgigscloud</a></p>
         <SyntaxHighlighter showLineNumbers={showLineNumbers} language={language} style={style}>{
-` Bandwidth:   300GB
- Disk Space:   20GB
-     Memory:   512MB
-  CPU Cores:	 1 CPU(s)
-OS Template:	 Ubuntu 14.04 (64bit)`
+`my Server you can refer or buy as same as me.~!
+Bandwidth   :     300GB
+Disk Space  :     20GB
+Memory      :     512MB
+CPU Cores   :     1 CPU(s)
+OS Template :     Ubuntu 14.04 (64bit)`
         }</SyntaxHighlighter>
         <p>above step your can got a vps server.then. first open your CMD <code>ping yourIp</code>,to check whether this server good or bad,just saw the **ms .with this lower and better. okay,if this is less than 100ms.it got better .and then your can reader the below article.found that how to improve your ss.</p>
         <p>okay ! thats ok .</p>
