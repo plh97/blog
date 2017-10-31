@@ -52,6 +52,13 @@ export default class Root extends React.Component {
             <Menu.Item key="others">
               <Link to='/others'>其他</Link>
             </Menu.Item>
+            <Menu.Item key="github" style={{float:"right"}}>
+              <iframe
+          	    style={{marginLeft: "2px", marginBottom:"-5px"}}
+          	    frameborder="0" scrolling="0" width="91px" height="20px"
+          	    src="https://ghbtns.com/github-btn.html?user=pengliheng&repo=pengliheng.github.io&type=star&count=true" >
+          		</iframe>
+            </Menu.Item>
           </Menu>
           <Content>
   					<Route path="/reactapi" component={ReactAPI} />
