@@ -1,25 +1,13 @@
 import React from "react";
-import SyntaxHighlighter from "react-syntax-highlighter";
-import {tomorrowNightEighties, xcode} from "react-syntax-highlighter/dist/styles";
 import {Row, Col} from 'antd';
 
 export default class backendgo extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      language: 'go',
-      style: tomorrowNightEighties,
-      showLineNumbers: true
-    };
-  }
   render() {
-    const showLineNumbers = this.state.showLineNumbers;
-    const language = this.state.language;
-    const style = this.state.style;
     return (
       <Col span={24}>
         <h3>Go ---Switch Usage</h3>
-        <SyntaxHighlighter showLineNumbers={showLineNumbers} language={language} style={style}>{`package main
+        <pre><code className="language-javascript">{
+`package main
 
 import (
   "fmt"
@@ -46,7 +34,7 @@ func main() {
     	fmt.Println("想太多~~~！")
   }
 }`
-}</SyntaxHighlighter>
+}</code></pre>
       </Col>
     )
   }

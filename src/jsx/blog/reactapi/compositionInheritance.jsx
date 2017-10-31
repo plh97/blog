@@ -1,21 +1,8 @@
 import React from "react";
-import SyntaxHighlighter from "react-syntax-highlighter";
-import { androidstudio } from "react-syntax-highlighter/dist/styles";
 import { Row, Col } from 'antd';
 
 export default class Compositionlnheritance extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      language: "",
-      style: androidstudio,
-      showLineNumbers: true
-    };
-  }
   render() {
-    const showLineNumbers = this.state.showLineNumbers;
-    const language = this.state.language;
-    const style = this.state.style;
     return (
       <Col span={24}>
         <h3>组件与继承</h3>
@@ -24,16 +11,18 @@ export default class Compositionlnheritance extends React.Component {
         <h4>Comtainment</h4>
         <p>一些组件不会提前知道他们的子元素，这在<code>sidebar</code>和<code>Dialog</code>中很常见，代表通用盒子</p>
         <p>我们考虑这样的组件用特殊的子元素，</p>
-<SyntaxHighlighter showLineNumbers={showLineNumbers} language={language} style={style}>{`function FancyBorder (props){
+        <pre><code className="language-javascript">{
+`function FancyBorder (props){
   return (
     <div className={'FancyBorder FancyBorder-'+props.color}>
       {props.children}
     </div>
   )
-}
-`}</SyntaxHighlighter>
-<p>通过嵌套JSX，这可以让其他的组件传递任意个数的子元素：</p>
-<SyntaxHighlighter showLineNumbers={showLineNumbers} language={language} style={style}>{`function WelcomeDialog(){
+}`
+        }</code></pre>
+        <p>通过嵌套JSX，这可以让其他的组件传递任意个数的子元素：</p>
+        <pre><code className="language-javascript">{
+`function WelcomeDialog(){
   return{
     <FancyBorder color='blue'>
       <h1 className="Dialog-title">
@@ -44,11 +33,12 @@ export default class Compositionlnheritance extends React.Component {
       </p>
     </FancyBorder>
   }
-}
-`}</SyntaxHighlighter>
+}`
+}</code></pre>
 <p>所有在<code>&lt;FancyBorder></code>里面的JSX标签都会传递props.children，具体看代码，很浅显，不解释。</p>
 <p>你也可以这么写</p>
-<SyntaxHighlighter showLineNumbers={showLineNumbers} language={language} style={style}>{`function SplitPane(props){
+<pre><code className="language-javascript">{
+`function SplitPane(props){
   return{
     <div class="SplitPane">
       <div class="SplitPane-left">
@@ -65,13 +55,14 @@ function App(props){
     <!--//are author foolish to create this useless things?-->
     <SplitPane left={<contact/>} right={<chat/>}/>
   )
-}
-`}</SyntaxHighlighter>
+}`
+}</code></pre>
 <p>像COntact,Chat这样的元素仅仅只是对象，所以你可以传递他们通过props就像其他data那样。</p>
 <h4>专业化用法？</h4>
 <p>有时候我们考虑组件的特殊情况对于其他组件而言，例如，我们可能会用WlcomeDialog是Dialog的特例。</p>
 <p>在react里面，下面也是用组合实现的，一个特殊组件渲染一个通用组件并且通过props来配置。</p>
-<SyntaxHighlighter showLineNumbers={showLineNumbers} language={language} style={style}>{`function Dialog(props){
+<pre><code className="language-javascript">{
+`function Dialog(props){
   return(
     <FancyBorder color="blue">
       <h1 className="Dialog-title">
@@ -88,10 +79,11 @@ function WelcomeDialog(){
     <Dialog title="Welcome"
       message='thanks for your visiting'/>
   )
-}
-`}</SyntaxHighlighter>
+}`
+}</code></pre>
 <p>组合对于定义为class的组件同样适用</p>
-<SyntaxHighlighter showLineNumbers={showLineNumbers} language={language} style={style}>{`function Dialog(props){
+<pre><code className="language-javascript">{
+`function Dialog(props){
   return(
     <FancyBorder color="blue">
       <h1 className="Dialog-title">
@@ -127,8 +119,8 @@ class SignUpDialog extends ReactDOM.Component{
   handleSignUp(e){
     alert('Welcome aboard， $'{this.state.login})
   }
-}
-// `}</SyntaxHighlighter>
+}`
+        }</code></pre>
         <h3>那么继承又是如何呢？</h3>
         <p>在脸书，我们使用react上千的组件，然而我们还没有找到案例，我们可以考虑创造组件继承阶层。</p>
         <p>props和构成给了你灵活性，你所需要定做组件的外观和行为，用一种明确的可靠地方式。记住组件可以任意props，包括原始的value，React元素，或者函数。</p>

@@ -54,6 +54,7 @@
     "pm2": "^2.7.2",
     "preact": "^8.2.5",
     "preact-compat": "^3.17.0",
+    "prismjs": "^1.8.3",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-router-dom": "^4.2.2",

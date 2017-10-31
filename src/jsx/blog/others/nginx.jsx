@@ -1,21 +1,8 @@
 import React from "react";
-import SyntaxHighlighter from "react-syntax-highlighter";
-import {tomorrowNightEighties, xcode} from "react-syntax-highlighter/dist/styles";
 import {Row, Col} from 'antd';
 
 export default class Nginx extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      language: 'javascript',
-      style: tomorrowNightEighties,
-      showLineNumbers: true
-    };
-  }
   render() {
-    const showLineNumbers = this.state.showLineNumbers;
-    const language = this.state.language;
-    const style = this.state.style;
     return (
       <Col span={24}>
         <h3>我的Nginx 配置</h3>
@@ -32,7 +19,7 @@ export default class Nginx extends React.Component {
             while your refresh your page your can got true Subroutine.
           </li>
         </ul>
-        <SyntaxHighlighter showLineNumbers={showLineNumbers} language={language} style={style}>{
+        <pre><code className="language-nginx">{
 `http {
   //http://*.pipk.top -----> https://*.pipk.top  -----> http://112.74.63.84:8080
   //                                              |---> http://112.74.63.84:8001
@@ -110,7 +97,7 @@ export default class Nginx extends React.Component {
     rewrite                   ^(.*)$ https://$host$1 permanent;
   }
 }`
-        }</SyntaxHighlighter>
+      }</code></pre>
       </Col>
     )
   }

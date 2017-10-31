@@ -17,10 +17,17 @@ import { Route, Redirect } from 'react-router'
 import createHistory from 'history/createBrowserHistory'
 import NoFound from './views/404.jsx'
 const history = createHistory()
+// import "prismjs/themes/prism-okaidia.css"
+import "prismjs/themes/prism-coy.css"
+import Prismjs from "prismjs"
 
 export default class Root extends React.Component {
   componentWillMount(){
     location.pathname=='/' && history.push('/reactapi')
+  }
+  componentDidUpdate(){
+    console.log('componentDidUpdate');
+    Prismjs.highlightAll()
   }
   state = {
     current: location.pathname == '/' ? 'reactapi' : location.pathname.split('/')[1],

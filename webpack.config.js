@@ -14,8 +14,7 @@ module.exports = {
 		vendor: [
 			"react",
 			"react-dom",
-			"react-router-dom",
-			"react-syntax-highlighter"
+			"react-router-dom"
 		]
 	},
 	devServer: {
