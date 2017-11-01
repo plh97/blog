@@ -6,7 +6,6 @@ const app = new App();
 const server = http.createServer(app.callback());
 const static = require('koa-static');
 const compress = require('koa-compress')
-// const staticCache = require('koa-static-cache')
 const bodyParser = require('koa-bodyparser');
 const router = require('koa-router')();
 const webpack = require('webpack');
