@@ -39,6 +39,6 @@ app.use(async(ctx, next) => {
 
 server.listen(port);
 const config = require('./webpack.config')
-app.use(webpackMiddleware(webpack(config), {
-  stats: {colors: true}
-}));
+// app.use(webpackMiddleware(webpack(config), {
+//   stats: {colors: true}
+// }));
