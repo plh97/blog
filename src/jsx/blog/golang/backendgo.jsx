@@ -7,7 +7,7 @@ export default class backendgo extends React.Component {
     return (
       <Col span={24}>
         <h3>Go ---Switch Usage</h3>
-        <Prism lang='javascript'>{`
+        <Prism lang='js'>{`
           package main
 
           import (

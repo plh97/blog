@@ -8,7 +8,7 @@ export default class realEstate extends Component {
       <Col span={24}>
         <h3>git 基本命令使用篇</h3>
         <p>首先，git可以在服务器端和本地电脑端同时使用，现在发现atom编辑器(eletron)同样可以git上传</p>
-        <Prism lang='javascript'>{`
+        <Prism lang='js'>{`
           git init
           git add .
           git commit -am'😄'

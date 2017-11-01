@@ -20,7 +20,7 @@ export default class Nginx extends React.Component {
             while your refresh your page your can got true Subroutine.
           </li>
         </ul>
-        <Prism lang='javascript'>{`
+        <Prism lang='js'>{`
           http {
             //http://*.penlh.com -----> https://*.penlh.com  -----> http://112.74.63.84:8080
             //                                              |---> http://112.74.63.84:8001

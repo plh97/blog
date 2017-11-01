@@ -8,7 +8,7 @@ export default class Vps extends React.Component {
       <Col span={24}>
         <h3>动手租了一个香港Vps服务器</h3>
         <h4>relize the features : config my blog&chatroom and my ss to against GFW.</h4>
-        <Prism lang='javascript'>{`
+        <Prism lang='js'>{`
           /root> ping penlh.com
 
           正在 Ping penlh.com [43.239.158.182] 具有 32 字节的数据:
@@ -24,7 +24,7 @@ export default class Vps extends React.Component {
         `}</Prism>
         <p>average of 20ms. tha's great.it cost me 6.8$/mo to render this vps server.only with this server details. <a target="_blank" href="https://www.gigsgigscloud.com/">gigsgigscloud</a></p>
         <p>my Server you can refer or buy as same as me.~!</p>
-        <Prism lang='javascript'>{`
+        <Prism lang='js'>{`
           Bandwidth   :     300GB
           Disk Space  :     20GB
           Memory      :     512MB
@@ -37,13 +37,13 @@ export default class Vps extends React.Component {
         <p>suggest your to set the Ubuntu system. your should install the socket.ok iam so lazy so that your can google how to install ShadowSocks. oh i copy to here. <a target="_blank" href="https://www.diycode.cc/topics/738">键盘男</a></p>
         <p>run that in your xshell*,if your can use putty or xshell to connect your vps server</p>
         <p>run below words</p>
-        <Prism lang='javascript'>{`
+        <Prism lang='js'>{`
           wget --no-check-certificate -O shadowsocks-all.sh https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-all.sh
           chmod +x shadowsocks-all.sh
           ./shadowsocks-all.sh 2>&1 | tee shadowsocks-all.log
         `}</Prism>
         <p>choose one of (Python、R、Go、libev),i choose Go</p>
-        <Prism lang='javascript'>{`
+        <Prism lang='js'>{`
           Which Shadowsocks server you'd select:
           1.Shadowsocks-Python
           2.ShadowsocksR
@@ -52,7 +52,7 @@ export default class Vps extends React.Component {
           Please enter a number (default 1):
         `}</Prism>
         <p>if successful install ,you'll got it below.</p>
-        <Prism lang='javascript'>{`
+        <Prism lang='js'>{`
           Congratulations, Shadowsocks-Go server install completed!
           Your Server IP        :  45.32.73.59
           Your Server Port      :  8989
@@ -67,7 +67,7 @@ export default class Vps extends React.Component {
         <p>if your use android download it <a target="_blank" href="https://github.com/shadowsocks/shadowsocks-android/releases">shadowsocks-android</a>,with the same settings of windows client.</p>
         <h4>to be Advancer</h4>
         <p>use Google BBR algorithm to improve your speeds of ss.</p>
-        <Prism lang='javascript'>{`
+        <Prism lang='js'>{`
           wget --no-check-certificate https://github.com/teddysun/across/raw/master/bbr.sh
           chmod +x bbr.sh
           ./bbr.sh
@@ -76,7 +76,7 @@ export default class Vps extends React.Component {
           //if you got tcp_bbr modules if successful get it.
         `}</Prism>
         <p>TCP BBR want you have Linux cure4.1 or upper.if it told you your core is lowwer. run below.</p>
-        <Prism lang='javascript'>{`
+        <Prism lang='js'>{`
           //使用root用户登录，运行以下命令：
           wget --no-check-certificate https://github.com/teddysun/across/raw/master/bbr.sh
           chmod +x bbr.sh
@@ -98,7 +98,7 @@ export default class Vps extends React.Component {
         `}</Prism>
         <p>ok ,your can found that you can open Youtube with 4K Video or FaceBook with fast speed!</p>
         <p>run <code>vim /etc/shadowsocks-go/config.json</code>, refer to my config. or just copy it .</p>
-        <Prism lang='javascript'>{`
+        <Prism lang='js'>{`
           {
             "server":"0.0.0.0",
             "local_port":1080,
@@ -116,7 +116,7 @@ export default class Vps extends React.Component {
         <h4>nginx~V13.6</h4>
         <p>read this page i'm too lazy to write&&copy it <a href="https://sb.sb/centos-install-nginx/">CentOS 7.x / RHEL 7.x 下编译安装最新版 Nginx</a>,so do Ubuntu&&CentOS.</p>
         <p>use node V8.8.1 i'm too lazy to write&&copy it <a target="_blank" href="nvm.sh">nvm</a></p>
-        <Prism lang='javascript'>{`
+        <Prism lang='js'>{`
 wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.33.6/install.sh | bash
               ||
               \\\/
