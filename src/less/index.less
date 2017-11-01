@@ -1,251 +1,122 @@
-@nav-color:#212121; //pc端口，字体，分隔符号等灰色
-@page-avtice:#a5a4a2; //pc端口，翻页占有背景颜色，分隔符号等灰色
-@nav-slide-line:#d8d8d8;  //移动端口，slide上下边界线颜色
-@nav-hover-color:#f4f2f3; //移动端口，导航栏被选中颜色，淡灰色
-@nav-hover-background-color:#f0c541;  //pc端口导航栏鼠标选中时候，金色色的屎黄色
-@carousel-tip:#cecbcc;		//轮播图片未选中按钮颜色
-@carousel-tip-active:#908a88;//轮播图片选中按钮颜色
-@nav-context-avtive-color: #4e4b4a; //二级页面二级导航栏选中颜色
-@nav-context-color:#908e8f ;//二级页面二级导航栏未选中颜色
-@nav-context-font-color:#817f80 ;//二级页面内容字体颜色
-@screen-sm-min: 768px;  /* 小屏幕（平板，大于等于 768px） */
-@screen-md-min: 992px;  /* 中等屏幕（桌面显示器，大于等于 992px） */
-@screen-lg-min: 1200px;   /* 大屏幕（大桌面显示器，大于等于 1200px） */
+@import "./commonStyle.css";
 
-body{
-	padding:0px;
-	margin:0px; 
+body {
+  margin: 0;
+  padding: 0;
 
-	header{
-		padding:0px;
-		margin:0px;
+  .slide {
+    border-right: 1px solid #efefef;
+  }
+  .ant-layout-content{
+    padding: 0 !important;
+  }
 
-		.navbar{
-			margin-bottom: 0px;
-			position: relative;
-			z-index: 2;
-			border: none;
-			border-radius: 0;
+  .container-context {
+    background-color: #dfdfdf;
 
-			@media screen and (min-width: 764px) {
-				background-color: black;
-			}
-			@media screen and (max-width: 764px) {
-				background-color: white;
-			}
+    .ant-col-24 {
+      min-height: 1300px;
+      background-color: #fff;
+      font-size: 15px;
 
-			.img-container{
-				background-color: black;
+      p,h4,h3{
+        margin: 0 24px !important;
+      }
 
-				border-bottom: 1px  @nav-color solid;
+      pre{
+        @media (min-width: 600px) {
+          margin: 0 24px !important;
+        }
+        @media (max-width: 600px) {
+          border-radius: 0;
+        }
+      }
 
-				img{
-					margin: 0 auto;
-					display: block;
-					padding: 20px 0 10px;
-					max-width: 40%;
-				}
-			}
-			
-			.nav-container{
-				//max-width: 845px;
-				max-width: 100%;
-				background-color: inherit;
-				text-align: center;
+      img {
+        display: inline-block;
+        max-width: 100%;
+      }
 
-				@media (min-width: 768px){
-				    width: 1200px;
-				}
+      ol {
+        start: 1;
+      }
 
-				// 关闭按钮
-				.navbar-header{
-					
-					.navbar-toggle{
-						width: 100%;
-						float: none;
-						border: none;
-						margin-right: 0;
+      h1 {
+        text-align: center;
+        padding: 8px 0;
+        font-weight: bold;
+      }
 
-						&:hover,&:focus{
-							background-color: white;
-						}
-					}
-				}
+      h3 {
+        text-align: center;
+        padding: 8px 0;
+        font-weight: bold;
+        font-size: 20px;
+      }
 
-				//导航栏
-				.navbar-collapse{
-					@media (max-width: 768px){
-						border-bottom: 1px solid @nav-slide-line;
-						margin-bottom: 10px;
-					}
-					
-					ul.nav{
-						
-						.line{
-							width: 0;
-							height: 16px;
-							margin: 17px 0;
+      h3:after {
+        content: "--主题";
+        margin: 10px;
+        font-size: 12px;
+        font-weight: 500;
+      }
 
-							@media (min-width: 768px){
-								float: left;
-								border-right: 1px solid  @nav-color;
-							}
+      h4 {
+        text-align: left;
+        padding: 8px 0;
+        font-weight: bold;
+      }
 
-							@media (max-width: 768px){
-								border-right:none;
-							}
-						}
+      h4:after {
+        content: "~~~~";
+        margin-left: 10px;
+        font-size: 12px;
+        font-weight: 100;
+      }
 
-						li{
-							height: 50px;
+      b {
+        color: red;
+      }
 
-							a{
-								padding: 15px 44px;
+      p {
+        text-indent: 2em;
+        font-size: 16px;
+        text-align: left;
+      }
 
-								&:focus{
-									color: @nav-hover-background-color;
-								}
-							}
+      a {
+        color: red;
+        font-weight: bold;
+        font-size: 21px;
+        margin-left: 10px;
+        word-break: break-word;
+      }
 
-							a.slide{
-								display: none;
-							}
+      code {
+        word-break: break-word;
+        white-space: inherit;
+      }
 
-							@media (max-width: 768px){
-								a:hover{
-									background-color: @nav-hover-color; 
-								}
-							}
+      a,
+      h3,
+      h4,
+      li,
+      p,
+      span {
+        word-break: break-word;
+      }
 
-							@media (min-width: 768px){
+      div.tap-context {
+        margin: 0;
 
-								&:hover{
-									
-									a.title{
-										color: @nav-hover-background-color;
-										display: block;
-									}
+        div.tab-pane {
+          margin: 0 10px;
+        }
+      }
 
-									a.slide{
-										display: block;
-										background-color: rgba(0,0,0,0.3);
-										height: 40px;
-										line-height: 40px;
-										padding-top: 0px;
-										padding-bottom: 0px;
-									}
-
-									a.slide:hover{
-										color: black;
-										background-color: @nav-hover-background-color;
-									}
-								}
-							}
-						}
-
-						.on{
-							color: @nav-hover-background-color;
-
-							a.title{
-								color: @nav-hover-background-color;
-							}
-							&:focus{
-								@media (min-width: 768px){
-									background-color: inherit;
-									
-								}
-                            }
-						}
-					}
-				}
-			}
-		}
-	}
-
-	.context-container{
-		@media (min-width: 768px){
-			max-width: 1200px;
-		}
-		.carousel{
-			padding-bottom: 36px;
-			@media (min-width: @screen-sm-min){
-				padding-bottom: 36px;
-			}
-
-			@media (max-width: @screen-sm-min){
-				padding-bottom: 25px;
-			}
-
-			.carousel-indicators{
-				border-color: gray;
-				color:black;
-
-				li{
-					background-color: #cecbcc;
-					border: none;
-					border-radius: 0;
-
-					@media (min-width: @screen-sm-min){
-						width: 30px;
-						height: 5px;
-						margin: 0 5px;
-					}
-
-					@media (max-width: @screen-sm-min){
-						width: 30px;
-						height: 4px;
-						margin: 0;
-					}
-					
-				}
-
-				.active{
-					background-color: @carousel-tip-active;
-				}
-			}
-
-			.carousel-inner{
-				bottom: 0px;
-				padding-bottom: 20px;
-
-				.item{
-
-					img{
-						width: 100%;
-					}
-				}
-			}
-		}
-
-		.line{
-			width: 100%;
-			height: 0;
-			border-top: 1px solid @nav-slide-line;
-			display: inherit;
-
-		}
-
-		.row{
-			padding: 20px 0 30px;
-
-			div{
-
-				img{
-					width: 100%;
-				}
-
-				p{
-					text-align: center;
-					font-size: 16px;
-					margin: 10px 0;
-				}
-			}
-		}
-	}
-
-	footer{
-		padding:30px 0 60px;
-		margin:0px;
-		text-align: center;
-	}
+      iframe {
+        max-width: 100%;
+      }
+    }
+  }
 }
