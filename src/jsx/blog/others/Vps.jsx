@@ -23,8 +23,8 @@ export default class Vps extends React.Component {
               最短 = 17ms，最长 = 22ms，平均 = 19ms
         `}</Prism>
         <p>average of 20ms. tha's great.it cost me 6.8$/mo to render this vps server.only with this server details. <a target="_blank" href="https://www.gigsgigscloud.com/">gigsgigscloud</a></p>
+        <p>my Server you can refer or buy as same as me.~!</p>
         <Prism lang='javascript'>{`
-          my Server you can refer or buy as same as me.~!
           Bandwidth   :     300GB
           Disk Space  :     20GB
           Memory      :     512MB
