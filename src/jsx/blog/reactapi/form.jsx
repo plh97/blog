@@ -8,7 +8,7 @@ export default class Form extends React.Component {
       <Col span={24}>
         <h3>Forms</h3>
         <p>in React,HTML form元素和HTML的其他元素相比，工作方式略有不同，应为表格元素天然的保存一些internal状态，例如，下面这个表格就是为了HTML接受一个单一的名字。</p>
-        <PrismCode lang='html'>{`
+        <PrismCode lang='jsx'>{`
           <form>
             <label>
               Name:
