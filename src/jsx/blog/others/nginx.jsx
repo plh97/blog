@@ -10,7 +10,7 @@ export default class Nginx extends React.Component {
         <h4>say nothing just read my code.</h4>
         <ul>
           <li>here's 5 reasons i suggest you to use nginx!</li>
-          <li>1. Gzip ,can really make your js code files more smaller.only 30% volume after Gzip. </li>
+          <li>1. Gzip ,can really make your js code files more smaller.only 30% size after Gzip. </li>
           <li>2. you can config more than 2 domain with different content.</li>
           <li>3. can config your https in a easy way.</li>
           <li>4. also can config your cache with nginx.</li>
