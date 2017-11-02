@@ -11,27 +11,27 @@ export default class Jsx extends React.Component {
         <p>从概念上讲，组件像js函数，他们可以接受任意参数(props)并且返回那些将要出现在屏幕上面的React元素</p>
         <h4>function组件和class组件</h4>
         <p>最简单的去定义一个组件是写一个js函数</p>
-        <pre><code className="language-javascript">{
-`function Welcome(props){
-  return <h1>Hello, {props.name}</h1>;
-}`
-        }</code></pre>
+        <PrismCode lang='jsx'>{`
+          function Welcome(props){
+            return <h1>Hello, {props.name}</h1>;
+          }
+        `}</PrismCode>
         <p>这个函数是一个有效的React组件因为它可以接受一个单一的<code className="language-javascript">props</code>对象，参数携带数据并且返回一个<code className="language-javascript">React</code>元素，我们叫这样的组件为函数化因为他是真真的js函数。</p>
         <p>你也可以用ES6 class来定义一个组件:</p>
-        <pre><code className="language-javascript">{
-`class Welcome extends React.Component {
-  render(){
-    return <h1>Hello,{this.props.name}</h1>
-  }
-}`
-        }</code></pre>
+        <PrismCode lang='jsx'>{`
+          class Welcome extends React.Component {
+            render(){
+              return <h1>Hello,{this.props.name}</h1>
+            }
+          }
+        `}</PrismCode>
         <p>以上这两种组件从<code className="language-javascript">React</code>的角度来看是相等的。</p>
         <p>Classes有一些额外功能，下一章节会探讨。到目前为止，我们将会使用函数化组件，因为简洁。</p>
         <h4>渲染一个组件</h4>
         <p>上一章节，我们仅仅只遇到React元素的纯标签。</p>
-        <pre><code className="language-javascript">{`const element = <div/>`}</code></pre>
+        <PrismCode lang='jsx'>{`const element = <div/>`}</PrismCode>
         <p>然而，元素也能扮演用户自定义组件。</p>
-        <pre><code className="language-javascript">{`const element = <div name="Sara"/>`}</code></pre>
+        <PrismCode lang='jsx'>{`const element = <div name="Sara"/>`}</PrismCode>
         <p>当React看到一个元素有用户自定义组件，他会通过JSX属性来执行组件作为一个单一的对象，我们将这对象称之为props对象。</p>
         <p>例如，下面这个，将会渲染<code className="language-javascript">"Hello,Sara"</code>到页面上。</p>
         <pre><code className="language-javascript">{

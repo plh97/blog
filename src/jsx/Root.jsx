@@ -20,12 +20,12 @@ import "prismjs/plugins/line-numbers/prism-line-numbers.css"
 import "prismjs/plugins/line-numbers/prism-line-numbers.js"
 import "prismjs/plugins/line-highlight/prism-line-highlight.css"
 import "prismjs/plugins/line-highlight/prism-line-highlight.js"
-import "prismjs/Components/prism-jsx.js"
-import "prismjs/Components/prism-json.js"
-import "prismjs/Components/prism-nginx.js"
-import "prismjs/Components/prism-go.js"
-import "prismjs/Components/prism-git.js"
-import "prismjs/Components/prism-vim.js"
+import "prismjs/components/prism-jsx.js"
+import "prismjs/components/prism-json.js"
+import "prismjs/components/prism-nginx.js"
+import "prismjs/components/prism-go.js"
+import "prismjs/components/prism-git.js"
+import "prismjs/components/prism-vim.js"
 const {Header,Footer,Content} = Layout
 const history = createHistory()
 
