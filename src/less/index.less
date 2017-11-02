@@ -1,4 +1,4 @@
-@import "./commonStyle.css";
+@import "./commonStyle.less";
 
 body {
   margin: 0;
@@ -9,7 +9,7 @@ body {
   .slide {
     border-right: 1px solid #efefef;
 
-    li{
+    li {
       font-size: 1rem !important;
     }
   }
@@ -29,9 +29,20 @@ body {
       h3,
       h4,
       ol,
-      ul,
-      p {
+      p,
+      ul {
         margin: 0 24px !important;
+      }
+
+      ol , ul {
+        font-size: 1.2rem;
+        start: 1;
+      }
+
+      p ,b {
+        font-size: 1rem !important;
+        text-indent: 2em;
+        text-align: left;
       }
 
       pre {
@@ -48,21 +59,11 @@ body {
         max-width: 100%;
       }
 
-      ol {
-        start: 1;
-      }
-
-      h1 {
-        text-align: center;
-        padding: 8px 0;
-        font-weight: bold;
-      }
-
       h3 {
         text-align: center;
         padding: 8px 0;
         font-weight: bold;
-        font-size: 20px;
+        font-size: 1.6rem;
       }
 
       h3:after {
@@ -75,6 +76,7 @@ body {
       h4 {
         text-align: left;
         padding: 8px 0;
+        font-size: 1.2rem;
         font-weight: bold;
       }
 
@@ -85,27 +87,12 @@ body {
         font-weight: 100;
       }
 
-      b {
-        color: red;
-      }
-
-      p {
-        text-indent: 2em;
-        font-size: 16px;
-        text-align: left;
-      }
-
       a {
-        color: red;
-        font-weight: bold;
-        font-size: 21px;
+        color: @lightBlue7;
+        display: inline-block;
+        font-size: 1.2rem;
         margin-left: 10px;
         word-break: break-word;
-      }
-
-      code {
-        word-break: break-word;
-        white-space: inherit;
       }
 
       a,
@@ -117,16 +104,18 @@ body {
         word-break: break-word;
       }
 
-      div.tap-context {
-        margin: 0;
-
-        div.tab-pane {
-          margin: 0 10px;
-        }
-      }
+      // div.tap-context {
+      //   margin: 0;
+      //
+      //   div.tab-pane {
+      //     margin: 0 10px;
+      //   }
+      // }
 
       iframe {
         max-width: 100%;
+        margin-left: 2px;
+        margin-bottom: -5px;
       }
     }
   }
