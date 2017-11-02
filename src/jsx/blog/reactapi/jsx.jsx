@@ -8,7 +8,7 @@ export default class Jsx extends React.Component {
       <Col span={24}>
         <h3>介绍JXP</h3>
         <p>接下来看看下面这个声明:</p>
-        <PrismCode lang='jsx'>{`const element = <h1>Hello World!;</h1>`}</PrismCode>
+        <PrismCode lang='jsx'>{`const element = <h1>Hello World!</h1>`}</PrismCode>
         <p>这个有趣的标记语法既不是字符串，也不是HTML。</p>
         <p>它叫是JSX，是Javascript的语法扩展。使用它的目的是为了让大家在写代码的时候更加舒适。JSX让你看起来像HTML模板语言，但她同时又具备Javascript的全部功能。</p>
         <p>JSX生成React元素，我们将在下一章节中探索如何将他们渲染到DOM上。下面，你可以找到一些必要的JSX基础来让你更好的展开学习React。</p>
