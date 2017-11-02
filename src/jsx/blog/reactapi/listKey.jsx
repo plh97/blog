@@ -6,7 +6,7 @@ export default class ListKey extends React.Component {
   render() {
     return (
       <Col span={24}>
-        <h3>列表和键值<a className="hash-link" href="#key">#</a></h3>
+        <h3>列表和键值</h3>
         <p>首先，让我们回顾，你如何转换列表到js里面</p>
         <p>下面代码，我们用<code>map()</code>函数来吧一个数组<code>numbers</code>并把他的值双倍。我们加入新数组，通过<code>map()</code>讲新数组返回给<code>doubled</code>并且<code>console.log</code>他。</p>
         <PrismCode lang='jsx'>{`
