@@ -12,12 +12,22 @@ import ReactAPI from "./blog/reactapi/index.jsx";
 import GoLang from "./blog/golang/index.jsx";
 import Others from "./blog/others/index.jsx";
 import { Menu, Icon,Layout } from 'antd';
-const {Header,Footer,Content} = Layout
 import { Route, Redirect } from 'react-router'
 import createHistory from 'history/createBrowserHistory'
 import NoFound from './views/404.jsx'
-const history = createHistory()
 import Prismjs from "prismjs"
+import "prismjs/plugins/line-numbers/prism-line-numbers.css"
+import "prismjs/plugins/line-numbers/prism-line-numbers.js"
+import "prismjs/plugins/line-highlight/prism-line-highlight.css"
+import "prismjs/plugins/line-highlight/prism-line-highlight.js"
+import "prismjs/Components/prism-jsx.js"
+import "prismjs/Components/prism-json.js"
+import "prismjs/Components/prism-nginx.js"
+import "prismjs/Components/prism-go.js"
+import "prismjs/Components/prism-git.js"
+import "prismjs/Components/prism-vim.js"
+const {Header,Footer,Content} = Layout
+const history = createHistory()
 
 export default class Root extends React.Component {
   componentWillMount(){

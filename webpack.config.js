@@ -46,7 +46,12 @@ module.exports = {
 				test: /\.(js|jsx)$/,
 				exclude: /(node_module|bower_components)/,
 				loader:'babel-loader'
-			}
+			},{
+        test: /\.(woff|woff2|eot|ttf|otf)$/,
+        use: [
+          'file-loader'
+        ]
+      }
 		]
 	},
 	plugins: [

@@ -1,5 +1,6 @@
 import React from "react";
 import { Row, Col } from 'antd';
+import PrismCode from '../../feature/Prism.js'
 
 export default class Thinking extends React.Component {
   render() {
@@ -10,7 +11,7 @@ export default class Thinking extends React.Component {
 <p>React的一个最伟大的部分就是是你考虑关于app正如你说建造的。在这篇文中，我们将会带你建立一个可搜索的产品数据。</p>
 <h4>通过一个模仿开始</h4>
 <p>我们的jsonapi输出一些数据，像下面这个样子。</p>
-<pre><code className="language-javascript">{
+<pre><code className="language-js">{
 `[
   {category: "Sporting Goods", price: "$49.99", stocked: true, name: "Football"},
   {category: "Sporting Goods", price: "$9.99", stocked: true, name: "Baseball"},

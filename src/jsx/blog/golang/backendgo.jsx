@@ -1,13 +1,13 @@
 import React from "react";
 import {Row, Col} from 'antd';
-import Prism from '../../feature/Prism.js'
+import PrismCode from '../../feature/Prism.js'
 
 export default class backendgo extends React.Component {
   render() {
     return (
       <Col span={24}>
         <h3>Go ---Switch Usage</h3>
-        <Prism lang='js'>{`
+        <PrismCode lang='go'>{`
           package main
 
           import (
@@ -35,7 +35,7 @@ export default class backendgo extends React.Component {
               	fmt.Println("想太多~~~！")
             }
           }
-        `}</Prism>
+        `}</PrismCode>
       </Col>
     )
   }

@@ -1,5 +1,6 @@
 import React from "react";
 import { Row, Col } from 'antd';
+import PrismCode from '../../feature/Prism.js'
 
 export default class Compositionlnheritance extends React.Component {
   render() {

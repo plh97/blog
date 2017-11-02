@@ -24,3 +24,8 @@
 ::-webkit-scrollbar-thumb:window-inactive {
   background-color: rgba(0, 0, 0, 0.5);
 }
+
+@font-face {
+  font-family: "Reem Kufi";
+  src: url("../../assets/font/a.woff");
+}
