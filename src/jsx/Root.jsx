@@ -15,17 +15,7 @@ import { Menu, Icon,Layout } from 'antd';
 import { Route, Redirect } from 'react-router'
 import createHistory from 'history/createBrowserHistory'
 import NoFound from './views/404.jsx'
-import Prismjs from "prismjs"
-import "prismjs/plugins/line-numbers/prism-line-numbers.css"
-import "prismjs/plugins/line-numbers/prism-line-numbers.js"
-import "prismjs/plugins/line-highlight/prism-line-highlight.css"
-import "prismjs/plugins/line-highlight/prism-line-highlight.js"
-import "prismjs/components/prism-jsx.js"
-import "prismjs/components/prism-json.js"
-import "prismjs/components/prism-nginx.js"
-import "prismjs/components/prism-go.js"
-import "prismjs/components/prism-git.js"
-import "prismjs/components/prism-vim.js"
+import Render from "./feature/Render.js"
 const {Header,Footer,Content} = Layout
 const history = createHistory()
 
@@ -70,13 +60,13 @@ export default class Root extends React.Component {
           		</iframe>
             </Menu.Item>
           </Menu>
-          <Content>
+          <Render>
   					<Route path="/reactapi" component={ReactAPI} />
             <Route path="/golang" component={GoLang} />
   					<Route path="/life" component={Life} />
             <Route path="/others" component={Others} />
   					<Route component={NoFound} />
-          </Content>
+          </Render>
 			  </Layout>
       </Router>
 		);

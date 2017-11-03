@@ -18,12 +18,8 @@ import LivingStateUp from './livingStateUp.jsx'
 import Form from './form.jsx'
 import CompositionInheritance from './compositionInheritance.jsx'
 import Thinking from './thinking.jsx'
-// import Prismjs from "prismjs"
 
 export default class ReactAPI extends React.Component {
-  // componentDidUpdate(){
-  //   Prismjs.highlightAll()
-  // }
   render() {
     const { match } = this.props
     return (

@@ -8,12 +8,8 @@ import {
   Link,
 } from "react-router-dom";
 import BackendGo from './backendgo.jsx'
-// import Prismjs from "prismjs"
 
 export default class GoLang extends React.Component {
-  // componentDidUpdate(){
-  //   Prismjs.highlightAll()
-  // }
   render() {
     const { match } = this.props
     return (
