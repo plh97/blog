@@ -88,9 +88,7 @@ export default class Jsx extends React.Component {
             {className:'greeting'},
             'Hello world!'
           );
-        `}</PrismCode>
-        React.createElement()执行一些检查来帮助你来写无BUG代码，但是它本质上是创造了一个这样的对象。
-        <PrismCode lang='jsx'>{`
+          //React.createElement() //执行一些检查来帮助你来写无BUG代码，但是它本质上是创造了一个这样的对象。
           //Note:这个结构是简化的
           const element={
             type:'h1',

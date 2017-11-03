@@ -40,19 +40,19 @@ export default class Root extends React.Component {
             selectedKeys={[this.state.current]}
             mode="horizontal">
             <Menu.Item key="reactapi">
-              <Link to='/reactapi'>React API·英译</Link>
+              <Link to='/reactapi'>React API·Translation</Link>
             </Menu.Item>
             <Menu.Item key="golang">
               <Link to='/golang'>Go Language</Link>
             </Menu.Item>
             <Menu.Item key="life">
-              <Link to='/life'>闲情逸致</Link>
+              <Link to='/life'>life diary</Link>
             </Menu.Item>
             <Menu.Item key="chatroom">
-              <a target='_blank' href='https://chat.penlh.com'>我的聊天室</a>
+              <a target='_blank' href='https://chat.penlh.com'>chat with me?</a>
             </Menu.Item>
             <Menu.Item key="others">
-              <Link to='/others'>其他</Link>
+              <Link to='/others'>others</Link>
             </Menu.Item>
             <Menu.Item key="github" style={{float:"right"}}>
               <iframe
