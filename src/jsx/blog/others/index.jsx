@@ -5,11 +5,11 @@ const {Item} = Menu;
 import {BrowserRouter as Router, Route, Link} from "react-router-dom";
 import Nginx from './nginx.jsx'
 import Vps from './Vps.jsx'
-import Prismjs from "prismjs"
+// import Prismjs from "prismjs"
 export default class Others extends React.Component {
-  componentDidUpdate(){
-    Prismjs.highlightAll()
-  }
+  // componentDidUpdate(){
+  //   Prismjs.highlightAll()
+  // }
   render() {
     const {match} = this.props
     return (

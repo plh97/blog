@@ -33,9 +33,6 @@ export default class Root extends React.Component {
   componentWillMount(){
     location.pathname=='/' && history.push('/reactapi')
   }
-  componentDidUpdate(){
-    Prismjs.highlightAll()
-  }
   state = {
     current: location.pathname == '/' ? 'reactapi' : location.pathname.split('/')[1],
   }

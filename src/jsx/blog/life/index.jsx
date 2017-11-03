@@ -11,12 +11,12 @@ import {
   Route,
   Link,
 } from "react-router-dom";
-import Prismjs from "prismjs"
+// import Prismjs from "prismjs"
 
 export default class Blog1 extends React.Component {
-  componentDidUpdate(){
-    Prismjs.highlightAll()
-  }
+  // componentDidUpdate(){
+  //   Prismjs.highlightAll()
+  // }
   render() {
     const { match } = this.props
     return (
