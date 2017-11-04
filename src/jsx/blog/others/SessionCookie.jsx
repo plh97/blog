@@ -59,7 +59,7 @@ export default class sessionCookie extends React.Component {
       <Col span={24}>
         <h3>Session && Cookie</h3>
         <h4>Session(会话)</h4>
-        <p>websites backend use it to store the custom's personal token or theirs secret or token,always save it in server.you can save it in database && RAM.</p>
+        <p>websites backend use it to store the custom's personal token or theirs secret or token,always save it in server.you can save it in database && RAM.the session only can be store in back-end.if you need to send it to front-end. store it into cookies and front-end got it throught cookie.</p>
         <h4>Cookie(曲奇饼干？)</h4>
         <PrismCode lang={'js'} >{`
           //front-end
