@@ -1,14 +1,23 @@
 <!DOCTYPE html>
 <html>
 	<head>
-	    <title><%= htmlWebpackPlugin.options.title %></title>
-	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-	    <meta charset="utf-8">
-	    <meta name="keywords" content="node.js, web chat application, 聊天室, 前端开发" />
-	    <meta name="description" content="online web chat application">
-	    <meta name="author" content="碎碎酱做的">
-	    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-	    <link rel="manifest" href="manifest.json">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="keywords" content="blog" />
+    <meta name="description" content="online web blog">
+    <meta name="author" content="peng">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="manifest" href="manifest.json">
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109213383-1"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+
+		  gtag('config', 'UA-109213383-1');
+		</script>
 	</head>
 	<body>
 		<div id="root"></div>
