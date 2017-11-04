@@ -60,7 +60,8 @@ export default class sessionCookie extends React.Component {
         <h3>Session && Cookie</h3>
         <h4>Session(会话)</h4>
         <p>websites backend use it to store the custom's personal token or theirs secret or token,always save it in server.you can save it in database && RAM.the session only can be store in back-end.if you need to send it to front-end. store it into cookies and front-end got it throught cookie.</p>
-        <h4>Cookie(曲奇饼干？)</h4>
+        <h4>Cookies(曲奇饼干？)</h4>
+        <p>in my mind ,cookies is the bridge between back-end-session and front-end-(localstorage && sessionStorage),cookies only can store 5kb.</p>
         <PrismCode lang={'js'} >{`
           //front-end
           //get
@@ -75,7 +76,13 @@ export default class sessionCookie extends React.Component {
             };
           });
         `}</PrismCode>
-        <h4>local Storage</h4>
+        <h4>Local Storage</h4>
+        <p>
+          the usage is just like its name, local Store,
+          because it will not delete while your leave the page ,
+          so you can store some info like shopping list or HTML5 Games storage info,
+          next time your visit this page you can got the info
+        </p>
         <p>it only can be set in front-end with follow code.</p>
         <PrismCode lang={'js'} >{`
           //get
@@ -84,14 +91,22 @@ export default class sessionCookie extends React.Component {
           localStorage = 'XXX'
         `}</PrismCode>
         <h4>Session Storage</h4>
+        <p>
+          the usage is just like its name session(对话) storage,
+          if your need Guide the user step by step to fill.
+          you can store some info in sessionStorage,
+          while the user refresh their page
+          they can goback to the right step to fill their info.
+        </p>
         <PrismCode lang={'js'} >{`
           //get
           window.sessionStorage
           //set
           sessionStorage = 'XXX'
         `}</PrismCode>
-        <h4>Different between Cookie && LocalStorage && SessionStorage</h4>
+        <h4>Different between Cookies && LocalStorage && SessionStorage</h4>
         <Table dataSource={dataSource} columns={columns} scroll={{ x: 900 }}/>
+        <p>refrence: <a href="http://jerryzou.com/posts/cookie-and-web-storage/">详说 Cookie, LocalStorage 与 SessionStorage</a></p>
       </Col>
     )
   }
