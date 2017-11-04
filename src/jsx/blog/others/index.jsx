@@ -5,6 +5,7 @@ const {Item} = Menu;
 import {BrowserRouter as Router, Route, Link} from "react-router-dom";
 import Nginx from './nginx.jsx'
 import Vps from './Vps.jsx'
+import SessionCookie from './SessionCookie.jsx'
 export default class Others extends React.Component {
   render() {
     const {match} = this.props
@@ -22,6 +23,9 @@ export default class Others extends React.Component {
               <Item key="vps">
                 <Link to={`${match.path}/vps`}>Vps 港服初体验</Link>
               </Item>
+              <Item key="sessionCookie">
+                <Link to={`${match.path}/sessionCookie`}>Session && Cookie</Link>
+              </Item>
             </Menu>
           </Col>
           <Col xs={24} sm={24} md={18} lg={20}>
@@ -34,6 +38,7 @@ export default class Others extends React.Component {
               <Row className="container-context" type='flex' justify='center'>
                 <Route exact path={match.path} component={Nginx}/>
                 <Route path={`${match.path}/vps`} component={Vps} />
+                <Route path={`${match.path}/sessionCookie`} component={SessionCookie} />
               </Row>
             </Content>
           </Col>

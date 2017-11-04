@@ -30,6 +30,7 @@ body {
       h4,
       ol,
       p,
+      .ant-table-wrapper,
       ul {
         margin: 0 24px !important;
       }
@@ -43,6 +44,19 @@ body {
         font-size: 1.2rem !important;
         text-indent: 2em;
         text-align: left;
+      }
+      table{
+        word-break: break-word;
+        thead{
+          th{
+            text-align: center;
+          }
+          font-size: 1.2rem;
+        }
+        tbody{
+          text-align: center;
+          font-size: 0.9rem;
+        }
       }
 
       pre {
@@ -103,14 +117,6 @@ body {
       span {
         word-break: break-word;
       }
-
-      // div.tap-context {
-      //   margin: 0;
-      //
-      //   div.tab-pane {
-      //     margin: 0 10px;
-      //   }
-      // }
 
       iframe {
         max-width: 100%;
