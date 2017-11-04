@@ -13,6 +13,7 @@ import "prismjs/components/prism-git.js"
 import "prismjs/components/prism-vim.js"
 class Render extends React.Component {
   componentDidUpdate(){
+    console.log('componentDidUpdate');
     Prismjs.highlightAll()
   }
   render() {

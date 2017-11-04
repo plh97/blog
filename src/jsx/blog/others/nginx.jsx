@@ -8,7 +8,7 @@ export default class Nginx extends React.Component {
       <Col span={24}>
         <h3>我的Nginx 配置</h3>
         <h4>say nothing just read my code.</h4>
-        <ul>
+        <ol start="1">
           <li>here's 5 reasons i suggest you to use nginx!</li>
           <li>1. Gzip ,can really make your js code files more smaller.only 30% size after Gzip. </li>
           <li>2. you can config more than 2 domain with different content.</li>
@@ -19,7 +19,7 @@ export default class Nginx extends React.Component {
             you can focus the websites no matter load which Subroutine just load the index.html file,
             while your refresh your page your can got true Subroutine.
           </li>
-        </ul>
+        </ol>
         <PrismCode lang={'nginx'} >{`
           http {
             # http://*.penlh.com -----> https://*.penlh.com ------> http://112.74.63.84:8080
