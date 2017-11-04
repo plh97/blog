@@ -37,7 +37,6 @@ export default class sessionCookie extends React.Component {
       dataIndex: 'characteristic',
       key: 'characteristic',
       width: 120,
-      fixed: 'left'
     }, {
       title: 'Cookis',
       dataIndex: 'Cookis',
