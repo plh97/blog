@@ -23,7 +23,7 @@ class PrismCode extends React.Component {
     })
     render = render.join("\n")
     return (
-      <pre className='line-numberss' data-line={lineHighlight}>
+      <pre className='line-numbers' data-line={lineHighlight}>
         <code className={`language-${lang}`}>
           {render}
         </code>

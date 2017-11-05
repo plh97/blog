@@ -10,6 +10,7 @@ import {
 import Life from "./blog/life/index.jsx";
 import ReactAPI from "./blog/reactapi/index.jsx";
 import GoLang from "./blog/golang/index.jsx";
+import NodeJs from "./blog/nodejs/index.jsx";
 import Others from "./blog/others/index.jsx";
 import { Menu, Icon,Layout } from 'antd';
 import { Route, Redirect } from 'react-router'
@@ -22,6 +23,7 @@ const history = createHistory()
 export default class Root extends React.Component {
   componentWillMount(){
     location.pathname=='/' && history.push('/reactapi')
+    document.ondragstart= () => false
   }
   state = {
     current: location.pathname == '/' ? 'reactapi' : location.pathname.split('/')[1],
@@ -42,7 +44,10 @@ export default class Root extends React.Component {
               <Link to='/reactapi'>React Tutorial·Translate</Link>
             </Menu.Item>
             <Menu.Item key="golang">
-              <Link to='/golang'>Go Language</Link>
+              <Link to='/golang'>GoLang</Link>
+            </Menu.Item>
+            <Menu.Item key="nodejs">
+              <Link to='/nodejs'>NodeJs Diary</Link>
             </Menu.Item>
             <Menu.Item key="life">
               <Link to='/life'>life diary</Link>
@@ -63,6 +68,7 @@ export default class Root extends React.Component {
           <Render>
   					<Route path="/reactapi" component={ReactAPI} />
             <Route path="/golang" component={GoLang} />
+            <Route path="/nodejs" component={NodeJs} />
   					<Route path="/life" component={Life} />
             <Route path="/others" component={Others} />
   					<Route component={NoMatch}/>
