@@ -42,7 +42,7 @@ export default class backendgo extends React.Component {
 
           http.createServer((req,res) => {
             var q = url.parse(req.url, true);
-            var filename = `.${q.pathname}`;
+            var filename = "."+q.pathname;
             fs.readFile(filename, (err,data) => {
               if (err){
                 res.writeHead(404,{'Content-Type': 'text/html'});
