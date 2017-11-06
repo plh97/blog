@@ -4,8 +4,9 @@ const {Header, Footer, Content, Sider} = Layout
 const {Item} = Menu;
 import {BrowserRouter as Router, Route, Link} from "react-router-dom";
 import Nginx from './nginx.jsx'
-import Vps from './Vps.jsx'
-import SessionCookie from './SessionCookie.jsx'
+import Vps from './vps.jsx'
+import SessionCookie from './sessionCookie.jsx'
+import Array from './array.jsx'
 export default class Others extends React.Component {
   render() {
     const {match} = this.props
@@ -26,6 +27,9 @@ export default class Others extends React.Component {
               <Item key="sessionCookie">
                 <Link to={`${match.path}/sessionCookie`}>Session && Cookie</Link>
               </Item>
+              <Item key="Array">
+                <Link to={`${match.path}/sessionCookie`}>Array && prototype</Link>
+              </Item>
             </Menu>
           </Col>
           <Col xs={24} sm={24} md={18} lg={20}>
@@ -39,6 +43,7 @@ export default class Others extends React.Component {
                 <Route exact path={match.path} component={Nginx}/>
                 <Route path={`${match.path}/vps`} component={Vps} />
                 <Route path={`${match.path}/sessionCookie`} component={SessionCookie} />
+                <Route path={`${match.path}/array`} component={Array} />
               </Row>
             </Content>
           </Col>

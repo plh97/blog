@@ -7,6 +7,7 @@ export default class backendgo extends React.Component {
     return (
       <Col span={24}>
         <h3>Create a server</h3>
+        <span>2017/11/6</span>
         <h4>app.js</h4>
         <PrismCode lang='js'>{`
           const
