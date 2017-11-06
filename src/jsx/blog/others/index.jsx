@@ -4,9 +4,9 @@ const {Header, Footer, Content, Sider} = Layout
 const {Item} = Menu;
 import {BrowserRouter as Router, Route, Link} from "react-router-dom";
 import Nginx from './nginx.jsx'
-import Vps from './vps.jsx'
-import SessionCookie from './sessionCookie.jsx'
-import Array from './array.jsx'
+import Vps from './Vps.jsx'
+import SessionCookie from './SessionCookie.jsx'
+import Array from './Array.jsx'
 export default class Others extends React.Component {
   render() {
     const {match} = this.props
