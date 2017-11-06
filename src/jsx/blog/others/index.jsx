@@ -27,8 +27,8 @@ export default class Others extends React.Component {
               <Item key="sessionCookie">
                 <Link to={`${match.path}/sessionCookie`}>Session && Cookie</Link>
               </Item>
-              <Item key="Array">
-                <Link to={`${match.path}/sessionCookie`}>Array && prototype</Link>
+              <Item key="array">
+                <Link to={`${match.path}/array`}>Array && prototype</Link>
               </Item>
             </Menu>
           </Col>
