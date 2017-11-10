@@ -6,6 +6,7 @@ import EnvDeteriorate from './envDeteriorate.jsx'
 import CurrencyDevaluation from './currencyDevaluation.jsx'
 import RealEstate from './realEstate.jsx'
 import Git from './git.jsx'
+import Data from './Data.jsx'
 import {
   BrowserRouter as Router,
   Route,
@@ -23,7 +24,10 @@ export default class Blog1 extends React.Component {
               defaultSelectedKeys={[String(location.pathname.split('/')[2])]}
               style={{ height: '100%', borderRight: 1 }}>
               <Item key="undefined">
-                <Link to={match.path}>生存环境恶化</Link>
+                <Link to={match.path}>Data 畅想</Link>
+              </Item>
+              <Item key="生存环境恶化">
+                <Link to={`${match.path}/生存环境恶化`}>生存环境恶化</Link>
               </Item>
               <Item key="currencyDevaluation">
                 <Link to={`${match.path}/currencyDevaluation`}>货币贬值</Link>
@@ -42,7 +46,8 @@ export default class Blog1 extends React.Component {
           <Col xs={24} sm={24} md={18} lg={20}>
             <Content style={{ background: '#fff', padding: 24, margin: 0, minHeight: 280 }}>
               <Row className="container-context" type='flex' justify='center'>
-                <Route exact path={match.path} component={EnvDeteriorate} />
+                <Route exact path={match.path} component={Data} />
+                <Route path={`${match.path}/生存环境恶化`} component={EnvDeteriorate} />
                 <Route path={`${match.path}/currencyDevaluation`} component={CurrencyDevaluation} />
                 <Route path={`${match.path}/realEstate`} component={RealEstate} />
                 <Route path={`${match.path}/git`} component={Git} />
