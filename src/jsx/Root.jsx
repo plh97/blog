@@ -22,7 +22,7 @@ const history = createHistory()
 
 export default class Root extends React.Component {
   componentWillMount(){
-    location.pathname=='/' && history.push('/reactapi')
+    // location.pathname=='/' && history.push('/reactapi')
     document.ondragstart= () => false
   }
   state = {
