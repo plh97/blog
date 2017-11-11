@@ -13,7 +13,6 @@ import {
   Route,
   Link,
 } from "react-router-dom";
-import Imagination from "./Imagination.jsx";
 
 export default class Blog1 extends React.Component {
   render() {
