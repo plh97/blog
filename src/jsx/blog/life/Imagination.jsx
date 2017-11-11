@@ -2,7 +2,7 @@ import React,{Component} from "react";
 import { Row, Col } from 'antd';
 import PrismCode from '../../feature/Prism.js'
 
-export default class Data extends Component {
+export default class Imagination extends Component {
   render() {
     return (
       <Col span={24}>
