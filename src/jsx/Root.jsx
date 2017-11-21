@@ -53,7 +53,7 @@ export default class Root extends React.Component {
               <Link to='/life'>life diary</Link>
             </Menu.Item>
             <Menu.Item key="chatroom">
-              <a target='_blank' href='https://chat.penlh.com'>chat with me?</a>
+              <a target='_blank' href='https://chat.penlh.com'>🔥chat with me?</a>
             </Menu.Item>
             <Menu.Item key="others">
               <Link to='/others'>others</Link>
