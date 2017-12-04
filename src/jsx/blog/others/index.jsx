@@ -30,6 +30,9 @@ export default class Others extends React.Component {
               <Item key="array">
                 <Link to={`${match.path}/array`}>Array && prototype</Link>
               </Item>
+              <Item key="GraphQL">
+                <Link to={`${match.path}/GraphQL`}>GraphQL</Link>
+              </Item>
             </Menu>
           </Col>
           <Col xs={24} sm={24} md={18} lg={20}>
@@ -44,6 +47,7 @@ export default class Others extends React.Component {
                 <Route path={`${match.path}/vps`} component={Vps} />
                 <Route path={`${match.path}/sessionCookie`} component={SessionCookie} />
                 <Route path={`${match.path}/array`} component={Array} />
+                <Route path={`${match.path}/GraphQL`} component={Array} />
               </Row>
             </Content>
           </Col>

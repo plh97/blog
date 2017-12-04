@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "b": "webpack --colors",
     "lint": "eslint ./src/**/*.jsx --color",
-    "p": "webpack -p --colors",
-    "analysis": "webpack --profile --json > stats.json",
-    "t": "webpack-dev-server --open --colors"
+    "w": "webpack -w --colors --progress",
+    "p": "webpack -p --colors --progress",
+    "go": "go run index.go",
+    "analysis": "webpack --profile --json > stats.json"
   },
   "keywords": [],
   "author": "",

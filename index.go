@@ -1,19 +1,15 @@
 package main
 
-import "fmt"
-
-type Vertex struct {
-	X int
-	Y int
-}
-
-var (
-	v1 = Vertex{1, 2}
-	v2 = Vertex{X: 1}
-	v3 = Vertex{}
-	p  = Vertex{Y: 1}
+import (
+	"fmt"
+	"errors"
 )
 
-func main() {
-	fmt.Println(v1, p, v2, v3)
+
+func main()  {
+	err := errors.New("")
+	s:=`hello
+	123123`
+	s = "c"+s[1:]
+	fmt.Printf("%s\n",s)
 }
