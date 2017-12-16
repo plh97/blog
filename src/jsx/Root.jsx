@@ -57,7 +57,7 @@ export default class Root extends React.Component {
               <a target='_blank' href='https://chat.pipk.top/group/Moonlight'><span style={{color:'black'}}>🔥</span>chat with me?</a>
             </Menu.Item>
             <Menu.Item key="me">
-              <a target='_blank' href='https://hacknical.com/dashboard/github'><span style={{color:'black'}}>😋</span>我的简历</a>
+              <a target='_blank' href='https://hacknical.com/resume/r1peg776b?locale=zh'><span style={{color:'black'}}>😋</span>我的简历</a>
             </Menu.Item>
             <Menu.Item key="others">
               <Link to='/others'>others</Link>
