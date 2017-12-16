@@ -28,12 +28,6 @@ module.exports = {
 		path: path.join(__dirname, "dist"),
 		publicPath:"/",
 	},
-	// "resolve": {
-	//   "alias": {
-	//     "react": "preact-compat",
-	//     "react-dom": "preact-compat"
-	//   }
-	// },
 	module:{
 		rules:[
 			{

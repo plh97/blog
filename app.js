@@ -1,44 +1,49 @@
-const http = require('http')
-const App = require('koa');
-const xtpl = require('koa-xtpl');
+//package
+const Koa = require('koa');
+const http = require('http');
 const path = require('path');
-const app = new App();
-const server = http.createServer(app.callback());
+const json = require('koa-json');
+const koaSend = require('koa-send');
+const logger = require('koa-logger');
 const static = require('koa-static');
-const compress = require('koa-compress')
-const bodyParser = require('koa-bodyparser');
-const router = require('koa-router')();
-const webpack = require('webpack');
-const webpackMiddleware = require('koa-webpack-dev-middleware');
+const bodyparser = require('koa-bodyparser');
+
+//local
 const staticPath = './dist';
-const port = process.env.PORT || 8001;
+const config = require('./config/server');
+
+//application
+const app = new Koa();
+const server = http.createServer(app.callback());
+const port = process.env.PORT || config.port;
+
 
 app
-  .use(bodyParser())
-  .use(router.routes())
-  .use(router.allowedMethods())
-  .use(static(path.join(__dirname, staticPath), {
-    maxAge: 356 * 24 * 60 * 60
-  }))
-  .use(xtpl({
-    root: path.resolve(__dirname, './dist'),
-    extname: 'html',
-    commands: {}
-  }))
-  // app.use(compress({
-  //   filter: function (content_type) {
-  //   	return /text/i.test(content_type)
-  //   },
-  //   threshold: 2048,
-  //   flush: require('zlib').Z_SYNC_FLUSH
-  // }))
+  .use(bodyparser())
+    .use(json())
+    .use(logger())
+    .use(static(path.resolve('./dist'), {
+        // maxAge: 1000 * 60 * 60 * 24 * 7,
+        gzip: true,
+    }))
+    // 将前端路由指向 index.html
+    .use(async (ctx, next) => {
+        if (!/\./.test(ctx.request.url)) {
+            await koaSend(
+                ctx,
+                'index.html',
+                {
+                    root: path.resolve('./dist'),
+                    // maxage: 1000 * 60 * 60 * 24 * 7,
+                    gzip: true,
+                } // eslint-disable-line
+            );
+        } else {
+            await next();
+        }
+    });
 
-app.use(async(ctx, next) => {
-  await ctx.render('index', {});
+server.listen(port,()=>{
+  console.log(` >>> port: ${port }`);
+  console.log(` >>> ENV: ${process.env.NODE_ENV}`);
 });
-
-server.listen(port);
-const config = require('./webpack.config')
-// app.use(webpackMiddleware(webpack(config), {
-//   stats: {colors: true}
-// }));

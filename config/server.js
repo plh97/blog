@@ -1,9 +1,12 @@
 module.exports = {
     // service port
-    port: 8001,
+    port: 80,
 
     // mongodb config
-    proDatabase: 'mongodb://43.239.158.182/sampsite',
+    proDatabase: {
+        gigs:'mongodb://43.239.158.182/sampsite',
+        tencent:'mongodb://139.199.207.77/sampsite'
+    },
     devDatabase: 'mongodb://127.0.0.1/sampsite',
 
     // jwt encryption secret

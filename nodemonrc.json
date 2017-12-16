@@ -1,0 +1,11 @@
+{
+    "verbose": true,
+    "ignore": [
+        "src/client/*",
+        "build/*",
+        "test/*",
+        "node_modules/*",
+        "dist/*",
+        "test.js"
+    ]
+}

@@ -6,6 +6,9 @@
     "lint": "eslint ./src/**/*.jsx --color",
     "w": "webpack -w --colors --progress",
     "p": "webpack -p --colors --progress",
+    "nodemon": "set NODE_ENV=dev&& nodemon app.js --config nodemonrc.json",
+    "pm2": "pm2 start ecosystem.config.js --env prod",
+    "restart": "pm2 reload ecosystem.config.js --env prod",
     "go": "go run index.go",
     "analysis": "webpack --profile --json > stats.json"
   },
@@ -14,6 +17,7 @@
   "license": "MIT",
   "dependencies": {
     "antd": "^2.13.6",
+    "axios": "^0.17.1",
     "babel": "^6.23.0",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.25.0",
@@ -41,7 +45,10 @@
     "koa": "^2.3.0",
     "koa-bodyparser": "^4.2.0",
     "koa-compress": "^2.0.0",
+    "koa-json": "^2.0.2",
+    "koa-logger": "^3.1.0",
     "koa-router": "^7.2.1",
+    "koa-send": "^4.1.1",
     "koa-sslify": "^2.1.2",
     "koa-static": "^4.0.1",
     "koa-static-cache": "^5.1.1",
