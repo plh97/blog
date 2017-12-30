@@ -74,6 +74,6 @@
             ["in", "instanceof"]
           ],
           "allowSamePrecedence": false
-        }],
+        }]
     }
 }

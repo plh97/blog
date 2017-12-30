@@ -7,7 +7,7 @@ export default class graphQL extends React.Component {
     return (
       <Col span={24}>
         <h3>GraphQL Tutorial</h3>
-		<p>将serverless 进行到底。。。。。。</p>
+		    <p>将serverless 进行到底。。。。。。</p>
       </Col>
     )
   }
