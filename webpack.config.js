@@ -2,8 +2,6 @@ const
 	path = require("path"),
 	CleanWebpackPlugin = require('clean-webpack-plugin'),
 	webpack = require('webpack'),
-	ExtractTextPlugin = require('extract-text-webpack-plugin'),
-	// ManifestPlugin = require('webpack-manifest-plugin'),
 	HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
@@ -14,14 +12,11 @@ module.exports = {
 		vendor: [
 			"react",
 			"react-dom",
+			"mobx",
+			"mobx-react",
 			"react-router-dom"
 		]
 	},
-	devServer: {
-    historyApiFallback: true,
-    contentBase: './',
-    hot: true
-  },
 	output: {
 		filename: "[name].[hash].js",
 		chunkFilename:'[name].[chunkhash].js',
@@ -29,24 +24,20 @@ module.exports = {
 		publicPath:"/",
 	},
 	module:{
-		rules:[
-			{
-        test: /(\.less|\.css)$/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: ['css-loader', 'less-loader']
-        })
-			},{
-				test: /\.(js|jsx)$/,
-				exclude: /(node_module|bower_components)/,
-				loader:'babel-loader'
-			},{
-        test: /\.(woff|woff2|eot|ttf|otf)$/,
-        use: [
-          'file-loader'
-        ]
-      }
-		]
+		rules:[{
+			test: /(\.less|\.css)$/,
+			use: [
+				'style-loader',
+				'css-loader',
+				'less-loader'
+		]},{
+			test: /\.(js|jsx)$/,
+			exclude: /node_module/,
+			loader:'babel-loader'
+		},{
+			test: /\.(woff|woff2|eot|ttf|otf)$/,
+			use: ['file-loader']
+		}]
 	},
 	plugins: [
 		new CleanWebpackPlugin(['dist']),
@@ -58,9 +49,6 @@ module.exports = {
 		new webpack.optimize.CommonsChunkPlugin({
 		  name: "vendor",
 		  minChunks: Infinity
-		}),
-    new ExtractTextPlugin({
-      filename:'index.[hash].css'
-    })
+		})
 	]
 };
