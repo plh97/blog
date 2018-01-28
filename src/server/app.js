@@ -9,8 +9,8 @@ const static = require('koa-static');
 const bodyparser = require('koa-bodyparser');
 
 //local
-const staticPath = './dist';
-const config = require('./config/server');
+const config = require('../../config/server');
+const allRouter = require('./routes/index.js');
 
 //application
 const app = new Koa();
@@ -19,13 +19,15 @@ const port = process.env.PORT || config.port;
 
 
 app
-  .use(bodyparser())
+    .use(bodyparser())
     .use(json())
     .use(logger())
     .use(static(path.resolve('./dist'), {
         // maxAge: 1000 * 60 * 60 * 24 * 7,
         gzip: true,
     }))
+    .use(allRouter.routes())
+    .use(allRouter.allowedMethods())
     // 将前端路由指向 index.html
     .use(async (ctx, next) => {
         if (!/\./.test(ctx.request.url)) {

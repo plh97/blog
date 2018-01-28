@@ -5,6 +5,6 @@ import './less/index.less'
 
 
 ReactDOM.render(
-    <Root/>,
+  <Root/>,
   document.getElementById('root')
 );

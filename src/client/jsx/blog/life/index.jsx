@@ -13,29 +13,9 @@ import {
 	Route,
 	Link,
 } from "react-router-dom";
-import graphql from "../../../lib/graphql.js";
 import axios from 'axios';
 
-
-
 export default class Blog1 extends React.Component {
-	componentDidMount() {
-		axios.post(
-			`https://api.github.com/graphql`,
-			`query {
-				viewer { login }
-			}`,
-			{
-				responseType: 'json',
-				headers: {
-					Accept: 'application/json;charset=utf-8',
-					Authorization: `bearer ${atob(
-						'M2ZkYmU2ZmY1NjlhYTlmMzNhYzVhYjJmODRjZWUxY2Q1YzdkNjE5Zg=='
-					)}`
-				}
-			}
-		)
-	}
 	render() {
 		const { match } = this.props
 		return (
