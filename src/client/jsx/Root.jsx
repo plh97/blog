@@ -27,17 +27,40 @@ export default class Root extends React.Component {
 		location.pathname == '/' && history.push('/reactapi')
 		document.ondragstart = () => false;
 
+		// token
+		// 728bfbb7bbf182639d82519e8add763c503ebd76 
+		
 
 		axios({
-			url: '/graphql',
-			method: 'post', 
+			url: `https://api.github.com/graphql`,
+			method: 'post',
+			headers: {
+				'Authorization': "bearer 728bfbb7bbf182639d82519e8add763c503ebd76",
+				'Content-Type': 'application/json'
+			},
 			data: {
-				query: `{
+				query: `
+				{
 					viewer {
 						login
-						name
+						repository(name:"pengliheng.github.io") {
+							issue(number:2) {
+								title
+								labels(first:1) {
+									totalCount
+									edges{
+										node{
+											color
+											name
+										}
+										}
+									}
+									bodyHTML
+								}
+							}
+						}
 					}
-				}`
+				`
 			}
 		}).then(response => {
 			console.log('graphql response:', response.data);
@@ -45,6 +68,12 @@ export default class Root extends React.Component {
 			console.log('graphql error:', err);
 		});
 	}
+
+// curl -H "Authorization: bearer 728bfbb7bbf182639d82519e8add763c503ebd76" -X POST -d " \
+//  { \
+//    \"query\": \"query { viewer { login }}\" \
+//  } \
+// " https://api.github.com/graphql
 
 
 

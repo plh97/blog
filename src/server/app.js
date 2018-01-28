@@ -19,7 +19,7 @@ const port = process.env.PORT || config.port;
 
 
 app
-    .use(bodyparser())
+    // .use(bodyparser())
     .use(json())
     .use(logger())
     .use(static(path.resolve('./dist'), {

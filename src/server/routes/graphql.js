@@ -5,19 +5,17 @@
 
 const axios = require ('axios')
 
-exports.getCode = function (query = '') {
-	console.log(query);
-	
-	return function () {
-		return axios.post(
-			`https://api.github.com/graphql`,
-			{ query },
-			{headers: {
-				Accept: 'application/json;charset=utf-8',
-				Authorization: `bearer ${atob(
-					'M2ZkYmU2ZmY1NjlhYTlmMzNhYzVhYjJmODRjZWUxY2Q1YzdkNjE5Zg=='
-				)}`
-			}}
-		);
-	};
+exports.getCode = async(ctx,next) => {
+	let query = ctx.request.body;
+	let queryFunc = async query =>{
+		return new Promise((resolve,reject)=>{
+			axios.post(
+				`https://api.github.com/graphql`,{ query },
+			).then(res=>{
+				console.log(res);
+				resolve(res)
+			})
+		})
+	}
+	ctx.body = await queryFunc(query)
 }

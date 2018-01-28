@@ -1,6 +1,6 @@
 module.exports = {
     // service port
-    port: 8001,
+    port: 80,
 
     // mongodb config
     proDatabase: {
