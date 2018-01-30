@@ -1,5 +1,11 @@
 import React from "react";
 import Prismjs from "prismjs"
+import {
+	BrowserRouter as Router,
+	Link,
+	Switch,
+} from "react-router-dom";
+
 import "prismjs/themes/prism-okaidia.css"
 import "prismjs/plugins/line-numbers/prism-line-numbers.css"
 import "prismjs/plugins/line-numbers/prism-line-numbers.js"
@@ -11,6 +17,7 @@ import "prismjs/components/prism-nginx.js"
 import "prismjs/components/prism-go.js"
 import "prismjs/components/prism-git.js"
 import "prismjs/components/prism-vim.js"
+
 class Render extends React.Component {
   componentDidUpdate(){
     Prismjs.highlightAll()
@@ -18,9 +25,9 @@ class Render extends React.Component {
   render() {
     const {children} = this.props
     return (
-      <div>
+      <Switch>
         {children}
-      </div>
+      </Switch>
     )
   }
 }

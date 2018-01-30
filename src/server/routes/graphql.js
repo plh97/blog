@@ -4,6 +4,7 @@ const config = require(path.resolve("./config/project.js"))
 exports.getCode = async(ctx,next) => {
 	let query = ctx.request.body;
 	let queryFunc = async data =>{
+		console.log(query);
 		return new Promise((resolve,reject)=>{
 			axios({
 				url: `https://api.github.com/graphql`,
@@ -13,6 +14,7 @@ exports.getCode = async(ctx,next) => {
 					'Content-Type': 'application/json'
 				},data
 			}).then(res => {
+				console.log(res);
 				resolve(res.data)
 			}).catch(err => {
 				reject(err)

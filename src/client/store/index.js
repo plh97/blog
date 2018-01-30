@@ -30,26 +30,19 @@ class TodoStore {
 			url: `/graphql`,
 			method: 'post',
 			data: {
-				query: `{
-					viewer {
-						login
-						repository(name:"pengliheng.github.io") {
-							issue(number:2) {
-								title
-								labels(first:1) {
-									totalCount
-									edges{
-										node{
-											color
-											name
-										}
-										}
-									}
-									bodyHTML
+				query: 
+				`{
+					repositoryOwner(login:"pengliheng"){
+						repository(name:"pengliheng.github.io"){
+							description
+							object(expression: "master:README.md") {
+								... on Blob {
+									text
 								}
 							}
 						}
-					}`
+					}
+				}`
 			}
 		}).then(res => {
 			this.myBlog = res.data
