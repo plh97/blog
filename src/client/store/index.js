@@ -26,29 +26,18 @@ class TodoStore {
 		}
 	}
 	constructor() {
-		axios({
-			url: `/graphql`,
-			method: 'post',
-			data: {
-				query: 
-				`{
-					repositoryOwner(login:"pengliheng"){
-						repository(name:"pengliheng.github.io"){
-							description
-							object(expression: "master:README.md") {
-								... on Blob {
-									text
-								}
-							}
-						}
-					}
-				}`
-			}
-		}).then(res => {
-			this.myBlog = res.data
-		}).catch(err => {
-			console.error('graphql error:', err);
-		});
+		
+
+		// axios({
+		// 	url: `https://api.github.com/graphql`,
+		// 	method: 'post',
+		// 	headers: {
+		// 		'Authorization': `bearer ${config.githubToken}`,
+		// 		'Content-Type': 'application/json'
+		// 	}
+		// }).then(res => {
+		// 	console.log(res);
+		// })
 	}
 }
 window.store = new TodoStore

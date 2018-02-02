@@ -33,9 +33,9 @@
 
 
 
-<!-- ### prepare to use golang to build this backend server -->
+### prepare to use golang to build this backend server
 
-<!-- ```go
+```go
 package main
 
 import (
@@ -67,4 +67,4 @@ continue for          import  return       var
 ### interface 关键字
 - 千面一字，多个interface担当一个角色
 
-### Well, in simple terms, I just think golang is designed to be a scientific computer language -->
+### Well, in simple terms, I just think golang is designed to be a scientific computer language
