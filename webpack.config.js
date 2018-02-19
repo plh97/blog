@@ -42,7 +42,7 @@ module.exports = {
 	plugins: [
 		new CleanWebpackPlugin(['dist']),
 		new HtmlWebpackPlugin({
-			title: '彭立衡 - 个人博客',
+			title: '个人博客 - 彭立衡',
 			favicon:'./favicon.ico',
 			template: __dirname + '/assets/template/index.ejs'
 		}),

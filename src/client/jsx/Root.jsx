@@ -5,24 +5,20 @@ import {
 	Link,
 	Switch,
 } from "react-router-dom";
-import {
-	IndexLink
-} from "react-router"
-import {Provider,observer} from "mobx-react"
-import { Route, Redirect } from 'react-router'
 import { Menu, Icon, Layout } from 'antd';
+import { Provider, observer } from "mobx-react";
+import { Route, Redirect } from 'react-router';
 
 // local
-import store from "../store/"
+import store from "../store/";
 import Life from "./blog/life/index.jsx";
 import ReactAPI from "./blog/reactapi/index.jsx";
 import GoLang from "./blog/golang/index.jsx";
 import Home from "./home/index.jsx";
 import NodeJs from "./blog/nodejs/index.jsx";
 import Others from "./blog/others/index.jsx";
-import NoMatch from './views/404.jsx'
-import Render from "./feature/Render.js"
-
+import NoMatch from './views/404.jsx';
+import Render from "./feature/Render.js";
 
 @observer
 export default class Root extends React.Component {
@@ -42,9 +38,7 @@ export default class Root extends React.Component {
 			<Provider store={store}>
 				<Router>
 					<Layout className="layout">
-						<Menu onClick={this.handleClick}
-							selectedKeys={[this.state.current]}
-							mode="horizontal">
+						<Menu onClick={this.handleClick} selectedKeys={[this.state.current]} mode="horizontal">
 							<Menu.Item key="">
 								<Link to='/'>🏠Home</Link>
 							</Menu.Item>
@@ -58,13 +52,19 @@ export default class Root extends React.Component {
 								<Link to='/nodejs'>⚙️NodeJs</Link>
 							</Menu.Item>
 							<Menu.Item key="life">
-								<Link to='/life'>📃life diary</Link>
+								<Link to='/life'>😋daily diary</Link>
 							</Menu.Item>
 							<Menu.Item key="chatroom">
-								<a target='_blank' href='https://chat.pipk.top/group/Moonlight'><span style={{ color: 'black' }}>🔥</span>chat with me?</a>
+								<a target='_blank' href='https://chat.pipk.top/group/Moonlight'>
+									<span style={{ color: 'black' }}>🔥</span>
+									chat with me?
+								</a>
 							</Menu.Item>
 							<Menu.Item key="me">
-								<a target='_blank' href='https://hacknical.com/resume/r1peg776b?locale=zh'><span style={{ color: 'black' }}>😋</span>我的简历</a>
+								<a target='_blank' href='https://hacknical.com/resume/r1peg776b?locale=zh'>
+									<span style={{ color: 'black' }}>📃</span>
+									我的简历
+								</a>
 							</Menu.Item>
 							<Menu.Item key="others">
 								<Link to='/others'>🐠others</Link>
