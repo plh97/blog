@@ -1,7 +1,7 @@
 const
 	path = require("path"),
-	CleanWebpackPlugin = require('clean-webpack-plugin'),
 	webpack = require('webpack'),
+	CleanWebpackPlugin = require('clean-webpack-plugin'),
 	HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
@@ -42,7 +42,7 @@ module.exports = {
 	plugins: [
 		new CleanWebpackPlugin(['dist']),
 		new HtmlWebpackPlugin({
-			title: 'Blog',
+			title: '彭立衡 - 个人博客',
 			favicon:'./favicon.ico',
 			template: __dirname + '/assets/template/index.ejs'
 		}),
