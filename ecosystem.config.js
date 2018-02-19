@@ -2,7 +2,6 @@ module.exports = {
 	apps: [
 		{
 			name: "blog",
-			script: "app.js",
 			watch: true,
 			env: {
 				"PORT": 80,
