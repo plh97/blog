@@ -2,4 +2,3 @@ node_modules/
 stats.json
 yarn.lock
 yanr-error.log
-dist/
