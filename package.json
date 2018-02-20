@@ -1,7 +1,7 @@
 {
-  "name": "webpack-demo",
+  "name": "blog",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "./src/server/app.js",
   "scripts": {
     "w": "webpack -w --colors --progress",
     "p": "webpack -p --colors --progress",

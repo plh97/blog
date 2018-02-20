@@ -49,7 +49,7 @@ export default class Root extends React.Component {
 								<Link to='/golang'>😇GoLang</Link>
 							</Menu.Item>
 							<Menu.Item key="nodejs">
-								<Link to='/nodejs'>⚙️NodeJs</Link>
+								<Link to='/nodejs'>👿NodeJs</Link>
 							</Menu.Item>
 							<Menu.Item key="life">
 								<Link to='/life'>😋daily diary</Link>
