@@ -1,6 +1,7 @@
 import axios from "axios";
 import Prismjs from "prismjs";
 import "prismjs/components/prism-jsx.js"
+import "prismjs/components/prism-bash.js"
 import "prismjs/themes/prism-okaidia.css"
 import { action, useStrict, computed, observable } from "mobx";
 

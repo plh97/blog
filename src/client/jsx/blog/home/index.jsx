@@ -2,6 +2,8 @@ import React from "react";
 import {Provider,observer,inject} from "mobx-react"
 import ReactMarkdown from "react-markdown";
 import styles from "./index.less";
+import Loading from "../../feature/Loading/index.jsx";
+
 
 @inject("store")
 @observer
@@ -10,9 +12,14 @@ export default class Home extends React.Component {
 		const { 
 			match,
 			store
-		} = this.props
+		} = this.props;
+		const {
+			myBlog
+		} = store;
 		return (
-			<ReactMarkdown className="home markdown-body" source={store.myBlog} />
+			<div className="home">
+				{myBlog == '' ? <Loading/> : <ReactMarkdown className="markdown-body" source={store.myBlog} />}
+			</div>
 		);
 	}
 }
