@@ -23,7 +23,7 @@ export default class Render extends React.Component {
 		const { date } = this.state;
 		return (
 			<h1 className="loading">
-				Loading{'。。。'.substring(0,date+1)}
+				Loading{'...'.substring(0,date+1)}
 			</h1>
 		)
 	}
