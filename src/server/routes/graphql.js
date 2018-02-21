@@ -4,15 +4,14 @@ exports.getCode = async(ctx,next) => {
 	let query = ctx.request.body;
 	let queryFunc = async data => {
 		console.log(
-			process.env.TOKEN,
-			process.env.access_token
+			process.env.access_token ? process.env.access_token : process.env.TOKEN
 		);
 		return new Promise((resolve,reject)=>{
 			axios({
 				url: `https://api.github.com/graphql`,
 				method: 'post',
 				headers: {
-					'Authorization': `bearer ${process.env.TOKEN}`,
+					'Authorization': `bearer ${process.env.access_token ? process.env.access_token : process.env.TOKEN}`,
 					'Content-Type': 'application/json'
 				},
 				data
