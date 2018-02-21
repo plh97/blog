@@ -4,7 +4,7 @@
 ![Size](https://github-size-badge.herokuapp.com/pengliheng/pengliheng.github.io.svg)
 
 
-## Welcome
+## 欢迎光临我的博客
 
 <!-- ![](https://i.loli.net/2017/10/24/59eed9ac20090.png) -->
 
@@ -45,9 +45,6 @@ yarn run nodemon      # 监听10086端口
 ```
 **Welcome PR 😀**
 
-### 开源许可
-
-The [MIT License](https://github.com/axetroy/blog/blob/master/LICENSE)
 
 ```go
 package main
