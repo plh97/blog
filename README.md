@@ -43,7 +43,7 @@ yarn            # 安装依赖
 yarn run w      # 监听10086端口
 yarn run nodemon      # 监听10086端口
 ```
-**Welcome PR :)**
+**Welcome PR 😀**
 
 ### 开源许可
 
