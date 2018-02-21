@@ -4,7 +4,8 @@ exports.getCode = async(ctx,next) => {
 	let query = ctx.request.body;
 	let queryFunc = async data => {
 		console.log(
-			process.env.TOKEN
+			process.env.TOKEN,
+			process.env.access_token
 		);
 		return new Promise((resolve,reject)=>{
 			axios({
