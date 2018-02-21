@@ -10,7 +10,8 @@ module.exports = {
 			},
 			env_prod: {
 				"PORT": 8001,
-				"NODE_ENV": "prod"
+				"NODE_ENV": "prod",
+				"TOKEN": "814ed630017a34658c45ac5f2f30b8bfcd1eb0e4",
 			}
 		}
 	]

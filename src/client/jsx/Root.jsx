@@ -3,7 +3,6 @@ import React from "react";
 import {
 	BrowserRouter as Router,
 	Link,
-	Switch,
 } from "react-router-dom";
 import { Menu, Icon, Layout } from 'antd';
 import { Provider, observer } from "mobx-react";
