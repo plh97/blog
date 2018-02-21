@@ -3,7 +3,6 @@ import Prismjs from "prismjs";
 import "prismjs/components/prism-jsx.js"
 import "prismjs/themes/prism-okaidia.css"
 import { action, useStrict, computed, observable } from "mobx";
-import config from '../../../config/project.js'
 
 // useStrict(true)
 class Store {

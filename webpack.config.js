@@ -8,7 +8,7 @@ const
 module.exports = {
 	entry: {
 		'app': [
-			'./src/client/app'
+			'./src/client/index.js'
 		],
 		vendor: [
 			"react",

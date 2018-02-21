@@ -11,13 +11,13 @@
 ### 本站托管于Github，所有数据来源于Github，通过动态加载数据渲染页面
 
 #### 发展方向
-- ##### Graphql API
-- ##### React + next.js 从服务器端渲染页面
-- ##### Github Issue Page - server less
-- ##### GoLang 搭建后端
-- ##### ~~Vue搭建前端页面~~
-- ##### [√] 代码片段Gist
-- ##### 分析Github相关数据
+- Graphql API
+- React + next.js 从服务器端渲染页面
+- Github Issue Page - server less
+- GoLang 搭建后端
+- ~~Vue搭建前端页面~~
+- [√] 代码片段Gist
+- 分析Github相关数据
 
 #### 特性
 - [x] 博客

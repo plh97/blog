@@ -11,11 +11,8 @@ export default class Home extends React.Component {
 			match,
 			store
 		} = this.props
-		console.log(
-			styles
-		);
 		return (
-			<ReactMarkdown className="home" source={store.myBlog} />
+			<ReactMarkdown className="home markdown-body" source={store.myBlog} />
 		);
 	}
 }

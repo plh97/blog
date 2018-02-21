@@ -11,7 +11,7 @@
 		padding: 24px;
 	}
 
-	img{
+	img {
 		max-width: 100%;
 		box-sizing: content-box;
 		background-color: #fff;
@@ -32,7 +32,24 @@
 	h2 {
 		font-size: 1.5em;
 	}
-	li{
-		list-style: inside;
+
+
+	&.markdown-body {
+		ul,ol {
+			padding-left: 2em;
+			margin-top: 0;
+			margin-bottom: 16px;
+			li + li {
+				margin-top: .25em;
+			}
+			li{
+				list-style: outside;
+				h5{
+					border: 0;
+				}
+			}
+		}
 	}
+
+
 }

@@ -9,6 +9,8 @@ body {
 
     
     .layout {
+        width: 100%;
+        display: flex;
         flex-direction: column;
         min-height: 100vh;
         align-items: center;
@@ -16,11 +18,6 @@ body {
 
         .ant-menu {
             width: 100%;
-            .ant-menu-item {
-                height: 47px;
-                display: inline-flex;
-                align-items: center;
-            }
         }
     }
     
@@ -30,13 +27,16 @@ body {
             font-size: 1rem !important;
         }
     }
+    .ant-layout {
+        width: 100%;
+    }
     .ant-layout-content {
         padding: 0 !important;
     }
     .container-context {
         background-color: #dfdfdf;
         .ant-col-24 {
-            min-height: 1300px;
+            min-height: 725px;
             background-color: #fff;
             font-size: 15px;
             h3,

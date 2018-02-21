@@ -4,7 +4,7 @@ import {
 	BrowserRouter as Router,
 	Link,
 } from "react-router-dom";
-import { Menu, Icon, Layout } from 'antd';
+import { Menu, Icon } from 'antd';
 import { Provider, observer } from "mobx-react";
 import { Route, Redirect } from 'react-router';
 
@@ -21,9 +21,6 @@ import ReactAPI from "./blog/reactapi/index.jsx";
 
 @observer
 export default class Root extends React.Component {
-	componentWillMount() {
-		document.ondragstart = () => false;
-	}
 	state = {
 		current: location.pathname == '/' ? '' : location.pathname.split('/')[1],
 	}
@@ -36,7 +33,7 @@ export default class Root extends React.Component {
 		return (
 			<Provider store={store}>
 				<Router>
-					<Layout className="layout">
+					<div className="layout">
 						<Menu onClick={this.handleClick} selectedKeys={[this.state.current]} mode="horizontal">
 							<Menu.Item key="">
 								<Link to='/'>🏠Home</Link>
@@ -84,7 +81,7 @@ export default class Root extends React.Component {
 							<Route path="/others" component={Others} />
 							<Route component={NoMatch} />
 						</Render>
-					</Layout>
+					</div>
 				</Router>
 			</Provider>
 		);
