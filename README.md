@@ -10,7 +10,7 @@
 
 ### 本站托管于Github，所有数据来源于Github，通过动态加载数据渲染页面
 
-#### 发展方向
+### 发展方向
 - Graphql API
 - React + next.js 从服务器端渲染页面
 - Github Issue Page - server less
@@ -19,7 +19,7 @@
 - [√] 代码片段Gist
 - 分析Github相关数据
 
-#### 特性
+### 特性
 - [x] 博客
 - [x] 仓库集合
 - [x] 计划任务TODO
@@ -28,7 +28,7 @@
 - [x] 按需加载
 - [x] 静态类型检查
 
-#### 技术栈
+### 技术栈
 - React
 - Graphql
 - Ant-Design
