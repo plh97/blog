@@ -9,7 +9,7 @@
         "test.js"
     ],
     "env": {
-        "TOKEN": "ed8cc3810c26e5f4b386982a2b99408da425be7d",
+        "TOKEN": "ad0fcde6b08f0ca10022f3775ba8c721e10461a4",
         "NODE_ENV": "dev"
     }
 }
