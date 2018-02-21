@@ -11,14 +11,14 @@ import { Route, Redirect } from 'react-router';
 
 // local
 import store from "../store/";
+import Home from "./blog/home/index.jsx";
 import Life from "./blog/life/index.jsx";
-import ReactAPI from "./blog/reactapi/index.jsx";
+import NoMatch from './blog/404/index.jsx';
+import Render from "./feature/Render.js";
 import GoLang from "./blog/golang/index.jsx";
-import Home from "./home/index.jsx";
 import NodeJs from "./blog/nodejs/index.jsx";
 import Others from "./blog/others/index.jsx";
-import NoMatch from './views/404.jsx';
-import Render from "./feature/Render.js";
+import ReactAPI from "./blog/reactapi/index.jsx";
 
 @observer
 export default class Root extends React.Component {

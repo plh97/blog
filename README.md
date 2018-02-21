@@ -1,20 +1,53 @@
-# Blog
-
 [![Build Status](https://travis-ci.org/pengliheng/pengliheng.github.io.svg?branch=master)](https://travis-ci.org/pengliheng/pengliheng.github.io)
 [![author](https://img.shields.io/badge/author-peng-blue.svg)](https://github.com/pengliheng/pengliheng.github.io)
 [![Node.js Version](https://img.shields.io/badge/node.js-8.7.0-blue.svg)](http://nodejs.org/download)
 ![Size](https://github-size-badge.herokuapp.com/pengliheng/pengliheng.github.io.svg)
 
 
-## 项目放在腾讯云
+## Welcome
 
-![](https://i.loli.net/2017/10/24/59eed9ac20090.png)
+<!-- ![](https://i.loli.net/2017/10/24/59eed9ac20090.png) -->
 
-### 所有数据均从github获取
+### 本站托管于Github，所有数据来源于Github，通过动态加载数据渲染页面
 
-### 本博客不储存任何文章内容数据
+#### 发展方向
+- ##### Graphql API
+- ##### React + next.js 从服务器端渲染页面
+- ##### Github Issue Page - server less
+- ##### GoLang 搭建后端
+- ##### ~~Vue搭建前端页面~~
+- ##### [√] 代码片段Gist
+- ##### 分析Github相关数据
 
-### prepare to use golang to build this backend server
+#### 特性
+- [x] 博客
+- [x] 仓库集合
+- [x] 计划任务TODO
+- [x] 响应式
+- [x] 数据持久化
+- [x] 按需加载
+- [x] 静态类型检查
+
+#### 技术栈
+- React
+- Graphql
+- Ant-Design
+- Github Api
+
+### 贡献代码
+
+```bash
+git clone https://github.com/pengliheng/pengliheng.github.io.git
+cd ./blog
+yarn            # 安装依赖
+yarn run w      # 监听10086端口
+yarn run nodemon      # 监听10086端口
+```
+**Welcome PR :)**
+
+### 开源许可
+
+The [MIT License](https://github.com/axetroy/blog/blob/master/LICENSE)
 
 ```go
 package main

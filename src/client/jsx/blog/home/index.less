@@ -1,0 +1,38 @@
+.home {
+	max-width: 980px;
+	width: calc(~'100vw - 50px');
+	margin: 1rem auto;
+	background-color: #fff;
+	padding: 45px;
+	min-height: 100%;
+	flex: 1;
+	@media screen and (max-width: 768px) {
+		width: 100vw;
+		padding: 24px;
+	}
+
+	img{
+		max-width: 100%;
+		box-sizing: content-box;
+		background-color: #fff;
+	}
+	h1, h2, h3, h4, h5, h6 {
+		padding-bottom: 0.3em;
+		border-bottom: 1px solid #eaecef;
+		margin-top: 24px;
+		margin-bottom: 16px;
+		font-weight: 600;
+		line-height: 1.25;
+	}
+
+	h1 {
+		font-size: 2em;
+		margin-top: 0;
+	}
+	h2 {
+		font-size: 1.5em;
+	}
+	li{
+		list-style: inside;
+	}
+}

@@ -1,12 +1,14 @@
-import Prismjs from "prismjs";
 import axios from "axios";
+import Prismjs from "prismjs";
 import "prismjs/components/prism-jsx.js"
 import "prismjs/themes/prism-okaidia.css"
 import { action, useStrict, computed, observable } from "mobx";
 import config from '../../../config/project.js'
 
 // useStrict(true)
-class TodoStore {
+class Store {
+	//我的用户信息
+	@observable myBlog = "";
     //通用函数。。。
     @action allHold = (left, right) => {
         if (left.split('.').length == 1) {
@@ -44,11 +46,11 @@ class TodoStore {
                 }`
             }
         }).then(res => {
-            let myBlog = res.data.data.repositoryOwner.repository.object.text
-            this.myBlog = myBlog
+            this.myBlog = res.data.data.repositoryOwner.repository.object.text
+			Prism.highlightAll()
         })
     }
 }
-window.store = new TodoStore
-const store = window.store
+const store = window.store = new Store;
+
 export default store
