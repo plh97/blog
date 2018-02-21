@@ -5,10 +5,9 @@
   "scripts": {
     "w": "webpack -w --colors --progress",
     "p": "webpack -p --colors --progress",
-    "nodemon": "set NODE_ENV=dev&& nodemon ./src/server/app.js --config nodemonrc.json",
+    "nodemon": "nodemon ./src/server/app.js --config nodemonrc.json",
     "pm2": "pm2 start ecosystem.config.js --env prod",
-    "restart": "pm2 reload ecosystem.config.js --env prod",
-    "analysis": "webpack --profile --json > stats.json"
+    "restart": "pm2 reload ecosystem.config.js --env prod"
   },
   "keywords": [
     "blog"
@@ -30,6 +29,7 @@
     "clean-webpack-plugin": "^0.1.18",
     "cookie": "^0.3.1",
     "css-loader": "^0.28.4",
+    "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^0.11.2",
     "history": "^4.7.2",
     "html-webpack-plugin": "^2.29.0",

@@ -1,131 +1,114 @@
 @import "./commonStyle.less";
-
 body {
-  margin: 0;
-  padding: 0;
-  font-size: calc(~'0.89em + 0.2vw');
-  font-family: 'Reem Kufi','Roboto',sans-serif;
-  cursor: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo5RDc3RkMxODI2QzYxMUUyODAxOTk1OUM1MzlDNjU2MSIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo5RDc3RkMxOTI2QzYxMUUyODAxOTk1OUM1MzlDNjU2MSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjhFRDJCQUMxMjZDNjExRTI4MDE5OTU5QzUzOUM2NTYxIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjhFRDJCQUMyMjZDNjExRTI4MDE5OTU5QzUzOUM2NTYxIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+croeIwAAAVlJREFUeNrslr9OwzAQxmPXIi1CYmZg5UG69hVgYmPqxLMxwQ5vwQugquVPFRL3O/oZHahNI7CdJSd9OidqfT9ffPYZ733RpxnK0osJUUPfajHgJfAIGmOySoTxBHIKKKlZqvxKhzGyqmVOiJCB8vubbCEWuSDCt3c/NkZGCLt3d2aCsK0lkgHCHqzTxBC202GREMJ2PrESQRwEkNMuiM+LmABuX1BZsVr9HO4VWlJR7Rg699slevrb8KzeXUBn0Kkc3ZI9nZ2/yqkLKKz8BsPHHaDvzMIHVHe5rLruAZmoYqov4e6gF4yvw3fnBnzmf+qYAI6TrRFkBv8EfRLsYcfvj5iJOmYZNkyrBFwxzaIVoK50BfzqG6I2JHpSz0BS7yfQlDfmG3RPyCpWQ2Ja3jte0yUBJOiaqlMDFKpVC2kPrVqjq+bfAH03pbbo2QaAAWAAGAB6B9gIMAB8UdAqRMkNOgAAAABJRU5ErkJggg==), auto;
-
-  .no-found{
-    display: flex;
-    flex-direction: column;
-    background-color: #fff;
-    height: 40vh;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    h1{
-      font-size: 7rem;
-    }
-    p{
-      font-size: 2rem;
-    }
-  }
-
-  .slide {
-    border-right: 1px solid #efefef;
-
-    li {
-      font-size: 1rem !important;
-    }
-  }
-
-  .ant-layout-content {
-    padding: 0 !important;
-  }
-
-  .container-context {
-    background-color: #dfdfdf;
-
-    .ant-col-24 {
-      min-height: 1300px;
-      background-color: #fff;
-      font-size: 15px;
-
-      h3,
-      h4,
-      ol,
-      p,
-      .ant-table-wrapper,
-      ul {
-        margin: 0 24px;
-      }
-
-      ol , ul {
-        font-size: 1.1rem;
-      }
-
-      p ,b {
-        font-size: 1.1rem;
-        text-indent: 2em;
-        text-align: left;
-      }
-
-      pre {
-        @media (min-width: 600px) {
-          margin: 0 24px;
+    margin: 0;
+    padding: 0;
+    font-size: calc(~'0.89em + 0.2vw');
+    font-family: 'Reem Kufi', 'Roboto', sans-serif;
+    cursor: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo5RDc3RkMxODI2QzYxMUUyODAxOTk1OUM1MzlDNjU2MSIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo5RDc3RkMxOTI2QzYxMUUyODAxOTk1OUM1MzlDNjU2MSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjhFRDJCQUMxMjZDNjExRTI4MDE5OTU5QzUzOUM2NTYxIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjhFRDJCQUMyMjZDNjExRTI4MDE5OTU5QzUzOUM2NTYxIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+croeIwAAAVlJREFUeNrslr9OwzAQxmPXIi1CYmZg5UG69hVgYmPqxLMxwQ5vwQugquVPFRL3O/oZHahNI7CdJSd9OidqfT9ffPYZ733RpxnK0osJUUPfajHgJfAIGmOySoTxBHIKKKlZqvxKhzGyqmVOiJCB8vubbCEWuSDCt3c/NkZGCLt3d2aCsK0lkgHCHqzTxBC202GREMJ2PrESQRwEkNMuiM+LmABuX1BZsVr9HO4VWlJR7Rg699slevrb8KzeXUBn0Kkc3ZI9nZ2/yqkLKKz8BsPHHaDvzMIHVHe5rLruAZmoYqov4e6gF4yvw3fnBnzmf+qYAI6TrRFkBv8EfRLsYcfvj5iJOmYZNkyrBFwxzaIVoK50BfzqG6I2JHpSz0BS7yfQlDfmG3RPyCpWQ2Ja3jte0yUBJOiaqlMDFKpVC2kPrVqjq+bfAH03pbbo2QaAAWAAGAB6B9gIMAB8UdAqRMkNOgAAAABJRU5ErkJggg==), auto;
+    .no-found {
+        display: flex;
+        flex-direction: column;
+        background-color: #fff;
+        height: 40vh;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        h1 {
+            font-size: 7rem;
         }
-        @media (max-width: 600px) {
-          border-radius: 0;
+        p {
+            font-size: 2rem;
         }
-      }
-
-      img {
-        display: inline-block;
-        max-width: 100%;
-      }
-
-      h3 {
-        text-align: center;
-        padding: 8px 0;
-        font-weight: bold;
-        font-size: 1.6rem;
-      }
-
-      h3:after {
-        content: "--主题";
-        margin: 10px;
-        font-size: 12px;
-        font-weight: 500;
-      }
-
-      h4 {
-        text-align: left;
-        padding: 8px 0;
-        font-size: 1.2rem;
-        font-weight: bold;
-      }
-
-      h4:after {
-        content: "~~~~";
-        margin-left: 10px;
-        font-size: 12px;
-        font-weight: 100;
-      }
-
-      a {
-        color: @lightBlue7;
-        display: inline-block;
-        font-size: 1.2rem;
-        text-indent: 0;
-        word-break: break-word;
-      }
-
-      a,
-      h3,
-      h4,
-      li,
-      p,
-      span {
-        word-break: break-word;
-      }
-
-      iframe {
-        max-width: 100%;
-        margin-left: 2px;
-        margin-bottom: -5px;
-      }
     }
-  }
+    .slide {
+        border-right: 1px solid #efefef;
+        li {
+            font-size: 1rem !important;
+        }
+    }
+    .ant-layout-content {
+        padding: 0 !important;
+    }
+    .container-context {
+        background-color: #dfdfdf;
+        .ant-col-24 {
+            min-height: 1300px;
+            background-color: #fff;
+            font-size: 15px;
+            h3,
+            h4,
+            ol,
+            p,
+            .ant-table-wrapper,
+            ul {
+                margin: 0 24px;
+            }
+            ol,
+            ul {
+                font-size: 1.1rem;
+            }
+            p,
+            b {
+                font-size: 1.1rem;
+                text-indent: 2em;
+                text-align: left;
+            }
+            pre {
+                @media (min-width: 600px) {
+                    margin: 0 24px;
+                }
+                @media (max-width: 600px) {
+                    border-radius: 0;
+                }
+            }
+            img {
+                display: inline-block;
+                max-width: 100%;
+            }
+            h3 {
+                text-align: center;
+                padding: 8px 0;
+                font-weight: bold;
+                font-size: 1.6rem;
+            }
+            h3:after {
+                content: "--主题";
+                margin: 10px;
+                font-size: 12px;
+                font-weight: 500;
+            }
+            h4 {
+                text-align: left;
+                padding: 8px 0;
+                font-size: 1.2rem;
+                font-weight: bold;
+            }
+            h4:after {
+                content: "~~~~";
+                margin-left: 10px;
+                font-size: 12px;
+                font-weight: 100;
+            }
+            a {
+                color: @lightBlue7;
+                display: inline-block;
+                font-size: 1.2rem;
+                text-indent: 0;
+                word-break: break-word;
+            }
+            a,
+            h3,
+            h4,
+            li,
+            p,
+            span {
+                word-break: break-word;
+            }
+            iframe {
+                max-width: 100%;
+                margin-left: 2px;
+                margin-bottom: -5px;
+            }
+        }
+    }
 }

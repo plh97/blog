@@ -7,5 +7,9 @@
         "node_modules/*",
         "dist/*",
         "test.js"
-    ]
+    ],
+    "env": {
+        "TOKEN": "28f6a58cae6f9164e27f2f25b7887b28ffae8379",
+        "NODE_ENV": "dev"
+    }
 }

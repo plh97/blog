@@ -1,6 +1,7 @@
 const
 	path = require("path"),
 	webpack = require('webpack'),
+	ExtractTextPlugin = require('extract-text-webpack-plugin'),
 	CleanWebpackPlugin = require('clean-webpack-plugin'),
 	HtmlWebpackPlugin = require('html-webpack-plugin');
 
@@ -24,13 +25,19 @@ module.exports = {
 		publicPath:"/",
 	},
 	module:{
+		
 		rules:[{
 			test: /(\.less|\.css)$/,
-			use: [
-				'style-loader',
-				'css-loader',
-				'less-loader'
-		]},{
+			// use: [
+			// 	'style-loader',
+			// 	'css-loader',
+			// 	'less-loader'
+			// ]
+			use: ExtractTextPlugin.extract({
+				fallback: 'style-loader',
+				use: ['css-loader', 'less-loader']
+			})
+		},{
 			test: /\.(js|jsx)$/,
 			exclude: /node_module/,
 			loader:'babel-loader'
@@ -49,6 +56,9 @@ module.exports = {
 		new webpack.optimize.CommonsChunkPlugin({
 		  name: "vendor",
 		  minChunks: Infinity
+		}),
+		new ExtractTextPlugin({
+			filename: 'index.[hash].css'
 		})
 	]
 };

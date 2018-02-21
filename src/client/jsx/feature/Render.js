@@ -24,6 +24,7 @@ class Render extends React.Component {
   }
   render() {
     const {children} = this.props
+    // console.log(children);
     return (
       <Switch>
         {children}
