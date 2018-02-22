@@ -14,15 +14,15 @@ import Home from "./blog/home/index.jsx";
 import Life from "./blog/life/index.jsx";
 import NoMatch from './blog/404/index.jsx';
 import Render from "./feature/Render.js";
-import GoLang from "./blog/golang/index.jsx";
-import NodeJs from "./blog/nodejs/index.jsx";
+// import GoLang from "./blog/golang/index.jsx";
+import Article from "./blog/article/index.jsx";
 import Others from "./blog/others/index.jsx";
 import ReactAPI from "./blog/reactapi/index.jsx";
 
 @observer
 export default class Root extends React.Component {
 	state = {
-		current: location.pathname == '/' ? '' : location.pathname.split('/')[1],
+		current: location.pathname == '/' ? 'home' : location.pathname.split('/')[1],
 	}
 	handleClick = (e) => {
 		this.setState({
@@ -35,17 +35,17 @@ export default class Root extends React.Component {
 				<Router>
 					<div className="layout">
 						<Menu onClick={this.handleClick} selectedKeys={[this.state.current]} mode="horizontal">
-							<Menu.Item key="">
+							<Menu.Item key="home">
 								<Link to='/'>🏠Home</Link>
 							</Menu.Item>
 							<Menu.Item key="reactapi">
 								<Link to='/reactapi'>⚛️React</Link>
 							</Menu.Item>
-							<Menu.Item key="golang">
+							{/* <Menu.Item key="golang">
 								<Link to='/golang'>😇GoLang</Link>
-							</Menu.Item>
-							<Menu.Item key="nodejs">
-								<Link to='/nodejs'>👿NodeJs</Link>
+							</Menu.Item> */}
+							<Menu.Item key="article">
+								<Link to='/article'>👿Article</Link>
 							</Menu.Item>
 							<Menu.Item key="life">
 								<Link to='/life'>😋daily diary</Link>
@@ -75,8 +75,8 @@ export default class Root extends React.Component {
 						<Render>
 							<Route exact path="/" component={Home} />
 							<Route path="/reactapi" component={ReactAPI} />
-							<Route path="/golang" component={GoLang} />
-							<Route path="/nodejs" component={NodeJs} />
+							{/* <Route path="/golang" component={GoLang} /> */}
+							<Route path="/article" component={Article} />
 							<Route path="/life" component={Life} />
 							<Route path="/others" component={Others} />
 							<Route component={NoMatch} />

@@ -8,7 +8,9 @@ import { action, useStrict, computed, observable } from "mobx";
 // useStrict(true)
 class Store {
 	//我的用户信息
-	@observable myBlog = "";
+	@observable viewer = "";
+	@observable home = "";
+	@observable article = "";
     //通用函数。。。
     @action allHold = (left, right) => {
         if (left.split('.').length == 1) {
@@ -33,20 +35,46 @@ class Store {
             method: 'post',
             data: {
                 query: `{
-                    repositoryOwner(login:"pengliheng"){
-                        repository(name:"pengliheng.github.io"){
-                            description
-                            object(expression: "master:README.md") {
-                                ... on Blob {
-                                    text
+                    viewer {
+                      name
+                      avatarUrl
+                    }
+                    repositoryOwner(login: "pengliheng") {
+                      repository(name: "pengliheng.github.io") {
+                        issues(first: 10) {
+                          edges {
+                            node {
+                              author {
+                                avatarUrl
+                                login
+                              }
+                              updatedAt
+                              createdAt
+                              body
+                              title
+                              labels(first: 5) {
+                                nodes {
+                                  name
+                                  color
                                 }
+                              }
                             }
+                          }
                         }
+                        object(expression: "master:README.md") {
+                          ... on Blob {
+                            text
+                          }
+                        }
+                      }
                     }
                 }`
             }
         }).then(res => {
-            this.myBlog = res.data.data.repositoryOwner.repository.object.text
+            this.viewer = res.data.data.viewer
+            this.home = res.data.data.repositoryOwner.repository.object.text
+            this.article = res.data.data.repositoryOwner.repository.issues.edges
+
 			Prism.highlightAll()
         })
     }

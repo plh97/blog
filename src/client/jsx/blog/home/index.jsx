@@ -14,12 +14,22 @@ export default class Home extends React.Component {
 			store
 		} = this.props;
 		const {
-			myBlog
+			home,
+			viewer
 		} = store;
-		return (
+		return home == '' ? <Loading/> : (
 			<div className="home">
-				{myBlog == '' ? <Loading/> : <ReactMarkdown className="markdown-body" source={store.myBlog} />}
+				<div className="title">
+					<h1>博客主页</h1>
+					<div className="detail">
+						<img src={viewer.avatarUrl}/>
+						<span className="detail-list">
+							<span className="name">💁：{viewer.name}</span>
+						</span>
+					</div>
+				</div>
+				<ReactMarkdown className="markdown-body" source={home} />
 			</div>
-		);
+		)
 	}
 }
