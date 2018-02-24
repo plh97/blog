@@ -24,7 +24,7 @@ export default class Home extends React.Component {
 					<div className="detail">
 						<img src={viewer.avatarUrl}/>
 						<span className="detail-list">
-							<span className="name">💁：{viewer.name}</span>
+							<span className="name">本人名字：{viewer.name}</span>
 						</span>
 					</div>
 				</div>
