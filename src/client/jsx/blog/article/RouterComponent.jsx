@@ -15,7 +15,8 @@ export default class RouterComponent extends React.Component {
             store
         } = this.props;
         const {
-            article
+            article,
+            viewer
         } = store;
         return article && <div className="content markdown-body">
             <div className="title">
@@ -27,9 +28,9 @@ export default class RouterComponent extends React.Component {
                     ))}
                 </h1>
                 <div className="detail">
-                    <img src={article[this.props.index].node.author.avatarUrl}/>
+                    <img src={viewer.avatarUrl}/>
                     <span className="detail-list">
-                        <span className="name">本文作者：{article[this.props.index].node.author.login}</span>
+                        <span className="name">本文作者：{viewer.name}</span>
                         <span className="create-time">创建时间：{(new Date(article[this.props.index].node.createdAt)).toLocaleString()}</span>
                         <span className="update-time">更新时间：{(new Date(article[this.props.index].node.updatedAt)).toLocaleString()}</span>
                     </span>
