@@ -64,11 +64,11 @@ func main() {
 
 ### Go 语言关键字只有25个 ，比英文字母还少一个，是不是很简单
 ```go
-    break    default      func    interface    select
-    case     defer        go      map          struct
-    chan     else         goto    package      switch
-    const    fallthrough  if      range        type
-    continue for          import  return       var
+break    default      func    interface    select
+case     defer        go      map          struct
+chan     else         goto    package      switch
+const    fallthrough  if      range        type
+continue for          import  return       var
 ```
 
 ### type 关键字
