@@ -6,6 +6,7 @@
     "w": "webpack -w --colors --progress",
     "p": "webpack -p --colors --progress",
     "nodemon": "nodemon ./src/server/index.js --config nodemonrc.json",
+    "deploy": "gh-pages --repo https://github.com/pengliheng/pengliheng.github.io.git",
     "pm2": "pm2 start ecosystem.config.js --env prod",
     "restart": "pm2 reload ecosystem.config.js --env prod"
   },
@@ -15,6 +16,7 @@
   "author": "pengliheng",
   "license": "MIT",
   "dependencies": {
+    "@axetroy/walk": "^0.1.0",
     "antd": "^2.13.6",
     "axios": "^0.17.1",
     "babel": "^6.23.0",
@@ -31,6 +33,7 @@
     "css-loader": "^0.28.4",
     "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^0.11.2",
+    "gh-pages": "^1.1.0",
     "history": "^4.7.2",
     "html-webpack-plugin": "^2.29.0",
     "json-loader": "^0.5.4",

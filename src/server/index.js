@@ -7,7 +7,7 @@ const koaSend = require('koa-send');
 const logger = require('koa-logger');
 const static = require('koa-static');
 const bodyparser = require('koa-bodyparser');
-
+const ghPages = require('gh-pages');
 //local
 const config = require('../../config/server');
 const allRouter = require('./routes/index.js');
@@ -17,10 +17,10 @@ const app = new Koa();
 const server = http.createServer(app.callback());
 const port = process.env.PORT || config.port;
 
-
 app
     // .use(bodyparser())
     .use(json())
+    
     .use(logger())
     .use(static(path.resolve('./dist'), {
         // maxAge: 1000 * 60 * 60 * 24 * 7,
@@ -46,6 +46,13 @@ app
     });
 
 server.listen(port,()=>{
-  console.log(` >>> port: ${port }`);
-  console.log(` >>> ENV: ${process.env.NODE_ENV}`);
+    console.log(` >>> port: ${port }`);
+    console.log(` >>> ENV: ${process.env.NODE_ENV}`);
+    ghPages.publish('dist', {
+        branch: 'master',
+        repo: `https://${process.env.TOKEN}@github.com/pengliheng/pengliheng.github.io.git`
+    }, e => {
+        console.log('success publish',e);
+    });
+    console.log(` >>> TOKEN: ${process.env.TOKEN}`)
 });
