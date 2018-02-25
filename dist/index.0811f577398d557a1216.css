@@ -6896,9 +6896,16 @@ pre[data-line] {
 .line-numbers .line-highlight:after {
   content: none;
 }
-.github-title {
-  font-size: 1.5em;
-  margin: 10px 0 5px 0;
+.github {
+  max-width: 980px;
+  width: calc(100vw - 50px);
+  margin: 1rem auto;
+  background-color: #fff;
+  padding: 45px;
+  min-height: 100%;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
 }
 .article {
   -webkit-box-flex: 1;
@@ -11139,10 +11146,6 @@ body .container-context .ant-col-24 ol,
 body .container-context .ant-col-24 p,
 body .container-context .ant-col-24 ul {
   margin: 0 24px;
-}
-body .container-context .ant-col-24 ol,
-body .container-context .ant-col-24 ul {
-  font-size: 1.1rem;
 }
 body .container-context .ant-col-24 p,
 body .container-context .ant-col-24 b {

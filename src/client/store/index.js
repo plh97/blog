@@ -36,44 +36,41 @@ class Store {
             data: {
                 query: `{
                     viewer {
-                      name
-                      avatarUrl
+                        name
+                        avatarUrl
                     }
                     repositoryOwner(login: "pengliheng") {
-                      repository(name: "pengliheng.github.io") {
-                        issues(first: 10) {
-                          edges {
-                            node {
-                              author {
-                                avatarUrl
-                                login
-                              }
-                              updatedAt
-                              createdAt
-                              body
-                              title
-                              labels(first: 5) {
-                                nodes {
-                                  name
-                                  color
+                        repository(name: "pengliheng.github.io") {
+                            issues(first: 10) {
+                                edges {
+                                    node {
+                                        author {
+                                            avatarUrl
+                                            login
+                                        }
+                                        updatedAt
+                                        createdAt
+                                        body
+                                        title
+                                        labels(first: 5) {
+                                            nodes {
+                                                name
+                                                color
+                                            }
+                                        }
+                                    }
                                 }
-                              }
                             }
-                          }
+                            object(expression: "master:README.md") {
+                                ... on Blob {
+                                    text
+                                }
+                            }
                         }
-                        object(expression: "master:README.md") {
-                          ... on Blob {
-                            text
-                          }
-                        }
-                      }
                     }
                 }`
             }
         }).then(res => {
-            console.log(
-                res.data.data.repositoryOwner.repository
-            );
             this.viewer = res.data.data.viewer
             this.home = res.data.data.repositoryOwner.repository.object.text
             this.article = res.data.data.repositoryOwner.repository.issues.edges

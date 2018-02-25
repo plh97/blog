@@ -48,11 +48,4 @@ app
 server.listen(port,()=>{
     console.log(` >>> port: ${port }`);
     console.log(` >>> ENV: ${process.env.NODE_ENV}`);
-    ghPages.publish('dist', {
-        branch: 'master',
-        repo: `https://${process.env.TOKEN}@github.com/pengliheng/pengliheng.github.io.git`
-    }, e => {
-        console.log('success publish',e);
-    });
-    console.log(` >>> TOKEN: ${process.env.TOKEN}`)
 });

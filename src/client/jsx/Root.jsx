@@ -75,7 +75,7 @@ export default class Root extends React.Component {
 						<Render>
 							<Route exact path="/" component={Home} />
 							<Route path="/reactapi" component={ReactAPI} />
-							{/* <Route path="/golang" component={GoLang} /> */}
+							<Route path="/github" component={Github} />
 							<Route path="/article" component={Article} />
 							<Route path="/life" component={Life} />
 							<Route path="/others" component={Others} />

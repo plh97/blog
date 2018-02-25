@@ -16,6 +16,7 @@
   "author": "pengliheng",
   "license": "MIT",
   "dependencies": {
+    "@axetroy/react-github-calendar": "^1.0.0",
     "@axetroy/walk": "^0.1.0",
     "antd": "^2.13.6",
     "axios": "^0.17.1",
