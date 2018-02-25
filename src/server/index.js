@@ -20,7 +20,7 @@ const port = process.env.PORT || config.port;
 app
     // .use(bodyparser())
     .use(json())
-    
+
     .use(logger())
     .use(static(path.resolve('./dist'), {
         // maxAge: 1000 * 60 * 60 * 24 * 7,

@@ -14,7 +14,7 @@ import Home from "./blog/home/index.jsx";
 import Life from "./blog/life/index.jsx";
 import NoMatch from './blog/404/index.jsx';
 import Render from "./feature/Render.js";
-// import GoLang from "./blog/golang/index.jsx";
+import Github from "./blog/github/index.jsx";
 import Article from "./blog/article/index.jsx";
 import Others from "./blog/others/index.jsx";
 import ReactAPI from "./blog/reactapi/index.jsx";
@@ -41,9 +41,9 @@ export default class Root extends React.Component {
 							<Menu.Item key="reactapi">
 								<Link to='/reactapi'>⚛️React</Link>
 							</Menu.Item>
-							{/* <Menu.Item key="golang">
-								<Link to='/golang'>😇GoLang</Link>
-							</Menu.Item> */}
+							<Menu.Item key="github">
+								<Link to='/github'>😇Github</Link>
+							</Menu.Item>
 							<Menu.Item key="article">
 								<Link to='/article'>👿Article</Link>
 							</Menu.Item>
@@ -65,7 +65,7 @@ export default class Root extends React.Component {
 							<Menu.Item key="others">
 								<Link to='/others'>🐠others</Link>
 							</Menu.Item>
-							<Menu.Item key="github" style={{ float: "right" }}>
+							<Menu.Item key="github_iframe" style={{ float: "right" }}>
 								<iframe
 									frameBorder="0" scrolling="0" width="91px" height="20px"
 									src="https://ghbtns.com/github-btn.html?user=pengliheng&repo=pengliheng.github.io&type=star&count=true" >

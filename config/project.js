@@ -23,5 +23,26 @@ module.exports = {
 
     chromium: process.env.NODE_ENV =='dev'? "C:/Users/33318/AppData/Local/Chromium/Application/chrome.exe":"beb866b2260c1881c515",
     canary: "C:/Users/33318/AppData/Local/Google/Chrome SxS/Application/chrome.exe",
-    phone:"18825142583"
+    phone:"18825142583",
+    calendar: {
+        "owner": "pengliheng",
+        "repo": "pengliheng.github.io",
+        "todo_repo": "todo",
+        "github_client_id": "b8257841dd7ca5eef2aa",
+        "github_client_secret": "4da33dd6fcb0a01d395945ad18613ecf9c12079e",
+        "firebase": {
+          "config": {
+            "apiKey": "AIzaSyDTCaJ23z7O393k_5w79z40XBNVURiAxb8",
+            "authDomain": "blog-9281a.firebaseapp.com",
+            "databaseURL": "https://blog-9281a.firebaseio.com",
+            "projectId": "blog-9281a",
+            "storageBucket": "blog-9281a.appspot.com",
+            "messagingSenderId": "989620354189"
+          },
+          "account": {
+            "email": "troy450409405@gmail.com",
+            "password": "123123"
+          }
+        }
+      }
 };

@@ -71,6 +71,9 @@ class Store {
                 }`
             }
         }).then(res => {
+            console.log(
+                res.data.data.repositoryOwner.repository
+            );
             this.viewer = res.data.data.viewer
             this.home = res.data.data.repositoryOwner.repository.object.text
             this.article = res.data.data.repositoryOwner.repository.issues.edges
