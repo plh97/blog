@@ -1,6 +1,6 @@
 import React from "react";
-import {Provider,observer,inject} from "mobx-react"
 import ReactMarkdown from "react-markdown";
+import {Provider,observer,inject} from "mobx-react"
 import styles from "./index.less";
 import Loading from "../../feature/Loading/index.jsx";
 

@@ -38,6 +38,21 @@ class Store {
                     viewer {
                         name
                         avatarUrl
+                        login
+                        bio
+                        url
+                        createdAt
+                        isHireable
+                        followers(first: 100) {
+                            totalCount
+                        }
+                        following(first: 100) {
+                            totalCount
+                        }
+                        repositories(privacy: PUBLIC) {
+                            totalCount
+                            totalDiskUsage
+                        }
                     }
                     repositoryOwner(login: "pengliheng") {
                         repository(name: "pengliheng.github.io") {
