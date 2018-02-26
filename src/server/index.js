@@ -7,7 +7,7 @@ const koaSend = require('koa-send');
 const logger = require('koa-logger');
 const static = require('koa-static');
 const bodyparser = require('koa-bodyparser');
-const ghPages = require('gh-pages');
+
 //local
 const config = require('../../config/server');
 const allRouter = require('./routes/index.js');
