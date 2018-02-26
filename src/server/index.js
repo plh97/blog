@@ -48,4 +48,5 @@ app
 server.listen(port,()=>{
     console.log(` >>> port: ${port }`);
     console.log(` >>> ENV: ${process.env.NODE_ENV}`);
+    console.log(` >>> ENV: ${process.env.access_token}`);
 });
