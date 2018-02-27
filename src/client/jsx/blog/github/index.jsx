@@ -20,9 +20,20 @@ class Github extends Component {
         const {
             viewer
         } = this.props.store;
-        console.log(
-            viewer
-        );
+        // console.log(
+        //     chunkArr([1,2,3,4,5,6,7,8,9],4)
+        // );
+        // function chunkArr(arr,len) {
+        //     const chunkedArr=[]
+        //     let i=0;
+        //     while (i<arr.length) {
+        //         console.log(i, i + len);
+                
+        //         chunkedArr.push(arr.slice(i, i + len));
+        //         i+=len;
+        //     }
+        //     return chunkedArr
+        // }
         return (
             <div className="github">
                 <h2 className="title">活跃度</h2>
@@ -61,7 +72,23 @@ class Github extends Component {
                 </div>
                 <h2 className="title">仓库信息</h2>
                 <div className="repository">
-                    
+                    <span className="stars">
+                        ⭐{viewer.repositories && viewer.repositories.nodes
+                            .map(rep => rep.stargazers.totalCount)
+                            .reduce((a,b)=>a+b)}
+                        收获的Star数
+                    </span>
+                    <span className="fork">
+                        🍴{viewer.repositories && viewer.repositories.nodes
+                            .map(rep => rep.forks.totalCount)
+                            .reduce((a,b)=>a+b)}
+                        收获的Fork数
+                    </span>
+                    <span className="repository">
+                        🏬{viewer.repositories && viewer.repositories.nodes
+                            .filter(repo => !repo.isFork).length}
+                        原创Repository数
+                    </span>
                 </div>
             </div>
         );

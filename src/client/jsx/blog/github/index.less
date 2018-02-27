@@ -141,4 +141,54 @@
             }
         }
     }
+    .repository {
+        min-width: 750px;
+        width: 100%;
+        font-family: Helvetica, arial;
+        border: 1px solid #DDDDDD;
+        border-radius: 3px;
+        min-height: 243px;
+        text-align: center;
+        margin: 0 auto; 
+        display: grid;
+        grid-template-areas: "a b b"
+                     "a c d";
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 2fr 1fr;
+        // background-color: #DDDDDD;
+        grid-column-gap: 1px;
+
+        .detail {
+            display: flex;
+            align-items: center;
+            grid-column: ~"1 / 4";
+            flex-direction: row;
+            border-bottom: 1px solid #DDDDDD;
+
+            img {
+                width: 100px;
+                height: 100px;
+                margin: 30px;
+                border-radius: 100px;
+            }
+            .detail-container {
+                height: 160px;
+                display: inline-flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+                align-items: flex-start;
+            }
+        }
+        .repositories,.followers, .following {
+            background-color: green;
+            width: 80%;
+            margin: 1rem auto;
+            text-align: center;
+            color: rgb(255, 255, 255);
+            padding: 2rem;
+            .num {
+                font-size: 2em;
+            }
+        }
+    }
 }

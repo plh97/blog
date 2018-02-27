@@ -49,9 +49,21 @@ class Store {
                         following(first: 100) {
                             totalCount
                         }
-                        repositories(privacy: PUBLIC) {
+                        repositories(first:100){
                             totalCount
-                            totalDiskUsage
+                            nodes{
+                                isFork
+                                name
+                                watchers(first:0){
+                                    totalCount
+                                }
+                                forks(first:0){
+                                    totalCount
+                                }
+                                stargazers(first:0){
+                                    totalCount
+                                }
+                            }
                         }
                     }
                     repositoryOwner(login: "pengliheng") {

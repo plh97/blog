@@ -16163,7 +16163,7 @@ var Store = (_class = function Store() {
         url: "/graphql",
         method: 'post',
         data: {
-            query: "{\n                    viewer {\n                        name\n                        avatarUrl\n                        login\n                        bio\n                        url\n                        createdAt\n                        isHireable\n                        followers(first: 100) {\n                            totalCount\n                        }\n                        following(first: 100) {\n                            totalCount\n                        }\n                        repositories(privacy: PUBLIC) {\n                            totalCount\n                            totalDiskUsage\n                        }\n                    }\n                    repositoryOwner(login: \"pengliheng\") {\n                        repository(name: \"pengliheng.github.io\") {\n                            issues(first: 10) {\n                                edges {\n                                    node {\n                                        author {\n                                            avatarUrl\n                                            login\n                                        }\n                                        updatedAt\n                                        createdAt\n                                        body\n                                        title\n                                        labels(first: 5) {\n                                            nodes {\n                                                name\n                                                color\n                                            }\n                                        }\n                                    }\n                                }\n                            }\n                            object(expression: \"master:README.md\") {\n                                ... on Blob {\n                                    text\n                                }\n                            }\n                        }\n                    }\n                }"
+            query: "{\n                    viewer {\n                        name\n                        avatarUrl\n                        login\n                        bio\n                        url\n                        createdAt\n                        isHireable\n                        followers(first: 100) {\n                            totalCount\n                        }\n                        following(first: 100) {\n                            totalCount\n                        }\n                        repositories(first:100){\n                            totalCount\n                            nodes{\n                                isFork\n                                name\n                                watchers(first:0){\n                                    totalCount\n                                }\n                                forks(first:0){\n                                    totalCount\n                                }\n                                stargazers(first:0){\n                                    totalCount\n                                }\n                            }\n                        }\n                    }\n                    repositoryOwner(login: \"pengliheng\") {\n                        repository(name: \"pengliheng.github.io\") {\n                            issues(first: 10) {\n                                edges {\n                                    node {\n                                        author {\n                                            avatarUrl\n                                            login\n                                        }\n                                        updatedAt\n                                        createdAt\n                                        body\n                                        title\n                                        labels(first: 5) {\n                                            nodes {\n                                                name\n                                                color\n                                            }\n                                        }\n                                    }\n                                }\n                            }\n                            object(expression: \"master:README.md\") {\n                                ... on Blob {\n                                    text\n                                }\n                            }\n                        }\n                    }\n                }"
         }
     }).then(function (res) {
         _this.viewer = res.data.data.viewer;
@@ -26975,8 +26975,21 @@ var Github = (_dec = (0, _mobxReact.inject)("store"), _dec(_class = (0, _mobxRea
         key: "render",
         value: function render() {
             var viewer = this.props.store.viewer;
+            // console.log(
+            //     chunkArr([1,2,3,4,5,6,7,8,9],4)
+            // );
+            // function chunkArr(arr,len) {
+            //     const chunkedArr=[]
+            //     let i=0;
+            //     while (i<arr.length) {
+            //         console.log(i, i + len);
 
-            console.log(viewer);
+            //         chunkedArr.push(arr.slice(i, i + len));
+            //         i+=len;
+            //     }
+            //     return chunkedArr
+            // }
+
             return _react2.default.createElement(
                 "div",
                 { className: "github" },
@@ -27061,7 +27074,41 @@ var Github = (_dec = (0, _mobxReact.inject)("store"), _dec(_class = (0, _mobxRea
                     { className: "title" },
                     "\u4ED3\u5E93\u4FE1\u606F"
                 ),
-                _react2.default.createElement("div", { className: "repository" })
+                _react2.default.createElement(
+                    "div",
+                    { className: "repository" },
+                    _react2.default.createElement(
+                        "span",
+                        { className: "stars" },
+                        "\u2B50",
+                        viewer.repositories && viewer.repositories.nodes.map(function (rep) {
+                            return rep.stargazers.totalCount;
+                        }).reduce(function (a, b) {
+                            return a + b;
+                        }),
+                        "\u6536\u83B7\u7684Star\u6570"
+                    ),
+                    _react2.default.createElement(
+                        "span",
+                        { className: "fork" },
+                        "\uD83C\uDF74",
+                        viewer.repositories && viewer.repositories.nodes.map(function (rep) {
+                            return rep.forks.totalCount;
+                        }).reduce(function (a, b) {
+                            return a + b;
+                        }),
+                        "\u6536\u83B7\u7684Fork\u6570"
+                    ),
+                    _react2.default.createElement(
+                        "span",
+                        { className: "repository" },
+                        "\uD83C\uDFEC",
+                        viewer.repositories && viewer.repositories.nodes.filter(function (repo) {
+                            return !repo.isFork;
+                        }).length,
+                        "\u539F\u521BRepository\u6570"
+                    )
+                )
             );
         }
     }]);
