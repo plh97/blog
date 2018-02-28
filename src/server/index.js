@@ -17,10 +17,10 @@ const app = new Koa();
 const server = http.createServer(app.callback());
 const port = process.env.PORT || config.port;
 
-
 app
     // .use(bodyparser())
     .use(json())
+
     .use(logger())
     .use(static(path.resolve('./dist'), {
         // maxAge: 1000 * 60 * 60 * 24 * 7,
@@ -46,6 +46,7 @@ app
     });
 
 server.listen(port,()=>{
-  console.log(` >>> port: ${port }`);
-  console.log(` >>> ENV: ${process.env.NODE_ENV}`);
+    console.log(` >>> port: ${port }`);
+    console.log(` >>> ENV: ${process.env.NODE_ENV}`);
+    console.log(` >>> ENV: ${process.env.access_token?process.env.access_token:process.env.TOKEN}`);
 });

@@ -67,7 +67,7 @@ export default class ReactAPI extends React.Component {
           <Col xs={24} sm={24} md={18} lg={20}>
             <Content style={{ background: '#fff', padding: 24, margin: 0, minHeight: 280 }}>
               <Row className="container-context" type='flex' justify='center'>
-                <Route exact path={match.path} component={Jsx} />
+                <Route path={match.path} component={Jsx} />
                 <Route path={`${match.path}/renderElement`} component={RenderElement} />
                 <Route path={`${match.path}/componentsProps`} component={ComponentsProps} />
                 <Route path={`${match.path}/stateCycle`} component={StateCycle} />

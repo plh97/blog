@@ -3,34 +3,26 @@ import React from "react";
 import {
 	BrowserRouter as Router,
 	Link,
-	Switch,
 } from "react-router-dom";
-import {
-	IndexLink
-} from "react-router"
-import {Provider,observer} from "mobx-react"
-import { Route, Redirect } from 'react-router'
-import { Menu, Icon, Layout } from 'antd';
+import { Menu, Icon } from 'antd';
+import { Provider, observer } from "mobx-react";
+import { Route, Redirect } from 'react-router';
 
 // local
-import store from "../store/"
+import store from "../store/";
+import Home from "./blog/home/index.jsx";
 import Life from "./blog/life/index.jsx";
-import ReactAPI from "./blog/reactapi/index.jsx";
-import GoLang from "./blog/golang/index.jsx";
-import Home from "./home/index.jsx";
-import NodeJs from "./blog/nodejs/index.jsx";
+import NoMatch from './blog/404/index.jsx';
+import Render from "./feature/Render.js";
+import Github from "./blog/github/index.jsx";
+import Article from "./blog/article/index.jsx";
 import Others from "./blog/others/index.jsx";
-import NoMatch from './views/404.jsx'
-import Render from "./feature/Render.js"
-
+import ReactAPI from "./blog/reactapi/index.jsx";
 
 @observer
 export default class Root extends React.Component {
-	componentWillMount() {
-		document.ondragstart = () => false;
-	}
 	state = {
-		current: location.pathname == '/' ? '' : location.pathname.split('/')[1],
+		current: location.pathname == '/' ? 'home' : location.pathname.split('/')[1],
 	}
 	handleClick = (e) => {
 		this.setState({
@@ -41,35 +33,39 @@ export default class Root extends React.Component {
 		return (
 			<Provider store={store}>
 				<Router>
-					<Layout className="layout">
-						<Menu onClick={this.handleClick}
-							selectedKeys={[this.state.current]}
-							mode="horizontal">
-							<Menu.Item key="">
+					<div className="layout">
+						<Menu onClick={this.handleClick} selectedKeys={[this.state.current]} mode="horizontal">
+							<Menu.Item key="home">
 								<Link to='/'>🏠Home</Link>
 							</Menu.Item>
 							<Menu.Item key="reactapi">
-								<Link to='/reactapi'>✨React</Link>
+								<Link to='/reactapi'>⚛️React</Link>
 							</Menu.Item>
-							<Menu.Item key="golang">
-								<Link to='/golang'>😇GoLang</Link>
+							<Menu.Item key="github">
+								<Link to='/github'>😇Github</Link>
 							</Menu.Item>
-							<Menu.Item key="nodejs">
-								<Link to='/nodejs'>⚙️NodeJs</Link>
+							<Menu.Item key="article">
+								<Link to='/article'>👿Article</Link>
 							</Menu.Item>
 							<Menu.Item key="life">
-								<Link to='/life'>📃life diary</Link>
+								<Link to='/life'>😋daily diary</Link>
 							</Menu.Item>
 							<Menu.Item key="chatroom">
-								<a target='_blank' href='https://chat.pipk.top/group/Moonlight'><span style={{ color: 'black' }}>🔥</span>chat with me?</a>
+								<a target='_blank' href='https://chat.pipk.top/group/Moonlight'>
+									<span style={{ color: 'black' }}>🔥</span>
+									chat with me?
+								</a>
 							</Menu.Item>
 							<Menu.Item key="me">
-								<a target='_blank' href='https://hacknical.com/resume/r1peg776b?locale=zh'><span style={{ color: 'black' }}>😋</span>我的简历</a>
+								<a target='_blank' href='https://hacknical.com/resume/r1peg776b?locale=zh'>
+									<span style={{ color: 'black' }}>📃</span>
+									我的简历
+								</a>
 							</Menu.Item>
 							<Menu.Item key="others">
 								<Link to='/others'>🐠others</Link>
 							</Menu.Item>
-							<Menu.Item key="github" style={{ float: "right" }}>
+							<Menu.Item key="github_iframe" style={{ float: "right" }}>
 								<iframe
 									frameBorder="0" scrolling="0" width="91px" height="20px"
 									src="https://ghbtns.com/github-btn.html?user=pengliheng&repo=pengliheng.github.io&type=star&count=true" >
@@ -79,13 +75,13 @@ export default class Root extends React.Component {
 						<Render>
 							<Route exact path="/" component={Home} />
 							<Route path="/reactapi" component={ReactAPI} />
-							<Route path="/golang" component={GoLang} />
-							<Route path="/nodejs" component={NodeJs} />
+							<Route path="/github" component={Github} />
+							<Route path="/article" component={Article} />
 							<Route path="/life" component={Life} />
 							<Route path="/others" component={Others} />
 							<Route component={NoMatch} />
 						</Render>
-					</Layout>
+					</div>
 				</Router>
 			</Provider>
 		);

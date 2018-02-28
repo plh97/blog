@@ -1,0 +1,25 @@
+.article {
+	flex: 1;
+	width:100%;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+
+	.sider {
+		flex: 1 0 12rem;
+		border: 1px solid #e8e8e8;
+
+		.ant-menu {
+			height: 100%;
+			a {
+				font-size: 1rem;
+			}
+		}
+	}
+	.content {
+		max-width: 100%;
+		flex: 10 0 10rem;
+		background-color: #fff; 
+		padding: 24px;
+	}
+}

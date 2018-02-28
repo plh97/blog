@@ -1,17 +1,6 @@
 import React from "react";
 
-// TODO: match all of space of first && last line
-// TODO: match first line's space before first words and reduce it the same numbers of space as the follow line
-
-import { PropTypes } from "prop-types"
-
 class PrismCode extends React.Component {
-  static propTypes = {
-    lang: PropTypes.string,
-    lineHighlight: PropTypes.string,
-    children: PropTypes.array
-  }
-
   render() {
     const {children, lang, lineHighlight} = this.props
     let render = children.split('\n')

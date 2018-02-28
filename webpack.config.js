@@ -1,13 +1,14 @@
 const
 	path = require("path"),
-	CleanWebpackPlugin = require('clean-webpack-plugin'),
 	webpack = require('webpack'),
+	ExtractTextPlugin = require('extract-text-webpack-plugin'),
+	CleanWebpackPlugin = require('clean-webpack-plugin'),
 	HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
 	entry: {
 		'app': [
-			'./src/client/app'
+			'./src/client/index.js'
 		],
 		vendor: [
 			"react",
@@ -24,13 +25,19 @@ module.exports = {
 		publicPath:"/",
 	},
 	module:{
+		
 		rules:[{
 			test: /(\.less|\.css)$/,
-			use: [
-				'style-loader',
-				'css-loader',
-				'less-loader'
-		]},{
+			// use: [
+			// 	'style-loader',
+			// 	'css-loader',
+			// 	'less-loader'
+			// ]
+			use: ExtractTextPlugin.extract({
+				fallback: 'style-loader',
+				use: ['css-loader',"postcss-loader" ,'less-loader']
+			})
+		},{
 			test: /\.(js|jsx)$/,
 			exclude: /node_module/,
 			loader:'babel-loader'
@@ -42,13 +49,16 @@ module.exports = {
 	plugins: [
 		new CleanWebpackPlugin(['dist']),
 		new HtmlWebpackPlugin({
-			title: 'Blog',
+			title: '个人博客 - 彭立衡',
 			favicon:'./favicon.ico',
 			template: __dirname + '/assets/template/index.ejs'
 		}),
 		new webpack.optimize.CommonsChunkPlugin({
 		  name: "vendor",
 		  minChunks: Infinity
+		}),
+		new ExtractTextPlugin({
+			filename: 'index.[hash].css'
 		})
 	]
 };
