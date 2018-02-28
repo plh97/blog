@@ -12,7 +12,7 @@ exports.getCode = async(ctx,next) => {
 				headers: {
 					'Authorization': `bearer ${config.githubToken}`,
 					'Content-Type': 'application/json'
-				},data
+				}
 			}).then(res => {
 				console.log(res);
 				resolve(res.data)

@@ -14,7 +14,6 @@ import {Provider,observer,inject} from "mobx-react"
 @observer
 export default class Home extends React.Component {
 	render() {
-		const { match } = this.props
 		console.log(
 			this.props.store.myBlog
 		);

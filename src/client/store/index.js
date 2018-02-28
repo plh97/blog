@@ -26,8 +26,20 @@ class TodoStore {
 		}
 	}
 	constructor() {
+		// axios({
+		// 	url: `/graphql`,
+		// 	method: 'post'
+		// }).then(res => {
+		// 	this.myBlog = res.data
+		// }).catch(err => {
+		// 	console.error('graphql error:', err);
+		// });
 		axios({
-			url: `/graphql`,
+			url: `https://api.github.com/graphql`,
+			headers: {
+				'Authorization': `bearer ${config.githubToken}`,
+				'Content-Type': 'application/json'
+			},
 			method: 'post',
 			data: {
 				query: 
