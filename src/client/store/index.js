@@ -49,9 +49,11 @@ class Store {
                         following(first: 100) {
                             totalCount
                         }
-                        repositories(first:100){
+                        repositories(first:100,orderBy: {field: STARGAZERS, direction: DESC}){
                             totalCount
                             nodes{
+                                createdAt
+                                updatedAt
                                 isFork
                                 name
                                 watchers(first:0){

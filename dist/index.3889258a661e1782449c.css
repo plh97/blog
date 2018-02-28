@@ -6897,6 +6897,7 @@ pre[data-line] {
   content: none;
 }
 .github {
+  overflow-x: auto;
   max-width: 980px;
   width: calc(100vw - 50px);
   margin: 1rem auto;
@@ -6906,6 +6907,12 @@ pre[data-line] {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
+}
+@media screen and (max-width: 768px) {
+  .github {
+    width: 100vw;
+    padding: 24px;
+  }
 }
 .github .title {
   font-size: 1.5em;
@@ -7089,45 +7096,24 @@ pre[data-line] {
   font-size: 2em;
 }
 .github .repository {
-  min-width: 750px;
   width: 100%;
-  font-family: Helvetica, arial;
-  border: 1px solid #DDDDDD;
+  border: 1px solid #ddd;
+  background-color: #ddd;
   border-radius: 3px;
   min-height: 243px;
   text-align: center;
   margin: 0 auto;
   display: -ms-grid;
   display: grid;
-  grid-template-areas: "a b b" "a c d";
-  -ms-grid-columns: 1fr 1fr 1fr;
-      grid-template-columns: 1fr 1fr 1fr;
-  -ms-grid-rows: 2fr 1fr;
-      grid-template-rows: 2fr 1fr;
-  grid-column-gap: 1px;
+  grid-row-gap: 1px;
+  -ms-grid-columns: (1fr)[6];
+      grid-template-columns: repeat(6, 1fr);
 }
-.github .repository .detail {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  grid-column: 1 / 4;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  border-bottom: 1px solid #DDDDDD;
+.github .repository span + span {
+  border-left: 1px solid #ddd;
 }
-.github .repository .detail img {
-  width: 100px;
-  height: 100px;
-  margin: 30px;
-  border-radius: 100px;
-}
-.github .repository .detail .detail-container {
-  height: 160px;
+.github .repository > span {
+  background-color: #fff;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
@@ -7135,27 +7121,30 @@ pre[data-line] {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
 }
-.github .repository .repositories,
-.github .repository .followers,
-.github .repository .following {
-  background-color: green;
-  width: 80%;
-  margin: 1rem auto;
-  text-align: center;
-  color: #ffffff;
-  padding: 2rem;
+.github .repository > span .show {
+  font-size: 1.3rem;
 }
-.github .repository .repositories .num,
-.github .repository .followers .num,
-.github .repository .following .num {
-  font-size: 2em;
+.github .repository .repository-star {
+  grid-column: 1 / 3;
+}
+.github .repository .repository-fork {
+  grid-column: 3 / 5;
+}
+.github .repository .repository-my {
+  grid-column: 5 / 7;
+}
+.github .repository .repository-popular {
+  grid-column: 1 / 4;
+}
+.github .repository .repository-oldest {
+  grid-column: 4 / 7;
 }
 .article {
   -webkit-box-flex: 1;
