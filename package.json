@@ -6,7 +6,6 @@
     "w": "webpack -w --colors --progress",
     "p": "webpack -p --colors --progress",
     "nodemon": "nodemon ./src/server/index.js --config nodemonrc.json",
-    "deploy": "gh-pages --repo https://github.com/pengliheng/pengliheng.github.io.git",
     "pm2": "pm2 start ecosystem.config.js --env prod",
     "restart": "pm2 reload ecosystem.config.js --env prod"
   },
@@ -16,8 +15,7 @@
   "author": "pengliheng",
   "license": "MIT",
   "dependencies": {
-    "@axetroy/react-github-calendar": "^1.0.0",
-    "@axetroy/walk": "^0.1.0",
+    "@pengliheng/github-report": "^1.1.18",
     "antd": "^2.13.6",
     "axios": "^0.17.1",
     "babel": "^6.23.0",

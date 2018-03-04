@@ -50,7 +50,7 @@ module.exports = {
     new ExtractTextPlugin('index.[hash].css'),
     new webpack.EnvironmentPlugin({
       NODE_ENV: 'development',
-      NODE_ENV: 'development',
+      access_token: 'f096866b34da0bea4eab0483465e9a9f20dfc3d5',
       DEBUG: false,
     }),
   ],

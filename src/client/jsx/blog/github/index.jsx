@@ -1,17 +1,14 @@
 // package
 import React, { Component } from 'react';
+import Github from '@pengliheng/github-report';
+// import Github from './Github.jsx';
 
 // local
 import './index.less';
-import Github from './Github.jsx';
 
 class GithubReport extends Component {
   render() {
-    return (
-      <div>
-        <Github />
-      </div>
-    );
+    return <Github />
   }
 }
 

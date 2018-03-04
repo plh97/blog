@@ -160,7 +160,7 @@ export default class Github extends Component {
     return starredLanguage ? (
       <div className="github">
         <h2 className="title">活跃度</h2>
-        <div ref={(c) => { this.container = c; }} className="calendar" />
+        <div ref={c => { this.container = c}} className="calendar" />
         <h2 className="title">基本信息</h2>
         <div className="basic">
           <div className="detail">
