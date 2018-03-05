@@ -31,8 +31,8 @@ export default class RouterComponent extends React.Component {
                     <img src={viewer.avatarUrl}/>
                     <span className="detail-list">
                         <span className="name">本文作者：{viewer.name}</span>
-                        <span className="create-time">创建时间：{(new Date(article[this.props.index].node.createdAt)).toLocaleString()}</span>
-                        <span className="update-time">更新时间：{(new Date(article[this.props.index].node.updatedAt)).toLocaleString()}</span>
+                        <span className="create-time">创建时间：{(new Date(article[this.props.index].node.createdAt)).toLocaleDateString('ja-JP', { year: 'numeric', month: 'short', day: 'numeric' })}</span>
+                        <span className="update-time">更新时间：{(new Date(article[this.props.index].node.updatedAt)).toLocaleDateString('ja-JP', { year: 'numeric', month: 'short', day: 'numeric' })}</span>
                     </span>
                 </div>
             </div>

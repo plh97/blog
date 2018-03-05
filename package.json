@@ -78,7 +78,7 @@
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.7.0"
   },
-  "description": "彭立衡的个人博客",
+  "description": "pengliheng's blog",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/pengliheng/pengliheng.github.io.git"
