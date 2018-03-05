@@ -4,7 +4,7 @@ import Github from '@pengliheng/github-report';
 // import Github from './Github.jsx';
 
 // local
-import './index.less';
+// import './index.less';
 
 class GithubReport extends Component {
   render() {
