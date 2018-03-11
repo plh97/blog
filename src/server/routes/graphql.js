@@ -1,6 +1,6 @@
 const axios = require('axios');
 
-exports.getCode = async (ctx) => {
+const Graphql = async (ctx) => {
   const query = ctx.request.body;
   const queryFunc = async data => new Promise((resolve, reject) => {
     axios({
@@ -17,3 +17,5 @@ exports.getCode = async (ctx) => {
   });
   ctx.body = await queryFunc(query);
 };
+
+module.exports = Graphql;

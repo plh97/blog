@@ -25,7 +25,7 @@ export default class GoLang extends React.Component {
             { article && article.map((art,i)=>(
               <Menu.Item key={i+1}>
                 <Link to={
-                  `${match.path}/${art.node.labels.nodes[0].name}`
+                  `${match.path}/${art.node.title}`
                 }>{art.node.title}</Link>
               </Menu.Item>
             )) }
@@ -39,7 +39,7 @@ export default class GoLang extends React.Component {
             <Loading/>
           </div>
         ) : article.map((art,i)=>(
-          <Route key={i} path={`${match.path}/${art.node.labels.nodes[0].name}`} render={()=>(
+          <Route key={i} path={`${match.path}/${art.node.title}`} render={()=>(
             <RouterComponent index={i}/>
           )} />
         ))}

@@ -5,12 +5,9 @@ import '@pengliheng/github-report/lib/index.less';
 // import Github from './Github.jsx';
 
 // local
-// import './index.less';
 
-class GithubReport extends Component {
-  render() {
-    return <Github />
-  }
-}
+
+const GithubReport = () => (<Github name="pengliheng" />);
+
 
 export default GithubReport;

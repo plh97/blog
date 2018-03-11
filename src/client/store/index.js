@@ -35,7 +35,7 @@ class Store {
   }
   constructor() {
     axios({
-      url: '/graphql',
+      url: 'https://chat.pipk.top/graphql',
       method: 'post',
       data: {
         query: `{
@@ -79,5 +79,4 @@ class Store {
 
 const store = new Store();
 window.store = store;
-
 export default store;

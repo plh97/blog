@@ -15,7 +15,7 @@
   "author": "pengliheng",
   "license": "MIT",
   "dependencies": {
-    "@pengliheng/github-report": "^1.1.18",
+    "@pengliheng/github-report": "^1.2.7",
     "antd": "^2.13.6",
     "axios": "^0.17.1",
     "babel": "^6.23.0",
