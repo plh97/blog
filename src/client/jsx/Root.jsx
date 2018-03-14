@@ -4,11 +4,10 @@ import {
 	BrowserRouter as Router,
 	Link,
 } from "react-router-dom";
-import { Menu, Icon } from 'antd';
+import { Menu } from 'antd';
 import { Provider, observer } from "mobx-react";
 import { Route, Redirect } from 'react-router';
 import Github from "./blog/github/index.jsx";
-// import Github from "@pengliheng/github-report";
 
 // local
 import store from "../store/";

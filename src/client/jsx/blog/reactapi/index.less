@@ -1,0 +1,21 @@
+.reactapi {
+	display: flex;
+	flex-direction: row;
+	@media screen and (max-width: 768px) {
+		flex-direction: column;
+	}
+	min-height: calc(~"100vh - 50px");
+	width: 100%;
+	.sider {
+		flex: 0 0 auto;
+		display: inline-flex;
+	}
+	.content {
+		flex: 1 0 600px;
+		background-color: #fff;
+		h3{
+			text-align: center;
+		}
+		padding: 24px;
+	}
+}

@@ -1,11 +1,10 @@
 import React from "react";
-import { Row, Col } from 'antd';
 import PrismCode from '../../feature/Prism.js'
 
 export default class Jsx extends React.Component {
   render() {
     return (
-      <Col span={24}>
+      <div>
         <h3>介绍JXP</h3>
         <p>接下来看看下面这个声明:</p>
         <PrismCode lang='jsx'>{`const element = <h1>Hello World!</h1>`}</PrismCode>
@@ -102,7 +101,7 @@ export default class Jsx extends React.Component {
         <p>我们将会在下一章节继续探索渲染React元素到DOM上面。</p>
         <h4>Tip:</h4>
         <p>建议您search一个叫"Babel"的语法格式来供你的编辑器选择，这样的话无论是ES6还是JSX代码都可以正确的高亮。</p>
-      </Col>
+      </div>
     )
   }
 }

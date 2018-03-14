@@ -1,11 +1,10 @@
 import React from "react";
-import { Row, Col } from 'antd';
 import PrismCode from '../../feature/Prism.js'
 
 export default class Jsx extends React.Component {
   render() {
     return (
-      <Col span={24}>
+      <div>
         <h3>Components(组件)和Props(道具)</h3>
         <p>组件让你可以将整个UI分解成独立的可重复使用的，并且独立思考每一部分。</p>
         <p>从概念上讲，组件像js函数，他们可以接受任意参数(props)并且返回那些将要出现在屏幕上面的React元素</p>
@@ -202,7 +201,7 @@ export default class Jsx extends React.Component {
         <p>React反应灵活，但是他有一个非常严格的规则：</p>
         <p>所有React组件必须表现的像纯函数那样来尊重他们的props参数</p>
         <p>当然，UI应用是动态的，并且时刻变化的，在下一章节，我们将会介绍一个新的概念'state',State允许所有的React组件随着时间和用户操作来响应，来改变通过用户行为和网络响应或者其他东西多次改变输出，但是不能改变这条规则。</p>
-      </Col>
+      </div>
     )
   }
 }

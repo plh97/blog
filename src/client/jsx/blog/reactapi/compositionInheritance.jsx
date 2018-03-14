@@ -1,11 +1,10 @@
 import React from "react";
-import { Row, Col } from 'antd';
 import PrismCode from '../../feature/Prism.js'
 
 export default class Compositionlnheritance extends React.Component {
   render() {
     return (
-      <Col span={24}>
+      <div>
         <h3>组件与继承</h3>
         <p>React有强大的构成模型，并且我们考虑使用，构成替代继承来复用组件。</p>
         <p>在这一章，我们将会考虑一些问题，开发者刚开始用react经常遇到继承，并且展示我们如何通过composition来解决这些的问题。</p>
@@ -126,7 +125,7 @@ export default class Compositionlnheritance extends React.Component {
         <p>在脸书，我们使用react上千的组件，然而我们还没有找到案例，我们可以考虑创造组件继承阶层。</p>
         <p>props和构成给了你灵活性，你所需要定做组件的外观和行为，用一种明确的可靠地方式。记住组件可以任意props，包括原始的value，React元素，或者函数。</p>
         <p>如果你想要在组件之间使用没有UI功能，我们建议提取他到一个分离的js模块，组件会导入他，用他的函数，对象，类，而不用扩展他。</p>
-      </Col>
+      </div>
     )
   }
 }

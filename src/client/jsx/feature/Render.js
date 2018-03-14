@@ -1,28 +1,24 @@
-import React from "react";
+import React from 'react';
 import Prismjs from 'prismjs';
 import { Switch } from 'react-router-dom';
 import 'prismjs/themes/prism-okaidia.css';
-import 'prismjs/plugins/line-numbers/prism-line-numbers.css';
-import 'prismjs/plugins/line-numbers/prism-line-numbers.js';
-import 'prismjs/plugins/line-highlight/prism-line-highlight.css';
-import 'prismjs/plugins/line-highlight/prism-line-highlight.js';
-import 'prismjs/components/prism-jsx.js';
-import 'prismjs/components/prism-json.js';
-import 'prismjs/components/prism-nginx.js';
-import 'prismjs/components/prism-go.js';
+import 'prismjs/components/prism-jsx';
+import 'prismjs/components/prism-json';
+import 'prismjs/components/prism-nginx';
+import 'prismjs/components/prism-go';
 import 'prismjs/components/prism-git';
 import 'prismjs/components/prism-vim';
 
 export default class Render extends React.Component {
-  componentDidUpdate(){
-    Prismjs.highlightAll()
+  componentDidUpdate() {
+    Prismjs.highlightAll();
   }
   render() {
-    const {children} = this.props
+    const { children } = this.props;
     return (
       <Switch>
         {children}
       </Switch>
-    )
+    );
   }
 }

@@ -115,80 +115,28 @@ body {
         }
     }
     
-    .slide {
-        border-right: 1px solid #efefef;
-        li {
-            font-size: 1rem !important;
+    p, b {
+        font-size: 1.1rem;
+        text-indent: 2em;
+        text-align: justify;
+    }
+    pre {
+        @media (min-width: 600px) {
+            margin: 0 24px;
+        }
+        @media (max-width: 600px) {
+            border-radius: 0;
         }
     }
-    .ant-layout {
-        width: 100%;
+    img {
+        display: inline-block;
+        max-width: 100%;
     }
-    .ant-layout-content {
-        padding: 0 !important;
-    }
-    .container-context {
-        background-color: #dfdfdf;
-        .ant-col-24 {
-            min-height: 725px;
-            background-color: #fff;
-            font-size: 15px;
-            h3,
-            h4,
-            ol,
-            p,
-            ul {
-                margin: 0 24px;
-            }
-            p,
-            b {
-                font-size: 1.1rem;
-                text-indent: 2em;
-                text-align: left;
-            }
-            pre {
-                @media (min-width: 600px) {
-                    margin: 0 24px;
-                }
-                @media (max-width: 600px) {
-                    border-radius: 0;
-                }
-            }
-            img {
-                display: inline-block;
-                max-width: 100%;
-            }
-            h3 {
-                text-align: center;
-                padding: 8px 0;
-                font-weight: bold;
-                font-size: 1.6rem;
-            }
-            h3:after {
-                content: "--主题";
-                margin: 10px;
-                font-size: 12px;
-                font-weight: 500;
-            }
-            h4 {
-                text-align: left;
-                padding: 8px 0;
-                font-size: 1.2rem;
-                font-weight: bold;
-            }
-            h4:after {
-                content: "~~~~";
-                margin-left: 10px;
-                font-size: 12px;
-                font-weight: 100;
-            }
-            a {
-                color: @lightBlue7;
-                display: inline-block;
-                font-size: 1.2rem;
-                text-indent: 0;
-                word-break: break-word;
-            }
-        }
+    a {
+        color: @lightBlue7;
+        display: inline-block;
+        font-size: 1.2rem;
+        text-indent: 0;
+        word-break: break-word;
     }
 }

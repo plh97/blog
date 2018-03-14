@@ -1,11 +1,10 @@
 import React from "react";
-import { Row, Col } from 'antd';
 import PrismCode from '../../feature/Prism.js'
 
 export default class ListKey extends React.Component {
   render() {
     return (
-      <Col span={24}>
+      <div>
         <h3>列表和键值</h3>
         <p>首先，让我们回顾，你如何转换列表到js里面</p>
         <p>下面代码，我们用<code>map()</code>函数来吧一个数组<code>numbers</code>并把他的值双倍。我们加入新数组，通过<code>map()</code>讲新数组返回给<code>doubled</code>并且<code>console.log</code>他。</p>
@@ -244,7 +243,7 @@ export default class ListKey extends React.Component {
         `}</PrismCode>
         <p>在<a href="https://codepen.io/gaearon/pen/BLvYrB?editors=0010" target="_blank">CodePen</a>里面试试吧！</p>
         <p>有时候，这可以是更加清晰的代码，但样式也可能被滥用，就像在js里面，这取决于你的决定是否为了可读性而提取一个变量。记住，如果map()的主体是嵌套的，这可能就需要去提取一个组件了。</p>
-      </Col>
+      </div>
     )
   }
 }

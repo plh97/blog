@@ -1,11 +1,10 @@
 import React from "react";
-import {Row, Col} from 'antd';
 import PrismCode from '../../feature/Prism.js'
 
 export default class Jsx extends React.Component {
   render() {
     return (
-      <Col span={24}>
+      <div>
         <h3>有条件的渲染</h3>
         <p>在react，你可以创建一个独特的组件，封装一些你需要的行为，然后，你可以只渲染他，这取决于你的应用的state。</p>
         <p>有条件的渲染在react里面，工作于同一种条件工作于js，用js运算符，像if这样的，或者条件运算符<code>condition ? expr1 : expr2</code>来创建元素来呈现当前state，并且让React更新UI来匹配他们。</p>
@@ -186,7 +185,7 @@ export default class Jsx extends React.Component {
           }
           `}</PrismCode>
         <p>返回<code>null</code>,来自组建的<code>render</code>方法不影响组件的生命周期方法。例如<code>componentWillUpdate</code>和<code>componentDidUpdate</code>仍被调用。</p>
-      </Col>
+      </div>
     )
   }
 }

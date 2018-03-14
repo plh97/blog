@@ -1,0 +1,21 @@
+.life {
+	display: flex;
+	flex-direction: row;
+	min-height: calc(~"100vh - 50px");
+	width: 100%;
+	@media screen and (max-width: 768px) {
+		flex-direction: column;
+	}
+	.sider {
+		flex: 0 0 auto;
+		display: inline-flex;
+	}
+	.content {
+		flex: 1 0 600px;
+		background-color: #fff;
+		h3{
+			text-align: center;
+		}
+		padding: 24px;
+	}
+}

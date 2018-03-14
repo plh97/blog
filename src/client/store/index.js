@@ -2,9 +2,6 @@ import axios from 'axios';
 import Prismjs from 'prismjs';
 import { action, observable } from 'mobx';
 import sortBy from 'lodash.sortby';
-// import 'prismjs/components/prism-jsx';
-// import 'prismjs/components/prism-bash';
-// import 'prismjs/themes/prism-okaidia.css';
 
 // useStrict(true)
 class Store {
@@ -69,10 +66,10 @@ class Store {
         }`,
       },
     }).then((res) => {
-      Prismjs.highlightAll();
       this.viewer = res.data.data.viewer;
       this.home = res.data.data.repositoryOwner.repository.object.text;
       this.article = res.data.data.repositoryOwner.repository.issues.edges;
+      Prismjs.highlightAll();
     });
   }
 }
