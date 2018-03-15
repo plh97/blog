@@ -1,6 +1,5 @@
 // package
 import React from "react";
-import { Menu } from 'antd';
 import {
     Route,
     Link
@@ -9,12 +8,13 @@ import {observer,inject} from "mobx-react"
 
 // local
 import './index.less';
+import Menu from '../../feature/Menu/index.jsx';
 import RouterComponent from './RouterComponent.jsx'
 import Loading from "../../feature/Loading/index.jsx";
 
 @inject("store")
 @observer
-export default class GoLang extends React.Component {
+export default class article extends React.Component {
   render() {
     const { match, store } = this.props;
     const { article } = store;
@@ -24,7 +24,7 @@ export default class GoLang extends React.Component {
           <Menu defaultSelectedKeys = {['1']}>
             { article && article.map((art,i)=>(
               <Menu.Item key={i+1}>
-                <Link to={
+                <Link  to={
                   `${match.path}/${art.node.title}`
                 }>{art.node.title}</Link>
               </Menu.Item>

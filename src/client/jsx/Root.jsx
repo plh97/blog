@@ -2,9 +2,8 @@
 import React from "react";
 import {
 	BrowserRouter as Router,
-	Link,
+	NavLink,
 } from "react-router-dom";
-import { Menu } from 'antd';
 import { Provider, observer } from "mobx-react";
 import { Route, Redirect } from 'react-router';
 import Github from "./blog/github/index.jsx";
@@ -18,37 +17,31 @@ import Render from "./feature/Render.js";
 import Article from "./blog/article/index.jsx";
 import Others from "./blog/others/index.jsx";
 import ReactAPI from "./blog/reactapi/index.jsx";
+import Menu from './feature/Menu/index.jsx';
 
 @observer
 export default class Root extends React.Component {
-  state = {
-    current: location.pathname == '/' ? 'home' : location.pathname.split('/')[1],
-  }
-  handleClick = (e) => {
-    this.setState({
-      current: e.key,
-    });
-  }
   render() {
+    
     return (
       <Provider store={store}>
         <Router>
           <div className="layout">
-            <Menu onClick={this.handleClick} selectedKeys={[this.state.current]} mode="horizontal">
-              <Menu.Item key="home">
-                <Link to='/'>🏠Home</Link>
+            <Menu>
+              <Menu.Item>
+                <NavLink exact to='/'>🏠Home</NavLink>
               </Menu.Item>
-              <Menu.Item key="reactapi">
-                <Link to='/reactapi'>⚛️React</Link>
+              <Menu.Item>
+                <NavLink to='/reactapi'>⚛️React</NavLink>
               </Menu.Item>
               <Menu.Item key="github">
-                <Link to='/github'>😇Github</Link>
+                <NavLink to='/github'>😇Github</NavLink>
               </Menu.Item>
               <Menu.Item key="article">
-                <Link to='/article'>👿Article</Link>
+                <NavLink to='/article'>👿Article</NavLink>
               </Menu.Item>
               <Menu.Item key="life">
-                <Link to='/life'>😋daily diary</Link>
+                <NavLink to='/life'>😋daily diary</NavLink>
               </Menu.Item>
               <Menu.Item key="chatroom">
                 <a target='_blank' href='https://chat.pipk.top/group/Moonlight'>
@@ -63,7 +56,7 @@ export default class Root extends React.Component {
                 </a>
               </Menu.Item>
               <Menu.Item key="others">
-                <Link to='/others'>🐠others</Link>
+                <NavLink to='/others'>🐠others</NavLink>
               </Menu.Item>
               <Menu.Item key="github_iframe" style={{ float: "right" }}>
                 <iframe
