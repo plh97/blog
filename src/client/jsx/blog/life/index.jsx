@@ -38,9 +38,6 @@ const Blog1 = ({ match }) => (
         <Item>
           <NavLink to={`${match.path}/git`}>git使用篇</NavLink>
         </Item>
-        <Item disabled >
-          <NavLink to={`${match.path}/blog`}>博客搭建</NavLink>
-        </Item>
       </Menu>
     </div>
     <div className="content">

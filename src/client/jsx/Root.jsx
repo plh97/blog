@@ -22,7 +22,6 @@ import Menu from './feature/Menu/index.jsx';
 @observer
 export default class Root extends React.Component {
   render() {
-    
     return (
       <Provider store={store}>
         <Router>

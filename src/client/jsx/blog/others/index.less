@@ -3,14 +3,16 @@
 	flex-direction: row;
 	min-height: calc(~"100vh - 50px");
 	width: 100%;
+	overflow-x: hidden;
 	@media screen and (max-width: 768px) {
 		flex-direction: column;
 	}
 	.sider {
-		flex: 0 0 auto;
+		flex: 0 0 240px;
 		display: inline-flex;
 	}
 	.content {
+		width: calc(~"100vw - 240px");
 		flex: 1 0 600px;
 		background-color: #fff;
 		h3{

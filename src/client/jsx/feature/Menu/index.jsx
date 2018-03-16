@@ -10,7 +10,7 @@ class Menu extends React.Component {
     );
   }
   render() {
-    const { children, selectedKeys, mode } = this.props;
+    const { children, mode } = this.props;
     return (
       <ul className="menu" style={{ flexDirection: mode }}>
         {children}

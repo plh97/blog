@@ -1,11 +1,10 @@
 import React from "react";
-import {Row, Col} from 'antd';
 import PrismCode from '../../feature/Prism.js'
 
 export default class Vps extends React.Component {
   render() {
     return (
-      <Col span={24}>
+      <div>
         <h3>动手租了一个香港Vps服务器</h3>
         <h4>relize the features : config my blog&chatroom and my ss to against GFW.</h4>
         <PrismCode lang='vim'>{`
@@ -142,7 +141,7 @@ export NVM_DIR="$HOME/.nvm"
         <p>then buy a domain (if your in china your should Domain name filing). and set DNS <code>www::::your ip::::default setting</code>,then the domain <code>www.domain.com</code> is point to your server</p>
         <p>just setting nginx ,let <code>www</code>Subdomain point to your personal port.</p>
         <p>just refer my article <a target="_blank" href="/others">nginx setting</a></p>
-      </Col>
+      </div>
     )
   }
 }
