@@ -9,17 +9,19 @@ body {
 
     
     .layout {
-        ul,li{
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
         width: 100%;
+        overflow-x: hidden;
         display: flex;
         flex-direction: column;
         min-height: 100vh;
         align-items: center;
         justify-content: flex-start;
+        
+        ul,li{
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
 
         .markdown-body {
             .title {

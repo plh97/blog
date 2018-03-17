@@ -3,7 +3,8 @@ import React, { Component } from 'react';
 import calendar from 'github-calendar';
 import sortBy from 'lodash.sortby';
 import axios from 'axios';
-import "babel-polyfill";
+import { Link } from 'react-router-dom';
+import 'babel-polyfill';
 
 // local
 import './index.less';
@@ -41,24 +42,43 @@ export default class Github extends Component {
       },
     };
   }
-  getData = args => {
-    return new Promise((resolve,reject)=>{
+  async componentDidMount() {
+    console.log('componentDidMount');
+    const name = this.props.name || 'pengliheng';
+    const res = (localStorage[name] && JSON.parse(localStorage[name])) || await this.getData({ name });
+    localStorage.setItem(name, JSON.stringify({ ...res }));
+    this.initGitRepo(res);
+    setTimeout(() => {
+      calendar(this.container, name);
+    }, 0);
+  }
+
+  async componentWillReceiveProps({ name }) {
+    console.log('componentWillReceiveProps', name);
+    this.setState({
+      starredLanguage: undefined,
+    });
+    const res = (localStorage[name] && JSON.parse(localStorage[name])) || await this.getData({ name });
+    localStorage.setItem(name, JSON.stringify({ ...res }));
+    console.log(res);
+    this.initGitRepo(res);
+    setTimeout(() => {
+      calendar(this.container, name);
+    }, 0);
+  }
+
+  getData({ name }) {
+    return new Promise((resolve, reject) => {
       axios({
         url: '/graphql',
         method: 'post',
-        // url: `https://api.github.com/graphql`,
-				// method: 'post',
-				// headers: {
-				// 	'Authorization': `bearer ${process.env.access_token}`,
-				// 	'Content-Type': 'application/json'
-				// },
         data: {
           query: `{
-            search(query: "${this.props.name||'pengliheng'}", type: USER, first: 1) {    
+            search(query: "${name || 'pengliheng'}", type: USER, first: 1) {    
               edges {
                 node {
                   ... on User {
-                    avatarUrl login bio url createdAt
+                    avatarUrl login bio url createdAt name
                     contributedRepositories(first: 100,orderBy: {field: CREATED_AT, direction: DESC}) {
                       totalCount
                       nodes{
@@ -75,13 +95,13 @@ export default class Github extends Component {
                     followers(first: 100) {
                       totalCount
                       nodes {
-                        url name avatarUrl
+                        url name avatarUrl login
                       }
                     }
                     following(first: 100) {
                       totalCount
                       nodes {
-                        url name avatarUrl
+                        url name avatarUrl login
                       }
                     }
                     repositories(first:100,orderBy: {field: STARGAZERS, direction: DESC}){
@@ -106,36 +126,30 @@ export default class Github extends Component {
           }`,
         },
       }).then(res => resolve(res.data.data))
-        .catch(err => reject(err))
-    })
+        .catch(err => reject(err));
+    });
   }
-
-  async componentDidMount() {
+  initGitRepo(res) {
     const { langColor } = this.state;
-    const name = this.props.name || "pengliheng";
-    const res = (localStorage[name] && JSON.parse(localStorage[name])) || await this.getData({name});
-    localStorage.setItem(name, JSON.stringify({...res}));
     const viewer = res.search.edges[0].node;
     this.setState({
       viewer,
       oldestRepostort: sortBy(viewer.repositories.nodes
         .filter(repo => !repo.isFork)
-        .map((repo) => {
-          return {
-            time: new Date(repo.updatedAt) - new Date(repo.createdAt),
-            name: repo.name,
-            url: repo.url,
-            updatedAt: repo.updatedAt,
-            createdAt: repo.createdAt,
-          };
-        }), e => -e.time)[0],
+        .map(repo => ({
+          time: new Date(repo.updatedAt) - new Date(repo.createdAt),
+          name: repo.name,
+          url: repo.url,
+          updatedAt: repo.updatedAt,
+          createdAt: repo.createdAt,
+        })), e => -e.time)[0],
     });
     const objectRank = viewer.starredRepositories.nodes
-      .map(arr => {
+      .map((arr) => {
         if (arr.primaryLanguage) {
           langColor[arr.primaryLanguage.name] = arr.primaryLanguage.color;
           return arr.primaryLanguage.name;
-        };
+        }
         return 'unknow';
       })
       .reduce((acc, curr) => {
@@ -148,17 +162,13 @@ export default class Github extends Component {
       }, {});
     this.setState({
       starredLanguage: sortBy(Object.keys(objectRank)
-        .map(arr => {
-          return {
-            name: arr,
-            count: objectRank[arr],
-            color: langColor[arr],
-          }
-        }), o => -o.count),
+        .map(arr => ({
+          name: arr,
+          count: objectRank[arr],
+          color: langColor[arr],
+        })), o => -o.count),
     });
-    setTimeout(() => {
-      calendar(this.container, viewer.login);
-    }, 0);
+    document.title = `${viewer.name} - github`;
   }
   render() {
     const {
@@ -167,13 +177,15 @@ export default class Github extends Component {
     return starredLanguage ? (
       <div className="github">
         <h2 className="title">活跃度</h2>
-        <div ref={c => { this.container = c}} className="calendar" />
+        <div ref={(c) => { this.container = c; }} className="calendar" />
         <h2 className="title">基本信息</h2>
         <div className="basic">
           <div className="detail">
-            <img src={viewer.avatarUrl} alt="" />
+            <img src={viewer.avatarUrl} alt={`${viewer.name}的头像`} />
             <div className="detail-container">
-              <p className="name">{viewer.login}</p>
+              <p className="name">
+                <a target="_blank" href={viewer.url}>{viewer.name}</a>
+              </p>
               <p className="join-time">加入时间：{
                   (new Date(viewer.createdAt))
                     .toLocaleDateString('ja-JP', {
@@ -325,19 +337,23 @@ export default class Github extends Component {
         <h2 className="title">感谢支持我的人</h2>
         <div className="followers-container">
           {starredLanguage && viewer.followers.nodes.map((arr, i) => (
-            <a target="_blank" href={arr.url} key={i} className="list">
-              <img src={arr.avatarUrl} alt={arr.name} />
-              <span className="name">{arr.name}</span>
-            </a>
+            <span key={i} className="list">
+              <Link to={`/github/${arr.login}`}>
+                <img src={arr.avatarUrl} alt={arr.name} />
+              </Link>
+              <a target="_blank" href={arr.url} className="name">{arr.name}</a>
+            </span>
           ))}
         </div>
         <h2 className="title">追寻的大牛</h2>
         <div className="following-container">
           {starredLanguage && viewer.following.nodes.map((arr, i) => (
-            <a target="_blank" href={arr.url} key={i} className="list">
-              <img src={arr.avatarUrl} alt={arr.name} />
-              <span className="name">{arr.name}</span>
-            </a>
+            <span key={i} className="list">
+              <Link to={`/github/${arr.login}`}>
+                <img src={arr.avatarUrl} alt={arr.name} />
+              </Link>
+              <a target="_blank" href={arr.url} className="name">{arr.name}</a>
+            </span>
           ))}
         </div>
       </div>

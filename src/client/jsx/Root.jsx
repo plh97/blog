@@ -4,7 +4,7 @@ import {
 	BrowserRouter as Router,
 	NavLink,
 } from "react-router-dom";
-import { Provider, observer } from "mobx-react";
+import { Provider, observer,inject } from "mobx-react";
 import { Route, Redirect } from 'react-router';
 import Github from "./blog/github/index.jsx";
 
@@ -34,7 +34,7 @@ export default class Root extends React.Component {
                 <NavLink to='/reactapi'>⚛️React</NavLink>
               </Menu.Item>
               <Menu.Item key="github">
-                <NavLink to='/github'>😇Github</NavLink>
+                <NavLink to='/github/pengliheng'>😇Github</NavLink>
               </Menu.Item>
               <Menu.Item key="article">
                 <NavLink to='/article'>👿Article</NavLink>
@@ -67,8 +67,7 @@ export default class Root extends React.Component {
             <Render>
               <Route exact path="/" component={Home} />
               <Route path="/reactapi" component={ReactAPI} />
-              <Route path="/github" component={Github} />
-              <Route path="/github" component={Github} />
+              <Route path="/github/:name" component={Github} />
               <Route path="/article" component={Article} />
               <Route path="/life" component={Life} />
               <Route path="/others" component={Others} />
