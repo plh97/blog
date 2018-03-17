@@ -43,8 +43,8 @@ export default class Github extends Component {
     };
   }
   async componentDidMount() {
-    console.log('componentDidMount');
-    const name = this.props.name || 'pengliheng';
+    const { match } = this.props;
+    const name = (match && match.params.name) || 'pengliheng';
     const res = (localStorage[name] && JSON.parse(localStorage[name])) || await this.getData({ name });
     localStorage.setItem(name, JSON.stringify({ ...res }));
     this.initGitRepo(res);
@@ -53,14 +53,13 @@ export default class Github extends Component {
     }, 0);
   }
 
-  async componentWillReceiveProps({ name }) {
-    console.log('componentWillReceiveProps', name);
+  async componentWillReceiveProps({ match }) {
+    const { name } = match.params;
     this.setState({
       starredLanguage: undefined,
     });
     const res = (localStorage[name] && JSON.parse(localStorage[name])) || await this.getData({ name });
     localStorage.setItem(name, JSON.stringify({ ...res }));
-    console.log(res);
     this.initGitRepo(res);
     setTimeout(() => {
       calendar(this.container, name);
@@ -174,6 +173,8 @@ export default class Github extends Component {
     const {
       viewer, oldestRepostort, starredLanguage,
     } = this.state;
+    const { match } = this.props;
+    const url = match.path.match(/.*(?=:)/)[0];
     return starredLanguage ? (
       <div className="github">
         <h2 className="title">活跃度</h2>
@@ -338,7 +339,7 @@ export default class Github extends Component {
         <div className="followers-container">
           {starredLanguage && viewer.followers.nodes.map((arr, i) => (
             <span key={i} className="list">
-              <Link to={`/github/${arr.login}`}>
+              <Link to={`${url}${arr.login}`}>
                 <img src={arr.avatarUrl} alt={arr.name} />
               </Link>
               <a target="_blank" href={arr.url} className="name">{arr.name}</a>
@@ -349,7 +350,7 @@ export default class Github extends Component {
         <div className="following-container">
           {starredLanguage && viewer.following.nodes.map((arr, i) => (
             <span key={i} className="list">
-              <Link to={`/github/${arr.login}`}>
+              <Link to={`${url}${arr.login}`}>
                 <img src={arr.avatarUrl} alt={arr.name} />
               </Link>
               <a target="_blank" href={arr.url} className="name">{arr.name}</a>
