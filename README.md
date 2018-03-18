@@ -9,14 +9,28 @@
 
 ### 本站托管于Github，所有数据来源于Github，通过动态加载数据渲染页面
 
+### TODO
+- [ ] Proxy代理 - 文章
+- [ ] An Overview of Arrays and Memory - 文章
+- [ ] 代码片段Gist
+- [ ] serverless
+- [ ] 任意写一个Vscode插件
+- [ ] 参考[less-watch-compile](https://github.com/pawlh/less-watch-compile)+[postcss](https://github.com/postcss/postcss)写一个拥有自动转换less->css+[autoprefixer](https://github.com/postcss/autoprefixer) - 库
+- [x] [35条优化网站的建议](https://pipk.top/article/35%E6%9D%A1%E4%BC%98%E5%8C%96%E7%BD%91%E7%AB%99%E7%9A%84%E5%BB%BA%E8%AE%AE) - 文章 - 翻译
+- [ ] js中this的4种调用模式 - 文章
+- [ ] 静态类型检查 - typescript
+- [x] Graphql - 拿github v4 接口的数据
+
+
 ### 发展方向
 - Graphql API
 - React + next.js 从服务器端渲染页面
 - Github Issue Page - server less
 - GoLang 搭建后端
 - ~~Vue搭建前端页面~~
-- [√] 代码片段Gist
+- 代码片段Gist
 - 分析Github相关数据
+
 
 ### 特性
 - [x] 博客
@@ -44,37 +58,3 @@ yarn run nodemon      # 监听10086端口
 ```
 **Welcome PR 😀**
 
-
-```go
-package main
-
-import (
-    "fmt"
-    "github.com/julienschmidt/httprouter"
-    "net/http"
-    "log"
-)
-
-func main() {
-	router := httprouter.New()
-	router.ServeFiles("/*filepath", http.Dir("dist"))
-    log.Fatal(http.ListenAndServe(":80", router))
-}
-```
-
-### Go 语言关键字只有25个 ，比英文字母还少一个，是不是很简单
-```go
-break    default      func    interface    select
-case     defer        go      map          struct
-chan     else         goto    package      switch
-const    fallthrough  if      range        type
-continue for          import  return       var
-```
-
-### type 关键字
-- 一字千面，一个type 可以担当多个角色
-
-### interface 关键字
-- 千面一字，多个interface担当一个角色
-
-### Well, in simple terms, I just think golang is designed to be a scientific computer language
