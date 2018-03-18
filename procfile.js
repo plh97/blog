@@ -5,5 +5,5 @@ module.exports = (pandora) => {
     .env({
       PORT: '8001',
     })
-    .cluster('./src/server/index.js');
+    .entry('./src/server/index.js');
 };

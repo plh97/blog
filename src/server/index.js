@@ -6,7 +6,7 @@ const json = require('koa-json');
 const koaSend = require('koa-send');
 const logger = require('koa-logger');
 const koaStatic = require('koa-static');
-const bodyParser = require('koa-bodyparser');
+// const bodyParser = require('koa-bodyparser');
 
 // local
 const config = require('../../config/server');
