@@ -2,7 +2,7 @@
 import React from "react";
 import {
     Route,
-    Link
+    NavLink
 } from "react-router-dom";
 import {observer,inject} from "mobx-react"
 
@@ -23,10 +23,10 @@ export default class article extends React.Component {
         <div className='sider'>
           <Menu defaultSelectedKeys = {['1']}>
             { article && article.map((art,i)=>(
-              <Menu.Item key={i+1}>
-                <Link  to={
+              <Menu.Item exact key={i+1}>
+                <NavLink exact to={
                   `${match.path}/${art.node.title}`
-                }>{art.node.title}</Link>
+                }>{art.node.title}</NavLink>
               </Menu.Item>
             )) }
           </Menu>

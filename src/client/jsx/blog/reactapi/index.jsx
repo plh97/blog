@@ -1,14 +1,13 @@
 import React from 'react';
-import NoMatch from '../404/index.jsx';
-import { Switch } from 'react-router-dom';
 import {
-  BrowserRouter as Router,
   Route,
   NavLink,
+  Switch,
 } from 'react-router-dom';
 
 // local
 import Jsx from './jsx.jsx';
+import NoMatch from '../404/index.jsx';
 import RenderElement from './renderElement.jsx';
 import ComponentsProps from './componentsProps.jsx';
 import StateCycle from './stateCycle.jsx';

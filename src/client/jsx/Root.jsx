@@ -73,6 +73,7 @@ export default class Root extends React.Component {
               <Route path="/others" component={Others} />
               <Route component={NoMatch} />
             </Render>
+            <footer></footer>
           </div>
         </Router>
       </Provider>
