@@ -1,11 +1,10 @@
 import React from "react";
-import { Row, Col } from 'antd';
 import PrismCode from '../../feature/Prism.js'
 
 export default class Jsx extends React.Component {
   render() {
     return (
-      <Col span={24}>
+      <div>
         <h3>State和生命周期</h3>
         <p>思考时钟这个例子，可以在前面几个章节查询一下。</p>
         <p>到目前为止，我们唯一学过的更新UI的方式。</p>
@@ -338,7 +337,7 @@ export default class Jsx extends React.Component {
         `}</PrismCode>
         <p>每一个Clock设置了他们自己的计时器并且独立更新。</p>
         <p>在React app，无论组件是有状态或者无状态，被考虑成一个组件的实现细节，他可能时刻改变。你可以用无状态组件在有状态组件里面，反之亦然。</p>
-      </Col>
+      </div>
     )
   }
 }

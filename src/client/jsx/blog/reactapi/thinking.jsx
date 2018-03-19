@@ -1,11 +1,10 @@
 import React from "react";
-import {Row, Col} from 'antd';
 import PrismCode from '../../feature/Prism.js'
 
 export default class Thinking extends React.Component {
   render() {
     return (
-      <Col span={24}>
+      <div>
         <h3>思考React</h3>
         <p>React是，在我们的观点中，第一方式要建立一个快大的webapp通过js来写，他在facebook和instagram中对我们影响非常大。</p>
         <p>React的一个最伟大的部分就是是你考虑关于app正如你说建造的。在这篇文中，我们将会带你建立一个可搜索的产品数据。</p>
@@ -426,7 +425,7 @@ export default class Thinking extends React.Component {
         <p>尽管这听起来复杂，但其实就几行代码，并且他真的准切的，在App中你的数据是如何流动的。</p>
         <h4>就这样吧</h4>
         <p>希望，这能给你idear关于通过react如何建造组件和应用，他可能比以前需要写更多代码，记住代码读取远超过编写，并且这个模块易读明确，当你开始建立一个大的组件图书馆，你会欣赏这种明确性和模块性，通过代码复用，你的代码数列开始大大减小。</p>
-      </Col>
+      </div>
     )
   }
 }

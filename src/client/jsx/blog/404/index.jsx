@@ -1,4 +1,5 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
+import './index.less';
 
 export default class NotMatch extends Component {
   render() {

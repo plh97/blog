@@ -1,11 +1,10 @@
 import React from "react";
-import { Row, Col } from 'antd';
 import PrismCode from '../../feature/Prism.js'
 
 export default class Form extends React.Component {
   render() {
     return (
-      <Col span={24}>
+      <div>
         <h3>Forms</h3>
         <p>in React,HTML form元素和HTML的其他元素相比，工作方式略有不同，应为表格元素天然的保存一些internal状态，例如，下面这个表格就是为了HTML接受一个单一的名字。</p>
         <PrismCode lang='jsx'>{`
@@ -188,7 +187,7 @@ export default class Form extends React.Component {
         <p>also,现在<code>setState()</code>自动的合并一部分state到当前state，我们只需要调用改变的部分。</p>
         <h4>Controlled Component备胎</h4>
         <p>有时候用控制组件很烦，因为你需要为数据更改来编写一个事件处理并且通过React组件管理全部的输入state。更烦的是，当你给react转换一个预存代码库给React,或者整合一个React应用通过一个没有React的library。这种情况下，你可能会想要试试uncontrolled components,一个输入表格的备用技术。</p>
-      </Col>
+      </div>
     )
   }
 }

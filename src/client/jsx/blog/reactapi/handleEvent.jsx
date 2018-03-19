@@ -1,11 +1,10 @@
 import React from "react";
-import { Row, Col } from 'antd';
 import PrismCode from '../../feature/Prism.js'
 
 export default class Jsx extends React.Component {
   render() {
     return (
-      <Col span={24}>
+      <div>
         <h3>处理事件</h3>
         <p>处理React元素的事件，和处理DOM元素事件很像，这里有一些语法不一致</p>
         <ul>
@@ -106,7 +105,7 @@ export default class Jsx extends React.Component {
           }
         `}</PrismCode>
         <p>这个问题带有这些语法，是一个不同的回调。在大多数情况，这是OK的，然而，如果这个回调被作为一个prop来传递给内部组件，这些组件也许会做多一个额外的重复渲染，我们通常建议绑定在构造器或者用属性初始化语法，来避免这类性能问题。</p>
-      </Col>
+      </div>
     )
   }
 }

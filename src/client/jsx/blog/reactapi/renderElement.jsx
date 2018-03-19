@@ -1,11 +1,10 @@
 import React from "react";
-import { Row, Col } from 'antd';
 import PrismCode from '../../feature/Prism.js'
 
 export default class Jsx extends React.Component {
   render() {
     return (
-      <Col span={24}>
+      <div>
         <h3>渲染元素</h3>
         <p>element是Reactapps里面最小的构建块。</p>
         <p>把一个element写成你想要见到的样子，出现在屏幕上。</p>
@@ -52,7 +51,7 @@ export default class Jsx extends React.Component {
         <p>你可以用浏览器工具来检查最后一个例子</p>
         <p>尽管我们创建了一个元素每秒来描述整个UI树，仅仅只有变化的文本节点会通过ReactDOM获得更新。</p>
         <p>在我们的这些实验中，思考UI应该如何关注给定的时刻，而不是如何随着时间而改变它，从而消除了一类bug。</p>
-      </Col>
+      </div>
     )
   }
 }
