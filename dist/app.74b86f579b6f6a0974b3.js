@@ -23936,17 +23936,19 @@ function astToReact(node, options) {
   var parent = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
   var index = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 0;
 
+  var renderer = options.renderers[node.type];
+
+  var pos = node.position.start;
+  var key = [node.type, pos.line, pos.column].join('-');
+
   if (node.type === 'text') {
-    return node.value;
+    return renderer ? renderer(node.value, key) : node.value;
   }
 
-  var renderer = options.renderers[node.type];
   if (typeof renderer !== 'function' && typeof renderer !== 'string') {
     throw new Error('Renderer for type `' + node.type + '` not defined or is not renderable');
   }
 
-  var pos = node.position.start;
-  var key = [node.type, pos.line, pos.column].join('-');
   var nodeProps = getNodeProps(node, key, options, renderer, parent, index);
 
   return React.createElement(renderer, nodeProps, nodeProps.children || resolveChildren() || undefined);
@@ -23992,7 +23994,7 @@ function getNodeProps(node, key, opts, renderer, parent, index) {
       assignDefined(props, { identifier: node.identifier, title: node.title, url: node.url });
       break;
     case 'code':
-      assignDefined(props, { language: node.lang });
+      assignDefined(props, { language: node.lang && node.lang.split(/\s/, 1)[0] });
       break;
     case 'inlineCode':
       props.children = node.value;

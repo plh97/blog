@@ -18,6 +18,7 @@ import Github from "./blog/github/index.jsx";
 import Article from "./blog/article/index.jsx";
 import Others from "./blog/others/index.jsx";
 import ReactAPI from "./blog/reactapi/index.jsx";
+import '../less/index.less';
 
 @observer
 export default class Root extends React.Component {
