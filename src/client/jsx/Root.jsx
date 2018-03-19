@@ -19,7 +19,6 @@ import Others from "./blog/others/index.jsx";
 import ReactAPI from "./blog/reactapi/index.jsx";
 import Menu from './feature/Menu/index.jsx';
 
-@observer
 export default class Root extends React.Component {
   render() {
     return (
