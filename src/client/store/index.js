@@ -41,7 +41,7 @@ class Store {
           }
           repositoryOwner(login: "pengliheng") {
             repository(name: "pengliheng.github.io") {
-              issues(first: 10) {
+              issues(first: 100, labels:"博客",states:OPEN) {
                 edges {
                   node {
                     updatedAt createdAt body title
