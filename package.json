@@ -68,7 +68,7 @@
     "style-loader": "^0.18.2",
     "tapable": "^1.0.0",
     "webpack": "^4.0.1",
-    "webpack-cli": "^2.0.10",
+    "webpack-cli": "^2.0.12",
     "webpack-dev-middleware": "^1.11.0",
     "yarn": "^0.27.5"
   },
