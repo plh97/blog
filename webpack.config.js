@@ -49,7 +49,7 @@ module.exports = env => merge(env.NODE_ENV === 'dev' ? devWebpackConfig : prodWe
   plugins: [
     new CleanWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({
-      title: '个人博客 - 彭立衡',
+      title: 'blog - pengliheng',
       favicon: './favicon.ico',
       template: `${__dirname}/assets/template/index.ejs`,
     }),

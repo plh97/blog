@@ -31,46 +31,55 @@ class Store {
     }
   }
   constructor() {
-    axios({
-      url: 'https://chat.pipk.top/graphql',
-      method: 'post',
-      data: {
-        query: `{
-          viewer {
-            name avatarUrl login bio url createdAt isHireable
-          }
-          repositoryOwner(login: "pengliheng") {
-            repository(name: "pengliheng.github.io") {
-              issues(first: 100, labels:"博客",states:OPEN) {
-                edges {
-                  node {
-                    updatedAt createdAt body title
-                    author {
-                      avatarUrl login
-                    }
-                    labels(first: 5) {
-                      nodes {
-                        name color
-                      }
-                    }
-                  }
-                }
-              }
-              object(expression: "master:README.md") {
-                ... on Blob {
-                  text
-                }
-              }
-            }
-          }
-        }`,
-      },
-    }).then((res) => {
+    if (!!localStorage._blog_) {
+      const res = JSON.parse(localStorage._blog_)
       this.viewer = res.data.data.viewer;
       this.home = res.data.data.repositoryOwner.repository.object.text;
       this.article = res.data.data.repositoryOwner.repository.issues.edges;
       Prismjs.highlightAll();
-    });
+    } else {
+      axios({
+        url: 'https://chat.pipk.top/graphql',
+        method: 'post',
+        data: {
+          query: `{
+            viewer {
+              name avatarUrl login bio url createdAt isHireable
+            }
+            repositoryOwner(login: "pengliheng") {
+              repository(name: "pengliheng.github.io") {
+                issues(first: 100, labels:"博客",states:OPEN) {
+                  edges {
+                    node {
+                      updatedAt createdAt body title
+                      author {
+                        avatarUrl login
+                      }
+                      labels(first: 5) {
+                        nodes {
+                          name color
+                        }
+                      }
+                    }
+                  }
+                }
+                object(expression: "master:README.md") {
+                  ... on Blob {
+                    text
+                  }
+                }
+              }
+            }
+          }`,
+        },
+      }).then((res) => {
+        localStorage.setItem('_blog_', JSON.stringify({ ...res }));
+        this.viewer = res.data.data.viewer;
+        this.home = res.data.data.repositoryOwner.repository.object.text;
+        this.article = res.data.data.repositoryOwner.repository.issues.edges;
+        Prismjs.highlightAll();
+      });
+    }
   }
 }
 
