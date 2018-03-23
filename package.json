@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "main": "./src/server/app.js",
   "scripts": {
-    "w": "webpack -w --colors --progress",
-    "p": "webpack -p --colors --progress",
+    "w": "webpack --config ./build/webpack.dev.js -w --colors --progress",
+    "p": "webpack --config ./build/webpack.prod.js -p --colors --progress",
     "nodemon": "nodemon ./src/server/index.js --config nodemonrc.json",
     "start": "http-server dist",
     "restart": "pandora restart"
@@ -68,9 +68,11 @@
     "request-promise": "^4.2.2",
     "style-loader": "^0.18.2",
     "tapable": "^1.0.0",
+    "uglifyjs-webpack-plugin": "^1.2.4",
     "webpack": "^4.0.1",
     "webpack-cli": "^2.0.12",
     "webpack-dev-middleware": "^1.11.0",
+    "webpack-merge": "^4.1.2",
     "workbox-webpack-plugin": "^3.0.0",
     "yarn": "^0.27.5"
   },
@@ -81,6 +83,7 @@
     "eslint-plugin-react": "^7.7.0"
   },
   "description": "pengliheng's blog",
+  "private": true,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/pengliheng/pengliheng.github.io.git"

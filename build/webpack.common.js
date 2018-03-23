@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -15,7 +16,6 @@ module.exports = {
     //   'react-router-dom',
     // ],
   },
-  mode: 'development',
   // mode: 'production',
   output: {
     filename: '[name].[hash].js',
@@ -46,13 +46,23 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: '个人博客 - 彭立衡',
       favicon: './favicon.ico',
-      template: `${__dirname}/assets/template/index.ejs`,
+      template: './assets/template/index.ejs',
     }),
     new ExtractTextPlugin('index.[hash].css'),
     new WorkboxPlugin.GenerateSW({
       clientsClaim: true,
       skipWaiting: true,
     }),
+    // new webpack.optimize.CommonsChunkPlugin({
+    //   name: 'common',
+    // }),
+  ],
+  externals: [
+    'react',
+    'react-dom',
+    'mobx',
+    'mobx-react',
+    'react-router-dom',
   ],
   // optimization: {
   //   splitChunks: {
