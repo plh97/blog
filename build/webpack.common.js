@@ -1,5 +1,4 @@
 const path = require('path');
-const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -8,19 +7,18 @@ const WorkboxPlugin = require('workbox-webpack-plugin');
 module.exports = {
   entry: {
     app: './src/client/index.jsx',
-    // vendor: [
-    //   'react',
-    //   'react-dom',
-    //   'mobx',
-    //   'mobx-react',
-    //   'react-router-dom',
-    // ],
+    vendor: [
+      'react',
+      'react-dom',
+      'mobx',
+      'mobx-react',
+      'react-router-dom',
+    ],
   },
-  // mode: 'production',
   output: {
     filename: '[name].[hash].js',
-    // chunkFilename: '[name].[chunkhash].js',
-    path: path.join(__dirname, 'dist'),
+    chunkFilename: '[name].[chunkhash].js',
+    path: path.resolve(__dirname, 'dist'),
     publicPath: '/',
   },
   module: {
@@ -42,7 +40,9 @@ module.exports = {
   },
   resolve: { extensions: ['.js', '.jsx'] },
   plugins: [
-    new CleanWebpackPlugin(['dist']),
+    new CleanWebpackPlugin({
+      root: '/dist',
+    }),
     new HtmlWebpackPlugin({
       title: '个人博客 - 彭立衡',
       favicon: './favicon.ico',
@@ -53,20 +53,10 @@ module.exports = {
       clientsClaim: true,
       skipWaiting: true,
     }),
-    // new webpack.optimize.CommonsChunkPlugin({
-    //   name: 'common',
-    // }),
   ],
-  externals: [
-    'react',
-    'react-dom',
-    'mobx',
-    'mobx-react',
-    'react-router-dom',
-  ],
-  // optimization: {
-  //   splitChunks: {
-  //     name: 'vendor',
-  //   },
-  // },
+  optimization: {
+    splitChunks: {
+      name: 'vendor',
+    },
+  },
 };

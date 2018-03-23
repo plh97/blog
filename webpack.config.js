@@ -3,23 +3,28 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WorkboxPlugin = require('workbox-webpack-plugin');
+const merge = require('webpack-merge');
 
-module.exports = {
+const devWebpackConfig = require('./build/webpack.dev.js');
+const prodWebpackConfig = require('./build/webpack.prod.js');
+
+
+module.exports = env => merge(env.NODE_ENV === 'dev' ? devWebpackConfig : prodWebpackConfig, {
   entry: {
     app: './src/client/index.jsx',
-    // vendor: [
-    //   'react',
-    //   'react-dom',
-    //   'mobx',
-    //   'mobx-react',
-    //   'react-router-dom',
-    // ],
+    vendor: [
+      'react',
+      'react-dom',
+      'mobx',
+      'mobx-react',
+      'react-router-dom',
+    ],
   },
   mode: 'development',
   // mode: 'production',
   output: {
     filename: '[name].[hash].js',
-    // chunkFilename: '[name].[chunkhash].js',
+    chunkFilename: '[name].[chunkhash].js',
     path: path.join(__dirname, 'dist'),
     publicPath: '/',
   },
@@ -54,9 +59,10 @@ module.exports = {
       skipWaiting: true,
     }),
   ],
-  // optimization: {
-  //   splitChunks: {
-  //     name: 'vendor',
-  //   },
-  // },
-};
+  optimization: {
+    splitChunks: {
+      name: 'vendor',
+    },
+  },
+});
+
