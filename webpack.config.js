@@ -9,8 +9,8 @@ module.exports = {
     app: './src/client/index.jsx',
     vendor: [
       'react',
-      'react-dom',
       'mobx',
+      'react-dom',
       'mobx-react',
       'react-router-dom',
     ],
