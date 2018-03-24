@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "main": "./src/server/app.js",
   "scripts": {
-    "w": "webpack -w --colors --progress",
-    "p": "webpack -p --colors --progress",
+    "w": "webpack --color --watch --env.NODE_ENV=dev --progress",
+    "p": "webpack -p --color --env.NODE_ENV=prod --progress",
     "nodemon": "nodemon ./src/server/index.js --config nodemonrc.json",
-    "pm2": "pm2 start ecosystem.config.js --env prod",
-    "restart": "pm2 reload ecosystem.config.js --env prod"
+    "start": "http-server dist",
+    "restart": "pandora restart"
   },
   "keywords": [
     "blog"
@@ -38,6 +38,7 @@
     "github-calendar": "^1.2.0",
     "history": "^4.7.2",
     "html-webpack-plugin": "webpack-contrib/html-webpack-plugin",
+    "http-server": "^0.11.1",
     "json-loader": "^0.5.4",
     "koa": "^2.3.0",
     "koa-body": "^2.5.0",
@@ -67,9 +68,12 @@
     "request-promise": "^4.2.2",
     "style-loader": "^0.18.2",
     "tapable": "^1.0.0",
+    "uglifyjs-webpack-plugin": "^1.2.4",
     "webpack": "^4.0.1",
     "webpack-cli": "^2.0.12",
     "webpack-dev-middleware": "^1.11.0",
+    "webpack-merge": "^4.1.2",
+    "workbox-webpack-plugin": "^3.0.0",
     "yarn": "^0.27.5"
   },
   "devDependencies": {
@@ -79,6 +83,7 @@
     "eslint-plugin-react": "^7.7.0"
   },
   "description": "pengliheng's blog",
+  "private": true,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/pengliheng/pengliheng.github.io.git"

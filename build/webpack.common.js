@@ -3,29 +3,22 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WorkboxPlugin = require('workbox-webpack-plugin');
-const merge = require('webpack-merge');
 
-const devWebpackConfig = require('./build/webpack.dev.js');
-const prodWebpackConfig = require('./build/webpack.prod.js');
-
-
-module.exports = env => merge(env.NODE_ENV === 'dev' ? devWebpackConfig : prodWebpackConfig, {
+module.exports = {
   entry: {
     app: './src/client/index.jsx',
     vendor: [
       'react',
-      'mobx',
       'react-dom',
+      'mobx',
       'mobx-react',
       'react-router-dom',
     ],
   },
-  mode: 'development',
-  // mode: 'production',
   output: {
     filename: '[name].[hash].js',
     chunkFilename: '[name].[chunkhash].js',
-    path: path.join(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'dist'),
     publicPath: '/',
   },
   module: {
@@ -47,11 +40,13 @@ module.exports = env => merge(env.NODE_ENV === 'dev' ? devWebpackConfig : prodWe
   },
   resolve: { extensions: ['.js', '.jsx'] },
   plugins: [
-    new CleanWebpackPlugin(['dist']),
+    new CleanWebpackPlugin({
+      root: '/dist',
+    }),
     new HtmlWebpackPlugin({
-      title: 'blog - pengliheng',
+      title: '个人博客 - 彭立衡',
       favicon: './favicon.ico',
-      template: `${__dirname}/assets/template/index.ejs`,
+      template: './assets/template/index.ejs',
     }),
     new ExtractTextPlugin('index.[hash].css'),
     new WorkboxPlugin.GenerateSW({
@@ -64,5 +59,4 @@ module.exports = env => merge(env.NODE_ENV === 'dev' ? devWebpackConfig : prodWe
       name: 'vendor',
     },
   },
-});
-
+};
