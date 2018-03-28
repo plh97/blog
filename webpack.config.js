@@ -20,8 +20,6 @@ module.exports = env => merge(env.NODE_ENV === 'dev' ? devWebpackConfig : prodWe
       'react-router-dom',
     ],
   },
-  mode: 'development',
-  // mode: 'production',
   output: {
     filename: '[name].[hash].js',
     chunkFilename: '[name].[chunkhash].js',
