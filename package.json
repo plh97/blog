@@ -6,7 +6,6 @@
     "w": "webpack --color --watch --env.NODE_ENV=dev --progress",
     "p": "webpack -p --color --env.NODE_ENV=prod --progress",
     "nodemon": "nodemon ./src/server/index.js --config nodemonrc.json",
-    "start": "http-server dist",
     "restart": "pandora restart"
   },
   "keywords": [
