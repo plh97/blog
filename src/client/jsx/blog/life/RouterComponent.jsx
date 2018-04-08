@@ -10,14 +10,8 @@ import Loading from "../../feature/Loading/index.jsx";
 @observer
 export default class RouterComponent extends React.Component {
     render() {
-        const { 
-            match,
-            store
-        } = this.props;
-        const {
-            article,
-            viewer
-        } = store;
+        const { match, store } = this.props;
+        const { article, viewer } = store;
         return article && <div className="content markdown-body">
             <div className="title-contianer">
                 <div className="title">
