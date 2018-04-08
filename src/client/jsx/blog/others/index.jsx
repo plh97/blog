@@ -1,11 +1,11 @@
 import React from 'react';
 import { Switch, Route, NavLink } from 'react-router-dom';
 
-import Vps from './Vps.jsx';
-import Nginx from './nginx.jsx';
-import Array from './Array.jsx';
-import SessionCookie from './SessionCookie.jsx';
-import Menu from '../../feature/Menu/index.jsx';
+import Vps from './Vps';
+import Nginx from './nginx';
+import Array from './Array';
+import SessionCookie from './SessionCookie';
+import Menu from '../../feature/Menu/index';
 import './index.less';
 
 const { Item } = Menu;
@@ -25,9 +25,6 @@ const Others = ({ match }) => (
         </Item>
         <Item>
           <NavLink to={`${match.path}/array`}>Array && prototype</NavLink>
-        </Item>
-        <Item>
-          <NavLink to={`${match.path}/GraphQL`}>GraphQL</NavLink>
         </Item>
       </Menu>
     </div>

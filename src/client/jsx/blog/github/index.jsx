@@ -1,7 +1,7 @@
 // package
 import React from 'react';
 import Github from '@pengliheng/github-report';
-import '@pengliheng/github-report/lib/index.less';
+// import '@pengliheng/github-report/lib/index.less';
 // import Github from './Github.jsx';
 
 const GithubReport = props => (<Github {...props} />);
