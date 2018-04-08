@@ -17,7 +17,6 @@ module.exports = env => merge(env.NODE_ENV === 'dev' ? devWebpackConfig : prodWe
       'react-dom',
       'mobx',
       'mobx-react',
-      'react-loadable',
       'react-router-dom',
     ],
   },

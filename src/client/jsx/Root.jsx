@@ -20,22 +20,22 @@ import Render from './feature/Render';
 import Others from './blog/others';
 import Menu from './feature/Menu/index';
 
-// import Article from './blog/article';
-// import ReactAPI from './blog/reactapi';
+import Article from './blog/article';
+import ReactAPI from './blog/reactapi';
 
 // application
 const Github = Loadable({
   loader: () => import('./blog/github/index'),
   loading: Loading,
 });
-const ReactAPI = Loadable({
-  loader: () => import('./blog/reactapi'),
-  loading: Loading,
-});
-const Article = Loadable({
-  loader: () => import('./blog/article'),
-  loading: Loading,
-});
+// const ReactAPI = Loadable({
+//   loader: () => import('./blog/reactapi'),
+//   loading: Loading,
+// });
+// const Article = Loadable({
+//   loader: () => import('./blog/article'),
+//   loading: Loading,
+// });
 
 export default class Root extends React.Component {
   render() {
