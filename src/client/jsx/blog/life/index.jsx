@@ -1,55 +1,52 @@
-import React from 'react';
+// package
+import React from "react";
 import {
   Route,
-  Switch,
-  NavLink,
-} from 'react-router-dom';
+  NavLink
+} from "react-router-dom";
+import {observer,inject} from "mobx-react"
 
-import EnvDeteriorate from './envDeteriorate.jsx';
-import CurrencyDevaluation from './currencyDevaluation.jsx';
-import RealEstate from './realEstate.jsx';
-import Git from './git.jsx';
-import Data from './Data.jsx';
-import Imagination from './Imagination.jsx';
-import Menu from '../../feature/Menu/index.jsx';
+// local
 import './index.less';
+import Menu from '../../feature/Menu/index.jsx';
+import RouterComponent from './RouterComponent.jsx'
+import Loading from "../../feature/Loading/index.jsx";
 
-const { Item } = Menu;
-
-const Blog1 = ({ match }) => (
-  <div className="life">
-    <div className="sider">
-      <Menu mode="column">
-        <Item>
-          <NavLink exact to={match.path}>Imagination</NavLink>
-        </Item>
-        <Item>
-          <NavLink to={`${match.path}/data`}>Data 畅想</NavLink>
-        </Item>
-        <Item >
-          <NavLink to={`${match.path}/生存环境恶化`}>生存环境恶化</NavLink>
-        </Item>
-        <Item >
-          <NavLink to={`${match.path}/currencyDevaluation`}>货币贬值</NavLink>
-        </Item>
-        <Item >
-          <NavLink to={`${match.path}/realEstate`}>房地产</NavLink>
-        </Item>
-        <Item>
-          <NavLink to={`${match.path}/git`}>git使用篇</NavLink>
-        </Item>
-      </Menu>
-    </div>
-    <div className="content">
-      <Switch>
-        <Route exact path={match.path} component={Imagination} />
-        <Route path={`${match.path}/data`} component={Data} />
-        <Route path={`${match.path}/生存环境恶化`} component={EnvDeteriorate} />
-        <Route path={`${match.path}/currencyDevaluation`} component={CurrencyDevaluation} />
-        <Route path={`${match.path}/realEstate`} component={RealEstate} />
-        <Route path={`${match.path}/git`} component={Git} />
-      </Switch>
-    </div>
-  </div>
-);
-export default Blog1;
+@inject("store")
+@observer
+export default class article extends React.Component {
+  render() {
+    const { match, store } = this.props;
+    const { article } = store;
+    return (
+      <div className="article">
+        <div className='sider'>
+          <Menu defaultSelectedKeys = {['1']}>
+            { article && article
+              .filter(art => art.node.labels.nodes.find(arr=>arr.name === 'diary'))
+              .map((art,i)=>(
+                <Menu.Item exact key={i+1}>
+                  <NavLink exact to={
+                    `${match.path}/${art.node.title}`
+                  }>{art.node.title}</NavLink>
+                </Menu.Item>
+              )) 
+            }
+          </Menu>
+        </div>
+        <Route exact path={match.path} render={()=>(
+          <RouterComponent index={10}/>
+        )} />
+        {article == '' ? (
+          <div className="content markdown-body">
+            <Loading/>
+          </div>
+        ) : article.map((art,i)=>(
+          <Route key={i} path={`${match.path}/${art.node.title}`} render={()=>(
+            <RouterComponent index={i}/>
+          )} />
+        ))}
+      </div>
+    );
+  }
+}

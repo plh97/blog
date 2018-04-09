@@ -1,21 +1,44 @@
 .life {
+	flex: 1;
+	width:100%;
 	display: flex;
 	flex-direction: row;
-	min-height: calc(~"100vh - 50px");
-	width: 100%;
-	@media screen and (max-width: 768px) {
-		flex-direction: column;
-	}
+	flex-wrap: wrap;
+
 	.sider {
-		flex: 0 0 240px;
-		display: inline-flex;
+		background-color: #fff;
+		flex: 1 0 12rem;
+		border: 1px solid #e8e8e8;
+		.menu {
+			li {
+				width: 100%;
+				a {
+					font-size: 1rem;
+					text-overflow: ellipsis;
+					overflow: hidden;
+					word-spacing: none;
+					white-space: nowrap;
+				}
+			}
+		}
 	}
 	.content {
-		flex: 1 0 600px;
-		background-color: #fff;
-		h3{
+		max-width: 100%;
+		flex: 10 0 10rem;
+		background-color: #fff; 
+		padding: 24px;
+		box-sizing: border-box;
+
+		h1{
 			text-align: center;
 		}
-		padding: 24px;
+
+		.title-contianer {
+			width: 100%;
+			overflow: auto;
+			.title {
+				min-width: 550px;
+			}
+		}
 	}
 }
