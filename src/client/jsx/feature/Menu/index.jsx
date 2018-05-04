@@ -4,15 +4,14 @@ import './index.less';
 class Menu extends React.Component {
   static Item({ children }) {
     return (
-      <li>
-        {children}
-      </li>
+      <li>{children}</li>
     );
   }
   render() {
     const { children, mode } = this.props;
+    console.log(mode);
     return (
-      <ul className="menu" style={{ flexDirection: mode }}>
+      <ul className={ `menu ${mode}` } style={{ flexDirection: mode }}>
         {children}
       </ul>
     );

@@ -42,7 +42,7 @@ const Root = () => (
   <Provider store={store}>
     <Router>
       <div className="layout">
-        <Menu>
+        <Menu mode="middle">
           <Menu.Item>
             <NavLink exact to="/">🏠Home</NavLink>
           </Menu.Item>
