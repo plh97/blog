@@ -30,19 +30,6 @@
 - ~~Vue搭建前端页面~~
 - 代码片段Gist
 - 分析Github相关数据
-- vue mvvm
-- vue/react diff 算法
-- mock数据分层如何实现
-- webpack js模块化打包机制，他如何实现的import,require然后引入对应js代码？
-- webpack loader写一个？
-- vue如何实现mvvm的，
-- react/vuediff算法如何实现的
-- jquery工程模式如何实现的
-- 我擅长的事情？？？
-- 解释一下原型链，new后面内部做了什么事情
-- http了解过吗？
-- 以后基础多补补吧。
-- 没事，至少坚持写文章还是很不错的。
 
 
 #### 特性
