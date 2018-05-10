@@ -1,9 +1,11 @@
 body header {
   height: 50px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
+  width: 100vw;
+  display: inline-block;
+}
+body header h3 {
+  text-align: center;
+  margin: 13px;
 }
 body .container {
   border-top: 1px solid #ccc;

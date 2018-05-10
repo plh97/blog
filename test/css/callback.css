@@ -4,9 +4,6 @@ body {
   border-top: 1px solid #ccc;
   border-bottom: 1px solid #ccc;
   box-sizing: border-box;
-  justify-content: space-around;
-  display: flex;
-  align-items: center;
 }
 body textarea {
   font-size: 16px;
@@ -15,17 +12,20 @@ body textarea {
   box-sizing: border-box;
   width: 90vw;
   height: 60vh;
+  margin: 50px auto;
+  display: block;
 }
 body a {
-  color: #000;
+  text-align: center;
+  line-height: 30px;
+  color: #333;
   text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border: 2px solid #000;
+  border: 2px solid #c8c7cc;
   border-radius: 5px;
   font-weight: bold;
   width: 100px;
   height: 30px;
   background-color: #fff;
+  margin: auto;
+  display: block;
 }

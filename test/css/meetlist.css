@@ -1,28 +1,43 @@
 body header {
   height: 50px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  padding: 0 10px;
+  width: 100vw;
+  display: inline-block;
+}
+body header h3 {
+  text-align: center;
+  margin: 13px;
 }
 body .container {
-  border-top: 1px solid #000;
-  border-bottom: 1px solid #000;
+  border-top: 1px solid #c8c7cc;
+  border-bottom: 1px solid #c8c7cc;
   height: calc(100vh - 100px);
   box-sizing: border-box;
   overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
 }
 body .container .content-list + .content-list {
-  border-top: 1px solid #000;
+  border-top: 1px solid #c8c7cc;
 }
 body .container .content-list {
-  padding: 0 10px;
+  padding: 10px;
 }
-body .container .content-list p {
-  text-indent: 2em;
-  margin: 10px 0;
-  text-align: justify;
+body .container .content-list .params {
+  text-indent: 1em;
+  font-size: 16px;
+}
+body .container .content-list .avatar-list {
+  margin-left: 1em;
+}
+body .container .content-list .avatar-list .avatar {
+  font-size: 14px;
+  display: inline-block;
+  width: 36px;
+  text-align: center;
+}
+body .container .content-list .avatar-list .avatar img {
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
 }
 body .container .checkin-person h4 {
   margin: 10px 0;
@@ -31,7 +46,24 @@ body .container .advise {
   padding: 10px;
 }
 body .container .advise .list + .list {
-  border-top: 1px solid #000;
+  border-top: 1px solid #c8c7cc;
+}
+body .container .advise .list {
+  padding: 5px 0px 4px 21px;
+}
+body .container .advise .list .avatar {
+  font-size: 14px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 62px;
+  justify-content: space-between;
+  text-align: center;
+}
+body .container .advise .list .avatar img {
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
 }
 body .container .advise p {
   margin-bottom: 0;
@@ -44,21 +76,18 @@ body .container .advise .time {
 }
 body footer {
   height: 50px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  display: inline-flex;
+  display: block;
 }
 body footer a + a {
-  border-left: 1px solid #000;
+  border-left: 1px solid #c8c7cc;
 }
 body footer a {
   font-weight: bold;
-  color: #000;
+  color: #333;
   text-decoration: none;
-  flex: 0 0 33vw;
+  width: 33vw;
   height: 50px;
-  justify-content: center;
-  align-items: center;
-  display: inline-flex;
+  float: left;
+  text-align: center;
+  line-height: 50px;
 }
