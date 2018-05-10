@@ -1,0 +1,12 @@
+.icon {
+  width: 1em; height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  /* font-size: inherit; */
+  overflow: hidden;
+}
+
+p,body,html,h4 {
+  margin: 0;
+  padding: 0;
+}
