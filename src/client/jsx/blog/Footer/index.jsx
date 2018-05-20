@@ -24,9 +24,9 @@ export default class Home extends React.Component {
 			this.page.url = 'https://pipk.top';  // Replace PAGE_URL with your page's canonical URL variable
 			this.page.identifier = 'pengliheng'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
 		};
-		(function() {
+		(function() { // DON'T EDIT BELOW THIS LINE
 			var d = document, s = d.createElement('script');
-			s.src = 'https://pipk-top.disqus.com/embed.js';
+			s.src = 'https://https-pipk-top-1.disqus.com/embed.js';
 			s.setAttribute('data-timestamp', +new Date());
 			(d.head || d.body).appendChild(s);
 		})();
