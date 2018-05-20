@@ -11,6 +11,7 @@ import './index.less';
 import Menu from '../../feature/Menu/index.jsx';
 import RouterComponent from './RouterComponent.jsx'
 import Loading from "../../feature/Loading/index.jsx";
+import Footer from '../Footer';
 
 @inject("store")
 @observer
@@ -46,6 +47,7 @@ export default class article extends React.Component {
             <RouterComponent index={i}/>
           )} />
         ))}
+        <Footer></Footer>
       </div>
     );
   }

@@ -22,7 +22,6 @@ import Menu from './feature/Menu/index';
 
 import Article from './blog/article';
 import ReactAPI from './blog/reactapi';
-import Footer from './Footer';
 // import Github from './blog/github/index';
 
 // application
@@ -43,7 +42,7 @@ const Root = () => (
   <Provider store={store}>
     <Router>
       <div className="layout">
-        <Menu>
+        <Menu mode="middle">
           <Menu.Item>
             <NavLink exact to="/">🏠Home</NavLink>
           </Menu.Item>
@@ -87,9 +86,6 @@ const Root = () => (
           <Route path="/others" component={Others} />
           <Route component={NoMatch} />
         </Render>
-        <Footer>
-
-        </Footer>
       </div>
     </Router>
   </Provider>

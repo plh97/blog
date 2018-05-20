@@ -1,0 +1,49 @@
+body .context {
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #c8c7cc;
+  padding: 20px;
+  height: calc(100vh - 50px);
+  box-sizing: border-box;
+  overflow-y: scroll;
+}
+body .context .list {
+  display: block;
+  width: 100%;
+  margin: 10px 0;
+}
+body .context .list span {
+  float: left;
+}
+body .context .list input {
+  outline: none;
+  width: 65vw;
+  border: 0;
+  border-bottom: 1px solid #c8c7cc;
+}
+body .context .list textarea {
+  width: 65vw;
+  border-radius: 5px;
+  outline: none;
+  flex: 1 0 auto;
+  border: 0;
+  border: 1px solid #c8c7cc;
+}
+body footer {
+  height: 50px;
+  width: 100%;
+  display: inline-block;
+  margin: 0 auto;
+}
+body footer a {
+  margin: 8px auto;
+  text-align: center;
+  display: block;
+  font-weight: bold;
+  color: #333;
+  text-decoration: none;
+  border: 2px solid #c8c7cc;
+  border-radius: 5px;
+  width: 100px;
+  height: 30px;
+  line-height: 30px;
+}

@@ -36,7 +36,7 @@ body {
                 position: relative;
                 width: 100%;
                 height: 17rem;
-                background-image: url(https://user-images.githubusercontent.com/9758711/35051708-d447aeb0-fbe0-11e7-8e62-a1042f373488.png);
+                background-image: url(https://static.pipk.top/chat/public/3165624214738918.png);
                 background-origin: border-box;
                 background-repeat: no-repeat;
                 background-size: cover;
@@ -45,6 +45,7 @@ body {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
+		        background-position-y: bottom;
     
                 h1 {
                     flex: 0 0 70%;
@@ -89,14 +90,19 @@ body {
             }
             
             img {
-                display: block;
+                display: inline-block;
                 max-width: 100%;
                 box-sizing: content-box;
                 background-color: #fff;
             }
+            img[alt="Size"] {
+                display: inline-block;
+            }
+            h1, h2 {
+                border-bottom: 1px solid #eaecef;
+            }
             h1, h2, h3, h4, h5, h6 {
                 padding-bottom: 0.3em;
-                border-bottom: 1px solid #eaecef;
                 margin-top: 24px;
                 margin-bottom: 16px;
                 font-weight: 600;
@@ -105,6 +111,13 @@ body {
             h1 {
                 font-size: 2em;
                 margin-top: 0;
+            }
+            h4 {
+                font-size: 1em;
+            }
+            h6 {
+                font-size: 0.85em;
+                color: #6a737d;
             }
             ul,ol {
                 padding-left: 2em;
@@ -120,6 +133,19 @@ body {
                     }
                 }
             }
+            table {
+                display: block;
+                width: 100%;
+                overflow: auto;
+                tr {
+                    background-color: #fff;
+                    border-top: 1px solid #c6cbd1;
+                }
+                th, td {
+                    padding: 6px 13px;
+                    border: 1px solid #dfe2e5;
+                }
+            }
         }
     }
     
@@ -129,7 +155,6 @@ body {
     
     p {
         font-size: 1.1rem;
-        text-indent: 2em;
         text-align: justify;
     }
     pre {

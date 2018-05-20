@@ -4,12 +4,11 @@
 ![Size](https://github-size-badge.herokuapp.com/pengliheng/pengliheng.github.io.svg)
 
 
-## 欢迎光临我的博客
+### 欢迎光临我的博客
 
+###### 本站托管于Github，所有数据来源于Github，通过动态加载数据渲染页面
 
-### 本站托管于Github，所有数据来源于Github，通过动态加载数据渲染页面
-
-### TODO
+#### TODO
 - [ ] from ServiceWorker离线化应用 - 功能
 - [ ] Proxy代理 - 文章
 - [ ] An Overview of Arrays and Memory - 文章
@@ -23,7 +22,7 @@
 - [x] Graphql - 拿github v4 接口的数据
 
 
-### 发展方向
+#### 发展方向
 - Graphql API
 - React + next.js 从服务器端渲染页面
 - Github Issue Page - server less
@@ -33,7 +32,7 @@
 - 分析Github相关数据
 
 
-### 特性
+#### 特性
 - [x] 博客
 - [x] 仓库集合
 - [x] 计划任务TODO
@@ -42,13 +41,13 @@
 - [x] 按需加载
 - [ ] 静态类型检查
 
-### 技术栈
+#### 技术栈
 - React
 - Graphql
 - Ant-Design
 - Github Api
 
-### 贡献代码
+#### 贡献代码
 
 ```bash
 git clone https://github.com/pengliheng/pengliheng.github.io.git
@@ -58,4 +57,3 @@ yarn run w      # 监听10086端口
 yarn run nodemon      # 监听10086端口
 ```
 **Welcome PR 😀**
-

@@ -16,16 +16,19 @@
 		position: relative;
 		width: 100%;
 		height: 17rem;
-		background-image: url(https://user-images.githubusercontent.com/9758711/35051708-d447aeb0-fbe0-11e7-8e62-a1042f373488.png);
+		background-image: url(https://static.pipk.top/chat/public/3165624214738918.png);
 		background-origin: border-box;
 		background-repeat: no-repeat;
 		background-size: cover;
-		background-position-y: 25%;
 		border-radius: 0.5rem;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+		background-position-y: bottom;
 
+		.inline {
+			display: inline-block;
+		}
 		h1 {
 			flex: 0 0 60%;
 			margin: 0;
@@ -56,6 +59,16 @@
 				display: inline-flex;
 				flex-direction: column;
 			}
+		}
+	}
+	.markdown-body p {
+		margin: 0;
+		display: inline-flex;
+		flex-direction: row;
+		align-items: flex-start;
+		text-align: left;
+		a {
+			margin-right: 0.3em;
 		}
 	}
 }
