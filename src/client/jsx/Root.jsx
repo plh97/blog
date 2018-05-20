@@ -22,6 +22,7 @@ import Menu from './feature/Menu/index';
 
 import Article from './blog/article';
 import ReactAPI from './blog/reactapi';
+import Footer from './Footer';
 // import Github from './blog/github/index';
 
 // application
@@ -86,7 +87,9 @@ const Root = () => (
           <Route path="/others" component={Others} />
           <Route component={NoMatch} />
         </Render>
-        <footer />
+        <Footer>
+
+        </Footer>
       </div>
     </Router>
   </Provider>
