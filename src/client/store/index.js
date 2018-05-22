@@ -39,7 +39,7 @@ class Store {
       Prismjs.highlightAll();
     } else {
       axios({
-        url: 'https://chat.pipk.top/graphql',
+        url: 'https://api.pipk.top/graphql',
         method: 'post',
         data: {
           query: `{
@@ -74,9 +74,9 @@ class Store {
         },
       }).then((res) => {
         localStorage.setItem('_blog_', JSON.stringify({ ...res }));
-        this.viewer = res.data.data.viewer;
-        this.home = res.data.data.repositoryOwner.repository.object.text;
-        this.article = res.data.data.repositoryOwner.repository.issues.edges;
+        this.viewer = res.data.data.data.viewer;
+        this.home = res.data.data.data.repositoryOwner.repository.object.text;
+        this.article = res.data.data.data.repositoryOwner.repository.issues.edges;
         Prismjs.highlightAll();
       });
     }
