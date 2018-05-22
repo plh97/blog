@@ -33,9 +33,9 @@ class Store {
   constructor() {
     if (!!localStorage._blog_) {
       const res = JSON.parse(localStorage._blog_)
-      this.viewer = res.data.data.viewer;
-      this.home = res.data.data.repositoryOwner.repository.object.text;
-      this.article = res.data.data.repositoryOwner.repository.issues.edges;
+      this.viewer = res.data.data.data.viewer;
+      this.home = res.data.data.data.repositoryOwner.repository.object.text;
+      this.article = res.data.data.data.repositoryOwner.repository.issues.edges;
       Prismjs.highlightAll();
     } else {
       axios({
