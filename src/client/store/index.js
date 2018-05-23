@@ -31,8 +31,8 @@ class Store {
     }
   }
   constructor() {
-    if (!!localStorage._blog_) {
-      const res = JSON.parse(localStorage._blog_)
+    if (!!sessionStorage._blog_) {
+      const res = JSON.parse(sessionStorage._blog_)
       this.viewer = res.data.data.data.viewer;
       this.home = res.data.data.data.repositoryOwner.repository.object.text;
       this.article = res.data.data.data.repositoryOwner.repository.issues.edges;
@@ -73,7 +73,7 @@ class Store {
           }`,
         },
       }).then((res) => {
-        localStorage.setItem('_blog_', JSON.stringify({ ...res }));
+        sessionStorage.setItem('_blog_', JSON.stringify({ ...res }));
         this.viewer = res.data.data.data.viewer;
         this.home = res.data.data.data.repositoryOwner.repository.object.text;
         this.article = res.data.data.data.repositoryOwner.repository.issues.edges;
