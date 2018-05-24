@@ -6,7 +6,8 @@
     "w": "webpack --color --watch --env.NODE_ENV=dev --progress",
     "p": "webpack -p --color --env.NODE_ENV=prod --progress",
     "nodemon": "nodemon ./src/server/index.js --config nodemonrc.json",
-    "restart": "pandora restart"
+    "restart": "pandora restart",
+    "rep": "yarn add @pengliheng/github-report"
   },
   "keywords": [
     "blog"
@@ -14,6 +15,7 @@
   "author": "pengliheng",
   "license": "MIT",
   "dependencies": {
+    "@pengliheng/github-report": "^1.5.5",
     "html-webpack-plugin": "^3.2.0",
     "koa": "^2.3.0",
     "koa-body": "^2.5.0",
@@ -21,10 +23,14 @@
     "koa-logger": "^3.1.0",
     "koa-router": "^7.2.1",
     "koa-send": "^4.1.1",
-    "koa-static": "^4.0.1"
+    "koa-static": "^4.0.1",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "react-loadable": "^5.3.1",
+    "react-markdown": "^3.1.4",
+    "react-router-dom": "^4.2.2"
   },
   "devDependencies": {
-    "@pengliheng/github-report": "^1.4.2",
     "axios": "^0.17.1",
     "babel": "^6.23.0",
     "babel-core": "^6.26.0",
@@ -59,11 +65,6 @@
     "mobx-react": "^4.3.5",
     "postcss-loader": "^2.1.0",
     "prismjs": "^1.8.3",
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0",
-    "react-loadable": "^5.3.1",
-    "react-markdown": "^3.1.4",
-    "react-router-dom": "^4.2.2",
     "style-loader": "^0.18.2",
     "tapable": "^1.0.0",
     "uglifyjs-webpack-plugin": "^1.2.4",

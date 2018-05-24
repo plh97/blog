@@ -45,8 +45,8 @@ export default class Github extends Component {
   async componentDidMount() {
     const { match } = this.props;
     const name = (match && match.params.name) || 'pengliheng';
-    const res = (localStorage[name] && JSON.parse(localStorage[name])) || await this.getData({ name });
-    localStorage.setItem(name, JSON.stringify({ ...res }));
+    const res = (sessionStorage[name] && JSON.parse(sessionStorage[name])) || await this.getData({ name });
+    sessionStorage.setItem(name, JSON.stringify(res));
     this.initGitRepo(res);
     setTimeout(() => {
       calendar(this.container, name);
@@ -58,8 +58,8 @@ export default class Github extends Component {
     this.setState({
       starredLanguage: undefined,
     });
-    const res = (localStorage[name] && JSON.parse(localStorage[name])) || await this.getData({ name });
-    localStorage.setItem(name, JSON.stringify({ ...res }));
+    const res = (sessionStorage[name] && JSON.parse(sessionStorage[name])) || await this.getData({ name });
+    sessionStorage.setItem(name, JSON.stringify(res));
     this.initGitRepo(res);
     setTimeout(() => {
       calendar(this.container, name);
@@ -69,7 +69,7 @@ export default class Github extends Component {
   getData({ name }) {
     return new Promise((resolve, reject) => {
       axios({
-        url: '/graphql',
+        url: 'https://api.pipk.top/graphql',
         method: 'post',
         data: {
           query: `{
@@ -124,16 +124,16 @@ export default class Github extends Component {
             }
           }`,
         },
-      }).then(res => resolve(res.data.data))
+      }).then(res => resolve(res.data))
         .catch(err => reject(err));
     });
   }
   initGitRepo(res) {
     const { langColor } = this.state;
-    const viewer = res.search.edges[0].node;
+    const viewer = res.data.search.edges[0].node;
     this.setState({
       viewer,
-      oldestRepostort: sortBy(viewer.repositories.nodes
+      oldestRepostort: sortBy(viewer.contributedRepositories.nodes
         .filter(repo => !repo.isFork)
         .map(repo => ({
           time: new Date(repo.updatedAt) - new Date(repo.createdAt),
@@ -361,3 +361,14 @@ export default class Github extends Component {
     ) : <Loading />;
   }
 }
+
+
+function type(arr) {
+  for (let i = 0; i < arr.length; i += 1) {
+    if (arr[i] === '') {
+      return '有空的';
+    }
+  }
+  return '一个空的都没有';
+}
+

@@ -33,9 +33,9 @@ class Store {
   constructor() {
     if (!!sessionStorage._blog_) {
       const res = JSON.parse(sessionStorage._blog_)
-      this.viewer = res.data.data.data.viewer;
-      this.home = res.data.data.data.repositoryOwner.repository.object.text;
-      this.article = res.data.data.data.repositoryOwner.repository.issues.edges;
+      this.viewer = res.data.viewer;
+      this.home = res.data.repositoryOwner.repository.object.text;
+      this.article = res.data.repositoryOwner.repository.issues.edges;
       Prismjs.highlightAll();
     } else {
       axios({
@@ -73,10 +73,10 @@ class Store {
           }`,
         },
       }).then((res) => {
-        sessionStorage.setItem('_blog_', JSON.stringify({ ...res }));
-        this.viewer = res.data.data.data.viewer;
-        this.home = res.data.data.data.repositoryOwner.repository.object.text;
-        this.article = res.data.data.data.repositoryOwner.repository.issues.edges;
+        sessionStorage.setItem('_blog_', JSON.stringify(res.data));
+        this.viewer = res.data.data.viewer;
+        this.home = res.data.data.repositoryOwner.repository.object.text;
+        this.article = res.data.data.repositoryOwner.repository.issues.edges;
         Prismjs.highlightAll();
       });
     }
