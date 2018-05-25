@@ -31,7 +31,7 @@ module.exports = env => merge(env.NODE_ENV === 'dev' ? devWebpackConfig : prodWe
       test: /(\.less|\.css)$/,
       use: ExtractTextPlugin.extract({
         fallback: 'style-loader',
-        use: ['css-loader', 'less-loader'],
+        use: [ 'css-loader', 'postcss-loader', 'less-loader'],
       }),
       // use: ['style-loader', 'css-loader', 'less-loader'],
     }, {
