@@ -15,59 +15,59 @@ const timer = ms  => setTimeout(()=>{}, ms);
 @observer
 export default class Home extends React.Component {
 
-	componentDidMount(){
-		console.log('componentDidMount')
-		this.handleTextType({
-			text: [
-				{
-					content:'新零售',
-					typeTime:'130'
-				}, {
-					content:'儿童语言教育',
-					typeTime:'100'
-				},{
-					content:'物联网锁',
-					typeTime:'120'
-				}
-			],
-			pauseTime: '3000',
-			cycle:true
-		})
-	}
+	// componentDidMount(){
+		// console.log('componentDidMount')
+		// this.handleTextType({
+		// 	text: [
+		// 		{
+		// 			content:'新零售',
+		// 			typeTime:'130'
+		// 		}, {
+		// 			content:'儿童语言教育',
+		// 			typeTime:'100'
+		// 		},{
+		// 			content:'物联网锁',
+		// 			typeTime:'120'
+		// 		}
+		// 	],
+		// 	pauseTime: '3000',
+		// 	cycle:true
+		// })
+	// }
 
 
-	handleTextType = async(e) => {
-		const {
-				text,
-				pauseTime,
-				cycle
-		} = e;
-		mapLimit(text,1,async e => {
-			console.log(e)
-			await this.typeWord({
-				word: e.content,
-				typeTime: e.typeTime
-			})
-		});
-	}
+	// handleTextType = async(e) => {
+	// 	const {
+	// 			text,
+	// 			pauseTime,
+	// 			cycle
+	// 	} = e;
+	// 	mapLimit(text,1,async e => {
+	// 		console.log(e)
+	// 		await this.typeWord({
+	// 			word: e.content,
+	// 			typeTime: e.typeTime
+	// 		})
+	// 	});
+	// }
 
-	typeWord = async e => {
-		const {
-			word,
-			typeTime
-		} = e;
-		const arrayWord =  word.split('');
-		for (let i = 0; i < arrayWord.length; i++) {
-			await this.typeLetter(i)
-		}
-	}
+	// typeWord = async e => {
+	// 	const {
+	// 		word,
+	// 		typeTime
+	// 	} = e;
+	// 	const arrayWord =  word.split('');
+	// 	for (let i = 0; i < arrayWord.length; i++) {
+	// 		await this.typeLetter(i)
+	// 	}
+	// }
 
-	typeLetter = e => {
-		new Promise(resolve => {
-			timer(1000)
-			console.log('typeLetter',e)
-		})
-	}
+	// typeLetter = e => {
+	// 	new Promise(resolve => {
+	// 		timer(1000)
+	// 		console.log('typeLetter',e)
+	// 	})
+	// }
 
 
 
