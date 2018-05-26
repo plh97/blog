@@ -4,11 +4,10 @@ import {Provider,observer,inject} from "mobx-react"
 import styles from "./index.less";
 import Loading from "../../feature/Loading/index.jsx";
 import 'babel-polyfill';
-import {
-	mapLimit
-} from "async";
+import mapLimit from "async.maplimit";
 
-const sleep = (ms) => new Promise(res => setTimeout(() => res, ms))
+const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
+const timer = ms  => setTimeout(()=>{}, ms);
 
 
 
@@ -37,51 +36,37 @@ export default class Home extends React.Component {
 	}
 
 
-
-
 	handleTextType = async(e) => {
 		const {
 				text,
 				pauseTime,
 				cycle
 		} = e;
-		let cycleType = async args => {
-				await mapLimit(text,1,async e => {
-						await this.typeWord({
-								word: e.content,
-								typeTime: e.typeTime
-						})
-						await sleep(pauseTime)
-				},async(err,data)=>{
-						cycle && await cycleType();
-				});
-		}
-		await cycleType();
+		mapLimit(text,1,async e => {
+			console.log(e)
+			await this.typeWord({
+				word: e.content,
+				typeTime: e.typeTime
+			})
+		});
 	}
 
 	typeWord = async e => {
-			const {
-					word,
-					typeTime
-			} = e;
-			new Promise((resolve,reject)=>{
-					mapLimit(word.split(''),1,async e => {
-							await sleep(typeTime)
-							await this.typeLetter({
-									letter: e,
-									typeTime
-							})
-							return e
-					})
-			})
+		const {
+			word,
+			typeTime
+		} = e;
+		const arrayWord =  word.split('');
+		for (let i = 0; i < arrayWord.length; i++) {
+			await this.typeLetter(i)
+		}
 	}
 
-	typeLetter = async e => {
-			const {
-					letter,
-					time
-			} = e;
-			console.log(letter)
+	typeLetter = e => {
+		new Promise(resolve => {
+			timer(1000)
+			console.log('typeLetter',e)
+		})
 	}
 
 

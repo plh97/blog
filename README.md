@@ -9,15 +9,15 @@
 ###### 本站托管于Github，所有数据来源于Github，通过动态加载数据渲染页面
 
 #### TODO
-- [ ] from ServiceWorker离线化应用 - 功能
-- [ ] Proxy代理 - 文章
+- [x] from ServiceWorker离线化应用 - 功能
+- [x] Proxy代理 - 文章
 - [ ] An Overview of Arrays and Memory - 文章
 - [ ] 代码片段Gist
 - [ ] serverless
 - [ ] 任意写一个Vscode插件
 - [ ] 参考[less-watch-compile](https://github.com/pawlh/less-watch-compile)+[postcss](https://github.com/postcss/postcss)写一个拥有自动转换less->css+[autoprefixer](https://github.com/postcss/autoprefixer) - 库
 - [x] [35条优化网站的建议](https://pipk.top/article/35%E6%9D%A1%E4%BC%98%E5%8C%96%E7%BD%91%E7%AB%99%E7%9A%84%E5%BB%BA%E8%AE%AE) - 文章 - 翻译
-- [ ] js中this的4种调用模式 - 文章
+- [x] js中this的4种调用模式 - 文章
 - [ ] 静态类型检查 - typescript
 - [x] Graphql - 拿github v4 接口的数据
 
