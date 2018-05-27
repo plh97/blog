@@ -30,13 +30,14 @@
 			display: inline-block;
 		}
 		h1 {
-			flex: 0 0 60%;
+			border: 0;
 			margin: 0;
 			padding: 0;
+			flex: 0 0 60%;
+			font-size: 50px;
 			display: inline-flex;
-			justify-content: center;
 			align-items: center;
-			border: 0;
+			justify-content: center;
 		}
 		.detail {
 			background-color: rgba(245, 245, 245, 0.23);
@@ -58,6 +59,10 @@
 			.detail-list {
 				display: inline-flex;
 				flex-direction: column;
+
+				.name, .bio {
+					font-size: 20px;
+				}
 			}
 		}
 	}
@@ -70,8 +75,5 @@
 		a {
 			margin-right: 0.3em;
 		}
-	}
-	.name, .bio {
-		font-size: 20px;
 	}
 }
