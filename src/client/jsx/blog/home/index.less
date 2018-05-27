@@ -11,69 +11,88 @@
 		width: 100vw;
 		padding: 24px;
 	}
-	.title {
-		margin-bottom: 1rem;
-		position: relative;
+	.title-contianer {
 		width: 100%;
-		height: 17rem;
-		background-image: url(https://static.pipk.top/chat/public/3165624214738918.png);
-		background-origin: border-box;
-		background-repeat: no-repeat;
-		background-size: cover;
-		border-radius: 0.5rem;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		background-position-y: bottom;
-
-		.inline {
-			display: inline-block;
-		}
-		h1 {
-			border: 0;
-			margin: 0;
-			padding: 0;
-			flex: 0 0 60%;
-			font-size: 50px;
-			display: inline-flex;
-			align-items: center;
-			justify-content: center;
-		}
-		.detail {
-			background-color: rgba(245, 245, 245, 0.23);
-			flex: 0 0 40%;
-			display: flex;
-			flex-direction: row;
-			padding: 1rem;
-			box-sizing: border-box;
+		overflow: auto;
+		.title {
+			min-width: 550px;
+			margin-bottom: 1rem;
+			position: relative;
 			width: 100%;
+			height: 17rem;
+			background-image: url(https://static.pipk.top/chat/public/3165624214738918.png);
+			background-origin: border-box;
+			background-repeat: no-repeat;
+			background-size: cover;
+			border-radius: 0.5rem;
+			display: flex;
+			flex-direction: column;
 			align-items: center;
-
-			img {
-				width: 4rem;
-				height: 4rem;
-				border-radius: 1rem;
-				margin-right: 1rem;
+			background-position-y: bottom;
+	
+			.inline {
+				display: inline-block;
 			}
-
-			.detail-list {
+			h1 {
+				border: 0;
+				margin: 0;
+				padding: 0;
+				flex: 0 0 60%;
+				font-size: 30px;
 				display: inline-flex;
-				flex-direction: column;
-
-				.name, .bio {
-					font-size: 20px;
+				align-items: center;
+				justify-content: center;
+			}
+			.detail {
+				background-color: rgba(245, 245, 245, 0.23);
+				flex: 0 0 40%;
+				display: flex;
+				flex-direction: row;
+				padding: 1rem;
+				box-sizing: border-box;
+				width: 100%;
+				align-items: center;
+	
+				img {
+					width: 4rem;
+					height: 4rem;
+					border-radius: 1rem;
+					margin-right: 1rem;
+				}
+	
+				.detail-list {
+					display: inline-flex;
+					flex-direction: column;
+	
+					.name, .bio {
+						font-size: 20px;
+					}
 				}
 			}
 		}
 	}
-	.markdown-body p {
-		margin: 0;
-		display: inline-flex;
-		flex-direction: row;
-		align-items: flex-start;
-		text-align: left;
-		a {
-			margin-right: 0.3em;
+	.markdown-body {
+		p:first-child {
+			display: inline-flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			a {
+				flex: 0 0 auto;
+			}
+			& > img {
+				flex: 0 0 90px;
+			}
 		}
+
+		p {
+		   margin: 0;
+		   display: inline-flex;
+		   flex-direction: row;
+		   align-items: flex-start;
+		   text-align: left;
+		   a {
+			   margin-right: 0.3em;
+		   }
+	   }
 	}
 }
