@@ -15,7 +15,8 @@
   "author": "pengliheng",
   "license": "MIT",
   "dependencies": {
-    "@pengliheng/github-report": "^1.5.6",
+    "@pengliheng/github-report": "^1.5.7",
+    "@pengliheng/utils": "^1.0.1",
     "async": "^2.6.1",
     "async.maplimit": "^0.5.2",
     "html-webpack-plugin": "^3.2.0",
@@ -26,10 +27,11 @@
     "koa-router": "^7.2.1",
     "koa-send": "^4.1.1",
     "koa-static": "^4.0.1",
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0",
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0",
     "react-loadable": "^5.3.1",
     "react-markdown": "^3.1.4",
+    "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2"
   },
   "devDependencies": {

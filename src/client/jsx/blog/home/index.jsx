@@ -1,88 +1,63 @@
+import 'babel-polyfill';
 import React from "react";
 import ReactMarkdown from "react-markdown";
 import {Provider,observer,inject} from "mobx-react"
+import { TypeWord } from "@pengliheng/utils";
+
 import styles from "./index.less";
 import Loading from "../../feature/Loading/index.jsx";
-import 'babel-polyfill';
-import mapLimit from "async.maplimit";
-
-const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
-const timer = ms  => setTimeout(()=>{}, ms);
-
-
 
 @inject("store")
 @observer
 export default class Home extends React.Component {
-
-	// componentDidMount(){
-		// console.log('componentDidMount')
-		// this.handleTextType({
-		// 	text: [
-		// 		{
-		// 			content:'新零售',
-		// 			typeTime:'130'
-		// 		}, {
-		// 			content:'儿童语言教育',
-		// 			typeTime:'100'
-		// 		},{
-		// 			content:'物联网锁',
-		// 			typeTime:'120'
-		// 		}
-		// 	],
-		// 	pauseTime: '3000',
-		// 	cycle:true
-		// })
-	// }
-
-
-	// handleTextType = async(e) => {
-	// 	const {
-	// 			text,
-	// 			pauseTime,
-	// 			cycle
-	// 	} = e;
-	// 	mapLimit(text,1,async e => {
-	// 		console.log(e)
-	// 		await this.typeWord({
-	// 			word: e.content,
-	// 			typeTime: e.typeTime
-	// 		})
-	// 	});
-	// }
-
-	// typeWord = async e => {
-	// 	const {
-	// 		word,
-	// 		typeTime
-	// 	} = e;
-	// 	const arrayWord =  word.split('');
-	// 	for (let i = 0; i < arrayWord.length; i++) {
-	// 		await this.typeLetter(i)
-	// 	}
-	// }
-
-	// typeLetter = e => {
-	// 	new Promise(resolve => {
-	// 		timer(1000)
-	// 		console.log('typeLetter',e)
-	// 	})
-	// }
-
-
-
-
-
+	constructor(props){
+		super(props);
+		this.state = {
+		  typeword: '内容生成中...'
+		};
+	}
+	componentDidUpdate(){
+		if(store.home && this.state.typeword === '内容生成中...'){
+			new TypeWord({
+				text: store.viewer.bio.match(/[^\.]+\./g).map(arr=>{
+					return {
+						content: arr,
+						typeTime:'60'
+					}
+				}),
+				pauseTime: 4000,
+				cycle: true,
+				typeFunc: (content)=> {
+					this.setState({
+						typeword: content
+					})
+				}
+			})
+		}
+	}
+	componentDidMount(){
+		if(store.home && this.state.typeword === '内容生成中...'){
+			new TypeWord({
+				text: store.viewer.bio.match(/[^\.]+\./g).map(arr=>{
+					return {
+						content: arr,
+						typeTime:'60'
+					}
+				}),
+				pauseTime: 4000,
+				cycle: true,
+				typeFunc: (content)=> {
+					this.setState({
+						typeword: content
+					})
+				}
+			})
+		}
+	}
 
 	render() {
-		const { 
-			match,
-			store
-		} = this.props;
-		const {
-			home,
-			viewer
-		} = store;
+		const { match } = this.props;
+		const { viewer, home } = store;
 		return home == '' ? <Loading/> : (
 			<div className="home">
 				<div className="title">
@@ -91,7 +66,7 @@ export default class Home extends React.Component {
 						<img src={viewer.avatarUrl}/>
 						<span className="detail-list">
 							<span className="name">本人名字：{viewer.name}</span>
-							<span className="bio">关于我：{viewer.bio}</span>
+							<span className="bio">关于我：{this.state.typeword}</span>
 						</span>
 					</div>
 				</div>
