@@ -8,8 +8,8 @@ import 'babel-polyfill';
 
 // local
 import './index.less';
-import ReactChart from './reactChart.jsx';
-import Loading from '../../feature/Loading/index.jsx';
+import ReactChart from './reactChart';
+import Loading from '../../feature/Loading/index';
 
 // TODO
 // 1.css modules
