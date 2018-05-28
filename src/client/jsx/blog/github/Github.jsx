@@ -47,6 +47,7 @@ export default class Github extends Component {
     const name = (match && match.params.name) || 'pengliheng';
     const res = (sessionStorage[name] && JSON.parse(sessionStorage[name])) || await this.getData({ name });
     sessionStorage.setItem(name, JSON.stringify(res));
+    console.log('componentDidMount');
     this.initGitRepo(res);
     setTimeout(() => {
       calendar(this.container, name);
@@ -67,6 +68,7 @@ export default class Github extends Component {
   }
 
   getData({ name }) {
+    console.log('getname');
     return new Promise((resolve, reject) => {
       axios({
         url: 'https://api.pipk.top/graphql',

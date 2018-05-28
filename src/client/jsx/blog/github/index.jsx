@@ -4,6 +4,7 @@ import React from 'react';
 // import '@pengliheng/github-report/lib/index.less';
 import Github from './Github';
 
+
 const GithubReport = props => (<Github {...props} />);
 
 export default GithubReport;
