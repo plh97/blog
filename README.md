@@ -8,6 +8,19 @@
 
 ###### 本站托管于Github，所有数据来源于Github，通过动态加载数据渲染页面
 
+### 作品
+- [x] [vue版本购物商城](https://work.pipk.top)（请在移动端下访问）
+- [x] [2048](https://work.pipk.top/2048)(vue写的)
+- [x] [酒瓶定制](https://work.pipk.top/canvas)(pc/移动兼容)
+- [x] [聊天室](https://chat.pipk.top)
+- [x] [个人博客](https://pipk.top)
+- [x] [github 数据生成报告](https://github.com/pengliheng/github-report)
+- [x] [某司官网](https://work.pipk.top/daocheng)(pc观看)
+- [x] [UI组件](https://github.com/pengliheng/component)
+- [x] [粒子时钟](https://work.pipk.top/clock)(pc端观看)
+- [x] [贪吃蛇小游戏](https://work.pipk.top/snake)(pc端观看)
+
+
 #### TODO
 - [x] from ServiceWorker离线化应用 - 功能
 - [x] Proxy代理 - 文章
