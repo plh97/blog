@@ -53,32 +53,36 @@ Hello everyone, my name is Joy and now i'm going to introducte myself. i was bor
 
 
 ### 看过的书
-- [X] 网络是怎样连接的 - [笔记](https://github.com/pengliheng/pengliheng.github.io/issues/40) - [豆瓣](https://book.douban.com/subject/26941639/)
+- [X] [网络是怎样连接的](https://book.douban.com/subject/26941639/) - [笔记](https://github.com/pengliheng/pengliheng.github.io/issues/40)
 
 ![](https://static.pipk.top/api/public/images/6075462533216409.png)
 
 
-- [X] HTTP权威指南 - [笔记一](https://github.com/pengliheng/pengliheng.github.io/issues/45) - [笔记二](https://github.com/pengliheng/pengliheng.github.io/issues/52) - [豆瓣](https://book.douban.com/subject/10746113/)
+- [X] [HTTP权威指南](https://book.douban.com/subject/10746113/) - [笔记一](https://github.com/pengliheng/pengliheng.github.io/issues/45) - [笔记二](https://github.com/pengliheng/pengliheng.github.io/issues/52)
 
 ![](https://static.pipk.top/api/public/images/2376380500856452.png)
 
 
-- [X] JavaScript 面向对象精要 - [笔记一](https://github.com/pengliheng/pengliheng.github.io/issues/29) - [笔记二](https://github.com/pengliheng/pengliheng.github.io/issues/31) - [豆瓣](https://book.douban.com/subject/26352658/)
+- [X] [JavaScript 面向对象精要](https://book.douban.com/subject/26352658/) - [笔记一](https://github.com/pengliheng/pengliheng.github.io/issues/29) - [笔记二](https://github.com/pengliheng/pengliheng.github.io/issues/31)
 
 ![](https://static.pipk.top/api/public/images/7833702919612766.png)
 
 
-- [X] 现代前端技术解析 - [笔记一](https://github.com/pengliheng/pengliheng.github.io/issues/28) - [笔记二](https://github.com/pengliheng/pengliheng.github.io/issues/58) - [豆瓣](https://book.douban.com/subject/27021790/)
+- [X] [现代前端技术解析](https://book.douban.com/subject/27021790/) - [笔记一](https://github.com/pengliheng/pengliheng.github.io/issues/28) - [笔记二](https://github.com/pengliheng/pengliheng.github.io/issues/58)
 
-- [X] 深入理解ES6 - [笔记一](https://github.com/pengliheng/pengliheng.github.io/issues/32) - [笔记二](https://github.com/pengliheng/pengliheng.github.io/issues/51) - [豆瓣](https://book.douban.com/subject/27072230/)
+- [X] [深入理解ES6](https://book.douban.com/subject/27072230/) - [笔记一](https://github.com/pengliheng/pengliheng.github.io/issues/32) - [笔记二](https://github.com/pengliheng/pengliheng.github.io/issues/51)
 
-- [X] ES6标准入门 - [笔记一](https://github.com/pengliheng/pengliheng.github.io/issues/23) - [笔记二](https://github.com/pengliheng/pengliheng.github.io/issues/26) - [豆瓣](https://book.douban.com/subject/26708954/)
 
-- [X] 高性能的JavaScript - [笔记](https://github.com/pengliheng/pengliheng.github.io/issues/15) - [豆瓣](https://book.douban.com/subject/5362856/)
+- [X] [ES6标准入门](https://book.douban.com/subject/26708954/) - [笔记一](https://github.com/pengliheng/pengliheng.github.io/issues/23) - [笔记二](https://github.com/pengliheng/pengliheng.github.io/issues/26)
 
-- [X] JavaScript语言精粹 - [笔记](https://github.com/pengliheng/pengliheng.github.io/issues/10) - [豆瓣](https://book.douban.com/subject/3590768/)
 
-- [X] 数据结构与算法JavaScript描述 - [笔记](https://github.com/pengliheng/pengliheng.github.io/issues/6) - [豆瓣](https://book.douban.com/subject/25945449/)
+
+- [X] [高性能的JavaScript](https://book.douban.com/subject/5362856/) - [笔记](https://github.com/pengliheng/pengliheng.github.io/issues/15)
+
+
+- [X] [JavaScript语言精粹](https://book.douban.com/subject/3590768/) - [笔记](https://github.com/pengliheng/pengliheng.github.io/issues/10)
+
+- [X] [数据结构与算法JavaScript描述](https://book.douban.com/subject/25945449/) - [笔记](https://github.com/pengliheng/pengliheng.github.io/issues/6)
 
 
 <!-- ### 贡献代码
