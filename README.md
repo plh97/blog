@@ -54,14 +54,17 @@ Hello everyone, my name is Joy and now i'm going to introducte myself. i was bor
 
 ### 看过的书
 - [X] 网络是怎样连接的 - [笔记](https://github.com/pengliheng/pengliheng.github.io/issues/40) - [豆瓣](https://book.douban.com/subject/26941639/)
+
 ![](https://static.pipk.top/api/public/images/6075462533216409.png)
 
 
 - [X] HTTP权威指南 - [笔记一](https://github.com/pengliheng/pengliheng.github.io/issues/45) - [笔记二](https://github.com/pengliheng/pengliheng.github.io/issues/52) - [豆瓣](https://book.douban.com/subject/10746113/)
+
 ![](https://static.pipk.top/api/public/images/2376380500856452.png)
 
 
 - [X] JavaScript 面向对象精要 - [笔记一](https://github.com/pengliheng/pengliheng.github.io/issues/29) - [笔记二](https://github.com/pengliheng/pengliheng.github.io/issues/31) - [豆瓣](https://book.douban.com/subject/26352658/)
+
 ![](https://static.pipk.top/api/public/images/7833702919612766.png)
 
 
