@@ -13,35 +13,6 @@ Hello everyone, my name is Joy and now i'm going to introducte myself. i was bor
 , major in civil Engineering, but now i am an web developer. my recently aims is join in tencent. best wish to me. thank u!
 
 
-
-<!-- ### TODO
-- [ ] An Overview of Arrays and Memory - 文章
-- [ ] 代码片段Gist
-- [ ] serverless
-- [ ] 任意写一个Vscode插件
-- [ ] 参考[less-watch-compile](https://github.com/pawlh/less-watch-compile)+[postcss](https://github.com/postcss/postcss)写一个拥有自动转换less->css+[autoprefixer](https://github.com/postcss/autoprefixer) - 库
-- [ ] 静态类型检查 - typescript -->
-
-
-<!-- ### 发展方向
-- Graphql API
-- React + next.js 从服务器端渲染页面
-- Github Issue Page - server less
-- GoLang 搭建后端
-- ~~Vue搭建前端页面~~
-- 代码片段Gist
-- 分析Github相关数据 -->
-
-
-<!-- ### 特性
-- [x] 博客
-- [x] 仓库集合
-- [x] 计划任务TODO
-- [x] 响应式
-- [x] 数据持久化
-- [x] 按需加载
-- [ ] 静态类型检查 -->
-
 ### 我的技术栈
 - JavaScript(React Vue)
 - Nodejs(koa)
@@ -83,15 +54,3 @@ Hello everyone, my name is Joy and now i'm going to introducte myself. i was bor
 - [X] [JavaScript语言精粹](https://book.douban.com/subject/3590768/) - [笔记](https://github.com/pengliheng/pengliheng.github.io/issues/10)
 
 - [X] [数据结构与算法JavaScript描述](https://book.douban.com/subject/25945449/) - [笔记](https://github.com/pengliheng/pengliheng.github.io/issues/6)
-
-
-<!-- ### 贡献代码
-
-```bash
-git clone https://github.com/pengliheng/pengliheng.github.io.git
-cd ./blog
-yarn            # 安装依赖
-yarn run w      # 监听10086端口
-yarn run nodemon      # 监听10086端口
-```
-**Welcome PR 😀** -->
