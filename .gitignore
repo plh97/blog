@@ -3,3 +3,4 @@ stats.json
 yarn.lock
 yanr-error.log
 .cache/
+project.js
