@@ -11,7 +11,18 @@ import {
 
 
 class HomePage extends Component {
- 
+  componentDidMount() {
+    console.log('componentDidMount');
+    fetch("https://api.pipk.top/graphql", {
+      data: `
+        query { 
+          viewer { 
+            login
+          }
+        }
+      `
+    });
+  }
   render() {
     return (
       <div className="HomePage-container">

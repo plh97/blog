@@ -11,11 +11,6 @@ import {
 
 
 class AgentPage extends Component {
-  componentDidMount(){
-    console.log('componentDidMount');
-    
-    
-  }
   render() {
     return (
       <div onClick={this.globalPageEventProxy} className="ArticlePage-container">
