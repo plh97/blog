@@ -1,0 +1,11 @@
+.Agentpage-container {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
+  .Agentpage-item {
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+  }
+}

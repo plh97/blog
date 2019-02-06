@@ -1,0 +1,47 @@
+@import '../ASSETS/font\ icons/fonts.css';
+// --var
+:root {
+  --blue1: #00B4CF;
+  --blue2: #01869A;
+
+  --yellow: #FF9A2A;
+
+  --green: #7FBC39;
+
+  
+  --grey1: #F3F3F3;
+  --grey2: #EFEFEF;
+  --grey3: #E1E4E6;
+
+
+  --grey8: #435466;
+  --grey9: #2D4054;
+}
+
+
+
+body {
+  background: var(--grey1);
+  margin: 0;
+  padding: 0;
+  font-family: Avenir, Helvetica, Arial, sans-serif, cruise;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+.icon-meduim {
+  font-size: 20px;
+}
+.icon-small {
+  font-size: 16px;
+}
+
+.icon {
+  color: var(--grey9);
+}
+
+a:hover, a:visited, a:link, a:active {
+  color: #fff;
+  text-decoration: none;
+}
