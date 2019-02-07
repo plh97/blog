@@ -12,8 +12,12 @@ import {
 
 class HomePage extends Component {
   componentDidMount() {
-    console.log('componentDidMount');
+    console.log('componentDidMount',process);
     fetch("https://api.pipk.top/graphql", {
+      headers: {
+        Authorization: `bearer ${process.env.access_token}`,
+        'Content-Type': 'application/json',
+      },
       data: `
         query { 
           viewer { 
