@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './index.scss';
 
 // import Header from '../Header';
-import Sider from '../Sider';
+import Side from '../Side';
 import Footer from '../Footer';
 
 export default class Layout extends Component {
@@ -12,7 +12,7 @@ export default class Layout extends Component {
       <div className="Layout__container">
         {/* <Header /> */}
         <div className="Layout__content">
-          <Sider />
+          <Side />
           {children}
         </div>
         <Footer />

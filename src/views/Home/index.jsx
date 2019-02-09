@@ -8,23 +8,20 @@ import {
   AddAgent,
 } from '../../actions/index';
 // import { catchDom } from '../../utils';
-
+import axios from 'axios'
 
 class HomePage extends Component {
   componentDidMount() {
-    console.log('componentDidMount',process);
-    fetch("https://api.pipk.top/graphql", {
-      headers: {
-        Authorization: `bearer ${process.env.access_token}`,
-        'Content-Type': 'application/json',
-      },
-      data: `
-        query { 
-          viewer { 
-            login
+    axios({
+      url: "http://localhost:3001/graphql", 
+      method: "post",
+      data: {
+        css: `
+          body:{
+            color: red;
           }
-        }
-      `
+        `
+      }
     });
   }
   render() {
