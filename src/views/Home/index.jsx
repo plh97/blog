@@ -11,22 +11,66 @@ import {
 import axios from 'axios'
 
 class HomePage extends Component {
+  constructor(){
+    super()
+    this.state={
+      viewer: '',
+
+    }
+  }
   componentDidMount() {
-    // axios({
-    //   // url: 'http://localhost:3001/graphql',
-    //   url: 'https://api.pipk.top/graphql',
-    //   method: 'post',
-    //   data: {
-    //     query: `{
-    //         viewer {
-    //           name avatarUrl login bio url createdAt isHireable
-    //         }
-    //       }`,
-    //   },
-    // }).then((res) => {
-    //   console.log(res.data);
-    //   sessionStorage.setItem('_blog_', JSON.stringify(res.data));
-    // });
+
+    axios({
+      // url: 'http://localhost:3002/graphql',
+      url: 'https://api.pipk.top/graphql',
+      method: 'post',
+      data: {
+        query: `{
+            viewer {
+              name avatarUrl login bio url createdAt isHireable
+            }
+            repositoryOwner(login: "pengliheng") {
+              repository(name: "pengliheng.github.io") {
+                issues(first: 100, states:OPEN) {
+                  edges {
+                    node {
+                      updatedAt createdAt body title
+                      author {
+                        avatarUrl login
+                      }
+                      labels(first: 5) {
+                        nodes {
+                          name color
+                        }
+                      }
+                    }
+                  }
+                }
+                object(expression: "master:README.md") {
+                  ... on Blob {
+                    text
+                  }
+                }
+              }
+            }
+          }`,
+      },
+    }).then((res) => {
+      if (String(res.data.code) === '401') {
+        console.log(res.data.msg)
+        return;
+      }
+      sessionStorage.setItem('_blog_', JSON.stringify(res.data));
+      this.setState({
+        viewer: res.data.data.viewer,
+        home: res.data.data.repositoryOwner.repository.object.text,
+        article: res.data.data.repositoryOwner.repository.issues.edges,
+      })
+      // this.viewer = res.data.data.viewer;
+      // this.home = res.data.data.repositoryOwner.repository.object.text;
+      // this.article = res.data.data.repositoryOwner.repository.issues.edges;
+      // Prismjs.highlightAll();
+    });
   }
   uploadFile = e => {
     console.log(e.target.files);
