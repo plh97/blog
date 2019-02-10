@@ -5,7 +5,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "less": "^3.9.0",
-    "react": "^16.7.0",
+    "react": "^16.8.1",
     "react-dom": "^16.7.0",
     "react-redux": "^6.0.0",
     "react-router-dom": "^4.3.1",

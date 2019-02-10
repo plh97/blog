@@ -4,7 +4,6 @@ node_js:
 cache:
 - yarn
 before_script:
-- npm install -g yarn
-- yarn
+- npm install
 script:
-- yarn run p
+- node run p
