@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ReactMarkdown from "react-markdown";
+import PrismJs from 'prismjs';
 import './index.scss';
+
 // import {
 //   SetFilterMode,
 //   FetchNewsTitle,
@@ -73,7 +75,7 @@ class HomePage extends Component {
       // this.viewer = res.data.data.viewer;
       // this.home = res.data.data.repositoryOwner.repository.object.text;
       // this.article = res.data.data.repositoryOwner.repository.issues.edges;
-      Prismjs.highlightAll();
+      PrismJs.highlightAll();
     });
   }
   // uploadFile = e => {
@@ -110,7 +112,7 @@ class HomePage extends Component {
           <div className="HomePage-container">
             <h1 className="HomePage-title">博客主页</h1>
             <div className="HomePage-detail">
-              <img alt="background" src={viewer.avatarUrl} />
+              <img alt="avatar" src={viewer.avatarUrl} />
               <span className="HomePage-detail__list">
                 <span className="HomePage-detail__name">名字：{viewer.name}</span>
                 <span className="HomePage-detail__bio">关于我：{typeWord}</span>
