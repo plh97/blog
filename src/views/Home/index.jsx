@@ -73,7 +73,7 @@ class HomePage extends Component {
       // this.viewer = res.data.data.viewer;
       // this.home = res.data.data.repositoryOwner.repository.object.text;
       // this.article = res.data.data.repositoryOwner.repository.issues.edges;
-      // Prismjs.highlightAll();
+      Prismjs.highlightAll();
     });
   }
   // uploadFile = e => {
@@ -106,19 +106,19 @@ class HomePage extends Component {
     const {home,viewer,typeWord} = this.state;
     return (
       <div className="HomePage">
-        <div className="HomePage-title">
-          <div className="HomePage-title-content">
-            <h1>博客主页</h1>
-            <div className="HomePage-title">
+        <div className="HomePage-background">
+          <div className="HomePage-container">
+            <h1 className="HomePage-title">博客主页</h1>
+            <div className="HomePage-detail">
               <img alt="background" src={viewer.avatarUrl} />
-              <span className="detail-list">
-                <span className="name">本人名字：{viewer.name}</span>
-                <span className="bio">关于我：{typeWord}</span>
+              <span className="HomePage-detail__list">
+                <span className="HomePage-detail__name">名字：{viewer.name}</span>
+                <span className="HomePage-detail__bio">关于我：{typeWord}</span>
               </span>
             </div>
           </div>
         </div>
-        <ReactMarkdown className="markdown-body" source={home} />
+        <ReactMarkdown className="HomePage-markdown__body" source={home} />
       </div>
 
 
