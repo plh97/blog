@@ -7,6 +7,8 @@
   align-items: center;
   justify-content: center;
   font-size: 12px;
+  // box-shadow: var(--box-shadow-base);
+  z-index: 1;
 
   span {
     margin-right: 2px;

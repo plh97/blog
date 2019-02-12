@@ -8,12 +8,16 @@ import { createLogger } from 'redux-logger'
 import thunk from 'redux-thunk';
 import promise from 'redux-promise-middleware'
 import todoApp from '../reducers';
+import createSagaMiddleware from 'redux-saga'
+const sagaMiddleware = createSagaMiddleware()
+
 
 const logger = createLogger();
 
 export default createStore(
   todoApp,
   applyMiddleware(
+    sagaMiddleware,
     promise(),
     thunk,
     logger

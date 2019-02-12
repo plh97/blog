@@ -5,7 +5,7 @@ export const catchDom = ({dom,className}) => {
     if(dom === document.body){
         // 最多冒泡到body
         return false;
-    }else if (dom.classList.contains(className)) {
+    } else if (dom.classList.contains(className)) {
         // 如果符合条件，返回这次冒泡捕获到的元素
         return dom;
     } else {

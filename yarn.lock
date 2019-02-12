@@ -10523,6 +10523,11 @@ vm-browserify@0.0.4:
   dependencies:
     indexof "0.0.1"
 
+vue@^2.6.4:
+  version "2.6.4"
+  resolved "https://registry.yarnpkg.com/vue/-/vue-2.6.4.tgz#8a5a44e5740d8b8423a420c8655c97663421fb4d"
+  integrity sha512-PbR3FWMgCGjRxRjtWURhcTTBSrA/WHvz9g7v6eCcA0GQQZ0a2W6VrbdP0FKxRU62N9iQSHi3+VYLPfZA8W8m+Q==
+
 w3c-hr-time@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/w3c-hr-time/-/w3c-hr-time-1.0.1.tgz#82ac2bff63d950ea9e3189a58a65625fedf19045"

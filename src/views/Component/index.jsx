@@ -1,59 +1,58 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+// package
+import React, { useState, useEffect } from 'react';
+import ReactMarkdown from "react-markdown";
+// local
+import AxiosOrLocal from "../../utils/axiosOrLocal";
+import Viewer from '../../components/Viewer';
 import './index.scss';
-import {
-  SetFilterMode,
-  FetchNewsTitle,
-  ToggleDialog,
-  AddAgent,
-} from '../../actions/index';
-// import { catchDom } from '../../utils';
-
-
-class HomePage extends Component {
- 
-  render() {
-    return (
-      <div className="ComponentPage-container">
-        组件列表
+// code
+export default function (props) {
+  const [viewer, setViewer] = useState("");
+  const [article, setArticle] = useState("");
+  const keyWord = decodeURI(props.location.hash).replace(/^#/, '')
+  useEffect(() => {
+    (async () => {
+      const result = await new AxiosOrLocal({
+        key: `_${keyWord}_`,
+        url: 'https://api.pipk.top/graphql',
+        method: 'post',
+        data: {
+          query: `{
+            viewer {
+              name avatarUrl login bio url createdAt isHireable
+            }
+            repositoryOwner(login: "pengliheng") {
+              repositories(last:100,isFork:false,orderBy) {
+                edges {
+                  node {
+                    sshUrl
+                    description
+                    homepageUrl
+                    nameWithOwner
+                    isFork
+                  }
+                }
+              }
+            }
+          }`
+        }
+      });
+      setViewer(result.data.data.viewer)
+      if (result.data.data.search.edges.length > 0) {
+        setArticle(result.data.data.search.edges[0].node);
+      } else {
+        console.log('文章不存在');
+      }
+    })()
+  }, keyWord);
+  return (
+    <div className="ComponentPage">
+      <Viewer data={viewer} />
+      <div className="ComponentPage__content">
+        <ReactMarkdown className="markdown-body" source={article.body} />
       </div>
-    );
-  }
+    </div>
+  );
 };
 
 
-
-
-
-function mapDispatchToProps(
-  dispatch,
-  ownProps
-) {
-  return {
-    setFilterMode: (mode) => {
-      dispatch(
-        SetFilterMode(mode.toLowerCase())
-      )
-    },
-    fetchNewsTitle: () => {
-      dispatch(
-        FetchNewsTitle()
-      )
-    },
-    toggleDialog: (arg) => {
-      dispatch(ToggleDialog(arg))
-    },
-    addAgent: (arg) => {
-      dispatch(AddAgent(arg))
-    },
-  }
-}
-
-const mapStateToProps = state => state;
-
-const VisibleTodoList = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(HomePage);
-
-export default VisibleTodoList;

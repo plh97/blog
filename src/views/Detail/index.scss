@@ -1,4 +1,4 @@
-.HomePage {
+.DetailPage {
   overflow-y: auto;
   max-width: 980px;
   width: calc(100vw - 50px);
@@ -8,11 +8,11 @@
   flex: 1;
   box-sizing: border-box;
 
-  .HomePage-background {
+  .DetailPage__background {
     width: 100%;
     overflow: auto;
 
-    .HomePage-container {
+    .DetailPage__container {
       min-width: 550px;
       margin-bottom: 1rem;
       position: relative;
@@ -29,36 +29,30 @@
       justify-content: space-between;
       background-position-y: bottom;
 
-      .HomePage-detail {
-        border: 0;
-        margin: 0;
-        padding: 0;
-        flex: 0 0 60%;
-        font-size: 30px;
-        display: inline-flex;
-        align-items: center;
+      .DetailPage__detail {
         background-color: rgba(245, 245, 245, 0.23);
-        flex: 0 0 100px;
+        flex: 0 0 40%;
         display: flex;
         flex-direction: row;
         padding: 1rem;
         box-sizing: border-box;
         width: 100%;
-        // align-items: center;
+        align-items: center;
 
+        
         img {
           width: 4rem;
           height: 4rem;
-          border-radius: 1rem;
+          border-radius: 0.3rem;
           margin-right: 1rem;
         }
 
-        .HomePage-detail__list {
+        .DetailPage__detail-list {
           display: inline-flex;
           flex-direction: column;
 
-          .HomePage-detail__name,
-          .HomePage-detail__bio {
+          .DetailPage__detail-name,
+          .DetailPage__detail-bio {
             font-size: 20px;
           }
         }
@@ -66,31 +60,10 @@
     }
   }
 
-  .HomePage-markdown__body {
-    p:first-child {
-      display: inline-flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-
-      a {
-        flex: 0 0 auto;
-      }
-
-      &>img {
-        flex: 0 0 90px;
-      }
-    }
-
-    p {
-      margin: 0;
-      display: inline-flex;
-      flex-direction: row;
-      align-items: flex-start;
-      text-align: left;
-
-      a {
-        margin-right: 0.3em;
-      }
-    }
+  .DetailPage__content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
   }
 }
