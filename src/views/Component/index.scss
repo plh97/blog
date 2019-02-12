@@ -85,11 +85,21 @@
         }
       }
       
+      .ComponentPage__item--right {
+        flex: 0 0 auto;
+        display: inline-flex;
+        flex-direction: column;
 
-      .ComponentPage__detail--right {
-        background: red;
+        .ComponentPage__item-update {
+          font-size: 12px;
+        }
+        .ComponentPage__item-link {
+          text-align: right;
+          a + a{
+            margin-left: 10px;
+          }
+        }
       }
-
     }
   }
 }
