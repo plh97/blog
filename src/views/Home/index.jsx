@@ -1,10 +1,10 @@
 // package
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import ReactMarkdown from "react-markdown";
 // local
 import './index.scss';
 import AxiosOrLocal from "../../utils/axiosOrLocal"
+import Viewer from '../../components/Viewer';
 // code
 export default class HomePage extends Component {
   constructor(){
@@ -14,7 +14,6 @@ export default class HomePage extends Component {
         avatarUrl:''
       },
       home:'',
-      typeWord:'',
     }
   }
   componentDidMount() {
@@ -50,21 +49,10 @@ export default class HomePage extends Component {
     });
   }
   render() {
-    const {home,viewer,typeWord} = this.state;
+    const {home,viewer} = this.state;
     return (
       <div className="HomePage">
-        <div className="HomePage-background">
-          <div className="HomePage-container">
-            <h1 className="HomePage-title">博客主页</h1>
-            <div className="HomePage-detail">
-              <img alt="avatar" src={viewer.avatarUrl} />
-              <span className="HomePage-detail__list">
-                <span className="HomePage-detail__name">{viewer.name}</span>
-                <span className="HomePage-detail__bio">__{typeWord}</span>
-              </span>
-            </div>
-          </div>
-        </div>
+        <Viewer title="主页" data={viewer}/>
         <ReactMarkdown className="markdown-body HomePage-markdown__body" source={home} />
       </div>
     );

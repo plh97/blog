@@ -1,35 +1,46 @@
 // package
-import React, { useState, useEffect } from 'react';
-import ReactMarkdown from "react-markdown";
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 // local
 import AxiosOrLocal from "../../utils/axiosOrLocal";
-import Viewer from '../../components/Viewer';
-import './index.scss';
+import Viewer from "../../components/Viewer";
+import "./index.scss";
 // code
-export default function (props) {
+export default function() {
   const [viewer, setViewer] = useState("");
-  const [article, setArticle] = useState("");
-  const keyWord = decodeURI(props.location.hash).replace(/^#/, '')
+  const [components, setComponents] = useState([]);
+  const keyWord = "component";
   useEffect(() => {
     (async () => {
       const result = await new AxiosOrLocal({
         key: `_${keyWord}_`,
-        url: 'https://api.pipk.top/graphql',
-        method: 'post',
+        url: "https://api.pipk.top/graphql",
+        method: "post",
         data: {
           query: `{
             viewer {
               name avatarUrl login bio url createdAt isHireable
             }
             repositoryOwner(login: "pengliheng") {
-              repositories(last:100,isFork:false,orderBy) {
+              repositories(last: 15,isFork:false,orderBy:{field:UPDATED_AT,direction:ASC}) {
                 edges {
                   node {
-                    sshUrl
                     description
                     homepageUrl
                     nameWithOwner
-                    isFork
+                    updatedAt
+                    forkCount
+                    primaryLanguage {
+                      name
+                      color
+                    }
+                    stargazers {
+                      totalCount
+                    }
+                    owner {
+                      avatarUrl
+                      login
+                    }
                   }
                 }
               }
@@ -37,22 +48,89 @@ export default function (props) {
           }`
         }
       });
-      setViewer(result.data.data.viewer)
-      if (result.data.data.search.edges.length > 0) {
-        setArticle(result.data.data.search.edges[0].node);
-      } else {
-        console.log('文章不存在');
-      }
-    })()
+      setViewer(result.data.data.viewer);
+      setComponents(
+        result.data.data.repositoryOwner.repositories.edges.map(e => {
+          const newE = e;
+          newE.node.updatedAt = (()=>{
+            let res = (new Date() - new Date(e.node.updatedAt)) / (60 * 1000)
+            return res.toFixed(0);
+          })();
+          return newE;
+        })
+      );
+    })();
   }, keyWord);
   return (
     <div className="ComponentPage">
-      <Viewer data={viewer} />
+      <Viewer title="前端组件" data={viewer} />
       <div className="ComponentPage__content">
-        <ReactMarkdown className="markdown-body" source={article.body} />
+        {Array.prototype.slice
+          .call(components)
+          .reverse()
+          .map((e, i) => (
+            <div className="ComponentPage__item" key={i}>
+
+
+              <div className="ComponentPage__item--left">
+                <Link
+                  to={`/detail#${e.node.nameWithOwner}`}
+                  className="ComponentPage__name"
+                >
+                  {e.node.nameWithOwner}
+                </Link>
+                <div className="ComponentPage__description">
+                  {e.node.description}
+                </div>
+                <div className="ComponentPage__detail">
+                  <span
+                    className="ComponentPage__detail-language--color"
+                    style={{
+                      background: `${e.node.primaryLanguage &&
+                        e.node.primaryLanguage.color}`
+                    }}
+                  />
+                  <span className="ComponentPage__detail-language--content">
+                    {e.node.primaryLanguage && e.node.primaryLanguage.name}
+                  </span>
+
+                  <span className="ComponentPage__detail-stargazers">
+                    <svg
+                      aria-label="stars"
+                      viewBox="0 0 14 16"
+                      version="1.1"
+                      width="14"
+                      height="16"
+                      role="img"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74L14 6z"
+                      />
+                    </svg>
+                    <span className="ComponentPage__detail-stargazers--text">
+                      {e.node.stargazers && e.node.stargazers.totalCount}
+                    </span>
+                  </span>
+
+                  <span className="ComponentPage__detail-stargazers">
+                    <svg aria-label="forks" className="octicon octicon-repo-forked" viewBox="0 0 10 16" version="1.1" width="10" height="16" role="img">
+                      <path fillRule="evenodd" d="M8 1a1.993 1.993 0 0 0-1 3.72V6L5 8 3 6V4.72A1.993 1.993 0 0 0 2 1a1.993 1.993 0 0 0-1 3.72V6.5l3 3v1.78A1.993 1.993 0 0 0 5 15a1.993 1.993 0 0 0 1-3.72V9.5l3-3V4.72A1.993 1.993 0 0 0 8 1zM2 4.2C1.34 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zm3 10c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zm3-10c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2z"></path>
+                    </svg>
+                    <span className="ComponentPage__detail-stargazers--text">
+                      {e.node.forkCount}
+                    </span>
+                  </span>
+                </div>
+              </div>
+
+              <div className="ComponentPage__item--right">
+                {e.node.updatedAt}
+              </div>
+
+            </div>
+          ))}
       </div>
     </div>
   );
-};
-
-
+}

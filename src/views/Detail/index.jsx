@@ -1,10 +1,10 @@
 // package
 import React, { useState,useEffect } from 'react';
 import ReactMarkdown from "react-markdown";
-import "prismjs"
 // local
 import './index.scss';
 import AxiosOrLocal from "../../utils/axiosOrLocal"
+import Viewer from '../../components/Viewer';
 // code
 export default function (props) {
   const [viewer, setViewer] = useState("");
@@ -47,18 +47,7 @@ export default function (props) {
   },keyWord);
   return (
     <div className="DetailPage">
-      <div className="DetailPage__background">
-        <div className="DetailPage__container">
-          <h1 className="DetailPage__title">{article.title}</h1>
-          <div className="DetailPage__detail">
-            <img alt="avatar" src={viewer.avatarUrl} />
-            <span className="DetailPage__detail-list">
-              <span className="DetailPage__detail-name">{viewer.name}</span>
-              {/* <span className="DetailPage__detail-bio">__{typeWord}</span> */}
-            </span>
-          </div>
-        </div>
-      </div>
+      <Viewer title="文章详情" data={viewer}/>
       <div className="DetailPage__content">
         <ReactMarkdown className="markdown-body" source={article.body} />
       </div>

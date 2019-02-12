@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 // local
 import './index.scss';
 import AxiosOrLocal from "../../utils/axiosOrLocal"
+import Viewer from '../../components/Viewer';
 // code
 export default class ArticlePage extends Component {
   constructor() {
@@ -58,21 +59,10 @@ export default class ArticlePage extends Component {
     });
   }
   render() {
-    const { viewer, article,typeWord } = this.state;
+    const { viewer, article } = this.state;
     return (
       <div className="ArticlePage">
-        <div className="ArticlePage__background">
-          <div className="ArticlePage__container">
-            <h1 className="ArticlePage__title">文章列表</h1>
-            <div className="ArticlePage__detail">
-              <img alt="avatar" src={viewer.avatarUrl} />
-              <span className="ArticlePage__detail-list">
-                <span className="ArticlePage__detail-name">{viewer.name}</span>
-                <span className="ArticlePage__detail-bio">__{typeWord}</span>
-              </span>
-            </div>
-          </div>
-        </div>
+        <Viewer title="文章列表" data={viewer}/>
         <div className="ArticlePage__content">
           {Array.prototype.slice.call(article).reverse().map((e,i)=>(
             <Link to={{
