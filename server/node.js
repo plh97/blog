@@ -2,13 +2,14 @@ const http = require('http');
 const fs = require('fs');
 const mine =  require("./mine.json");
 
-const server = http.createServer((req, res) => {
-  console.log(req.url);
-  if (req.url === "/") {
+// 静态资源加载模块
+http.createServer((req, res) => {
+  const fileType = req.url.match(/(?<=\.)\w+$/g);
+  if (!fileType) {
     res.setHeader('Content-Type', 'text/html; charset=UTF-8');
-    res.end(fs.readFileSync('/root/app/dist/index.html','utf-8'))
+    res.end(fs.readFileSync('/root/app/build/index.html','utf-8'))
   } else {
-    fs.readFile(`/root/app/dist${req.url}`, 'utf-8',(err,data)=>{
+    fs.readFile(`/root/app/build${req.url}`, (err, data) => {
       if(err) {
         res.setHeader('Content-Type', 'text/plain; charset=UTF-8');
         res.end({
@@ -16,16 +17,9 @@ const server = http.createServer((req, res) => {
           message: 'error'
         })
       } else {
-        const fileType = req.url.match(/(?<=\.)\w+$/)[0];
-        console.log(fileType);
-        console.log(mine);
-        res.setHeader('Content-Type', `${mine[fileType]}; charset=UTF-8`);
+        mine[fileType]  && res.setHeader('Content-Type', `${mine[fileType]}`);
         res.end(data);
-        // console.log(data);
       }
     })
   }
-
-});
-
-server.listen("80")
+}).listen("80")
