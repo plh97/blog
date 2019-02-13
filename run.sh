@@ -1,6 +1,5 @@
 docker run \
--d \
---rm -it \
+-it \
 --name blog \
 -v $(pwd):/root/app \
 -p 8001:80 \
