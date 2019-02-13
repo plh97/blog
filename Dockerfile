@@ -1,7 +1,7 @@
 FROM node
 
 
-# COPY . /root/app
+COPY . /root/app
 
 RUN npm install nodemon -g
 

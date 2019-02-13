@@ -1,7 +1,6 @@
 docker run \
--it \
 --name blog \
--v $(pwd):/root/app \
+# -v $(pwd):/root/app \
 -p 8001:80 \
 -w /root/app \
-blog:latest nodemon ./server/node.js
+blog:latest node ./server/node.js
