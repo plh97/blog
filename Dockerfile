@@ -1,8 +1,12 @@
-FROM node
+FROM golang
+
 
 
 COPY . /root/app
 
-RUN npm install nodemon -g
+RUN yarn global add serve
 
 # CMD [ "nodemomn" "/root/app/server/node.js" ]
+
+
+# serve -s build

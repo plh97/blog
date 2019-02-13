@@ -1,6 +1,5 @@
 docker run \
 --name blog \
-# -v $(pwd):/root/app \
--p 8001:80 \
+-p 8001:5000 \
 -w /root/app \
-blog:latest node ./server/node.js
+blog:latest serve -s build
