@@ -152,7 +152,7 @@ export default function() {
 
                 <span className="RepositoryPage-link">
                   {e.node.url&&(
-                    <a className="RepositoryPage-link__item" target="_blank" href={e.node.url}>
+                    <a className="RepositoryPage-link__item" rel="noopener noreferrer" target="_blank" href={e.node.url}>
                       <svg width="16" height="16" viewBox="0 0 16 16" version="1.1" aria-hidden="true">
                         <path
                           fillRule="evenodd"
@@ -162,7 +162,7 @@ export default function() {
                     </a>
                   )}
                   {e.node.homepageUrl && (
-                    <a target="_blank" href={e.node.homepageUrl}><span role="img">🌐</span></a>
+                    <a target="_blank" rel="noopener noreferrer" href={e.node.homepageUrl}><span role="img" aria-label="websites">🌐</span></a>
                   )}
                 </span>
                 <span className="RepositoryPage-topic">

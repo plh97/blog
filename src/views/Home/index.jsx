@@ -39,7 +39,7 @@ export default class HomePage extends Component {
           }`,
       },
     }).then((res) => {
-      if (res.data.code == '401') {
+      if (res.data.code === '401') {
         return;
       }
       this.setState({

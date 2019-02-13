@@ -1,9 +1,7 @@
 docker run \
 --rm -it \
--d \
 --name blog \
--p 80:3000 \
--p 81:3001 \
 -v $(pwd):/root/app \
+-p 8001:80 \
 -w /root/app \
-pengliheng/react:latest
+pengliheng/blog:latest nodemon ./server/node.js

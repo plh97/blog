@@ -1,6 +1,6 @@
 // package
 import React from 'react';
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import {Route} from "react-router-dom";
 import { Provider } from 'react-redux'
 // local
 import Layout from './components/Layout'
@@ -11,10 +11,11 @@ import ArticleDetailPage from './views/Article/Detail';
 import RepositoryPage from './views/Repository';
 import RepositoryDetailPage from './views/Repository/Detail';
 import ProjectPage from './views/Project';
+import CustomBrowserRouter from './components/CustomBrowserRouter';
 // main
 export default () => (
   <Provider store={store}>
-    <Router>
+    <CustomBrowserRouter>
       <Layout>
         <Route exact path = "/" component={HomePage} />
         <Route path="/article" component={ArticlePage} />
@@ -23,6 +24,6 @@ export default () => (
         <Route path="/repositoryDetail" component={RepositoryDetailPage}/>
         <Route path="/project" component={ProjectPage} />
       </Layout>
-    </Router>
+    </CustomBrowserRouter>
   </Provider>
 );

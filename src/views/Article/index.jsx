@@ -49,9 +49,7 @@ export default class ArticlePage extends Component {
           }`,
       },
     }).then((res) => {
-      if (res.data.code == '401') {
-        return;
-      }
+      if (res.data.code === '401') return;
       this.setState({
         viewer: res.data.data.viewer,
         article: res.data.data.repositoryOwner.repository.issues.edges,

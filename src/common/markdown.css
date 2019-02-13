@@ -264,3 +264,9 @@
     background-color: transparent;
     border: medium none;
 }
+.markdown-body a {
+    text-decoration: none;
+}
+.markdown-body a:hover {
+    text-decoration: underline;
+}

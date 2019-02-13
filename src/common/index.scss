@@ -61,8 +61,7 @@ body {
 
 
 
-a:hover, a:visited, a:link, a:active {
-  color: var(--grey9);
+a {
   text-decoration: none;
 }
 
@@ -92,7 +91,6 @@ img {
 a {
   color: var(--lightBlue7);
   display: inline-block;
-  font-size: 1.2rem;
   text-indent: 0;
   word-break: break-word;
 }

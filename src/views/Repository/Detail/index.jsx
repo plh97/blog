@@ -1,5 +1,5 @@
 // package
-import React, { useState,useEffect } from 'react';
+import React, { useState, useEffect,  } from 'react';
 import ReactMarkdown from "react-markdown";
 // local
 import './index.scss';
@@ -8,7 +8,11 @@ import Viewer from '../../../components/Viewer';
 // code
 export default function (props) {
   const [viewer, setViewer] = useState("");
-  const [article, setArticle] = useState("");
+  const [repository, setRepository] = useState({
+    object:{
+      text:''
+    }
+  });
   const keyWord = decodeURI(props.location.hash).replace(/^#/,'')
   useEffect(() => {
     (async()=>{
@@ -21,15 +25,16 @@ export default function (props) {
             viewer {
               name avatarUrl login bio url createdAt isHireable
             }
-            search(
-              first: 10, 
-              query: "repo:${keyWord}", 
-              type: REPOSITORY
-            ) {
+            search(first: 1, query: "repo:${keyWord}", type: REPOSITORY) {
               edges {
                 node {
-                  ... on Issue {
-                    body title
+                  ... on Repository {
+                    nameWithOwner
+                    object(expression: "master:README.md") {
+                      ... on Blob {
+                        text
+                      }
+                    }
                   }
                 }
               }
@@ -39,7 +44,7 @@ export default function (props) {
       });
       setViewer(result.data.data.viewer)
       if(result.data.data.search.edges.length>0){
-        setArticle(result.data.data.search.edges[0].node);
+        setRepository(result.data.data.search.edges[0].node);
       }else{
         console.log('文章不存在');
       }
@@ -47,9 +52,9 @@ export default function (props) {
   },keyWord);
   return (
     <div className="DetailPage">
-      <Viewer title={article.title} data={viewer} />
+      <Viewer title={repository.nameWithOwner} data={viewer} />
       <div className="DetailPage__content">
-        <ReactMarkdown className="markdown-body" source={article.body} />
+        <ReactMarkdown className="markdown-body" source={repository.object.text} />
       </div>
     </div>
   );
