@@ -14,14 +14,14 @@ function Side(props) {
           <i className="icon icon-sitemap" />
           文章
         </NavLink>
-        <NavLink to="/component" className="Side__nav-item">
+        <NavLink to="/repository" className="Side__nav-item">
           <i className="icon icon-boat" />
-          UI组件
+          仓库
         </NavLink>
-        <NavLink to="/project" className="Side__nav-item">
+        {/* <NavLink to="/project" className="Side__nav-item">
           <i className="icon icon-boat" />
           项目
-        </NavLink>
+        </NavLink> */}
       </div>
       <div className="Side__history">
         <h3 className="Side__history-title">友链</h3>

@@ -3,8 +3,8 @@ import React, { useState,useEffect } from 'react';
 import ReactMarkdown from "react-markdown";
 // local
 import './index.scss';
-import AxiosOrLocal from "../../utils/axiosOrLocal"
-import Viewer from '../../components/Viewer';
+import AxiosOrLocal from "../../../utils/axiosOrLocal"
+import Viewer from '../../../components/Viewer';
 // code
 export default function (props) {
   const [viewer, setViewer] = useState("");
@@ -23,8 +23,8 @@ export default function (props) {
             }
             search(
               first: 10, 
-              query: "repo:pengliheng/pengliheng.github.io author:pengliheng type:Issues ${keyWord}", 
-              type: ISSUE
+              query: "repo:${keyWord}", 
+              type: REPOSITORY
             ) {
               edges {
                 node {

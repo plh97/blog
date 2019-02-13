@@ -9,7 +9,7 @@ import "./index.scss";
 export default function() {
   const [viewer, setViewer] = useState("");
   const [components, setComponents] = useState([]);
-  const keyWord = "component";
+  const keyWord = "repository";
   useEffect(() => {
     (async () => {
       const result = await new AxiosOrLocal({
@@ -22,9 +22,19 @@ export default function() {
               name avatarUrl login bio url createdAt isHireable
             }
             repositoryOwner(login: "pengliheng") {
-              repositories(last: 100,isFork:false,orderBy:{field:UPDATED_AT,direction:ASC}) {
+              repositories(last: 100,isFork:false,orderBy:{field:UPDATED_AT,direction:DESC}) {
                 edges {
                   node {
+                    repositoryTopics(first:3) {
+                      edges {
+                        node {
+                          url
+                          topic {
+                            name
+                          }
+                        }
+                      }
+                    }
                     commitComments {
                       totalCount
                     }
@@ -72,37 +82,36 @@ export default function() {
     })();
   }, keyWord);
   return (
-    <div className="ComponentPage">
+    <div className="RepositoryPage">
       <Viewer title="前端组件" data={viewer} />
-      <div className="ComponentPage__content">
+      <div className="RepositoryPage__content">
         {Array.prototype.slice
           .call(components)
-          .reverse()
           .map((e, i) => (
-            <div className="ComponentPage__item" key={i}>
-              <div className="ComponentPage__item--left">
+            <div className="RepositoryPage__item" key={i}>
+              <div className="RepositoryPage__item--left">
                 <Link
-                  to={`/detail#${e.node.nameWithOwner}`}
-                  className="ComponentPage__name"
+                  to={`/repositoryDetail#${e.node.nameWithOwner}`}
+                  className="RepositoryPage__name"
                 >
                   {e.node.nameWithOwner}
                 </Link>
-                <div className="ComponentPage__description">
+                <div className="RepositoryPage__description">
                   {e.node.description}
                 </div>
-                <div className="ComponentPage__detail">
+                <div className="RepositoryPage__detail">
                   <span
-                    className="ComponentPage__detail-language--color"
+                    className="RepositoryPage__detail-language--color"
                     style={{
                       background: `${e.node.primaryLanguage &&
                         e.node.primaryLanguage.color}`
                     }}
                   />
-                  <span className="ComponentPage__detail-language--content">
+                  <span className="RepositoryPage__detail-language--content">
                     {e.node.primaryLanguage && e.node.primaryLanguage.name}
                   </span>
 
-                  <span className="ComponentPage__detail-stargazers">
+                  <span className="RepositoryPage__detail-stargazers">
                     <svg
                       aria-label="stars"
                       viewBox="0 0 14 16"
@@ -116,34 +125,34 @@ export default function() {
                         d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74L14 6z"
                       />
                     </svg>
-                    <span className="ComponentPage__detail-stargazers--text">
+                    <span className="RepositoryPage__detail-stargazers--text">
                       {e.node.stargazers && e.node.stargazers.totalCount}
                     </span>
                   </span>
 
-                  <span className="ComponentPage__detail-stargazers">
+                  <span className="RepositoryPage__detail-stargazers">
                     <svg aria-label="forks" viewBox="0 0 10 16" version="1.1" width="10" height="16" role="img">
                       <path fillRule="evenodd" d="M8 1a1.993 1.993 0 0 0-1 3.72V6L5 8 3 6V4.72A1.993 1.993 0 0 0 2 1a1.993 1.993 0 0 0-1 3.72V6.5l3 3v1.78A1.993 1.993 0 0 0 5 15a1.993 1.993 0 0 0 1-3.72V9.5l3-3V4.72A1.993 1.993 0 0 0 8 1zM2 4.2C1.34 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zm3 10c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zm3-10c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2z"/>
                     </svg>
-                    <span className="ComponentPage__detail-stargazers--text">
+                    <span className="RepositoryPage__detail-stargazers--text">
                       {e.node.forkCount}
                     </span>
                   </span>
                 </div>
               </div>
 
-              <div className="ComponentPage__item--right">
-                <div className="ComponentPage__item-update">
+              <div className="RepositoryPage__item--right">
+                <span className="RepositoryPage-update">
                   上次更新:{e.node.updatedAt}
-                </div>
+                </span>
 
-                <div className="ComponentPage__item-commitCount">
+                <span className="RepositoryPage-commitCount">
                   提交次数:{e.node.commitComments.totalCount}
-                </div>
+                </span>
 
-                <div className="ComponentPage__item-link">
-                  {e.node.url && (
-                    <a target="_blank" rel="noopener noreferrer" href={e.node.url}>
+                <span className="RepositoryPage-link">
+                  {e.node.url&&(
+                    <a className="RepositoryPage-link__item" target="_blank" href={e.node.url}>
                       <svg width="16" height="16" viewBox="0 0 16 16" version="1.1" aria-hidden="true">
                         <path
                           fillRule="evenodd"
@@ -153,9 +162,16 @@ export default function() {
                     </a>
                   )}
                   {e.node.homepageUrl && (
-                    <a target="_blank" rel="noopener noreferrer" href={e.node.homepageUrl}><span role="img">🌐</span></a>
+                    <a target="_blank" href={e.node.homepageUrl}><span role="img">🌐</span></a>
                   )}
-                </div>
+                </span>
+                <span className="RepositoryPage-topic">
+                  {e.node.repositoryTopics.edges.map((topic,i)=>(
+                    <a className="RepositoryPage-topic__item" key={i} href={topic.node.url}>
+                      {topic.node.topic.name}
+                    </a>
+                  ))}
+                </span>
               </div>
               {/* {JSON.stringify(e.node)} */}
             </div>

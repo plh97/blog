@@ -1,4 +1,4 @@
-.ComponentPage {
+.RepositoryPage {
   overflow-y: auto;
   max-width: 980px;
   width: calc(100vw - 50px);
@@ -8,13 +8,13 @@
   flex: 1;
   box-sizing: border-box;
 
-  .ComponentPage__content {
+  .RepositoryPage__content {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     flex-wrap: wrap;
 
-    .ComponentPage__item {
+    .RepositoryPage__item {
       width: calc(50% - 20px);
       padding: 16px;
       border-radius: 3px;
@@ -26,40 +26,40 @@
       justify-content: space-between;
       border: 1px solid var(--border-color-base);
       box-shadow: var(--box-shadow);
-      
+
 
 
       &:hover {
         background-color: #f6f8fa;
       }
 
-      .ComponentPage__item--left {
+      .RepositoryPage__item--left {
         display: flex;
         flex-direction: column;
 
-        .ComponentPage__name {
+        .RepositoryPage__name {
           font-size: 16px;
           color: #0366d6;
           font-weight: 600;
-  
+
           &:hover {
             text-decoration: underline;
           }
         }
-  
-        .ComponentPage__description {
+
+        .RepositoryPage__description {
           font-size: 12px;
           font-weight: 600;
           margin: 8px 0 16px;
           color: #586069 !important;
         }
-  
-        .ComponentPage__detail {
+
+        .RepositoryPage__detail {
           font-size: 12px;
           display: flex;
           align-items: center;
-  
-          .ComponentPage__detail-language--color {
+
+          .RepositoryPage__detail-language--color {
             border-radius: 50%;
             display: inline-block;
             height: 12px;
@@ -67,40 +67,62 @@
             top: 1px;
             width: 12px;
           }
-  
-          .ComponentPage__detail-language--content {
+
+          .RepositoryPage__detail-language--content {
             margin-left: 3px;
           }
-  
-          .ComponentPage__detail-stargazers {
+
+          .RepositoryPage__detail-stargazers {
             margin-left: 16px;
             fill: currentColor;
             display: inline-flex;
             align-items: center;
-  
-            .ComponentPage__detail-stargazers--text {
+
+            .RepositoryPage__detail-stargazers--text {
               margin-left: 2px;
             }
           }
         }
       }
-      
-      .ComponentPage__item--right {
+
+      .RepositoryPage__item--right {
         flex: 0 0 auto;
         display: inline-flex;
         flex-direction: column;
 
-        .ComponentPage__item-update {
+        .RepositoryPage-update {
           font-size: 12px;
-        }
-        .ComponentPage__item-commitCount {
-          font-size: 12px;
-          text-align:right;
-        }
-        .ComponentPage__item-link {
           text-align: right;
-          a + a{
+        }
+
+        .RepositoryPage-commitCount {
+          font-size: 12px;
+          text-align: right;
+        }
+
+        .RepositoryPage-link {
+          text-align: right;
+
+          a+a {
             margin-left: 10px;
+          }
+        }
+
+        .RepositoryPage-topic {
+
+          .RepositoryPage-topic__item {
+            color: #0366d6;
+            font-size: 12px;
+            background-color: #f1f8ff;
+            border-radius: 3px;
+            display: inline-block;
+            margin: 0 5px 5px 0;
+            padding: 0 5px;
+            white-space: nowrap;
+
+            &:hover{
+              text-decoration: underline;
+            }
           }
         }
       }

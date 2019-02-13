@@ -7,8 +7,9 @@ import Layout from './components/Layout'
 import store from './store'
 import HomePage from './views/Home';
 import ArticlePage from './views/Article';
-import DetailPage from './views/Detail/index';
-import ComponentPage from './views/Component';
+import ArticleDetailPage from './views/Article/Detail';
+import RepositoryPage from './views/Repository';
+import RepositoryDetailPage from './views/Repository/Detail';
 import ProjectPage from './views/Project';
 // main
 export default () => (
@@ -16,9 +17,10 @@ export default () => (
     <Router>
       <Layout>
         <Route exact path = "/" component={HomePage} />
-        <Route path="/detail" component = {DetailPage}/>
         <Route path="/article" component={ArticlePage} />
-        <Route path="/component" component={ComponentPage} />
+        <Route path="/articleDetail" component={ArticleDetailPage} />
+        <Route path="/repository" component={RepositoryPage} />
+        <Route path="/repositoryDetail" component={RepositoryDetailPage}/>
         <Route path="/project" component={ProjectPage} />
       </Layout>
     </Router>

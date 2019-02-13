@@ -66,7 +66,7 @@ export default class ArticlePage extends Component {
         <div className="ArticlePage__content">
           {Array.prototype.slice.call(article).reverse().map((e,i)=>(
             <Link to={{
-              pathname: `/detail`,
+              pathname: `/articleDetail`,
               hash: `#${e.node.title}`,
             }} className="ArticlePage__item" key={i}>
               <img src={e.node.author.avatarUrl} alt="头像"/>
