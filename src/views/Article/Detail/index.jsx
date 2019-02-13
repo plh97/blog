@@ -47,7 +47,7 @@ export default function (props) {
   },keyWord);
   return (
     <div className="DetailPage">
-      <Viewer title="文章详情" data={viewer}/>
+      <Viewer title={article.title} data={viewer}/>
       <div className="DetailPage__content">
         <ReactMarkdown className="markdown-body" source={article.body} />
       </div>
