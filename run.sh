@@ -1,4 +1,5 @@
 docker run \
+-d \
 --rm -it \
 --name blog \
 -v $(pwd):/root/app \
