@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel=stylesheet href=https://static.pipk.top/api/node_modules/element-ui/lib/theme-chalk/index.css>
+  <style>
+    textarea {
+      width: 45vw;
+      height: 90vh;
+    }
+    .el-button {
+      display: flex;
+      margin: 10px auto;
+    }
+  </style>
+</head>
+<body>
+  <div id="root">
+    <el-row>
+      <el-col :span="12">
+        <el-input 
+          v-model="msg"
+          @change="input"
+          type="textarea">
+        </el-input>
+      </el-col>
+      <el-col :span="12">
+        <el-input 
+          :value="css"
+          disabled
+          type="textarea">
+        </el-input>
+      </el-col>
+    </el-row>
+    <el-button @click="input(css)">autopretty</el-button>
+  </div>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script type=text/javascript src=https://assets.vmei.com/libs/vue@2.5/vue.min.js></script>
+  <script type=text/javascript src=https://assets.vmei.com/libs/element-ui@2.4.6/index.js></script>
+  <script>
+    Vue.config.devtools = true;
+    new Vue({
+      el: '#root',
+      data () {
+        return {
+          msg: `{
+            user-select: none;
+          }`,
+          css: ''
+        }
+      },
+      methods: {
+        input(){
+          axios({
+            method: 'post',
+            url: 'https://api.pipk.top/postcss',
+            type: "json",
+            data: {
+              css: this.msg
+            }
+          }).then(res=>{
+            if(res.data.success){
+              this.css = res.data.data.css;
+              console.log(this.css);
+            }
+          }).catch(err=>{
+            console.log(err);
+            this.$message.error('格式不合法')
+          })
+        }
+      },
+      mounted(){
+        this.input();
+      }
+    })
+  </script>
+</body>
+</html>
