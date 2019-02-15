@@ -1,5 +1,15 @@
+# docker build --tag=blog:latest .
+
+
+
+
 docker run \
 --name blog \
--p 8001:5000 \
--w /root/app \
-blog:latest serve -s build
+-it --rm \
+-v $(pwd):/go/src/www/pengliheng.github.io \
+-w /go/src/www/pengliheng.github.io/server \
+-p 80:3000 \
+blog:latest go run main.go
+
+
+
