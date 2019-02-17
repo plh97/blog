@@ -70,7 +70,6 @@
 }
 .markdown-body p, .markdown-body blockquote, .markdown-body ul, .markdown-body ol, .markdown-body dl, .markdown-body table, .markdown-body pre {
     margin: 15px 0;
-    border-spacing: 0;
 }
 .markdown-body hr {
     background: url("https://a248.e.akamai.net/assets.github.com/assets/primer/markdown/dirty-shade-350cca8f57223ebd53603021b2e670f4f319f1b7.png") repeat-x scroll 0 0 transparent;
