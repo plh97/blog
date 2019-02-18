@@ -1,24 +1,21 @@
-FROM golang
+FROM node
 
 
 
-# COPY . /go/src/www
+COPY . /go/src/www/pengliheng.github.com
 
-RUN go get github.com/codegangsta/gin
+# RUN go get github.com/codegangsta/gin
 
 # RUN go get github.com/namsral/flag
 
-RUN go get -u github.com/gin-gonic/gin
+# RUN go get -u github.com/gin-gonic/gin
 
-# WORKDIR /go/src/www/server
+WORKDIR /go/src/www/pengliheng.github.com
 
 
-# RUN "ls"
+RUN npm install serve -g
 # RUN [ "cat /root/app/server/index.go" ]
 # RUN [ "cat /root/app/server/index.go" ]
 
 
-# CMD gin run --notifications index.go
-
-
-# serve -s build
+CMD serve -s build

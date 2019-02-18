@@ -25,6 +25,13 @@ export default function() {
               repositories(last: 100,isFork:false,orderBy:{field:UPDATED_AT,direction:DESC}) {
                 edges {
                   node {
+                    object(expression: "master") {
+                      ... on Commit {
+                        history {
+                          totalCount
+                        }
+                      }
+                    }
                     repositoryTopics(first:3) {
                       edges {
                         node {
@@ -34,9 +41,6 @@ export default function() {
                           }
                         }
                       }
-                    }
-                    commitComments {
-                      totalCount
                     }
                     url
                     description
@@ -147,7 +151,7 @@ export default function() {
                 </span>
 
                 <span className="RepositoryPage-commitCount">
-                  提交次数:{e.node.commitComments.totalCount}
+                  提交次数:{e.node.object && e.node.object.history.totalCount}
                 </span>
 
                 <span className="RepositoryPage-link">
