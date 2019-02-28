@@ -5,6 +5,7 @@ import ReactMarkdown from "react-markdown";
 import './index.scss';
 import AxiosOrLocal from "../../utils/axiosOrLocal"
 import Viewer from '../../components/Viewer';
+import Loading from '../../components/Loading';
 // code
 export default class HomePage extends Component {
   constructor(){
@@ -49,11 +50,13 @@ export default class HomePage extends Component {
     });
   }
   render() {
-    const {home,viewer} = this.state;
+    const {viewer} = this.state;
+    const home= false
     return (
       <div className="HomePage">
         <Viewer title="主页" data={viewer}/>
-        <ReactMarkdown className="markdown-body HomePage-markdown__body" source={home} />
+        <Loading isShow={home==='' ? true : false}/>
+        {home?<ReactMarkdown className="markdown-body HomePage-markdown__body" source={home} />:''}
       </div>
     );
   }
