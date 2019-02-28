@@ -28,7 +28,7 @@ Hello everyone, my name is Joy and now i'm going to introducte myself. i was bor
     - component 测试
     - container 测试
     - saga 测试
-- [ ] 引入 soga 处理异步流程
+- [ ] 引入 `redux-saga` 处理异步流程
 - [ ] 给组件加入 loading 状态
 - [ ] 高阶组件的加入, title 装饰器加入,
 - [ ] static prototype / static defaultProtype -> 引入 以组件为单位,严格限制传入的 prop 以及设置默认 prop
