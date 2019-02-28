@@ -1,10 +1,9 @@
 language: node_js
 node_js:
-- '8'
+- '11'
 cache:
-- yarn
+- npm
 before_script:
-- npm install -g yarn
-- yarn
+- npm install
 script:
-- yarn run p
+- npm run build
