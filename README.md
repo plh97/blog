@@ -12,7 +12,8 @@
 Hello everyone, my name is Joy and now i'm going to introducte myself. i was born in south china, my birthday is Sep.6 ,and now i am 26th years old.I got my bachelor's degree in South China University of Technology, Guangzhou College
 , major in civil Engineering, but now i am an web developer. my recently aims is join in tencent. best wish to me. thank u!
 
-# master change
+# master change -1
+# master change -2
 
 
 ### 我的技术栈
