@@ -3,9 +3,6 @@
 [![Node.js Version](https://img.shields.io/badge/node.js-8.7.0-blue.svg)](http://nodejs.org/download)
 ![Size](https://github-size-badge.herokuapp.com/pengliheng/pengliheng.github.io.svg)
 
-# pr2 - 1
-# pr2 - 2
-
 ### 欢迎光临我的博客
 
 ###### [本站](https://pipk.top)托管于Github，所有数据来源于[ISSUE](https://github.com/pengliheng/pengliheng.github.io/issues)，通过GitHub API动态加载数据渲染页面。
@@ -13,10 +10,6 @@
 ### My English Introduction
 Hello everyone, my name is Joy and now i'm going to introducte myself. i was born in south china, my birthday is Sep.6 ,and now i am 26th years old.I got my bachelor's degree in South China University of Technology, Guangzhou College
 , major in civil Engineering, but now i am an web developer. my recently aims is join in tencent. best wish to me. thank u!
-
-# master change -1
-# master change -2
-
 
 ### 我的技术栈
 - JavaScript(React Vue)
