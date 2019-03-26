@@ -1,6 +1,10 @@
 language: node_js
 node_js:
-- '11'
+- '11.7.0'
+npm:
+- '6.5.0'
+yarn:
+- '1.13.0'
 # cache:
 # - npm
 before_script:
