@@ -4,11 +4,12 @@
     "ecmaVersion": 2018,
     "sourceType": "module",
     "ecmaFeatures": {
-      ".eslintrc": true,
+      "eslintrc": true,
       "jsx": true,
       "js": true,
       "json": true,
-      "legacyDecorators": true
+      "legacyDecorators": true,
+      "jest": true
     }
   },
   "rules": {
