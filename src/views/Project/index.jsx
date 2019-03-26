@@ -6,12 +6,10 @@ import {
   FetchNewsTitle,
   ToggleDialog,
   AddAgent,
-} from '../../actions/index';
-// import { catchDom } from '../../utils';
+} from '@/redux-relate/actions/index';
 
 
 class HomePage extends Component {
- 
   render() {
     return (
       <div className="ProjectPage-container">

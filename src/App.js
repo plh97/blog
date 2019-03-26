@@ -3,15 +3,15 @@ import React from 'react';
 import {Route} from "react-router-dom";
 import { Provider } from 'react-redux'
 // local
-import Layout from './components/Layout'
-import store from './store'
-import HomePage from './views/Home';
-import ArticlePage from './views/Article';
-import ArticleDetailPage from './views/Article/Detail';
-import RepositoryPage from './views/Repository';
-import RepositoryDetailPage from './views/Repository/Detail';
-import ProjectPage from './views/Project';
-import CustomBrowserRouter from './components/CustomBrowserRouter';
+import Layout from '@/components/Layout'
+import store from '@/redux-relate/store'
+import HomePage from '@/views/Home';
+import ArticlePage from '@/views/Article';
+import ArticleDetailPage from '@/views/Article/Detail';
+import RepositoryPage from '@/views/Repository';
+import RepositoryDetailPage from '@/views/Repository/Detail';
+import ProjectPage from '@/views/Project';
+import CustomBrowserRouter from '@/components/CustomBrowserRouter';
 // main
 export default () => (
   <Provider store={store}>
