@@ -1,0 +1,3 @@
+export const FETCH_PENDING = 'FETCH_PENGING'
+export const FETCH_RESOLVE = 'FETCH_RESOLVE'
+export const FETCH_REJECT = 'FETCH_REJECT'
