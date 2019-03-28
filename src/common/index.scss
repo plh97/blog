@@ -1,4 +1,4 @@
-// @import '~@/assets/font-icons/fonts.css';
+@import '~@/assets/font-icons/fonts.css';
 @import './markdown.css';
 // --var
 :root {
@@ -128,7 +128,7 @@ a {
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-// @font-face {
-//   font-family: "Reem Kufi";
-//   // src: url("~@/assets/font-icons/fonts/a.woff");
-// }
+@font-face {
+  font-family: "Reem Kufi";
+  src: url("~@/assets/font-icons/fonts/a.woff");
+}

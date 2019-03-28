@@ -1,5 +1,5 @@
 import AxiosOrLocal from '@/utils/axiosOrLocal'
-import { FETCH_HOME_PAGE, FETCH_USER_INFO } from '../constant/http';
+import { FETCH_HOME_PAGE, FETCH_USER_INFO, } from '../constant/http'
 
 export const fetchHome = () => dispatch => new AxiosOrLocal({
     // url: 'http://localhost:3002/graphql',

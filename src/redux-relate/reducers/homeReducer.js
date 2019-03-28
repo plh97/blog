@@ -1,7 +1,6 @@
 import {
   FETCH_RESOLVE,
-  FETCH_USER_INFO,
-  FETCH_HOME_PAGE
+  FETCH_HOME_PAGE,
 } from '@/redux-relate/constant/http'
 
 const initialState = {

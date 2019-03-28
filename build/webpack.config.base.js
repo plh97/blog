@@ -32,13 +32,13 @@ const baseWebpackConfig = {
         commons: {
 					test: /[\\/]lodash[\\/]/,
           name: 'async',
-          chunks: 'all'
-        }
-      }
+          chunks: 'all',
+        },
+      },
 		},
 	},
 	resolve: {
-		extensions: ['.js', '.jsx', '.json'],
+		extensions: ['.js', '.jsx', '.json',],
 		alias: {
 			'@': resolve('src'),
 			'@root': resolve(''),
@@ -49,11 +49,16 @@ const baseWebpackConfig = {
 	module: {
 		rules: [
 			{
-				test: /\.(js|jsx)$/,
-				exclude: /(node_modules|bower_components)/,
-				use: { loader: 'babel-loader' },
+				enforce: 'pre',
+				test: /\.js$/,
+				exclude: /node_modules/,
+				loader: 'eslint-loader',
 			},
 			{
+				test: /\.(js|jsx)$/,
+				exclude: /node_modules/,
+				loader: 'babel-loader',
+			}, {
 				test: /\.(woff|ttf|png|jpg|gif|svg)$/,
 				use: [
 					{
@@ -69,6 +74,7 @@ const baseWebpackConfig = {
 	},
 	plugins: [
 		new HtmlWebpackPlugin({
+			favicon: path.resolve('public/favicon.ico'),
 			template: path.resolve('public/index.html'),
 		}),
 		new webpack.DefinePlugin({

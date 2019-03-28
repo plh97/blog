@@ -6,33 +6,33 @@ export default class AxiosOrLocal {
     url,
     method,
     key,
-    type = "localStorage"
+    type = 'localStorage',
   }) {
-    this.key = key;
-    this.type = type;
-    this.url = url;
-    this.method = method;
-    this.data = data;
-    return this.get();
+    this.key = key
+    this.type = type
+    this.url = url
+    this.method = method
+    this.data = data
+    return this.get()
   }
   set({
-    data
+    data,
   }) {
-    if (this.type === "localStorage") {
+    if (this.type === 'localStorage') {
       return localStorage.setItem(this.key, data)
     } else {
       return sessionStorage.setItem(this.key, data)
     }
   }
   isExist() {
-    if (this.type === "localStorage") {
+    if (this.type === 'localStorage') {
       return localStorage.getItem(this.key)
     } else {
       return sessionStorage.getItem(this.key)
     }
   }
   async get() {
-    const res = this.isExist();
+    const res = this.isExist()
     if (res) {
       // 为了避免副作用,应该让他们都是异步的
       return new Promise((resolve, rej) => {
@@ -48,7 +48,7 @@ export default class AxiosOrLocal {
         data: this.data,
       }).then(res => {
         this.set({
-          data: JSON.stringify(res)
+          data: JSON.stringify(res),
         })
         return res
       }).catch(err => err)

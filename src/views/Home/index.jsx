@@ -1,5 +1,4 @@
-import React, { Component,lazy } from 'react'
-const ReactMarkdown = lazy(() => import('react-markdown'))
+import React, { Component, lazy, } from 'react'
 // import ReactMarkdown from 'react-markdown'
 import { bindActionCreators, } from 'redux'
 import { connect, } from 'react-redux'
@@ -9,17 +8,14 @@ import _ from 'lodash'
 // local
 import './index.scss'
 import Viewer from '@/components/Viewer'
-import {
-	fetchHome,
-	fetchUser
-}
-from '@/redux-relate/actions/fetchHome'
+import { fetchHome,} from '@/redux-relate/actions/fetchHome'
+const ReactMarkdown = lazy(() => import('react-markdown'))
 // import Loading from '../../components/Loading';
 // code
 
 const mapStateToProps = ({
 	homeReducer,
-	userReducer
+	userReducer,
 }) => ({
 	homeReducer,
 	userReducer,
@@ -27,9 +23,8 @@ const mapStateToProps = ({
 
 const mapDispatchToProps = (dispatch) => ({
 	fetchHome: bindActionCreators(fetchHome, dispatch),
-	fetchUser: bindActionCreators(fetchUser, dispatch),
 })
-
+let x
 @connect(
 	mapStateToProps,
 	mapDispatchToProps,
@@ -37,7 +32,6 @@ const mapDispatchToProps = (dispatch) => ({
 export default class HomePage extends Component {
 	componentDidMount() {
 		this.props.fetchHome()
-		this.props.fetchUser()
 	}
 	render() {
 		const user = _.get(this.props.userReducer, 'res.data.viewer', '')
@@ -45,7 +39,6 @@ export default class HomePage extends Component {
 		return (
 			<div className="HomePage">
 				<Viewer title = "主页" data = {user}/>
-				{/* <Loading isShow={fetchStatus === 'FETCH_PENDING'}/> */}
 				<ReactMarkdown
 					className="markdown-body HomePage-markdown__body"
 					source = { homePage }
