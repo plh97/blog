@@ -1,33 +1,30 @@
-import React, { Component, lazy, } from 'react'
+import React, { Component, lazy } from 'react'
 // import ReactMarkdown from 'react-markdown'
-import { bindActionCreators, } from 'redux'
-import { connect, } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
 import _ from 'lodash'
 // const _ = lazy(() => import('lodash'))
 
 // local
 import './index.scss'
 import Viewer from '@/components/Viewer'
-import { fetchHome,} from '@/redux-relate/actions/fetchHome'
+import { fetchHome } from '@/redux-relate/actions/fetchHome'
 const ReactMarkdown = lazy(() => import('react-markdown'))
 // import Loading from '../../components/Loading';
 // code
 
-const mapStateToProps = ({
+const mapStateToProps = ({ homeReducer, userReducer }) => ({
 	homeReducer,
-	userReducer,
-}) => ({
-	homeReducer,
-	userReducer,
+	userReducer
 })
 
 const mapDispatchToProps = (dispatch) => ({
-	fetchHome: bindActionCreators(fetchHome, dispatch),
+	fetchHome: bindActionCreators(fetchHome, dispatch)
 })
-let x
+
 @connect(
 	mapStateToProps,
-	mapDispatchToProps,
+	mapDispatchToProps
 )
 export default class HomePage extends Component {
 	componentDidMount() {
@@ -35,13 +32,17 @@ export default class HomePage extends Component {
 	}
 	render() {
 		const user = _.get(this.props.userReducer, 'res.data.viewer', '')
-		const homePage = _.get(this.props.homeReducer, 'res.data.repositoryOwner.repository.object.text', '')
+		const homePage = _.get(
+			this.props.homeReducer,
+			'res.data.repositoryOwner.repository.object.text',
+			''
+		)
 		return (
 			<div className="HomePage">
-				<Viewer title = "主页" data = {user}/>
+				<Viewer title="主页" data={user} />
 				<ReactMarkdown
 					className="markdown-body HomePage-markdown__body"
-					source = { homePage }
+					source={homePage}
 				/>
 			</div>
 		)

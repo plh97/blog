@@ -1,13 +1,9 @@
-import {
-  FETCH_USER_INFO,
-  FETCH_RESOLVE,
-} from '@/redux-relate/constant/http'
+import { FETCH_USER_INFO, FETCH_RESOLVE } from '@/redux-relate/constant/http'
 
 const initialState = {
-  fetchStatus: FETCH_RESOLVE,
-  res: {},
+	fetchStatus: FETCH_RESOLVE,
+	res: {}
 }
-
 
 /**
  *
@@ -17,13 +13,13 @@ const initialState = {
  * @param     {*} action
  * @returns
  */
-export default function (state = initialState, action) {
-  switch (action.type) {
-    case FETCH_USER_INFO:
-      return Object.assign({}, state, {
-        res: action.payload,
-      })
-    default:
-      return state
-  }
+export default function(state = initialState, action) {
+	switch (action.type) {
+		case FETCH_USER_INFO:
+			return Object.assign({}, state, {
+				res: action.payload
+			})
+		default:
+			return state
+	}
 }
