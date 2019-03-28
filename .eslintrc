@@ -1,4 +1,10 @@
 {
+  "plugins": [
+    "prettier",
+    "wesbos",
+    "prettier",
+    "prettier/react"
+  ],
   "parser": "babel-eslint",
   "parserOptions": {
     "ecmaVersion": 2018,
@@ -16,8 +22,11 @@
     "eqeqeq": "error",
     "curly": "error",
     "quotes": ["error", "single"],
-    "comma-dangle": ["error", "always"],
-    "semi": ["error", "never"]
+    "semi": ["error", "never"],
+    "no-console": 2,
+    "prettier/prettier": [
+      "error"
+    ]
   },
   "env": {
     "browser": true,

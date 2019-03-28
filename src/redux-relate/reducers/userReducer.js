@@ -1,6 +1,5 @@
 import {
-  FETCH_PENDING,
-  FETCH_REJECT,
+  FETCH_USER_INFO,
   FETCH_RESOLVE,
 } from '@/redux-relate/constant/http'
 
@@ -20,18 +19,8 @@ const initialState = {
  */
 export default function (state = initialState, action) {
   switch (action.type) {
-    case FETCH_PENDING: 
-      return Object.assign({},state,{
-        fetchStatus: FETCH_PENDING,
-      })
-    case FETCH_RESOLVE:
+    case FETCH_USER_INFO:
       return Object.assign({}, state, {
-        fetchStatus: FETCH_RESOLVE,
-        res: action.payload,
-      })
-    case FETCH_REJECT:
-      return Object.assign({}, state, {
-        fetchStatus: FETCH_REJECT,
         res: action.payload,
       })
     default:

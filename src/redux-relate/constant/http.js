@@ -1,3 +1,6 @@
 export const FETCH_PENDING = 'FETCH_PENGING'
 export const FETCH_RESOLVE = 'FETCH_RESOLVE'
 export const FETCH_REJECT = 'FETCH_REJECT'
+
+export const FETCH_HOME_PAGE = 'FETCH_HOME_PAGE'
+export const FETCH_USER_INFO = 'FETCH_USER_INFO'

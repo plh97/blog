@@ -3,11 +3,10 @@ import {combineReducers,} from 'redux'
 
 
 import homeReducer from './homeReducer'
-import myInfoReducer from './myInfoReducer'
+import userReducer from './userReducer'
 
 
 export default combineReducers({
   homeReducer,
-  myInfoReducer,
-  // user
+  userReducer,
 })
