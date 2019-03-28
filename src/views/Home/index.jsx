@@ -35,7 +35,7 @@ export default class HomePage extends Component {
 		const homePage = _.get(
 			this.props.homeReducer,
 			'res.data.repositoryOwner.repository.object.text',
-			''
+			's'
 		)
 		return (
 			<div className="HomePage">
