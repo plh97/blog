@@ -17,15 +17,15 @@ const mapStateToProps = ({ userReducer, repositoryReducer }) => ({
 const mapDispatchToProps = (dispatch) => ({
 	fetchRepositoryDetail: bindActionCreators(fetchRepositoryDetail, dispatch)
 })
-const keyWord = decodeURI(window.location.hash).replace(/^#/, '')
-@initPageWithTitleDecorator(keyWord)
+const keyWord = () => decodeURI(window.location.hash).replace(/^#/, '')
+@initPageWithTitleDecorator(keyWord())
 @connect(
 	mapStateToProps,
 	mapDispatchToProps
 )
 export default class RepositoryDetail extends Component {
 	componentDidMount() {
-		this.props.fetchRepositoryDetail(keyWord)
+		this.props.fetchRepositoryDetail(keyWord())
 	}
 	render() {
 		const user = _.get(this.props.userReducer, 'res.data.viewer', '')

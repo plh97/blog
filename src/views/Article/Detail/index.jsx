@@ -19,21 +19,21 @@ const mapStateToProps = ({ userReducer, articleReducer }) => ({
 const mapDispatchToProps = (dispatch) => ({
 	fetchArticleDetail: bindActionCreators(fetchArticleDetail, dispatch)
 })
-const keyWord = decodeURI(window.location.hash).replace(/^#/, '')
-@initPageWithTitleDecorator(keyWord)
+let keyWord = () => decodeURI(window.location.hash).replace(/^#/, '')
+@initPageWithTitleDecorator(keyWord())
 @connect(
 	mapStateToProps,
 	mapDispatchToProps
 )
 export default class ArticleDetail extends Component {
 	componentDidMount() {
-		this.props.fetchArticleDetail(keyWord)
+		this.props.fetchArticleDetail(keyWord())
 	}
 	render() {
 		const user = _.get(this.props.userReducer, 'res.data.viewer', '')
 		const article = _.get(
 			this.props.articleReducer,
-			'articleDetailHttpResponse.data.search.edges[0].node',
+			'articleDetailHttpResponse',
 			''
 		)
 		return (

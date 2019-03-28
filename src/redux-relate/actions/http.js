@@ -158,7 +158,7 @@ export const fetchArticleDetail = (keyWord) => (dispatch) =>
 		(res) =>
 			dispatch({
 				type: FETCH_ARTICLE_DETAIL,
-				payload: res.data
+				payload: res.data.data.search.edges[0].node
 			}),
 		(err) =>
 			dispatch({

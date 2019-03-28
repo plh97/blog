@@ -4,6 +4,7 @@
 	"private": true,
 	"dependencies": {
 		"axios": "^0.18.0",
+		"github-markdown-css": "^3.0.1",
 		"less": "^3.9.0",
 		"nprogress": "^0.2.0",
 		"prismjs": "^1.15.0",
@@ -68,7 +69,7 @@
 	"husky": {
 		"hooks": {
 			"pre-commit": "pretty-quick --staged",
-			"pre-push": "lint-staged && npm test"
+			"pre-push": "npm test"
 		}
 	},
 	"eslintConfig": {

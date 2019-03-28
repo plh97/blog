@@ -1,11 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
+import 'github-markdown-css'
 
 // local
 import App from '@/App'
 import '@/common/index.scss'
-import '@/common/markdown.css'
 import '@/assets/font-icons/fonts.css'
 import store from '@/redux-relate/store'
 
