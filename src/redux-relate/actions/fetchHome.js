@@ -1,12 +1,9 @@
 import AxiosOrLocal from '@/utils/axiosOrLocal'
-import {
-    fetchPending,
-    fetchReject,
-    fetchResolve,
-} from '@reduxs/actions/http'
+import { FETCH_HOME_PAGE, FETCH_USER_INFO } from '../constant/http';
+
 export const fetchHome = () => dispatch => new AxiosOrLocal({
     // url: 'http://localhost:3002/graphql',
-    key: '_blog_',
+    key: '_homePage_',
     url: 'https://api.pipk.top/graphql',
     method: 'post',
     data: {
@@ -23,13 +20,19 @@ export const fetchHome = () => dispatch => new AxiosOrLocal({
         }`,
     },
 }).then(
-    res => dispatch(fetchResolve(res)),
-    err => dispatch(fetchReject(err))
+    res => dispatch({
+        type: FETCH_HOME_PAGE,
+        payload: res.data,
+    }),
+    err => dispatch({
+        type: FETCH_HOME_PAGE,
+        payload: err,
+    })
 )
 
-export const fetchMyInfo = () => dispatch => new AxiosOrLocal({
+export const fetchUser = () => dispatch => new AxiosOrLocal({
     // url: 'http://localhost:3002/graphql',
-    key: '_blog_',
+    key: '_user_',
     url: 'https://api.pipk.top/graphql',
     method: 'post',
     data: {
@@ -40,6 +43,12 @@ export const fetchMyInfo = () => dispatch => new AxiosOrLocal({
         }`,
     },
 }).then(
-    res => dispatch(fetchResolve(res)),
-    err => dispatch(fetchReject(err))
+    res => dispatch({
+        type: FETCH_USER_INFO,
+        payload: res.data,
+    }),
+    err => dispatch({
+        type: FETCH_USER_INFO,
+        payload: err,
+    })
 )
