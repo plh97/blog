@@ -10,7 +10,9 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
 // local
-import { fetchUser } from '@/redux-relate/actions/fetchHome'
+import { fetchUser } from '@/redux-relate/actions/request'
+import catchErrorDecorator from '@/decorators/catchErrorDecorator'
+import Loading from '@/components/Loading'
 // import Layout from '@/components/Layout'
 // import HomePage from '@/views/Home'
 // import ArticlePage from '@/views/Article'
@@ -36,23 +38,19 @@ const mapDispatchToProps = (dispatch) => ({
 })
 
 // main
+@catchErrorDecorator
 @connect(
 	null,
 	mapDispatchToProps
 )
 export default class App extends Component {
-	// constructor(props){
-	//   super(props)
-	//   console.log('here to fetch user')
-	//   debugger
-	// }
 	componentDidMount() {
 		this.props.fetchUser()
 	}
 	render() {
 		return (
 			<Router>
-				<Suspense fallback={<div> Loading... </div>}>
+				<Suspense fallback={<Loading />}>
 					<Switch>
 						<Layout>
 							<Route exact path="/" component={HomePage} />

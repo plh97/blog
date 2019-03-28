@@ -7,7 +7,7 @@ import ReactMarkdown from 'react-markdown'
 // local
 import './index.scss'
 import Viewer from '@/components/Viewer'
-import { fetchRepositoryDetail } from '@/redux-relate/actions/http'
+import { fetchRepositoryDetail } from '@/redux-relate/actions/request'
 import initPageWithTitleDecorator from '@/decorators/initPageWithTitleDecorator'
 
 const mapStateToProps = ({ userReducer, repositoryReducer }) => ({
@@ -29,21 +29,23 @@ export default class RepositoryDetail extends Component {
 	}
 	render() {
 		const user = _.get(this.props.userReducer, 'res.data.viewer', '')
-		const repository = _.get(
+		const repositoryText = _.get(
 			this.props.repositoryReducer,
-			'repositoryDetailHttpResponse.data.search.edges[0].node',
-			{
-				nameWithOwner: '',
-				object: { text: '' }
-			}
+			'repositoryDetailHttpResponse.data.search.edges[0].node.object.text',
+			''
+		)
+		const nameWithOwner = _.get(
+			this.props.repositoryReducer,
+			'repositoryDetailHttpResponse.data.search.edges[0].node.nameWithOwner',
+			''
 		)
 		return (
 			<div className="DetailPage">
-				<Viewer title={repository.nameWithOwner} data={user} />
+				<Viewer title={nameWithOwner} data={user} />
 				<div className="DetailPage__content">
 					<ReactMarkdown
 						className="markdown-body"
-						source={repository.object.text}
+						source={repositoryText}
 					/>
 				</div>
 			</div>

@@ -8,7 +8,7 @@ import ReactMarkdown from 'react-markdown'
 import './index.scss'
 import Viewer from '@/components/Viewer'
 import initPageWithTitleDecorator from '@/decorators/initPageWithTitleDecorator'
-import { fetchArticleDetail } from '@/redux-relate/actions/http'
+import { fetchArticleDetail } from '@/redux-relate/actions/request'
 // code
 
 const mapStateToProps = ({ userReducer, articleReducer }) => ({

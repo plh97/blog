@@ -7,10 +7,9 @@ import { bindActionCreators } from 'redux'
 // local
 import { timeUtils } from '@/utils/time'
 import Viewer from '@/components/Viewer'
-import { fetchRepositoryList } from '@/redux-relate/actions/http'
+import { fetchRepositoryList } from '@/redux-relate/actions/request'
 import initPageWithTitleDecorator from '@/decorators/initPageWithTitleDecorator'
 import './index.scss'
-import { isTomorrow } from 'date-fns'
 
 const mapStateToProps = ({ userReducer, repositoryReducer }) => ({
 	repositoryReducer,

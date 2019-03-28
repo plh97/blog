@@ -3,12 +3,14 @@ import { combineReducers } from 'redux'
 
 import homeReducer from './homeReducer'
 import userReducer from './userReducer'
+import httpReducer from './httpReducer'
 import articleReducer from './articleReducer'
 import repositoryReducer from './repositoryReducer'
 
 export default combineReducers({
 	homeReducer,
 	userReducer,
+	httpReducer,
 	articleReducer,
 	repositoryReducer
 })

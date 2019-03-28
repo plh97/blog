@@ -6,6 +6,7 @@
 import { applyMiddleware, createStore } from 'redux'
 import { createLogger } from 'redux-logger'
 import thunk from 'redux-thunk'
+import { composeWithDevTools } from 'redux-devtools-extension'
 // import promise from 'redux-promise-middleware'
 import todoApp from '../reducers'
 // import createSagaMiddleware from 'redux-saga'
@@ -22,11 +23,13 @@ const myMiddleware = (store) => (next) => (action) => {
 
 export default createStore(
 	todoApp,
-	applyMiddleware(
-		// sagaMiddleware,
-		// promise(),
-		thunk,
-		logger,
-		myMiddleware
+	composeWithDevTools(
+		applyMiddleware(
+			// sagaMiddleware,
+			// promise(),
+			thunk,
+			logger,
+			myMiddleware
+		)
 	)
 )

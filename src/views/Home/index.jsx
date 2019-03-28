@@ -7,8 +7,7 @@ import { connect } from 'react-redux'
 // local
 import './index.scss'
 import Viewer from '@/components/Viewer'
-import { fetchHome } from '@/redux-relate/actions/http'
-import autoTitle from '@/decorators/initPageWithTitleDecorator'
+import { fetchHome } from '@/redux-relate/actions/request'
 import initPageWithTitleDecorator from '@/decorators/initPageWithTitleDecorator'
 const ReactMarkdown = lazy(() => import('react-markdown'))
 // import ReactMarkdown from 'react-markdown'

@@ -7,7 +7,7 @@ import { bindActionCreators } from 'redux'
 // local
 // import AxiosOrLocal from '@/utils/axiosOrLocal'
 import Viewer from '@/components/Viewer'
-import { fetchArticleList } from '@/redux-relate/actions/http'
+import { fetchArticleList } from '@/redux-relate/actions/request'
 import initPageWithTitleDecorator from '@/decorators/initPageWithTitleDecorator'
 
 import './index.scss'
