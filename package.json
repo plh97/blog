@@ -62,8 +62,13 @@
   },
   "scripts": {
     "start": "webpack-dev-server --env.NODE_ENV=development --config ./build/webpack.config.base.js --watch",
-    "build": "webpack --env.NODE_ENV=production --config ./build/webpack.config.base.js",
-    "precommit": "lint-staged"
+    "build": "webpack --env.NODE_ENV=production --config ./build/webpack.config.base.js"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "npm test"
+    }
   },
   "eslintConfig": {
     "extends": "react-app"
