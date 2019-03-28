@@ -1,58 +1,51 @@
 // package
-import React, { useState,useEffect } from 'react';
-import ReactMarkdown from "react-markdown";
+import _ from 'lodash'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import React, { Component } from 'react'
+import ReactMarkdown from 'react-markdown'
 // local
-import './index.scss';
-import AxiosOrLocal from "../../../utils/axiosOrLocal"
-import Viewer from '../../../components/Viewer';
+import './index.scss'
+import Viewer from '@/components/Viewer'
+import initPageWithTitleDecorator from '@/decorators/initPageWithTitleDecorator'
+import { fetchArticleDetail } from '@/redux-relate/actions/request'
 // code
-export default function (props) {
-  const [viewer, setViewer] = useState("");
-  const [article, setArticle] = useState("");
-  const keyWord = decodeURI(props.location.hash).replace(/^#/,'')
-  useEffect(() => {
-    (async()=>{
-      const result = await new AxiosOrLocal({
-        key: `_${keyWord}_`,
-        url: 'https://api.pipk.top/graphql',
-        method: 'post',
-        data: {
-          query: `{
-            viewer {
-              name avatarUrl login bio url createdAt isHireable
-            }
-            search(
-              first: 10, 
-              query: "repo:pengliheng/pengliheng.github.io author:pengliheng type:Issues ${keyWord}", 
-              type: ISSUE
-            ) {
-              edges {
-                node {
-                  ... on Issue {
-                    body title
-                  }
-                }
-              }
-            }
-          }`,
-        }
-      });
-      setViewer(result.data.data.viewer)
-      if(result.data.data.search.edges.length>0){
-        setArticle(result.data.data.search.edges[0].node);
-      }else{
-        console.log('文章不存在');
-      }
-    })()
-  },keyWord);
-  return (
-    <div className="DetailPage">
-      <Viewer title={article.title} data={viewer}/>
-      <div className="DetailPage__content">
-        <ReactMarkdown className="markdown-body" source={article.body} />
-      </div>
-    </div>
-  );
-};
 
+const mapStateToProps = ({ userReducer, articleReducer }) => ({
+	userReducer,
+	articleReducer
+})
 
+const mapDispatchToProps = (dispatch) => ({
+	fetchArticleDetail: bindActionCreators(fetchArticleDetail, dispatch)
+})
+let keyWord = () => decodeURI(window.location.hash).replace(/^#/, '')
+@initPageWithTitleDecorator(keyWord())
+@connect(
+	mapStateToProps,
+	mapDispatchToProps
+)
+export default class ArticleDetail extends Component {
+	componentDidMount() {
+		this.props.fetchArticleDetail(keyWord())
+	}
+	render() {
+		const user = _.get(this.props.userReducer, 'res.data.viewer', '')
+		const article = _.get(
+			this.props.articleReducer,
+			'articleDetailHttpResponse',
+			''
+		)
+		return (
+			<div className="DetailPage">
+				<Viewer title={article.title} data={user} />
+				<div className="DetailPage__content">
+					<ReactMarkdown
+						className="markdown-body"
+						source={article.body}
+					/>
+				</div>
+			</div>
+		)
+	}
+}

@@ -1,30 +1,14 @@
-import { connect } from '@tarojs/redux'
+import React from 'react'
 
-const mapStateToProps = ({ accountReducers }) => {
-  return {
-    currentUser: accountReducers.currentUser,
-  }
-}
-
-const initPageWithTitleDecorator = title => WrappedComponent => {
-  const result = class extends WrappedComponent {
-    componentDidShow() {
-      const { currentUser } = this.props
-      document.title = title
-
-      // add oneX tracking for page
-      if (currentUser) {
-        const { openId } = currentUser
-        typeof _jinit == 'function' && _jinit(openId || '')
-      }
-
-      super.componentDidShow && super.componentDidShow()
-    }
-  }
-  return connect(
-    mapStateToProps,
-    null
-  )(result)
+const initPageWithTitleDecorator = (title) => (WrappedComponent) => {
+	return class extends WrappedComponent {
+		componentDidMount() {
+			document.title = title
+		}
+		render() {
+			return <WrappedComponent />
+		}
+	}
 }
 
 export default initPageWithTitleDecorator
