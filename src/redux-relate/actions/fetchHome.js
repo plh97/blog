@@ -35,16 +35,15 @@ export const fetchHome = () => (dispatch) =>
 
 export const fetchUser = () => (dispatch) =>
 	new AxiosOrLocal({
-		// url: 'http://localhost:3002/graphql',
 		key: '_user_',
 		url: 'https://api.pipk.top/graphql',
 		method: 'post',
 		data: {
 			query: `{
-            viewer {
-                name avatarUrl login bio url createdAt isHireable
-            }
-        }`
+		viewer {
+			name avatarUrl login bio url createdAt isHireable
+		}
+	}`
 		}
 	}).then(
 		(res) =>

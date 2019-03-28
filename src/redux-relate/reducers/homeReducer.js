@@ -1,7 +1,6 @@
-import { FETCH_RESOLVE, FETCH_HOME_PAGE } from '@/redux-relate/constant/http'
+import { FETCH_HOME_PAGE } from '@/redux-relate/constant/http'
 
 const initialState = {
-	fetchStatus: FETCH_RESOLVE,
 	res: {}
 }
 

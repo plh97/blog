@@ -1,27 +1,29 @@
 import React, { Component, lazy } from 'react'
-// import ReactMarkdown from 'react-markdown'
+import _ from 'lodash'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import _ from 'lodash'
 // const _ = lazy(() => import('lodash'))
 
 // local
 import './index.scss'
 import Viewer from '@/components/Viewer'
-import { fetchHome } from '@/redux-relate/actions/fetchHome'
+import { fetchHome } from '@/redux-relate/actions/http'
+import autoTitle from '@/decorators/initPageWithTitleDecorator'
+import initPageWithTitleDecorator from '@/decorators/initPageWithTitleDecorator'
 const ReactMarkdown = lazy(() => import('react-markdown'))
+// import ReactMarkdown from 'react-markdown'
 // import Loading from '../../components/Loading';
 // code
 
 const mapStateToProps = ({ homeReducer, userReducer }) => ({
-	homeReducer,
-	userReducer
+	userReducer,
+	homeReducer
 })
 
 const mapDispatchToProps = (dispatch) => ({
 	fetchHome: bindActionCreators(fetchHome, dispatch)
 })
-
+@initPageWithTitleDecorator('首页')
 @connect(
 	mapStateToProps,
 	mapDispatchToProps
@@ -37,7 +39,6 @@ export default class HomePage extends Component {
 			'res.data.repositoryOwner.repository.object.text',
 			''
 		)
-		console.log(window)
 		return (
 			<div className="HomePage">
 				<Viewer title="主页" data={user} />

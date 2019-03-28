@@ -1,7 +1,6 @@
-import { FETCH_USER_INFO, FETCH_RESOLVE } from '@/redux-relate/constant/http'
+import { FETCH_USER_INFO } from '@/redux-relate/constant/http'
 
 const initialState = {
-	fetchStatus: FETCH_RESOLVE,
 	res: {}
 }
 

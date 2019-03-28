@@ -19,6 +19,8 @@
     "quotes": ["error", "single"],
     "semi": ["error", "never"]
   },
+  "globals": {
+  },
   "env": {
     "browser": true,
     "node": true
