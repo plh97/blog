@@ -6,7 +6,7 @@ import 'github-markdown-css'
 // local
 import App from '@/App'
 import '@/common/index.scss'
-import '@/assets/font-icons/fonts.css'
+import '@/assets/font-icons/fonts.scss'
 import store from '@/redux-relate/store'
 
 ReactDOM.render(

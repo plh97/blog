@@ -1,12 +1,10 @@
 import React, { Component } from 'react'
 import './index.scss'
-import logo from '../../ASSETS/logo/logo.svg'
-import avatar from '../../ASSETS/os icons/centos.png'
-// import avatar from '../../ASSETS/os icons/cent_os.png'
+import logo from '@/assets/logo/logo.svg'
+import avatar from '@/assets/os icons/centos.png'
 
 export default class Header extends Component {
 	render() {
-		// console.log(styles);
 		return (
 			<div className="Header-container">
 				<div className="Header-container--inner">
