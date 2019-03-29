@@ -8,9 +8,9 @@ import { timeUtils } from '@/utils/time'
 import Viewer from '@/components/Viewer'
 import { fetchRepositoryList } from '@/redux-relate/actions/request'
 import initPageWithTitleDecorator from '@/decorators/initPageWithTitleDecorator'
-import starsSvg from '@/assets/stars.svg'
-import githubSvg from '@/assets/github.svg'
-import forksSvg from '@/assets/forks.svg'
+import starsSvg from '@/ASSETS/stars.svg'
+import githubSvg from '@/ASSETS/github.svg'
+import forksSvg from '@/ASSETS/forks.svg'
 
 import './index.scss'
 

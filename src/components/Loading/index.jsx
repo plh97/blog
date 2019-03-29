@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 import './index.scss'
-import loadingSvg from '@/assets/loading.svg'
+import loadingSvg from '@/ASSETS/loading.svg'
 
 export default class Loading extends Component {
 	render() {
