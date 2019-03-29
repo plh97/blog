@@ -3,7 +3,6 @@ import _ from 'lodash'
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
 // local
 // import AxiosOrLocal from '@/utils/axiosOrLocal'
 import Viewer from '@/components/Viewer'
@@ -18,14 +17,12 @@ const mapStateToProps = ({ articleReducer, userReducer }) => ({
 	articleReducer
 })
 
-const mapDispatchToProps = (dispatch) => ({
-	fetchArticleList: bindActionCreators(fetchArticleList, dispatch)
-})
-
 @initPageWithTitleDecorator('文章列表')
 @connect(
 	mapStateToProps,
-	mapDispatchToProps
+	{
+		fetchArticleList
+	}
 )
 export default class ArticlePage extends Component {
 	componentDidMount() {
@@ -56,9 +53,7 @@ export default class ArticlePage extends Component {
 							>
 								<img src={e.node.author.avatarUrl} alt="头像" />
 								<span className="ArticlePage__detail">
-									<span className="ArticlePage__title">
-										{e.node.title}
-									</span>
+									<span className="ArticlePage__title">{e.node.title}</span>
 									{e.node.labels.nodes.map((label, i) => (
 										<span
 											className="ArticlePage__label"
@@ -71,9 +66,7 @@ export default class ArticlePage extends Component {
 										</span>
 									))}
 									<br />
-									<span className="ArticlePage__name">
-										{e.node.author.login}
-									</span>
+									<span className="ArticlePage__name">{e.node.author.login}</span>
 									{e.node.updatedAt}
 								</span>
 							</Link>

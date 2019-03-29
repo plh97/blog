@@ -2,6 +2,7 @@
 [![author](https://img.shields.io/badge/author-peng-blue.svg)](https://github.com/pengliheng/pengliheng.github.io)
 [![Node.js Version](https://img.shields.io/badge/node.js-8.7.0-blue.svg)](http://nodejs.org/download)
 [![Size](https://github-size-badge.herokuapp.com/pengliheng/pengliheng.github.io.svg)](https://github.com/pengliheng/pengliheng.github.io)
+[![tested with jest](https://img.shields.io/badge/tested_with-jest-99424f.svg)](https://github.com/facebook/jest) [![jest](https://jestjs.io/img/jest-badge.svg)](https://github.com/facebook/jest)
 
 ### 欢迎光临我的博客
 
@@ -10,7 +11,7 @@
 ### 我的技术栈
 
 -   JavaScript(React Vue)
--   Nodejs(koa)
+-   Node
 -   HTTP(http1.1 https http2)
 -   Python
 -   Nginx

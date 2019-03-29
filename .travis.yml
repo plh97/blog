@@ -1,13 +1,13 @@
 language: node_js
 node_js:
-- '11.7.0'
+    - '11.7.0'
 npm:
-- '6.5.0'
+    - '6.5.0'
 yarn:
-- '1.13.0'
+    - '1.13.0'
 # cache:
 # - npm
 before_script:
-- yarn
+    - yarn
 script:
-- yarn build
+    - yarn build

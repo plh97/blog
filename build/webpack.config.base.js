@@ -3,7 +3,7 @@ const webpack = require('webpack')
 const merge = require('webpack-merge')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const dotenv = require('dotenv').config({
-	path: resolve('.env'),
+	path: resolve('.env')
 })
 const devWebpackConfig = require('./webpack.config.dev')
 const prodWebpackConfig = require('./webpack.config.prod')
@@ -14,37 +14,37 @@ function resolve(dir) {
 
 const baseWebpackConfig = {
 	entry: {
-		main: path.resolve('./src/index.js'),
+		main: path.resolve('./src/index.js')
 	},
 	output: {
 		path: path.resolve('./dist'),
 		filename: 'main.[hash:8].js',
-		chunkFilename: 'bundle.[name].js',
+		chunkFilename: 'bundle.[name].js'
 	},
 	optimization: {
 		splitChunks: {
-      cacheGroups: {
-        vendor: {
+			cacheGroups: {
+				vendor: {
 					test: /[\\/]node_modules[\\/]/,
-          name: 'vender',
-          chunks: 'async',
-        },
-        commons: {
+					name: 'vender',
+					chunks: 'async'
+				},
+				commons: {
 					test: /[\\/]lodash[\\/]/,
-          name: 'async',
-          chunks: 'all',
-        },
-      },
-		},
+					name: 'async',
+					chunks: 'all'
+				}
+			}
+		}
 	},
 	resolve: {
-		extensions: ['.js', '.jsx', '.json',],
+		extensions: ['.js', '.jsx', '.json'],
 		alias: {
 			'@': resolve('src'),
 			'@root': resolve(''),
 			'@utils': resolve('src/utils'),
-			'@reduxs': resolve('src/redux-relate'),
-		},
+			'@reduxs': resolve('src/redux-relate')
+		}
 	},
 	module: {
 		rules: [
@@ -52,35 +52,36 @@ const baseWebpackConfig = {
 				enforce: 'pre',
 				test: /\.js$/,
 				exclude: /node_modules/,
-				loader: 'eslint-loader',
+				loader: 'eslint-loader'
 			},
 			{
 				test: /\.(js|jsx)$/,
 				exclude: /node_modules/,
-				loader: 'babel-loader',
-			}, {
+				loader: 'babel-loader'
+			},
+			{
 				test: /\.(woff|ttf|png|jpg|gif|svg)$/,
 				use: [
 					{
 						loader: 'file-loader',
 						options: {
 							regExp: /\/([a-z0-9]+)\/[a-z0-9]+\.png$/,
-							name: '[1]-[name].[ext]',
-						},
-					},
-				],
-			},
-		],
+							name: '[1]-[name].[ext]'
+						}
+					}
+				]
+			}
+		]
 	},
 	plugins: [
 		new HtmlWebpackPlugin({
 			favicon: path.resolve('public/favicon.ico'),
-			template: path.resolve('public/index.html'),
+			template: path.resolve('public/index.html')
 		}),
 		new webpack.DefinePlugin({
-			'process.env': dotenv.parsed,
-		}),
-	],
+			'process.env': dotenv.parsed
+		})
+	]
 }
 
 module.exports = (env) =>

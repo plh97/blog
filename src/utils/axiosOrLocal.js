@@ -26,11 +26,10 @@ export default class AxiosOrLocal {
 	async get() {
 		const res = this.isExist()
 		if (res) {
-			// 为了避免副作用,应该让他们都是异步的
 			return new Promise((resolve, rej) => {
 				setTimeout(() => {
 					resolve(JSON.parse(res))
-				}, 100)
+				}, 0)
 			})
 		} else {
 			// 为了避免副作用,应该让他们都是异步的
@@ -38,14 +37,15 @@ export default class AxiosOrLocal {
 				url: this.url,
 				method: this.method,
 				data: this.data
-			})
-				.then((res) => {
+			}).then(
+				(res) => {
 					this.set({
-						data: JSON.stringify(res)
+						data: JSON.stringify(res.data)
 					})
-					return res
-				})
-				.catch((err) => err)
+					return res.data
+				},
+				(err) => err
+			)
 		}
 	}
 }

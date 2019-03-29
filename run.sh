@@ -1,8 +1,4 @@
-# docker build --tag=blog:latest .
-
-
-
-
+docker build -t blog:latest . &
 docker run \
 --name blog \
 -d \

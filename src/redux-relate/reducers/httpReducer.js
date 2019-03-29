@@ -1,8 +1,4 @@
-import {
-	FETCH_PENDING,
-	FETCH_RESOLVE,
-	FETCH_REJECT
-} from '@/redux-relate/constant/http'
+import { FETCH_PENDING, FETCH_RESOLVE, FETCH_REJECT } from '@/redux-relate/constant/http'
 
 const initialState = {
 	httpStatus: FETCH_RESOLVE,

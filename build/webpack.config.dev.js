@@ -4,7 +4,6 @@ const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
 module.exports = {
 	devServer: {
 		contentBase: './dist',
-		// devtool: 'eval',
 		inline: true,
 		port: 3000,
 		hot: true,
@@ -14,8 +13,6 @@ module.exports = {
 	mode: 'development',
 	plugins: [
 		new MiniCssExtractPlugin({
-			// Options similar to the same options in webpackOptions.output
-			// both options are optional
 			filename: '[name].css',
 			chunkFilename: '[id].css'
 		}),
@@ -25,12 +22,7 @@ module.exports = {
 		rules: [
 			{
 				test: /\.(sa|sc|c)ss$/,
-				use: [
-					'style-loader',
-					'css-loader',
-					'postcss-loader',
-					'sass-loader'
-				]
+				use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader']
 			}
 		]
 	}
