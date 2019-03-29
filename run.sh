@@ -6,5 +6,5 @@ docker run \
 -v $(pwd):/go/src/www/pengliheng.github.io \
 -w /go/src/www/pengliheng.github.io \
 -p 8001:5000 \
+blog:latest
 bash
-# blog:latest
