@@ -1,9 +1,5 @@
 import Api from '@/api'
-import {
-	FETCH_PENDING,
-	FETCH_RESOLVE,
-	FETCH_REJECT
-} from '@/redux-relate/constant/http'
+import { FETCH_PENDING, FETCH_RESOLVE, FETCH_REJECT } from '@/redux-relate/constant/http'
 
 export function fetchPending() {
 	return {

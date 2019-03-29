@@ -1,0 +1,1 @@
+docker exec -it $(docker ps -a --filter "name=api" -q) /bin/sh -c "[ -e /bin/bash ] && /bin/bash || /bin/sh"
