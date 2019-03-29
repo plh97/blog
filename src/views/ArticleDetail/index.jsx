@@ -1,7 +1,6 @@
 // package
 import _ from 'lodash'
 import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
 import React, { Component } from 'react'
 import ReactMarkdown from 'react-markdown'
 // local
@@ -16,13 +15,12 @@ const mapStateToProps = ({ userReducer, articleReducer }) => ({
 	userReducer,
 	articleReducer
 })
-const mapDispatchToProps = (dispatch) => ({
-	fetchArticleDetail: bindActionCreators(fetchArticleDetail, dispatch)
-})
 @initPageWithTitleDecorator(keyWord())
 @connect(
 	mapStateToProps,
-	mapDispatchToProps
+	{
+		fetchArticleDetail
+	}
 )
 export default class ArticleDetail extends Component {
 	componentDidMount() {

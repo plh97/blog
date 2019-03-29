@@ -3,7 +3,6 @@ import _ from 'lodash'
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
 // local
 // import AxiosOrLocal from '@/utils/axiosOrLocal'
 import Viewer from '@/components/Viewer'
@@ -18,14 +17,12 @@ const mapStateToProps = ({ articleReducer, userReducer }) => ({
 	articleReducer
 })
 
-const mapDispatchToProps = (dispatch) => ({
-	fetchArticleList: bindActionCreators(fetchArticleList, dispatch)
-})
-
 @initPageWithTitleDecorator('文章列表')
 @connect(
 	mapStateToProps,
-	mapDispatchToProps
+	{
+		fetchArticleList
+	}
 )
 export default class ArticlePage extends Component {
 	componentDidMount() {

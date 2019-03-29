@@ -3,7 +3,6 @@ import _ from 'lodash'
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
 // local
 import { timeUtils } from '@/utils/time'
 import Viewer from '@/components/Viewer'
@@ -20,14 +19,10 @@ const mapStateToProps = ({ userReducer, repositoryReducer }) => ({
 	userReducer
 })
 
-const mapDispatchToProps = (dispatch) => ({
-	fetchRepositoryList: bindActionCreators(fetchRepositoryList, dispatch)
-})
-
 @initPageWithTitleDecorator('仓库列表')
 @connect(
 	mapStateToProps,
-	mapDispatchToProps
+	{ fetchRepositoryList }
 )
 export default class RepositoryPage extends Component {
 	componentDidMount() {

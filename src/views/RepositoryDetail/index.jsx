@@ -1,7 +1,6 @@
 // package
 import _ from 'lodash'
 import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
 import React, { Component } from 'react'
 import ReactMarkdown from 'react-markdown'
 // local
@@ -14,14 +13,13 @@ const mapStateToProps = ({ userReducer, repositoryReducer }) => ({
 	userReducer,
 	repositoryReducer
 })
-const mapDispatchToProps = (dispatch) => ({
-	fetchRepositoryDetail: bindActionCreators(fetchRepositoryDetail, dispatch)
-})
 const keyWord = () => decodeURI(window.location.hash).replace(/^#/, '')
 @initPageWithTitleDecorator(keyWord())
 @connect(
 	mapStateToProps,
-	mapDispatchToProps
+	{
+		fetchRepositoryDetail
+	}
 )
 export default class RepositoryDetail extends Component {
 	componentDidMount() {
