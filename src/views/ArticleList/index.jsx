@@ -56,9 +56,7 @@ export default class ArticlePage extends Component {
 							>
 								<img src={e.node.author.avatarUrl} alt="头像" />
 								<span className="ArticlePage__detail">
-									<span className="ArticlePage__title">
-										{e.node.title}
-									</span>
+									<span className="ArticlePage__title">{e.node.title}</span>
 									{e.node.labels.nodes.map((label, i) => (
 										<span
 											className="ArticlePage__label"
@@ -71,9 +69,7 @@ export default class ArticlePage extends Component {
 										</span>
 									))}
 									<br />
-									<span className="ArticlePage__name">
-										{e.node.author.login}
-									</span>
+									<span className="ArticlePage__name">{e.node.author.login}</span>
 									{e.node.updatedAt}
 								</span>
 							</Link>

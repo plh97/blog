@@ -43,10 +43,7 @@ export default class RepositoryDetail extends Component {
 			<div className="DetailPage">
 				<Viewer title={nameWithOwner} data={user} />
 				<div className="DetailPage__content">
-					<ReactMarkdown
-						className="markdown-body"
-						source={repositoryText}
-					/>
+					<ReactMarkdown className="markdown-body" source={repositoryText} />
 				</div>
 			</div>
 		)

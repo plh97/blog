@@ -1,7 +1,4 @@
-import {
-	FETCH_REPOSITORY_LIST,
-	FETCH_REPOSITORY_DETAIL
-} from '@/redux-relate/constant/http'
+import { FETCH_REPOSITORY_LIST, FETCH_REPOSITORY_DETAIL } from '@/redux-relate/constant/http'
 
 const initialState = {
 	repositoryListHttpResponse: {},

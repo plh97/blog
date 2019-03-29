@@ -11,15 +11,14 @@ import initPageWithTitleDecorator from '@/decorators/initPageWithTitleDecorator'
 import { fetchArticleDetail } from '@/redux-relate/actions/request'
 // code
 
+let keyWord = () => decodeURI(window.location.hash).replace(/^#/, '')
 const mapStateToProps = ({ userReducer, articleReducer }) => ({
 	userReducer,
 	articleReducer
 })
-
 const mapDispatchToProps = (dispatch) => ({
 	fetchArticleDetail: bindActionCreators(fetchArticleDetail, dispatch)
 })
-let keyWord = () => decodeURI(window.location.hash).replace(/^#/, '')
 @initPageWithTitleDecorator(keyWord())
 @connect(
 	mapStateToProps,
@@ -31,19 +30,12 @@ export default class ArticleDetail extends Component {
 	}
 	render() {
 		const user = _.get(this.props.userReducer, 'res.data.viewer', '')
-		const article = _.get(
-			this.props.articleReducer,
-			'articleDetailHttpResponse',
-			''
-		)
+		const article = _.get(this.props.articleReducer, 'articleDetailHttpResponse', '')
 		return (
 			<div className="DetailPage">
 				<Viewer title={article.title} data={user} />
 				<div className="DetailPage__content">
-					<ReactMarkdown
-						className="markdown-body"
-						source={article.body}
-					/>
+					<ReactMarkdown className="markdown-body" source={article.body} />
 				</div>
 			</div>
 		)

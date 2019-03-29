@@ -1,6 +1,6 @@
 import React, { Component, lazy } from 'react'
 import _ from 'lodash'
-import { bindActionCreators } from 'redux'
+// import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 // const _ = lazy(() => import('lodash'))
 
@@ -19,13 +19,13 @@ const mapStateToProps = ({ homeReducer, userReducer }) => ({
 	homeReducer
 })
 
-const mapDispatchToProps = (dispatch) => ({
-	fetchHome: bindActionCreators(fetchHome, dispatch)
-})
+// const mapDispatchToProps = (dispatch) => ({
+// 	fetchHome: bindActionCreators(fetchHome, dispatch)
+// })
 @initPageWithTitleDecorator('首页')
 @connect(
 	mapStateToProps,
-	mapDispatchToProps
+	{ fetchHome }
 )
 export default class HomePage extends Component {
 	componentDidMount() {

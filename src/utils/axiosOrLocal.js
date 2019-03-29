@@ -30,7 +30,7 @@ export default class AxiosOrLocal {
 			return new Promise((resolve, rej) => {
 				setTimeout(() => {
 					resolve(JSON.parse(res))
-				}, 100)
+				}, 0)
 			})
 		} else {
 			// 为了避免副作用,应该让他们都是异步的

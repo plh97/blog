@@ -1,7 +1,4 @@
-import {
-	FETCH_ARTICLE_LIST,
-	FETCH_ARTICLE_DETAIL
-} from '@/redux-relate/constant/http'
+import { FETCH_ARTICLE_LIST, FETCH_ARTICLE_DETAIL } from '@/redux-relate/constant/http'
 
 const initialState = {
 	articleListHttpResponse: {},
