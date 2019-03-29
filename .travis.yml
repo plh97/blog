@@ -8,7 +8,6 @@ yarn:
 # cache:
 # - npm
 before_script:
-    - shopt -s expand_aliases
     - yarn
 script:
     - yarn build
