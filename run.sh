@@ -1,4 +1,4 @@
-# docker build --tag=blog:latest .
+docker build -t blog:latest . &
 docker run \
 --name blog \
 -d \
@@ -7,4 +7,3 @@ docker run \
 -w /go/src/www/pengliheng.github.io \
 -p 8001:5000 \
 blog:latest
-bash
