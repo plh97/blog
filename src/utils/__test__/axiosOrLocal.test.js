@@ -1,7 +1,7 @@
 import axiosOrLocal from '../axiosOrLocal'
 
 describe('axios function unit test', () => {
-	test('now should equal to 0分钟', async () => {
+	test('successful request', async () => {
 		const request = await new axiosOrLocal({
 			key: 'FETCH_USER_INFO_TEST',
 			url: 'https://api.pipk.top/graphql',
@@ -14,7 +14,40 @@ describe('axios function unit test', () => {
 					}`
 			}
 		})
-		const mockResponse = {}
-		expect(request).toBe(mockResponse)
+		const mockResponse = { data: { viewer: { name: 'peng' } } }
+		expect(request).toEqual(mockResponse)
+	})
+
+	test('fail request with 404', async () => {
+		const request = await new axiosOrLocal({
+			key: Math.random(),
+			url: 'https://api.pipk.top/graphqll',
+			method: 'post',
+			data: {
+				query: ''
+			}
+		})
+		const mockResponse = new Error('Request failed with status code 404')
+		expect(request).toEqual(mockResponse)
+	})
+
+	test('Fail Request With Graphql Syntax Error', async () => {
+		const request = await new axiosOrLocal({
+			key: Math.random(),
+			url: 'https://api.pipk.top/graphql',
+			method: 'post',
+			data: {
+				query: ''
+			}
+		})
+
+		const mockResponse = {
+			errors: [
+				{
+					message: 'A query attribute must be specified and must be a string.'
+				}
+			]
+		}
+		expect(request).toEqual(mockResponse)
 	})
 })
