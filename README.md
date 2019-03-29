@@ -11,7 +11,7 @@
 ### 我的技术栈
 
 -   JavaScript(React Vue)
--   Nodejs(koa)
+-   Node
 -   HTTP(http1.1 https http2)
 -   Python
 -   Nginx
