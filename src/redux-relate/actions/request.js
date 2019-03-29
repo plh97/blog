@@ -13,7 +13,7 @@ export const fetchHome = () => (dispatch) =>
 		(res) =>
 			dispatch({
 				type: FETCH_HOME_PAGE,
-				payload: res.data
+				payload: res
 			}),
 		(err) =>
 			dispatch({
@@ -27,7 +27,7 @@ export const fetchUser = () => (dispatch) =>
 		(res) =>
 			dispatch({
 				type: FETCH_USER_INFO,
-				payload: res.data
+				payload: res
 			}),
 		(err) =>
 			dispatch({
@@ -41,7 +41,7 @@ export const fetchArticleList = () => (dispatch) =>
 		(res) =>
 			dispatch({
 				type: FETCH_ARTICLE_LIST,
-				payload: res.data
+				payload: res
 			}),
 		(err) =>
 			dispatch({
@@ -60,7 +60,7 @@ export const fetchArticleDetail = (keyWord) => (dispatch) =>
 		(res) =>
 			dispatch({
 				type: FETCH_ARTICLE_DETAIL,
-				payload: res.data.data.search.edges[0].node
+				payload: res.data.search.edges[0].node
 			}),
 		(err) =>
 			dispatch({
@@ -74,7 +74,7 @@ export const fetchRepositoryList = () => (dispatch) =>
 		(res) =>
 			dispatch({
 				type: FETCH_REPOSITORY_LIST,
-				payload: res.data
+				payload: res
 			}),
 		(err) =>
 			dispatch({
@@ -93,7 +93,7 @@ export const fetchRepositoryDetail = (keyWord) => (dispatch) =>
 		(res) =>
 			dispatch({
 				type: FETCH_REPOSITORY_DETAIL,
-				payload: res.data
+				payload: res
 			}),
 		(err) =>
 			dispatch({

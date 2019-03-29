@@ -41,9 +41,9 @@ export default class AxiosOrLocal {
 			})
 				.then((res) => {
 					this.set({
-						data: JSON.stringify(res)
+						data: JSON.stringify(res.data)
 					})
-					return res
+					return res.data
 				})
 				.catch((err) => err)
 		}
