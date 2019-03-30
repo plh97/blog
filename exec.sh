@@ -1,1 +1,1 @@
-docker exec -it $(docker ps -a --filter "name=api" -q) /bin/sh -c "[ -e /bin/bash ] && /bin/bash || /bin/sh"
+docker exec -it $(docker ps -a --filter "name=blog" -q) /bin/sh -c "[ -e /bin/bash ] && /bin/bash || /bin/sh"

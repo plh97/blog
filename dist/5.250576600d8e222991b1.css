@@ -1,0 +1,133 @@
+.HomePage {
+	overflow-y: auto;
+	max-width: 980px;
+	width: calc(100vw - 50px);
+	background-color: #fff;
+	padding: 20px;
+	min-height: 100%;
+	flex: 1;
+	box-sizing: border-box;
+}
+.HomePage .HomePage-background {
+	width: 100%;
+	overflow: auto;
+}
+.HomePage .HomePage-background .HomePage-container {
+	min-width: 550px;
+	margin-bottom: 1rem;
+	position: relative;
+	width: 100%;
+	height: 17rem;
+	background-image: url(https://static.pipk.top/chat/public/3165624214738918.png);
+	background-origin: border-box;
+	background-repeat: no-repeat;
+	background-size: cover;
+	border-radius: 0.5rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	background-position-y: bottom;
+}
+.HomePage .HomePage-background .HomePage-container .HomePage-detail {
+	border: 0;
+	margin: 0;
+	padding: 0;
+	flex: 0 0 60%;
+	font-size: 30px;
+	display: inline-flex;
+	align-items: center;
+	background-color: rgba(245, 245, 245, 0.23);
+	flex: 0 0 100px;
+	display: flex;
+	flex-direction: row;
+	padding: 1rem;
+	box-sizing: border-box;
+	width: 100%;
+}
+.HomePage .HomePage-background .HomePage-container .HomePage-detail img {
+	width: 4rem;
+	height: 4rem;
+	border-radius: 1rem;
+	margin-right: 1rem;
+}
+.HomePage .HomePage-background .HomePage-container .HomePage-detail .HomePage-detail__list {
+	display: inline-flex;
+	flex-direction: column;
+}
+.HomePage
+	.HomePage-background
+	.HomePage-container
+	.HomePage-detail
+	.HomePage-detail__list
+	.HomePage-detail__name,
+.HomePage
+	.HomePage-background
+	.HomePage-container
+	.HomePage-detail
+	.HomePage-detail__list
+	.HomePage-detail__bio {
+	font-size: 20px;
+}
+.HomePage .HomePage-markdown__body p:first-child {
+	display: inline-flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+.HomePage .HomePage-markdown__body p:first-child a {
+	flex: 0 0 auto;
+}
+.HomePage .HomePage-markdown__body p:first-child > img {
+	flex: 0 0 90px;
+}
+.HomePage .HomePage-markdown__body p a {
+	margin-right: 0.3em;
+}
+
+.Viewer {
+	width: 100%;
+}
+.Viewer .Viewer__container {
+	min-width: 550px;
+	margin-bottom: 1rem;
+	position: relative;
+	box-shadow: 0px 0px 5px #0003;
+	width: 100%;
+	height: 17rem;
+	background-image: url(https://static.pipk.top/api/public/images/background.png);
+	background-origin: border-box;
+	background-repeat: no-repeat;
+	background-size: cover;
+	border-radius: 0.5rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	background-position-y: bottom;
+}
+.Viewer .Viewer__container .Viewer__detail {
+	background-color: rgba(245, 245, 245, 0.23);
+	flex: 0 0 40%;
+	display: flex;
+	flex-direction: row;
+	padding: 1rem;
+	box-sizing: border-box;
+	width: 100%;
+	align-items: center;
+}
+.Viewer .Viewer__container .Viewer__detail .Viewer__image {
+	width: 4rem;
+	height: 4rem;
+	border-radius: 1rem;
+	margin-right: 1rem;
+}
+.Viewer .Viewer__container .Viewer__detail .Viewer__detail-list {
+	display: inline-flex;
+	flex-direction: column;
+}
+.Viewer .Viewer__container .Viewer__detail .Viewer__detail-list .Viewer__detail-name {
+	font-size: 20px;
+}
+.Viewer .Viewer__container .Viewer__detail .Viewer__detail-list .Viewer__detail-bio {
+	font-size: 16px;
+}
