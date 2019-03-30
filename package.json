@@ -70,14 +70,15 @@
 		"webpack-merge": "^4.2.1"
 	},
 	"scripts": {
-		"start": "webpack-dev-server --env.NODE_ENV=development --config ./build/webpack.config.base.js --watch",
-		"build": "webpack --env.NODE_ENV=production --config ./build/webpack.config.base.js",
+		"start": "webpack-dev-server --config ./build/webpack.config.dev.js --watch",
+		"build": "webpack --config ./build/webpack.config.prod.js",
+		"build:stats": "webpack --env.NODE_ENV=production --config ./build/webpack.config.base.js --json > stats.json",
 		"test": "jest"
 	},
 	"husky": {
 		"hooks": {
 			"pre-commit": "pretty-quick --staged",
-			"pre-push": "npm test"
+			"pre-push": "yarn test -u"
 		}
 	},
 	"eslintConfig": {

@@ -1,7 +1,10 @@
+const merge = require('webpack-merge')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
+// local
+const baseWebpackConfig = require('./webpack.config.base')
 
-module.exports = {
+module.exports = merge(baseWebpackConfig, {
 	devServer: {
 		contentBase: './dist',
 		inline: true,
@@ -26,4 +29,4 @@ module.exports = {
 			}
 		]
 	}
-}
+})
