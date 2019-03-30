@@ -53,7 +53,7 @@ export default class App extends Component {
 	render() {
 		return (
 			<Router>
-				<Suspense fallback={<Loading />}>
+				<Suspense fallback={<Loading text="页面玩命加载中..." />}>
 					<Switch>
 						<Layout>
 							<Content />

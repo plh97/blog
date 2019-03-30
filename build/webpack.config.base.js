@@ -28,11 +28,6 @@ const baseWebpackConfig = {
 					test: /[\\/]node_modules[\\/]/,
 					name: 'vender',
 					chunks: 'async'
-				},
-				commons: {
-					test: /[\\/]lodash[\\/]/,
-					name: 'async',
-					chunks: 'all'
 				}
 			}
 		}
