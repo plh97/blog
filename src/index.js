@@ -6,6 +6,7 @@ import 'github-markdown-css'
 // local
 import App from '@/App'
 import '@/common/index.scss'
+import '@/common/markdown.css'
 import '@/ASSETS/font-icons/fonts.scss'
 import store from '@/redux-relate/store'
 
