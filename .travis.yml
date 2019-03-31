@@ -12,7 +12,7 @@
 # script:
 #     - yarn build
 
-language: ruby
+language: ubuntu
 
 before_install:
     - docker build -t blog:latest .
