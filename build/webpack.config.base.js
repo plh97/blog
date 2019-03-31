@@ -20,11 +20,17 @@ module.exports = {
 	},
 	optimization: {
 		splitChunks: {
+			chunks: 'all',
 			cacheGroups: {
-				vendor: {
+				commons: {
 					test: /[\\/]node_modules[\\/]/,
-					name: 'vender',
+					name: 'common.async',
 					chunks: 'async'
+				},
+				react: {
+					test: /[\\/]node_modules[\\/]((react).*)[\\/]/,
+					name: 'react.sync',
+					chunks: 'all'
 				}
 			}
 		}
