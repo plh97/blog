@@ -1,7 +1,7 @@
-import { fetchHome } from './home'
-import { fetchUser } from './user'
-import { fetchArticleList, fetchArticleDetail } from './article'
-import { fetchRepositoryList, fetchRepositoryDetail } from './repository'
+import { fetchHome } from './home.js'
+import { fetchUser } from './user.js'
+import { fetchArticleList, fetchArticleDetail } from './article.js'
+import { fetchRepositoryList, fetchRepositoryDetail } from './repository.js'
 
 export default {
 	fetchHome,
