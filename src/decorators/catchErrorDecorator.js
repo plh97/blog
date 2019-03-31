@@ -47,9 +47,9 @@ export default (WrappedComponent) => {
 		render() {
 			const { error, loading } = this.state
 			if (error) {
-				return <div> 请求出错了 </div>
+				return <div> 请求出错了 \n {error} </div>
 			} else if (loading) {
-				return <Loading />
+				return <Loading text="正在请求数据..." />
 			} else {
 				return <WrappedComponent {...this.props} />
 			}

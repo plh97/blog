@@ -21,19 +21,17 @@ const ArticlePage = withRouter(lazy(() => import('@/views/ArticleList')))
 const ArticleDetailPage = withRouter(lazy(() => import('@/views/ArticleDetail')))
 const RepositoryPage = withRouter(lazy(() => import('@/views/RepositoryList')))
 const RepositoryDetailPage = withRouter(lazy(() => import('@/views/RepositoryDetail')))
-const ProjectPage = withRouter(lazy(() => import('@/views/Project')))
 
 @catchErrorDecorator
 class Content extends Component {
 	render() {
 		return (
 			<>
-				<Route exact path="/" component={HomePage} />{' '}
-				<Route path="/article" component={ArticlePage} />{' '}
-				<Route path="/articleDetail" component={ArticleDetailPage} />{' '}
-				<Route path="/repository" component={RepositoryPage} />{' '}
-				<Route path="/repositoryDetail" component={RepositoryDetailPage} />{' '}
-				<Route path="/project" component={ProjectPage} />{' '}
+				<Route exact path="/" component={HomePage} />
+				<Route path="/article" component={ArticlePage} />
+				<Route path="/articleDetail" component={ArticleDetailPage} />
+				<Route path="/repository" component={RepositoryPage} />
+				<Route path="/repositoryDetail" component={RepositoryDetailPage} />
 			</>
 		)
 	}
@@ -53,7 +51,7 @@ export default class App extends Component {
 	render() {
 		return (
 			<Router>
-				<Suspense fallback={<Loading />}>
+				<Suspense fallback={<Loading text="页面玩命加载中..." />}>
 					<Switch>
 						<Layout>
 							<Content />

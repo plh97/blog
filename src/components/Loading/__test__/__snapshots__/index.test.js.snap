@@ -8,5 +8,6 @@ exports[`renders correctly 1`] = `
     alt="loading"
     src={Object {}}
   />
+  玩命加载中...
 </div>
 `;
