@@ -1,6 +1,6 @@
 // Link.react.test.js
 import React from 'react'
-import Layout from '../index.jsx'
+import Layout from '../'
 import renderer from 'react-test-renderer'
 import { MemoryRouter as Router } from 'react-router-dom' // 4.0.0
 

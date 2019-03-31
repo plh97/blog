@@ -75,7 +75,8 @@
 		"build": "webpack --config ./build/webpack.config.prod.js",
 		"build:stats": "webpack --env.NODE_ENV=production --config ./build/webpack.config.base.js --json > stats.json",
 		"build:analyze": "webpack --config ./build/webpack.config.analyze.js",
-		"test": "jest"
+		"test": "jest",
+		"test:coverage": "jest --coverage"
 	},
 	"husky": {
 		"hooks": {

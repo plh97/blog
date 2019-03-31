@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import './index.scss'
 
 // import Header from '../Header';
-import Side from '../Side'
-import Footer from '../Footer'
+import Side from '@/components/Side'
+import Footer from '@/components/Footer'
 
 export default class Layout extends Component {
 	render() {
