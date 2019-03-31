@@ -1,6 +1,6 @@
-docker build -t blog:latest . &
+docker build -t pengliheng/blog:latest . &
 docker run \
---name blog \
+--name pengliheng/blog \
 -d \
 -it --rm \
 -v $(pwd):/go/src/www/pengliheng.github.io \
