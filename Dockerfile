@@ -1,7 +1,8 @@
-FROM node:latest
-COPY . /go/src/www/pengliheng.github.com
-WORKDIR /go/src/www/pengliheng.github.com
+FROM node
+COPY . /root/app
+WORKDIR /root/app
+VOLUME [ "/root/data" ]
 RUN npm install serve yarn -g
 RUN yarn
 RUN npm rebuild node-sass
-CMD ['yarn build','serve -s dist']
+# CMD serve -s dist

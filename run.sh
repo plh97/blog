@@ -1,9 +1,9 @@
-docker build -t blog:latest . &
+docker build -t blog . &
 docker run \
+--rm -it \
 --name blog \
--d \
--it --rm \
--v $(pwd):/go/src/www/pengliheng.github.io \
--w /go/src/www/pengliheng.github.io \
 -p 8001:5000 \
-blog:latest
+-v $(pwd):/root/app \
+-w /root/app \
+blog:latest \
+yarn build & serve -s dist
