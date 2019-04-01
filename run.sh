@@ -1,9 +1,7 @@
-docker build -t blog:latest . &
 docker run \
+-it \
 --name blog \
--d \
--it --rm \
--v $(pwd):/go/src/www/pengliheng.github.io \
--w /go/src/www/pengliheng.github.io \
 -p 8001:5000 \
+-w /root/app \
 blog:latest
+.
