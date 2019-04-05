@@ -6,7 +6,7 @@ import ReactMarkdown from 'react-markdown'
 // local
 import './index.scss'
 import Viewer from '@/components/Viewer'
-import { fetchRepositoryDetail } from '@/redux-relate/actions/request'
+import { fetchRepositoryDetailSaga } from '@/redux-relate/actions/request'
 import initPageWithTitleDecorator from '@/decorators/initPageWithTitleDecorator'
 
 const mapStateToProps = ({ userReducer, repositoryReducer }) => ({
@@ -17,11 +17,11 @@ const keyWord = () => decodeURI(window.location.hash).replace(/^#/, '')
 @initPageWithTitleDecorator(keyWord())
 @connect(
 	mapStateToProps,
-	{ fetchRepositoryDetail }
+	{ fetchRepositoryDetailSaga }
 )
 export default class RepositoryDetail extends Component {
 	componentDidMount() {
-		this.props.fetchRepositoryDetail(keyWord())
+		this.props.fetchRepositoryDetailSaga(keyWord())
 	}
 	render() {
 		const user = _.get(this.props.userReducer, 'res.data.viewer', '')

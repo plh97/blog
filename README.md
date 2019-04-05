@@ -63,6 +63,16 @@ Uncaught Error: Actions must be plain objects. Use custom middleware for async a
 尽可能使用 PureComponent,增强性能...
 尽可能细化组件.
 
+### React Router
+
+-   `<Link />`: 普通链接
+-   `<NavLink />`: 带 toggleClass 的链接
+-   `<Prompt />`: 满足条件的时候提示用户是否离开页面
+-   `<Redirect />`: 重定向
+-   `<Route />`: 路由匹配核心,匹配则显示的组件
+-   `<Switch />`: 只匹配第一个路由
+-   `exact`, 默认匹配的一个路由
+
 ### 看过的书
 
 -   [x] [网络是怎样连接的](https://book.douban.com/subject/26941639/) - [笔记](https://github.com/pengliheng/pengliheng.github.io/issues/40)

@@ -26,7 +26,7 @@ exports[`renders Side component correctly 1`] = `
       onClick={[Function]}
     >
       <i
-        className="icon icon-sitemap"
+        className="icon icon-dashboard"
       />
       文章
     </a>
@@ -37,7 +37,7 @@ exports[`renders Side component correctly 1`] = `
       onClick={[Function]}
     >
       <i
-        className="icon icon-boat"
+        className="icon icon-dashboard"
       />
       仓库
     </a>

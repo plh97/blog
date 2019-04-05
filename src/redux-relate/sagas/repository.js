@@ -18,9 +18,9 @@ export function* fetchRepositoryListSaga() {
 }
 
 export function* fetchRepositoryDetailSaga() {
-	yield takeLatest(FETCH_REPOSITORY_DETAIL_SAGA, function*() {
+	yield takeLatest(FETCH_REPOSITORY_DETAIL_SAGA, function*({ payload }) {
 		try {
-			const articleList = yield call(Api.fetchRepositoryList)
+			const articleList = yield call(Api.fetchRepositoryDetail, payload)
 			yield put(fetchRepositoryDetail(articleList))
 		} catch (error) {
 			yield put(fetchRepositoryDetail(error))
