@@ -7,7 +7,7 @@ import ReactMarkdown from 'react-markdown'
 import './index.scss'
 import Viewer from '@/components/Viewer'
 import initPageWithTitleDecorator from '@/decorators/initPageWithTitleDecorator'
-import { fetchArticleDetail } from '@/redux-relate/actions/request'
+import { fetchArticleDetailSaga } from '@/redux-relate/actions/request'
 // code
 
 let keyWord = () => decodeURI(window.location.hash).replace(/^#/, '')
@@ -19,12 +19,12 @@ const mapStateToProps = ({ userReducer, articleReducer }) => ({
 @connect(
 	mapStateToProps,
 	{
-		fetchArticleDetail
+		fetchArticleDetailSaga
 	}
 )
 export default class ArticleDetail extends Component {
 	componentDidMount() {
-		this.props.fetchArticleDetail(keyWord())
+		this.props.fetchArticleDetailSaga(keyWord())
 	}
 	render() {
 		const user = _.get(this.props.userReducer, 'res.data.viewer', '')

@@ -4,35 +4,22 @@ import { BrowserRouter as Router, Route, withRouter, Switch } from 'react-router
 import { connect } from 'react-redux'
 
 // local
-import { fetchUser } from '@/redux-relate/actions/request'
-import catchErrorDecorator from '@/decorators/catchErrorDecorator'
+import routes from '@/routes'
 import Loading from '@/components/Loading'
+import { fetchUserSaga } from '@/redux-relate/actions/request'
+import catchErrorDecorator from '@/decorators/catchErrorDecorator'
 // import Layout from '@/components/Layout'
-// import HomePage from '@/views/Home'
-// import ArticlePage from '@/views/Article'
-// import ArticleDetailPage from '@/views/Article/Detail'
-// import RepositoryPage from '@/views/Repository'
-// import RepositoryDetailPage from '@/views/Repository/Detail'
-// import ProjectPage from '@/views/Project'
-// import CustomBrowserRouter from '@/components/CustomBrowserRouter'
 const Layout = withRouter(lazy(() => import('@/components/Layout')))
-const HomePage = withRouter(lazy(() => import('@/views/Home')))
-const ArticlePage = withRouter(lazy(() => import('@/views/ArticleList')))
-const ArticleDetailPage = withRouter(lazy(() => import('@/views/ArticleDetail')))
-const RepositoryPage = withRouter(lazy(() => import('@/views/RepositoryList')))
-const RepositoryDetailPage = withRouter(lazy(() => import('@/views/RepositoryDetail')))
 
 @catchErrorDecorator
 class Content extends Component {
 	render() {
 		return (
-			<>
-				<Route exact path="/" component={HomePage} />
-				<Route path="/article" component={ArticlePage} />
-				<Route path="/articleDetail" component={ArticleDetailPage} />
-				<Route path="/repository" component={RepositoryPage} />
-				<Route path="/repositoryDetail" component={RepositoryDetailPage} />
-			</>
+			<Switch>
+				{routes.map((route) => (
+					<Route key={route.path} {...route} />
+				))}
+			</Switch>
 		)
 	}
 }
@@ -40,23 +27,19 @@ class Content extends Component {
 // main
 @connect(
 	null,
-	{
-		fetchUser
-	}
+	{ fetchUserSaga }
 )
 export default class App extends Component {
 	componentDidMount() {
-		this.props.fetchUser()
+		this.props.fetchUserSaga()
 	}
 	render() {
 		return (
 			<Router>
-				<Suspense fallback={<Loading text="页面玩命加载中..." />}>
-					<Switch>
-						<Layout>
-							<Content />
-						</Layout>
-					</Switch>
+				<Suspense maxDuration={300} fallback={<Loading text="页面玩命加载中..." />}>
+					<Layout>
+						<Content />
+					</Layout>
 				</Suspense>
 			</Router>
 		)

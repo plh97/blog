@@ -2,7 +2,8 @@
 [![author](https://img.shields.io/badge/author-peng-blue.svg)](https://github.com/pengliheng/pengliheng.github.io)
 [![Node.js Version](https://img.shields.io/badge/node.js-8.7.0-blue.svg)](http://nodejs.org/download)
 [![Size](https://github-size-badge.herokuapp.com/pengliheng/pengliheng.github.io.svg)](https://github.com/pengliheng/pengliheng.github.io)
-[![tested with jest](https://img.shields.io/badge/tested_with-jest-99424f.svg)](https://github.com/facebook/jest) [![jest](https://jestjs.io/img/jest-badge.svg)](https://github.com/facebook/jest)
+[![tested with jest](https://img.shields.io/badge/tested_with-jest-99424f.svg)](https://github.com/facebook/jest)
+[![jest](https://jestjs.io/img/jest-badge.svg)](https://github.com/facebook/jest)
 
 ### 欢迎光临我的博客
 
@@ -13,33 +14,20 @@
 -   JavaScript(React Vue)
 -   Node
 -   HTTP(http1.1 https http2)
--   Python
--   Nginx
--   Graphql
 -   RegExp
+-   Nginx
+-   Python
+-   Graphql
 
 ### TODO
 
--   [ ] 引入 jest 单元测试,覆盖率>90%
+-   [x] 引入 jest 单元测试,覆盖率>90%
     -   reducer 测试
     -   component 测试
     -   container 测试
-    -   saga 测试
--   [ ] 引入 `redux-saga` 处理异步流程
--   [ ] 给组件加入 loading 状态
--   [ ] 高阶组件的加入, title 装饰器加入,
--   [ ] static prototype / static defaultProtype -> 引入 以组件为单位,严格限制传入的 prop 以及设置默认 prop
+-   [ ] `redux-saga` 替代 `redux-thunk`
 -   [ ] 将所有组件转化成 `useState` 函数式组件
--   [ ] 引入 typescript, 将 js 彻底静态化
-
-### TODO
-
-...继续做...利用 http 拦截器,也就是中间件,来做`loading`状态,4 种 test 测试加上,`redux-thunk`过渡到`redux-saga`,了解为什么要将异步请求放在 saga 里面,暴露问题,不暴露也可以,前提是能创造价值没问题,如果不行,又不暴露问题,那就...也可以自己偷偷解决一下问题?当然有些问题是可以解决的,面对一下.当然有些问题呢,永远也无法解决,我也不想再面对.ok,最后想一下,这是个可达到的目标,
-
--   [ ] 搭建 react+redux+redux-thunk 基础环境
--   [ ] http 请求搞起来
--   [ ] 4 种测试用例.
--   [ ] 拦截 http 请求,做 loading
+-   [ ] 引入 typescript, 这样每个组件就都有提示了,非常爽
 
 ### redux-thunk
 
@@ -49,9 +37,31 @@
 Uncaught Error: Actions must be plain objects. Use custom middleware for async actions.
 ```
 
-### Pay Atention
+### docker 构建项目
 
-垒砖的同时,最大限度的做好单测,地基牢固了,做了单测了,才能放心的进行下一步流程的开发.
+```bash
+./build.sh # 用于构建image,镜像内部运行`yarn build`,构建的dist文件在镜像内部
+./run.sh   # 用于运行镜像 `CMD serve -s dist` 运行服务
+```
+
+### Interview Question ++
+
+-   [ ] vue 与 react 区别
+-   [ ] 观察者模式与发布订阅模式的区别
+-   [ ] 什么情况下 async/await 能取代 promise
+-   [ ] webpack 体积 + 编译速度性能优化
+-   [ ] es5 function 几种继承过程
+-   [ ] 如何阻止浏览器原生右键弹出, `e.preventDefault()`
+-   [ ] Http 复杂请求 优化 + Loading
+-   [ ] docker 多个实例集群部署
+-   [ ] MySQL 关联查询
+-   [ ] vuex/redux 实现机制, 属性如何在根节点注入,各个子组件都能获取 - context
+-   [ ] ....继续补充
+
+### React 开发原则
+
+尽可能使用 PureComponent,增强性能...
+尽可能细化组件.
 
 ### 看过的书
 

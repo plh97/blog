@@ -1,13 +1,13 @@
 import React, { Component, lazy } from 'react'
 import _ from 'lodash'
-// import { bindActionCreators } from 'redux'
+import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 // const _ = lazy(() => import('lodash'))
 
 // local
 import './index.scss'
 import Viewer from '@/components/Viewer'
-import { fetchHome } from '@/redux-relate/actions/request'
+import { fetchHomeSaga } from '@/redux-relate/actions/request'
 import initPageWithTitleDecorator from '@/decorators/initPageWithTitleDecorator'
 const ReactMarkdown = lazy(() => import('react-markdown'))
 // import ReactMarkdown from 'react-markdown'
@@ -19,17 +19,16 @@ const mapStateToProps = ({ homeReducer, userReducer }) => ({
 	homeReducer
 })
 
-// const mapDispatchToProps = (dispatch) => ({
-// 	fetchHome: bindActionCreators(fetchHome, dispatch)
-// })
 @initPageWithTitleDecorator('首页')
 @connect(
 	mapStateToProps,
-	{ fetchHome }
+	{
+		fetchHomeSaga
+	}
 )
 export default class HomePage extends Component {
 	componentDidMount() {
-		this.props.fetchHome()
+		this.props.fetchHomeSaga()
 	}
 	render() {
 		const user = _.get(this.props.userReducer, 'res.data.viewer', '')

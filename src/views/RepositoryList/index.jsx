@@ -1,4 +1,3 @@
-// package
 import _ from 'lodash'
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
@@ -6,7 +5,7 @@ import { connect } from 'react-redux'
 // local
 import { timeUtils } from '@/utils/time'
 import Viewer from '@/components/Viewer'
-import { fetchRepositoryList } from '@/redux-relate/actions/request'
+import { fetchRepositoryListSaga } from '@/redux-relate/actions/request'
 import initPageWithTitleDecorator from '@/decorators/initPageWithTitleDecorator'
 import starsSvg from '@/ASSETS/stars.svg'
 import githubSvg from '@/ASSETS/github.svg'
@@ -22,11 +21,11 @@ const mapStateToProps = ({ userReducer, repositoryReducer }) => ({
 @initPageWithTitleDecorator('仓库列表')
 @connect(
 	mapStateToProps,
-	{ fetchRepositoryList }
+	{ fetchRepositoryListSaga }
 )
 export default class RepositoryPage extends Component {
 	componentDidMount() {
-		this.props.fetchRepositoryList()
+		this.props.fetchRepositoryListSaga()
 	}
 	render() {
 		const user = _.get(this.props.userReducer, 'res.data.viewer', '')
