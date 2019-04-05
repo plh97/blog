@@ -1,7 +1,7 @@
 .Viewer {
 	width: 100%;
 	// overflow: auto;
-	background: red;
+	// background: red;
 
 	.Viewer__container {
 		min-width: 550px;
@@ -23,13 +23,13 @@
 
 		.Viewer__detail {
 			background-color: rgba(245, 245, 245, 0.23);
-			flex: 0 0 40%;
+			flex: 0 0;
 			display: flex;
 			flex-direction: row;
 			padding: 1rem;
 			box-sizing: border-box;
 			width: 100%;
-			align-items: center;
+			align-items: stretch;
 
 			.Viewer__image {
 				width: 4rem;
@@ -41,9 +41,11 @@
 			.Viewer__detail-list {
 				display: inline-flex;
 				flex-direction: column;
+				justify-content: space-between;
 
 				.Viewer__detail-name {
-					font-size: 20px;
+					font-size: 40px;
+					line-height: 30px;
 				}
 
 				.Viewer__detail-bio {

@@ -3,7 +3,7 @@ import { put, takeLatest, call } from 'redux-saga/effects'
 import { FETCH_ARTICLE_LIST_SAGA, FETCH_ARTICLE_DETAIL_SAGA } from '@/redux-relate/constant/http'
 import Api from '@/api'
 
-export function* fetchArticleSaga() {
+export function* fetchArticleListSaga() {
 	yield takeLatest(FETCH_ARTICLE_LIST_SAGA, function*() {
 		try {
 			const articleList = yield call(Api.fetchArticleList)
