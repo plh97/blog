@@ -17,9 +17,7 @@ const keyWord = () => decodeURI(window.location.hash).replace(/^#/, '')
 @initPageWithTitleDecorator(keyWord())
 @connect(
 	mapStateToProps,
-	{
-		fetchRepositoryDetail
-	}
+	{ fetchRepositoryDetail }
 )
 export default class RepositoryDetail extends Component {
 	componentDidMount() {

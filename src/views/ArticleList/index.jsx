@@ -1,12 +1,10 @@
-// package
 import _ from 'lodash'
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 // local
-// import AxiosOrLocal from '@/utils/axiosOrLocal'
 import Viewer from '@/components/Viewer'
-import { fetchArticleList } from '@/redux-relate/actions/request'
+import { fetchArticleListSaga } from '@/redux-relate/actions/request'
 import initPageWithTitleDecorator from '@/decorators/initPageWithTitleDecorator'
 
 import './index.scss'
@@ -20,13 +18,11 @@ const mapStateToProps = ({ articleReducer, userReducer }) => ({
 @initPageWithTitleDecorator('文章列表')
 @connect(
 	mapStateToProps,
-	{
-		fetchArticleList
-	}
+	{ fetchArticleListSaga }
 )
 export default class ArticlePage extends Component {
 	componentDidMount() {
-		this.props.fetchArticleList()
+		this.props.fetchArticleListSaga()
 	}
 	render() {
 		const user = _.get(this.props.userReducer, 'res.data.viewer', '')

@@ -1,5 +1,5 @@
-// package
 import React from 'react'
+
 // local
 import './index.scss'
 // code
