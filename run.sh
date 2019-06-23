@@ -1,5 +1,4 @@
 docker run \
--it \
 -rm \
 --name blog \
 -p 8001:5000 \
