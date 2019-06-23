@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[10],{206:function(n,e,t){},207:function(n,e,t){n.exports=t.p+"[1]-404_img.svg"},89:function(n,e,t){"use strict";t.r(e);var a=t(1),o=t.n(a),c=(t(206),t(207)),s=t.n(c);e.default=(()=>o.a.createElement("div",{className:"PageNotFound"},o.a.createElement("img",{alt:"not_found",src:s.a})))}}]);
