@@ -7,7 +7,7 @@ import Viewer from '@/components/Viewer'
 import { fetchArticleListSaga } from '@/redux-relate/actions/request'
 import initPageWithTitleDecorator from '@/decorators/initPageWithTitleDecorator'
 
-import './index.scss'
+import './index.less'
 // code
 
 const mapStateToProps = ({ articleReducer, userReducer }) => ({

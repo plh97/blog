@@ -1,5 +1,5 @@
 import React from 'react'
-import './index.scss'
+import './index.less'
 
 // import Header from '../Header';
 import Side from '@/components/Side'

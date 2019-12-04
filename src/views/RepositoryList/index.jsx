@@ -11,7 +11,7 @@ import starsSvg from '@/ASSETS/stars.svg'
 import githubSvg from '@/ASSETS/github.svg'
 import forksSvg from '@/ASSETS/forks.svg'
 
-import './index.scss'
+import './index.less'
 
 const mapStateToProps = ({ userReducer, repositoryReducer }) => ({
 	repositoryReducer,

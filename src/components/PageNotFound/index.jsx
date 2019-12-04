@@ -1,5 +1,5 @@
 import React from 'react'
-import './index.scss'
+import './index.less'
 import NotFoundSvg from '@/ASSETS/404_img.svg'
 
 export default () => (

@@ -1,7 +1,7 @@
 import React from 'react'
 
 // local
-import './index.scss'
+import './index.less'
 // code
 export default function(props) {
 	const { data, title } = props

@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import React, { Component } from 'react'
 import ReactMarkdown from 'react-markdown'
 // local
-import './index.scss'
+import './index.less'
 import Viewer from '@/components/Viewer'
 import initPageWithTitleDecorator from '@/decorators/initPageWithTitleDecorator'
 import { fetchArticleDetailSaga } from '@/redux-relate/actions/request'

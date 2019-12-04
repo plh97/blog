@@ -2,7 +2,7 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 
 import routes from '@/routes'
-import './index.scss'
+import './index.less'
 
 export default () => (
 	<div className="Side__container">
@@ -21,7 +21,7 @@ export default () => (
 					</NavLink>
 				))}
 		</div>
-		<div className="Side__history">
+		{/* <div className="Side__history">
 			<h3 className="Side__history-title">友链</h3>
 			<ul className="Side__history-content">
 				{[...new Array(10)].map((e, i) => (
@@ -30,6 +30,6 @@ export default () => (
 					</li>
 				))}
 			</ul>
-		</div>
+		</div> */}
 	</div>
 )

@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 // const _ = lazy(() => import('lodash'))
 
 // local
-import './index.scss'
+import './index.less'
 import Viewer from '@/components/Viewer'
 import { fetchHomeSaga } from '@/redux-relate/actions/request'
 import initPageWithTitleDecorator from '@/decorators/initPageWithTitleDecorator'
