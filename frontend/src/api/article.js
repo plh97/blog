@@ -5,7 +5,7 @@ import AxiosOrLocal from '@/utils/axiosOrLocal'
 export const fetchArticleList = () =>
 	new AxiosOrLocal({
 		key: FETCH_ARTICLE_LIST,
-		url: 'http://207.148.124.110:3002//graphql',
+		url: '/graphql',
 		method: 'post',
 		data: {
 			query: ` {
@@ -36,7 +36,7 @@ export const fetchArticleList = () =>
 export const fetchArticleDetail = (keyWord) =>
 	new AxiosOrLocal({
 		key: keyWord,
-		url: 'http://207.148.124.110:3002//graphql',
+		url: '/graphql',
 		method: 'post',
 		data: {
 			query: `{

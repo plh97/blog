@@ -4,14 +4,24 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "npx ts-node server.ts"
+    "watch-server": "npx nodemon --watch 'src/**/*' -e ts,tsx --exec npx ts-node ./src/server.ts",
+    "dev": "ts-node ./src/server.ts"
   },
   "dependencies": {
     "@types/koa": "^2.11.0",
+    "@types/koa-bodyparser": "^4.3.0",
     "@types/koa-router": "^7.0.42",
     "@types/node": "^12.12.14",
+    "axios": "^0.19.0",
     "koa": "^2.11.0",
-    "koa-router": "^7.4.0",
+    "koa-body": "^4.1.1",
+    "koa-bodyparser": "^4.2.1",
+    "koa-router": "^7.4.0"
+  },
+  "devDependencies": {
+    "ts-node": "^8.5.4",
     "typescript": "^3.7.3"
-  }
+  },
+  "description": "backend",
+  "repository": {}
 }

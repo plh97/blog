@@ -2,3 +2,5 @@ node_modules
 npm-debug.log
 package-lock.json
 node_modules
+frontend/node_modules
+backend/node_modules

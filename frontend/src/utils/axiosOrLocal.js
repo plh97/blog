@@ -1,5 +1,7 @@
 import axios from 'axios'
-
+const localAxios = axios.create({
+  baseURL: 'http://207.148.124.110:8008',
+});
 export default class AxiosOrLocal {
 	constructor({ data, url, method, key, type = 'localStorage' }) {
 		this.key = key
@@ -33,7 +35,7 @@ export default class AxiosOrLocal {
 			})
 		} else {
 			// 为了避免副作用,应该让他们都是异步的
-			return await axios({
+			return await localAxios({
 				url: this.url,
 				method: this.method,
 				data: this.data

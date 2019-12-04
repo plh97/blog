@@ -1,11 +1,11 @@
-const axios = require('axios');
+import axios from 'axios'
 
 // 缓存
 const cache = new Map()
-const Graphql = async (ctx) => {
+const Graphql = async (ctx:any) => {
   try {
     const query = ctx.request.body;
-    const queryFunc = async data => new Promise((resolve, reject) => {
+    const queryFunc = async (data:any) => new Promise((resolve, reject) => {
       console.log(process.env.ACCESS_TOKEN)
       if (cache.has((JSON.stringify(data)))) {
         console.log('get data from cache')
@@ -37,4 +37,4 @@ const Graphql = async (ctx) => {
   }
 };
 
-module.exports = Graphql;
+export default Graphql;

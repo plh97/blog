@@ -1,4 +1,26 @@
-const mimes = {
+interface MimeType {
+  css: String,
+  less: String,
+  gif: String,
+  html: String,
+  ico: String,
+  jpeg: String,
+  jpg: String,
+  js: String,
+  json: String,
+  pdf: String,
+  png: String,
+  svg: String,
+  swf: String,
+  tiff: String,
+  txt: String,
+  wav: String,
+  wma: String,
+  wmv: String,
+  xml: String,
+}
+
+const mimes:MimeType = {
   css: 'text/css',
   less: 'text/css',
   gif: 'image/gif',
@@ -21,7 +43,7 @@ const mimes = {
 };
 
 class Mime {
-  static getType(type) {
+  static getType(type:String) {
     for (const mime in mimes) {
       if (mimes[mime] == type) {
         return mime;
@@ -30,4 +52,4 @@ class Mime {
   }
 }
 
-module.exports = exports = Mime;
+export default Mime

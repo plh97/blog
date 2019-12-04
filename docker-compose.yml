@@ -11,7 +11,7 @@ services:
       - gate-tier
     environment:
       - PORT=8080
-    command: "npm run dev"
+    command: "npm run watch-server"
 
   frontend:
     restart: always

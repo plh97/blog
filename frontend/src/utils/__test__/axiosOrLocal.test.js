@@ -5,7 +5,7 @@ describe('axios function unit test', () => {
 		await new axiosOrLocal({
 			type: 'localStorage',
 			key: 'FETCH_USER_INFO_TEST',
-			url: 'http://207.148.124.110:3002//graphql',
+			url: '/graphql',
 			method: 'post',
 			data: {
 				query: `{
@@ -17,7 +17,7 @@ describe('axios function unit test', () => {
 		})
 		const request = await new axiosOrLocal({
 			key: 'FETCH_USER_INFO_TEST',
-			url: 'http://207.148.124.110:3002//graphql',
+			url: '/graphql',
 			method: 'post',
 			data: {
 				query: `{
@@ -35,7 +35,7 @@ describe('axios function unit test', () => {
 		await new axiosOrLocal({
 			type: 'sessionStorage',
 			key: 'FETCH_USER_INFO_TEST',
-			url: 'http://207.148.124.110:3002//graphql',
+			url: '/graphql',
 			method: 'post',
 			data: {
 				query: `{
@@ -47,7 +47,7 @@ describe('axios function unit test', () => {
 		})
 		const request = await new axiosOrLocal({
 			key: 'FETCH_USER_INFO_TEST',
-			url: 'http://207.148.124.110:3002//graphql',
+			url: '/graphql',
 			method: 'post',
 			data: {
 				query: `{
@@ -70,7 +70,7 @@ describe('axios function unit test', () => {
 	test('fail request with 404', async () => {
 		const request = await new axiosOrLocal({
 			key: Math.random(),
-			url: 'http://207.148.124.110:3002//graphqll',
+			url: '/graphqll',
 			method: 'post',
 			data: {
 				query: ''
@@ -83,7 +83,7 @@ describe('axios function unit test', () => {
 	test('Fail Request With Graphql Syntax Error', async () => {
 		const request = await new axiosOrLocal({
 			key: Math.random(),
-			url: 'http://207.148.124.110:3002//graphql',
+			url: '/graphql',
 			method: 'post',
 			data: {
 				query: ''

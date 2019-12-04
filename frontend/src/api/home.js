@@ -3,7 +3,7 @@ import AxiosOrLocal from '@/utils/axiosOrLocal'
 export const fetchHome = () =>
 	new AxiosOrLocal({
 		key: FETCH_HOME_PAGE,
-		url: 'http://207.148.124.110:3002//graphql',
+		url: '/graphql',
 		method: 'post',
 		data: {
 			query: `{
