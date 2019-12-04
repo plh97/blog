@@ -1,0 +1,42 @@
+version: "3.7"
+
+services:
+  backend:
+    restart: always
+    volumes:
+      - ./backend:/root/app/
+    build:
+      context: "./backend"
+    networks:
+      - gate-tier
+    environment:
+      - PORT=8080
+    command: "npm run dev"
+
+  frontend:
+    restart: always
+    volumes:
+      - ./frontend:/root/app/
+    build:
+      context: "./frontend"
+    networks:
+      - gate-tier
+    environment:
+      - PORT=80
+    command: "npx serve -s dist"
+
+  nginx:
+    restart: always
+    build:
+      context: "./nginx"
+    networks:
+      - gate-tier
+    volumes:
+      - ./nginx/conf.d/:/etc/nginx/conf.d/
+      - ./nginx:/var/log/nginx/
+    ports:
+      - "8007:80"
+      - "8008:8080"
+
+networks:
+  gate-tier:

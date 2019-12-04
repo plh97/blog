@@ -1,0 +1,17 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "npx ts-node server.ts"
+  },
+  "dependencies": {
+    "@types/koa": "^2.11.0",
+    "@types/koa-router": "^7.0.42",
+    "@types/node": "^12.12.14",
+    "koa": "^2.11.0",
+    "koa-router": "^7.4.0",
+    "typescript": "^3.7.3"
+  }
+}
