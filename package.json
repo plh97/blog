@@ -84,8 +84,7 @@
 	},
 	"husky": {
 		"hooks": {
-			"pre-commit": "pretty-quick --staged",
-			"pre-push": "yarn test -u"
+			"pre-commit": "pretty-quick --staged"
 		}
 	},
 	"eslintConfig": {
