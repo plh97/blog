@@ -16,8 +16,8 @@ services:
 
   frontend:
     restart: always
-    volumes:
-      - ./frontend:/root/app/
+    # volumes:
+    #   - ./frontend:/root/app/
     build:
       context: "./frontend"
     networks:
