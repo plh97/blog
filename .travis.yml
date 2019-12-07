@@ -15,10 +15,11 @@ before_install:
 before_script:
   - docker-compose up -d --build
 
-# script:
-  # - docker-compose exec users python manage.py test
-  # - docker-compose exec users black project
-  # - docker-compose exec users flake8 project
+script:
+  - docker-compose -f docker-compose.yaml down
+  - docker-compose -f docker-compose.yaml up -d --force-recreate 
+  - docker-compose -f docker-compose.yaml down
+
 
 after_script:
   - docker-compose down
