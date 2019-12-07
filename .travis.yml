@@ -15,7 +15,7 @@
 language: ubuntu
 
 before_install:
-  - docker-compose up
+  - docker-compose up --build
 
 services:
   - docker
