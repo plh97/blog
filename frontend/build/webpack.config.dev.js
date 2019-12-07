@@ -3,12 +3,14 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
 // local
 const baseWebpackConfig = require('./webpack.config.base')
+const PORT = process.env.PORT
 
 module.exports = merge(baseWebpackConfig, {
 	devServer: {
+		host: '0.0.0.0',
 		contentBase: './dist',
 		inline: true,
-		port: 3000,
+		port: PORT,
 		hot: true,
 		historyApiFallback: true
 	},
@@ -23,10 +25,6 @@ module.exports = merge(baseWebpackConfig, {
 	],
 	module: {
 		rules: [
-			// {
-			// 	test: /\.(sa|sc|c)ss$/,
-			// 	use: ['style-loader', 'css-loader', 'postcss-loader', 'scss-loader']
-			// },
 			{
 				test: /\.less$/,
 				use: [

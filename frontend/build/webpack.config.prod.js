@@ -15,9 +15,23 @@ module.exports = merge(baseWebpackConfig, {
 	module: {
 		rules: [
 			{
-				test: /\.(sa|sc|c)ss$/,
-				use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'sass-loader']
+				test: /\.less$/,
+				use: [
+					'style-loader',
+					'css-loader',
+					'postcss-loader',
+					{
+						loader: 'less-loader',
+						options: {
+							javascriptEnabled: true
+						}
+					}
+				]
 			}
+			// {
+			// 	test: /\.(sa|sc|c)ss$/,
+			// 	use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader']
+			// }
 		]
 	}
 })

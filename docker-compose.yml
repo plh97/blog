@@ -11,6 +11,7 @@ services:
       - gate-tier
     environment:
       - PORT=8080
+      - ACCESS_TOKEN=ae55e694077493e8b7b09531e2660a5a80107e26
     command: "npm run watch-server"
 
   frontend:
@@ -23,7 +24,7 @@ services:
       - gate-tier
     environment:
       - PORT=80
-    command: "npx serve -s dist"
+    command: "yarn run serve"
 
   nginx:
     restart: always
@@ -35,8 +36,8 @@ services:
       - ./nginx/conf.d/:/etc/nginx/conf.d/
       - ./nginx:/var/log/nginx/
     ports:
-      - "8007:80"
-      - "8008:8080"
+      - "8009:80"
+      - "8010:8080"
 
 networks:
   gate-tier:

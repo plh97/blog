@@ -19,10 +19,7 @@ const mapStateToProps = ({ userReducer, repositoryReducer }) => ({
 })
 
 @initPageWithTitleDecorator('仓库列表')
-@connect(
-	mapStateToProps,
-	{ fetchRepositoryListSaga }
-)
+@connect(mapStateToProps, { fetchRepositoryListSaga })
 export default class RepositoryPage extends Component {
 	componentDidMount() {
 		this.props.fetchRepositoryListSaga()

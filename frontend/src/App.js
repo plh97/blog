@@ -25,10 +25,7 @@ class Content extends Component {
 }
 
 // main
-@connect(
-	null,
-	{ fetchUserSaga }
-)
+@connect(null, { fetchUserSaga })
 export default class App extends Component {
 	componentDidMount() {
 		this.props.fetchUserSaga()

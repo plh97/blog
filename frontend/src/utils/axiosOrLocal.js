@@ -1,7 +1,5 @@
 import axios from 'axios'
-const localAxios = axios.create({
-  baseURL: 'http://207.148.124.110:8008',
-});
+const localAxios = axios.create({ baseURL: 'http://207.148.124.110:8010' })
 export default class AxiosOrLocal {
 	constructor({ data, url, method, key, type = 'localStorage' }) {
 		this.key = key
