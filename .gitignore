@@ -5,4 +5,6 @@ backend/node_modules
 
 # misc
 .env
-nginx/*.log
+**/*/*.log
+**/*/node_modules
+
