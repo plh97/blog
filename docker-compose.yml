@@ -3,8 +3,8 @@ version: "3.7"
 services:
   backend:
     restart: always
-    volumes:
-      - ./backend:/root/app/
+    # volumes:
+    #   - ./backend:/root/app/
     build:
       context: "./backend"
     networks:
