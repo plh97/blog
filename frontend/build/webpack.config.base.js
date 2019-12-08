@@ -75,7 +75,7 @@ module.exports = {
 			template: path.resolve('public/index.html')
 		}),
 		new webpack.DefinePlugin({
-			'process.env': process.env
+			'process.env.BASE_URL': JSON.stringify(process.env.BASE_URL)
 		})
 	]
 }

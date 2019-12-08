@@ -3,16 +3,15 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
 // local
 const baseWebpackConfig = require('./webpack.config.base')
-const PORT = process.env.PORT
 
 module.exports = merge(baseWebpackConfig, {
 	devServer: {
 		host: '0.0.0.0',
-		contentBase: './dist',
-		inline: true,
-		port: PORT,
-		hot: true,
-		historyApiFallback: true
+		contentBase: './dist'
+		// inline: true,
+		// port: process.env.PORT,
+		// hot: true,
+		// historyApiFallback: true
 	},
 	devtool: 'source-map',
 	mode: 'development',

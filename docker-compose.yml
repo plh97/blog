@@ -11,11 +11,13 @@ services:
       - gate-tier
     environment:
       - PORT=8080
-      - ACCESS_TOKEN=59f28e4a1414873df66ace56d79e262365fd9083
-      - BASE_URL=//207.148.118.120:8004
+      - ACCESS_TOKEN=5712787245f0663ef314c1c5e1644134f14e54a6
     command: "npm run watch-server"
 
   frontend:
+    environment:
+      - PORT=80
+      - BASE_URL=//207.148.118.120:8004
     restart: always
     volumes:
       - ./frontend:/root/app/
@@ -23,8 +25,6 @@ services:
       context: "./frontend"
     networks:
       - gate-tier
-    environment:
-      - PORT=80
     command: "yarn run serve"
 
   nginx:

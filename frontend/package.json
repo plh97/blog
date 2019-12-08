@@ -3,8 +3,8 @@
 	"version": "0.1.0",
 	"private": true,
 	"scripts": {
-		"start": "npx webpack-dev-server --config ./build/webpack.config.dev.js --watch",
-		"build": "webpack --config ./build/webpack.config.prod.js",
+		"start": "npx webpack-dev-server --config ./build/webpack.config.dev.js",
+		"build": "npx webpack --config ./build/webpack.config.prod.js",
 		"build:stats": "npx webpack --env.NODE_ENV=production --config ./build/webpack.config.base.js --json > stats.json",
 		"build:analyze": "npx webpack --config ./build/webpack.config.analyze.js",
 		"test": "npx jest",

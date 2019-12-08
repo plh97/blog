@@ -10,7 +10,7 @@ export default ({ children }) => (
 		{/* <Header /> */}
 		<div className="Layout__content">
 			<Side />
-			{children}
+			<div className="Layout__body">{children}</div>
 		</div>
 		<Footer />
 	</div>

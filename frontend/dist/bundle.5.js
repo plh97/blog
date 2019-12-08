@@ -2,6 +2,9 @@
 	[5],
 	{
 		100: function(e, n, a) {
+			e.exports = a.p + '[1]-bg1.jpg'
+		},
+		101: function(e, n, a) {
 			'use strict'
 			var i = a(1),
 				t = a.n(i)
@@ -15,24 +18,17 @@
 					}
 				}
 		},
-		104: function(e, n, a) {
-			e.exports = a.p + '[1]-bg1.jpg'
-		},
 		216: function(e, n, a) {
 			var i = a(217)
 			'string' == typeof i && (i = [[e.i, i, '']])
 			var t = { hmr: !0, transform: void 0, insertInto: void 0 }
-			a(24)(i, t)
+			a(23)(i, t)
 			i.locals && (e.exports = i.locals)
 		},
 		217: function(e, n, a) {
-			n = e.exports = a(23)(!1)
-			var i = a(47)(a(104))
-			n.push([
+			;(e.exports = a(22)(!1)).push([
 				e.i,
-				'.DetailPage {\n  overflow-y: auto;\n  max-width: 980px;\n  width: calc(100vw - 50px);\n  background-color: #fff;\n  padding: 20px;\n  min-height: 100%;\n  flex: 1;\n  box-sizing: border-box;\n}\n.DetailPage .DetailPage__background {\n  width: 100%;\n  overflow: auto;\n}\n.DetailPage .DetailPage__background .DetailPage__container {\n  min-width: 550px;\n  margin-bottom: 1rem;\n  position: relative;\n  width: 100%;\n  height: 17rem;\n  background-image: url(' +
-					i +
-					');\n  background-origin: border-box;\n  background-repeat: no-repeat;\n  background-size: cover;\n  border-radius: 0.5rem;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: space-between;\n  background-position-y: bottom;\n}\n.DetailPage .DetailPage__background .DetailPage__container .DetailPage__detail {\n  background-color: rgba(245, 245, 245, 0.23);\n  flex: 0 0 40%;\n  display: flex;\n  flex-direction: row;\n  padding: 1rem;\n  box-sizing: border-box;\n  width: 100%;\n  align-items: center;\n}\n.DetailPage .DetailPage__background .DetailPage__container .DetailPage__detail img {\n  width: 4rem;\n  height: 4rem;\n  border-radius: 0.3rem;\n  margin-right: 1rem;\n}\n.DetailPage .DetailPage__background .DetailPage__container .DetailPage__detail .DetailPage__detail-list {\n  display: inline-flex;\n  flex-direction: column;\n}\n.DetailPage .DetailPage__background .DetailPage__container .DetailPage__detail .DetailPage__detail-list .DetailPage__detail-name,\n.DetailPage .DetailPage__background .DetailPage__container .DetailPage__detail .DetailPage__detail-list .DetailPage__detail-bio {\n  font-size: 20px;\n}\n.DetailPage .DetailPage__content {\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n  flex-wrap: wrap;\n}\n',
+				'.DetailPage {\n  overflow-y: auto;\n  max-width: 980px;\n  background-color: #fff;\n  padding: 20px;\n  min-height: 100%;\n  flex: 1;\n  box-sizing: border-box;\n}\n.DetailPage .DetailPage__background {\n  width: 100%;\n  overflow: auto;\n}\n.DetailPage .DetailPage__background .DetailPage__container {\n  min-width: 550px;\n  margin-bottom: 1rem;\n  position: relative;\n  width: 100%;\n  height: 17rem;\n  background-origin: border-box;\n  background-repeat: no-repeat;\n  background-size: cover;\n  border-radius: 0.5rem;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: space-between;\n  background-position-y: bottom;\n}\n.DetailPage .DetailPage__background .DetailPage__container .DetailPage__detail {\n  background-color: rgba(245, 245, 245, 0.23);\n  flex: 0 0 40%;\n  display: flex;\n  flex-direction: row;\n  padding: 1rem;\n  box-sizing: border-box;\n  width: 100%;\n  align-items: center;\n}\n.DetailPage .DetailPage__background .DetailPage__container .DetailPage__detail img {\n  width: 4rem;\n  height: 4rem;\n  border-radius: 0.3rem;\n  margin-right: 1rem;\n}\n.DetailPage .DetailPage__background .DetailPage__container .DetailPage__detail .DetailPage__detail-list {\n  display: inline-flex;\n  flex-direction: column;\n}\n.DetailPage .DetailPage__background .DetailPage__container .DetailPage__detail .DetailPage__detail-list .DetailPage__detail-name,\n.DetailPage .DetailPage__background .DetailPage__container .DetailPage__detail .DetailPage__detail-list .DetailPage__detail-bio {\n  font-size: 20px;\n}\n.DetailPage .DetailPage__content {\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n  flex-wrap: wrap;\n}\n',
 				''
 			])
 		},
@@ -43,28 +39,28 @@
 					return p
 				})
 			var i,
-				t = a(103),
+				t = a(104),
 				r = a.n(t),
-				l = a(19),
-				o = a(1),
-				c = a.n(o),
+				o = a(18),
+				l = a(1),
+				c = a.n(l),
 				d = a(107),
 				s = a.n(d),
 				_ = (a(216), a(97)),
-				g = a(100),
+				g = a(101),
 				m = a(6)
 			let u = () => decodeURI(window.location.hash).replace(/^#/, '')
 			let p =
 				Object(g.a)(u())(
 					(i =
-						Object(l.b)(
+						Object(o.b)(
 							({ userReducer: e, articleReducer: n }) => ({
 								userReducer: e,
 								articleReducer: n
 							}),
 							{ fetchArticleDetailSaga: m.b }
 						)(
-							(i = class extends o.Component {
+							(i = class extends l.Component {
 								componentDidMount() {
 									this.props.fetchArticleDetailSaga(u())
 								}
@@ -142,12 +138,12 @@
 			var i = a(99)
 			'string' == typeof i && (i = [[e.i, i, '']])
 			var t = { hmr: !0, transform: void 0, insertInto: void 0 }
-			a(24)(i, t)
+			a(23)(i, t)
 			i.locals && (e.exports = i.locals)
 		},
 		99: function(e, n, a) {
-			n = e.exports = a(23)(!1)
-			var i = a(47)(a(29))
+			n = e.exports = a(22)(!1)
+			var i = a(47)(a(100))
 			n.push([
 				e.i,
 				'.Viewer {\n  width: 100%;\n}\n.Viewer .Viewer__container {\n  min-width: 550px;\n  margin-bottom: 1rem;\n  position: relative;\n  box-shadow: 0px 0px 5px #0003;\n  width: 100%;\n  height: 17rem;\n  background-image: url(' +

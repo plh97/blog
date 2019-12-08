@@ -1,20 +1,14 @@
 import { FETCH_PENDING, FETCH_RESOLVE, FETCH_REJECT } from '@/redux-relate/constant/http'
 
-export function fetchPending() {
-	return {
-		type: FETCH_PENDING,
-		payload: {}
-	}
+export const fetchPending = {
+	type: FETCH_PENDING,
+	payload: {}
 }
-export function fetchResolve(res) {
-	return {
-		type: FETCH_RESOLVE,
-		payload: res
-	}
+export const fetchResolve = {
+	type: FETCH_RESOLVE,
+	payload: {}
 }
-export function fetchReject(res) {
-	return {
-		type: FETCH_REJECT,
-		payload: res
-	}
+export const fetchReject = {
+	type: FETCH_REJECT,
+	payload: {}
 }

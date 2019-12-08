@@ -16,12 +16,7 @@ const mapStateToProps = ({ userReducer, articleReducer }) => ({
 	articleReducer
 })
 @initPageWithTitleDecorator(keyWord())
-@connect(
-	mapStateToProps,
-	{
-		fetchArticleDetailSaga
-	}
-)
+@connect(mapStateToProps, { fetchArticleDetailSaga })
 export default class ArticleDetail extends Component {
 	componentDidMount() {
 		this.props.fetchArticleDetailSaga(keyWord())

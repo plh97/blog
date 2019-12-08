@@ -1,6 +1,31 @@
+import store from '@/redux-relate/store'
 import axios from 'axios'
-// const localAxios = axios.create({ baseURL: process.env.BASE_URL })
-const localAxios = axios.create({ baseURL: '//207.148.118.120:8004' })
+import { fetchPending, fetchResolve, fetchReject } from '@/redux-relate/actions/http'
+const localAxios = axios.create({ baseURL: process.env.BASE_URL || '//207.148.118.120:8004' })
+
+localAxios.interceptors.request.use(
+	function(config) {
+		store.dispatch(fetchPending)
+		return config
+	},
+	function(error) {
+		store.dispatch(fetchReject)
+		return Promise.reject(error)
+	}
+)
+
+localAxios.interceptors.response.use(
+	function(response) {
+		store.dispatch(fetchResolve)
+		return response
+	},
+	function(error) {
+		store.dispatch(fetchReject)
+		return Promise.reject(error)
+	}
+)
+
+// localAxios
 export default class AxiosOrLocal {
 	constructor({ data, url, method, key, type = 'localStorage' }) {
 		this.key = key
