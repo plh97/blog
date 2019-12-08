@@ -11,7 +11,7 @@ services:
       - gate-tier
     environment:
       - PORT=8080
-      - ACCESS_TOKEN=5712787245f0663ef314c1c5e1644134f14e54a6
+      - ACCESS_TOKEN=${ACCESS_TOKEN}
     command: "npm run watch-server"
 
   frontend:
