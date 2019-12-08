@@ -1,9 +1,6 @@
 const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const dotenv = require('dotenv').config({
-	path: resolve('.env')
-})
 
 function resolve(dir) {
 	return path.join(__dirname, '..', dir)
@@ -78,7 +75,7 @@ module.exports = {
 			template: path.resolve('public/index.html')
 		}),
 		new webpack.DefinePlugin({
-			'process.env': dotenv.parsed
+			'process.env': process.env
 		})
 	]
 }

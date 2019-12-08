@@ -3,21 +3,22 @@ version: "3.7"
 services:
   backend:
     restart: always
-    # volumes:
-    #   - ./backend:/root/app/
+    volumes:
+      - ./backend:/root/app/
     build:
       context: "./backend"
     networks:
       - gate-tier
     environment:
       - PORT=8080
-      - ACCESS_TOKEN=ae55e694077493e8b7b09531e2660a5a80107e26
+      - ACCESS_TOKEN=59f28e4a1414873df66ace56d79e262365fd9083
+      - BASE_URL=//207.148.118.120:8004
     command: "npm run watch-server"
 
   frontend:
     restart: always
-    # volumes:
-    #   - ./frontend:/root/app/
+    volumes:
+      - ./frontend:/root/app/
     build:
       context: "./frontend"
     networks:
@@ -36,8 +37,8 @@ services:
       - ./nginx/conf.d/:/etc/nginx/conf.d/
       - ./nginx:/var/log/nginx/
     ports:
-      - "8009:80"
-      - "8010:8080"
+      - "8003:80"
+      - "8004:8080"
 
 networks:
   gate-tier:
