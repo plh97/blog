@@ -1,19 +1,6 @@
 version: "3.7"
 
 services:
-  backend:
-    restart: always
-    volumes:
-      - ./backend:/root/app/
-    build:
-      context: "./backend"
-    networks:
-      - gate-tier
-    environment:
-      - PORT=8080
-      - ACCESS_TOKEN=${ACCESS_TOKEN}
-    command: "npm run watch-server"
-
   frontend:
     environment:
       - PORT=80
@@ -26,6 +13,19 @@ services:
     networks:
       - gate-tier
     command: "yarn run serve"
+
+  backend:
+    restart: always
+    volumes:
+      - ./backend:/root/app/
+    build:
+      context: "./backend"
+    networks:
+      - gate-tier
+    environment:
+      - PORT=8080
+      - ACCESS_TOKEN=${ACCESS_TOKEN}
+    command: "npm run watch-server"
 
   nginx:
     restart: always
