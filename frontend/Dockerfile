@@ -1,6 +1,6 @@
-FROM node
+FROM node:13
 WORKDIR /root/app
 COPY . /root/app
-RUN npm i
+RUN yarn
 RUN npx yarn add webpack --dev
 # RUN npm run build
