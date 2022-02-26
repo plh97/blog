@@ -17,7 +17,7 @@
 		"less": "^3.9.0",
 		"lesshat": "^4.1.0",
 		"postcss-less": "^3.1.4",
-		"prismjs": "^1.15.0",
+		"prismjs": "^1.27.0",
 		"react": "^16.8.1",
 		"react-addons-css-transition-group": "^15.6.2",
 		"react-dom": "^16.7.0",
