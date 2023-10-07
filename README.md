@@ -7,27 +7,27 @@
 
 ### 欢迎光临我的博客
 
-###### [本站](https://pipk.top)托管于 Github，所有数据来源于[ISSUE](https://github.com/pengliheng/pengliheng.github.io/issues)，通过 GitHub API 动态加载数据渲染页面。
+#### [本站](https://pipk.top)托管于 Github，所有数据来源于[ISSUE](https://github.com/pengliheng/pengliheng.github.io/issues)，通过 GitHub API 动态加载数据渲染页面
 
 ### 我的技术栈
 
--   JavaScript(React Vue)
--   Node
--   HTTP(http1.1 https http2)
--   RegExp
--   Nginx
--   Python
--   Graphql
+- JavaScript(React Vue)
+- Node
+- HTTP(http1.1 https http2)
+- RegExp
+- Nginx
+- Python
+- Graphql
 
 ### TODO
 
--   [x] 引入 jest 单元测试,覆盖率>90%
-    -   reducer 测试
-    -   component 测试
-    -   container 测试
--   [ ] `redux-saga` 替代 `redux-thunk`
--   [ ] 将所有组件转化成 `useState` 函数式组件
--   [ ] 引入 typescript, 这样每个组件就都有提示了,非常爽
+- [x] 引入 jest 单元测试,覆盖率>90%
+  - reducer 测试
+  - component 测试
+  - container 测试
+- [ ] `redux-saga` 替代 `redux-thunk`
+- [ ] 将所有组件转化成 `useState` 函数式组件
+- [ ] 引入 typescript, 这样每个组件就都有提示了,非常爽
 
 ### redux-thunk
 
@@ -46,17 +46,17 @@ Uncaught Error: Actions must be plain objects. Use custom middleware for async a
 
 ### Interview Question ++
 
--   [ ] vue 与 react 区别
--   [ ] 观察者模式与发布订阅模式的区别
--   [ ] 什么情况下 async/await 能取代 promise
--   [ ] webpack 体积 + 编译速度性能优化
--   [ ] es5 function 几种继承过程
--   [ ] 如何阻止浏览器原生右键弹出, `e.preventDefault()`
--   [ ] Http 复杂请求 优化 + Loading
--   [ ] docker 多个实例集群部署
--   [ ] MySQL 关联查询
--   [ ] vuex/redux 实现机制, 属性如何在根节点注入,各个子组件都能获取 - context
--   [ ] ....继续补充
+- [ ] vue 与 react 区别
+- [ ] 观察者模式与发布订阅模式的区别
+- [ ] 什么情况下 async/await 能取代 promise
+- [ ] webpack 体积 + 编译速度性能优化
+- [ ] es5 function 几种继承过程
+- [ ] 如何阻止浏览器原生右键弹出, `e.preventDefault()`
+- [ ] Http 复杂请求 优化 + Loading
+- [ ] docker 多个实例集群部署
+- [ ] MySQL 关联查询
+- [ ] vuex/redux 实现机制, 属性如何在根节点注入,各个子组件都能获取 - context
+- [ ] ....继续补充
 
 ### React 开发原则
 
@@ -65,52 +65,52 @@ Uncaught Error: Actions must be plain objects. Use custom middleware for async a
 
 ### React Router
 
--   `<Link />`: 普通链接
--   `<NavLink />`: 带 toggleClass 的链接
--   `<Prompt />`: 满足条件的时候提示用户是否离开页面
--   `<Redirect />`: 重定向
--   `<Route />`: 路由匹配核心,匹配则显示的组件
--   `<Switch />`: 只匹配第一个路由
--   `exact`, 默认匹配的一个路由
+- `<Link />`: 普通链接
+- `<NavLink />`: 带 toggleClass 的链接
+- `<Prompt />`: 满足条件的时候提示用户是否离开页面
+- `<Redirect />`: 重定向
+- `<Route />`: 路由匹配核心,匹配则显示的组件
+- `<Switch />`: 只匹配第一个路由
+- `exact`, 默认匹配的一个路由
 
 ### 看过的书
 
--   [x] [网络是怎样连接的](https://book.douban.com/subject/26941639/) - [笔记](https://github.com/pengliheng/pengliheng.github.io/issues/40)
+- [x] [网络是怎样连接的](https://book.douban.com/subject/26941639/) - [笔记](https://github.com/pengliheng/pengliheng.github.io/issues/40)
 
 ![](https://static.pipk.top/api/public/images/6075462533216409.png)
 
 ---
 
--   [x] [HTTP 权威指南](https://book.douban.com/subject/10746113/) - [笔记一](https://github.com/pengliheng/pengliheng.github.io/issues/45) - [笔记二](https://github.com/pengliheng/pengliheng.github.io/issues/52)
+- [x] [HTTP 权威指南](https://book.douban.com/subject/10746113/) - [笔记一](https://github.com/pengliheng/pengliheng.github.io/issues/45) - [笔记二](https://github.com/pengliheng/pengliheng.github.io/issues/52)
 
 ![](https://static.pipk.top/api/public/images/2376380500856452.png)
 
 ---
 
--   [x] [JavaScript 面向对象精要](https://book.douban.com/subject/26352658/) - [笔记一](https://github.com/pengliheng/pengliheng.github.io/issues/29) - [笔记二](https://github.com/pengliheng/pengliheng.github.io/issues/31)
+- [x] [JavaScript 面向对象精要](https://book.douban.com/subject/26352658/) - [笔记一](https://github.com/pengliheng/pengliheng.github.io/issues/29) - [笔记二](https://github.com/pengliheng/pengliheng.github.io/issues/31)
 
 ![](https://static.pipk.top/api/public/images/7833702919612766.png)
 
 ---
 
--   [x] [现代前端技术解析](https://book.douban.com/subject/27021790/) - [笔记一](https://github.com/pengliheng/pengliheng.github.io/issues/28) - [笔记二](https://github.com/pengliheng/pengliheng.github.io/issues/58)
+- [x] [现代前端技术解析](https://book.douban.com/subject/27021790/) - [笔记一](https://github.com/pengliheng/pengliheng.github.io/issues/28) - [笔记二](https://github.com/pengliheng/pengliheng.github.io/issues/58)
 
 ---
 
--   [x] [深入理解 ES6](https://book.douban.com/subject/27072230/) - [笔记一](https://github.com/pengliheng/pengliheng.github.io/issues/32) - [笔记二](https://github.com/pengliheng/pengliheng.github.io/issues/51)
+- [x] [深入理解 ES6](https://book.douban.com/subject/27072230/) - [笔记一](https://github.com/pengliheng/pengliheng.github.io/issues/32) - [笔记二](https://github.com/pengliheng/pengliheng.github.io/issues/51)
 
 ---
 
--   [x] [ES6 标准入门](https://book.douban.com/subject/26708954/) - [笔记一](https://github.com/pengliheng/pengliheng.github.io/issues/23) - [笔记二](https://github.com/pengliheng/pengliheng.github.io/issues/26)
+- [x] [ES6 标准入门](https://book.douban.com/subject/26708954/) - [笔记一](https://github.com/pengliheng/pengliheng.github.io/issues/23) - [笔记二](https://github.com/pengliheng/pengliheng.github.io/issues/26)
 
 ---
 
--   [x] [高性能的 JavaScript](https://book.douban.com/subject/5362856/) - [笔记](https://github.com/pengliheng/pengliheng.github.io/issues/15)
+- [x] [高性能的 JavaScript](https://book.douban.com/subject/5362856/) - [笔记](https://github.com/pengliheng/pengliheng.github.io/issues/15)
 
 ---
 
--   [x] [JavaScript 语言精粹](https://book.douban.com/subject/3590768/) - [笔记](https://github.com/pengliheng/pengliheng.github.io/issues/10)
+- [x] [JavaScript 语言精粹](https://book.douban.com/subject/3590768/) - [笔记](https://github.com/pengliheng/pengliheng.github.io/issues/10)
 
 ---
 
--   [x] [数据结构与算法 JavaScript 描述](https://book.douban.com/subject/25945449/) - [笔记](https://github.com/pengliheng/pengliheng.github.io/issues/6)
+- [x] [数据结构与算法 JavaScript 描述](https://book.douban.com/subject/25945449/) - [笔记](https://github.com/pengliheng/pengliheng.github.io/issues/6)

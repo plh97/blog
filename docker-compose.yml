@@ -1,0 +1,44 @@
+version: "3.7"
+
+services:
+  frontend:
+    environment:
+      - PORT=80
+      - BASE_URL=//207.148.118.120:8004
+    restart: always
+    volumes:
+      - ./frontend:/root/app/
+    build:
+      context: "./frontend"
+    networks:
+      - gate-tier
+    command: "yarn run serve"
+
+  backend:
+    restart: always
+    volumes:
+      - ./backend:/root/app/
+    build:
+      context: "./backend"
+    networks:
+      - gate-tier
+    environment:
+      - PORT=8080
+      - ACCESS_TOKEN=${ACCESS_TOKEN}
+    command: "npm run watch-server"
+
+  nginx:
+    restart: always
+    build:
+      context: "./nginx"
+    networks:
+      - gate-tier
+    volumes:
+      - ./nginx/conf.d/:/etc/nginx/conf.d/
+      - ./nginx:/var/log/nginx/
+    ports:
+      - "8003:80"
+      - "8004:8080"
+
+networks:
+  gate-tier:

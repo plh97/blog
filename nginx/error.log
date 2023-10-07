@@ -1,0 +1,1 @@
+2019/12/08 11:05:38 [error] 6#6: *1 connect() failed (111: Connection refused) while connecting to upstream, client: 101.100.185.188, server: 0.0.0.0, request: "GET /repositoryDetail HTTP/1.1", upstream: "http://172.21.0.4:80/repositoryDetail", host: "207.148.118.120:8003"
