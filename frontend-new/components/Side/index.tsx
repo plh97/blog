@@ -1,12 +1,8 @@
 import React from "react";
-import Link from "next/link";
-
-// import routes from '@/routes'
 import "./index.scss";
-import dynamic from "next/dynamic";
 import routes from "@/routes";
 
-// const DynamicComponent = dynamic(() => import("@/app/"));
+import SideItem from "./link";
 
 export default function Side() {
   return (
@@ -15,15 +11,13 @@ export default function Side() {
         {routes
           .filter((route) => route.content)
           .map((route) => (
-            <Link
+            <SideItem
               key={route.path}
-              // exact={route.exact}
-              href={route.path ?? ''}
               className="Side__nav-item"
+              path={route.path ?? ''}
             >
-              <i className="icon icon-dashboard" />
               {route.content}
-            </Link>
+            </SideItem>
           ))}
       </div>
       {/* <div className="Side__history">
