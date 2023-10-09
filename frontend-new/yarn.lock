@@ -1211,6 +1211,11 @@
   "resolved" "https://registry.npmjs.org/git-cz/-/git-cz-4.9.0.tgz"
   "version" "4.9.0"
 
+"github-markdown-css@^5.2.0":
+  "integrity" "sha512-hq5RaCInSUZ48bImOZpkppW2/MT44StRgsbsZ8YA4vJFwLKB/Vo3k7R2t+pUGqO+ThG0QDMi96TewV/B3vyItg=="
+  "resolved" "https://registry.npmjs.org/github-markdown-css/-/github-markdown-css-5.2.0.tgz"
+  "version" "5.2.0"
+
 "glob-parent@^5.1.2":
   "integrity" "sha512-AOIgSQCepiJYwP3ARnGx+5VnTu2HBYdzbGP45eLw1vr3zB3vZLeyed1sC9hnbcOc9/SrMyM5RPQrkGz4aS9Zow=="
   "resolved" "https://registry.npmjs.org/glob-parent/-/glob-parent-5.1.2.tgz"

@@ -9,6 +9,7 @@
 	font-size: 12px;
 	// box-shadow: var(--box-shadow-base);
 	z-index: 1;
+	flex-shrink: 0;
 
 	span {
 		margin-right: 2px;
