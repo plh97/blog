@@ -2,7 +2,7 @@ import React from "react";
 import "./index.scss";
 import routes from "@/routes";
 
-import SideItem from "./link";
+import SideItem from "./SideItem";
 
 export default function Side() {
   return (
@@ -12,9 +12,10 @@ export default function Side() {
           .filter((route) => route.content)
           .map((route) => (
             <SideItem
+              icon={route.icon}
               key={route.path}
               className="Side__nav-item"
-              path={route.path ?? ''}
+              path={route.path ?? ""}
             >
               {route.content}
             </SideItem>
