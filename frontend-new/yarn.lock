@@ -2641,6 +2641,13 @@
   dependencies:
     "inline-style-parser" "0.1.1"
 
+"styled-jsx@^5.1.2":
+  "integrity" "sha512-FI5r0a5ED2/+DSdG2ZRz3a4FtNQnKPLadauU5v76a9QsscwZrWggQKOmyxGGP5EWKbyY3bsuWAJYzyKaDAVAcw=="
+  "resolved" "https://registry.npmjs.org/styled-jsx/-/styled-jsx-5.1.2.tgz"
+  "version" "5.1.2"
+  dependencies:
+    "client-only" "0.0.1"
+
 "styled-jsx@5.1.1":
   "integrity" "sha512-pW7uC1l4mBZ8ugbiZrcIsiIvVx1UmTfw7UkC3Um2tmfUq9Bhk8IiyEIPl6F8agHgjzku6j0xQEZbfA5uSgSaCw=="
   "resolved" "https://registry.npmjs.org/styled-jsx/-/styled-jsx-5.1.1.tgz"
