@@ -1,9 +1,9 @@
 import { fetchHome } from "@/apis/home";
 import { fetchUser } from "@/apis/user";
 import Viewer from "@/components/Viewer";
-import ReactMarkdown from 'react-markdown';
 
 import './page.scss'
+import Markdown from "@/components/Markdown";
 
 export default async function Home() {
   const user = await fetchUser();
@@ -11,11 +11,11 @@ export default async function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24 HomePage">
       <Viewer title="主页" data={user.data.viewer} />
-      <ReactMarkdown
+      <Markdown
         className="markdown-body HomePage-markdown__body"
       >
         {home.data.repositoryOwner.repository.object.text}
-      </ReactMarkdown>
+      </Markdown>
     </main>
   );
 }

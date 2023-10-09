@@ -1,7 +1,6 @@
 // package
 import _ from "lodash";
 import React, { Component } from "react";
-import ReactMarkdown from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { docco } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import { IViewer, fetchUser } from "@/apis/user";

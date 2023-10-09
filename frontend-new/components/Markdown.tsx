@@ -3,10 +3,13 @@ import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { dark } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import ReactMarkdown from "react-markdown";
 
-export default function Markdown({ children }: { children: string }) {
+export default function Markdown(props: {
+  children: string;
+  className?: string;
+}) {
   return (
     <ReactMarkdown
-      className="markdown-body"
+      className={"markdown-body" + " " + props.className??''}
       components={{
         code(props) {
           const { children, className, node, ...rest } = props;
@@ -31,7 +34,7 @@ export default function Markdown({ children }: { children: string }) {
         },
       }}
     >
-      {children}
+      {props.children}
     </ReactMarkdown>
   );
 }
