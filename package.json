@@ -15,8 +15,5 @@
   },
   "devDependencies": {
     "git-cz": "^4.9.0"
-  },
-  "dependencies": {
-    "sass": "^1.69.0"
   }
 }
