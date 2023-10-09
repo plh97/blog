@@ -4,7 +4,7 @@ import ReactMarkdown from "react-markdown";
 
 import "./index.scss";
 import Viewer from "@/components/Viewer";
-import { IViewer, fetchUser } from "@/apis/user";
+import { fetchUser } from "@/apis/user";
 import { fetchArticleDetail } from "@/apis/article";
 import { PageProps } from "@/.next/types/app/article/[id]/page";
 

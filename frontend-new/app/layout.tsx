@@ -2,6 +2,7 @@
 import Side from '@/components/Side'
 import Footer from '@/components/Footer'
 import './layout.scss'
+import './globals.css'
 
 export const metadata = {
   title: 'Homepage',
