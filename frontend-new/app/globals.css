@@ -16,6 +16,8 @@
   }
 }
 
+/* @import '~@/assets/font-icons/fonts.css'; */
+@import './markdown.css';
 /* --var */
 :root {
   /* normal */
