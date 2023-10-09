@@ -14,7 +14,7 @@ export default function Markdown({ children }: { children: string }) {
           if (match) {
             return (
               <SyntaxHighlighter
-                {...rest}
+                // {...rest}
                 style={dark}
                 language={match[1]}
                 PreTag="div"

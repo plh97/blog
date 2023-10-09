@@ -16,7 +16,7 @@
   }
 }
 
-@import '@/assets/font-icons/fonts.css';
+@import '../assets/font-icons/fonts.css';
 @import './markdown.css';
 /* --var */
 :root {
