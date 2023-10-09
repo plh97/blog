@@ -1,14 +1,14 @@
-import { FETCH_REPOSITORY_LIST } from '@/constants'
-import AxiosOrLocal from '@/utils/axiosOrLocal'
+import { FETCH_REPOSITORY_LIST } from "@/constants";
+import AxiosOrLocal from "@/utils/axiosOrLocal";
 
 // fetchRepositoryList
 export const fetchRepositoryList = () =>
-	AxiosOrLocal({
-		url: '/graphql',
-		method: 'post',
-		data: {
-			query: `{
-				repositoryOwner(login: "pengliheng") {
+  AxiosOrLocal({
+    url: "/graphql",
+    method: "post",
+    data: {
+      query: `{
+				repositoryOwner(login: "plh97") {
 					repositories(last: 100,isFork:false,orderBy:{field:UPDATED_AT,direction:DESC}) {
 						edges {
 							node {
@@ -46,17 +46,17 @@ export const fetchRepositoryList = () =>
 						}
 					}
 				}
-			}`
-		}
-	})
+			}`,
+    },
+  });
 
 // fetchRepositoryDetail
 export const fetchRepositoryDetail = (keyWord: string) =>
-	AxiosOrLocal({
-		url: '/graphql',
-		method: 'post',
-		data: {
-			query: `{
+  AxiosOrLocal({
+    url: "/graphql",
+    method: "post",
+    data: {
+      query: `{
 				search(first: 1, query: "repo:${keyWord}", type: REPOSITORY) {
 					edges {
 						node {
@@ -71,6 +71,6 @@ export const fetchRepositoryDetail = (keyWord: string) =>
 						}
 					}
 				}
-			}`
-		}
-	})
+			}`,
+    },
+  });
