@@ -23,9 +23,7 @@
   - reducer 测试
   - component 测试
   - container 测试
-- [ ] `redux-saga` 替代 `redux-thunk`
-- [ ] 将所有组件转化成 `useState` 函数式组件
-- [ ] 引入 typescript, 这样每个组件就都有提示了,非常爽
+- [x] typescript
 
 ### redux-thunk
 
