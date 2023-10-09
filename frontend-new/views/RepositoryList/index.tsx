@@ -9,8 +9,14 @@ import forksSvg from "@/ASSETS/forks.svg";
 import "./index.scss";
 import Image from "next/image";
 import Link from "next/link";
+import { IViewer } from "@/apis/user";
 
-export default function RepositoryPage({ user, repository }) {
+interface IProps {
+  user: IViewer;
+  repository: string;
+}
+
+export default function RepositoryPage({ user, repository }: IProps) {
   return (
     <div className="RepositoryPage">
       <Viewer title="前端组件" data={user} />
@@ -88,15 +94,20 @@ export default function RepositoryPage({ user, repository }) {
                 )}
               </span>
               <span className="RepositoryPage-topic">
-                {e.node.repositoryTopics.edges.map((topic, i) => (
-                  <a
-                    className="RepositoryPage-topic__item"
-                    key={i}
-                    href={topic.node.url}
-                  >
-                    {topic.node.topic.name}
-                  </a>
-                ))}
+                {e.node.repositoryTopics.edges.map(
+                  (
+                    topic: { node: { url: string; topic: { name: string } } },
+                    i: number
+                  ) => (
+                    <a
+                      className="RepositoryPage-topic__item"
+                      key={i}
+                      href={topic.node.url}
+                    >
+                      {topic.node.topic.name}
+                    </a>
+                  )
+                )}
               </span>
             </div>
           </div>

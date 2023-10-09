@@ -1,5 +1,5 @@
-export function timeUtils(time) {
-	let res = new Date() - new Date(time)
+export function timeUtils(time: number | string | Date) {
+	let res = new Date().getTime() - new Date(time).getTime()
 	if (res < 60 * 1000 * 60) {
 		return (res / (60 * 1000)).toFixed(0) + '分钟'
 	} else if (res < 60 * 1000 * 60 * 24) {

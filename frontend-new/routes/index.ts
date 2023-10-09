@@ -14,7 +14,6 @@ import RepositoryPage from '@/views/RepositoryList'
 import RepositoryDetailPage from '@/views/RepositoryDetail'
 import PageNotFound from '@/components/PageNotFound'
 // import ProjectPage from '@/views/Project'
-// import CustomBrowserRouter from '@/components/CustomBrowserRouter'
 
 const routes = [
 	{
