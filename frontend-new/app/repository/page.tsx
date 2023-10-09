@@ -9,8 +9,7 @@ import forksSvg from "@/ASSETS/forks.svg";
 import "./index.scss";
 import Image from "next/image";
 import Link from "next/link";
-import { IViewer, fetchUser } from "@/apis/user";
-import { PageProps } from "@/.next/types/app/repository/page";
+import { fetchUser } from "@/apis/user";
 import { fetchRepositoryList } from "@/apis/repository";
 
 export default async function RepositoryPage() {
@@ -21,7 +20,6 @@ export default async function RepositoryPage() {
     'data.repositoryOwner.repositories.edges',
     []
   )
-  // console.log(repository);
   return (
     <div className="RepositoryPage">
       <Viewer title="前端组件" data={userRes.data.viewer} />
