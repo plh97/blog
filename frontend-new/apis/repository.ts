@@ -46,23 +46,29 @@ export const fetchRepositoryList = () =>
 						}
 					}
 				}
-			}`,
-    },
+			}`
+    }
   });
 
 // fetchRepositoryDetail
-export const fetchRepositoryDetail = (keyWord: string) =>
+export const fetchRepositoryDetail = ({
+  repo,
+  branch = "master"
+}: {
+  repo: string;
+  branch?: string;
+}) =>
   AxiosOrLocal({
     url: "/graphql",
     method: "post",
     data: {
       query: `{
-				search(first: 1, query: "repo:${keyWord}", type: REPOSITORY) {
+				search(first: 1, query: "repo:${repo}", type: REPOSITORY) {
 					edges {
 						node {
 							... on Repository {
 								nameWithOwner
-								object(expression: "master:README.md") {
+								object(expression: "${branch}:README.md") {
 									... on Blob {
 										text
 									}
@@ -71,6 +77,6 @@ export const fetchRepositoryDetail = (keyWord: string) =>
 						}
 					}
 				}
-			}`,
-    },
+			}`
+    }
   });

@@ -1,17 +1,20 @@
 // package
 import _ from "lodash";
-import React, { Component } from "react";
-import { fetchUser } from "@/apis/user";
-import { fetchRepositoryDetail } from "@/apis/repository";
-import { PageProps } from "@/.next/types/app/repository/[id]/page";
-import Viewer from "@/components/Viewer";
-import "./index.scss";
-import Markdown from "@/components/Markdown";
+import React from "react";
+import styls from "./index.module.scss";
 
-export default async function RepositoryDetail({ params }: PageProps) {
+import { fetchHome } from "@/apis/home";
+import { fetchUser } from "@/apis/user";
+import Viewer from "@/components/Viewer";
+
+import Markdown from "@/components/Markdown";
+import { fetchRepositoryDetail } from "@/apis/repository";
+
+export default async function About() {
   const userRes = await fetchUser();
   const repositoryRes = await fetchRepositoryDetail({
-    repo: decodeURIComponent(params.id)
+    repo: "plh97/plh97",
+    branch: "main"
   });
   const repositoryText = _.get(
     repositoryRes,
@@ -24,7 +27,7 @@ export default async function RepositoryDetail({ params }: PageProps) {
     ""
   );
   return (
-    <div className="DetailPage">
+    <div className={styls.page}>
       <Viewer title={nameWithOwner} data={userRes.data.viewer} />
       <div className="DetailPage__content">
         <Markdown>{repositoryText}</Markdown>

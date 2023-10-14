@@ -1,35 +1,23 @@
 const routes = [
-	{
-		path: '/',
-		exact: true,
-		icon: 'icon-desktop',
-		content: '主页'
-	},
-	{
-		path: '/article',
-		icon: 'icon-th-list',
-		exact: false,
-		content: '文章'
-	},
-	{
-		path: '/articleDetail',
-		exact: false,
-	},
-	{
-		path: '/repository',
-		icon: 'icon-dashboard',
-		exact: false,
-		content: '仓库',
-	},
-	{
-		path: '/repositoryDetail',
-		icon: 'icon-dashboard',
-		exact: false,
-	},
-	{
-		path: null,
-		icon: 'icon-coffee',
-		exact: false,
-	}
-]
+  {
+    path: "/",
+    icon: "icon-desktop",
+    content: "主页"
+  },
+  {
+    path: "/article",
+    icon: "icon-th-list",
+    content: "文章"
+  },
+  {
+    path: "/repository",
+    icon: "icon-dashboard",
+    content: "仓库"
+  },
+  {
+    path: "/about",
+    icon: "icon-id-card",
+    content: "关于我"
+  }
+];
 export default routes;
