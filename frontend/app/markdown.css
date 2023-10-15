@@ -357,40 +357,6 @@
 	text-align: right;
 }
 
-.markdown-body code,
-.markdown-body tt {
-	background-color: #f8f8f8;
-	border: 1px solid #eaeaea;
-	border-radius: 3px 3px 3px 3px;
-	margin: 0 2px;
-	padding: 0 5px;
-	white-space: nowrap;
-}
-
-.markdown-body pre > code {
-	background: none repeat scroll 0 0 transparent;
-	border: medium none;
-	margin: 0;
-	padding: 0;
-	white-space: pre;
-}
-
-.markdown-body .highlight pre,
-.markdown-body pre {
-	background-color: #f8f8f8;
-	border: 1px solid #cccccc;
-	border-radius: 3px 3px 3px 3px;
-	font-size: 13px;
-	line-height: 19px;
-	overflow: auto;
-}
-
-.markdown-body pre code,
-.markdown-body pre tt {
-	background-color: transparent;
-	border: medium none;
-}
-
 .markdown-body a {
 	text-decoration: none;
 }

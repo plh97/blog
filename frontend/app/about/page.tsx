@@ -1,9 +1,7 @@
-// package
 import _ from "lodash";
 import React from "react";
 import styls from "./index.module.scss";
 
-import { fetchHome } from "@/apis/home";
 import { fetchUser } from "@/apis/user";
 import Viewer from "@/components/Viewer";
 

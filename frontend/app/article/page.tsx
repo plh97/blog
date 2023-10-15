@@ -5,8 +5,7 @@ import Viewer from "@/components/Viewer";
 import "./index.scss";
 import Link from "next/link";
 import Image from "next/image";
-import { IViewer, fetchUser } from "@/apis/user";
-import { fetchHome } from "@/apis/home";
+import { fetchUser } from "@/apis/user";
 import { fetchArticleList } from "@/apis/article";
 
 export const metadata = {
