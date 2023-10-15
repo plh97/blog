@@ -2,9 +2,9 @@ import _ from "lodash";
 import React, { Component } from "react";
 import { timeUtils } from "@/utils/time";
 import Viewer from "@/components/Viewer";
-import starsSvg from "@/ASSETS/stars.svg";
-import githubSvg from "@/ASSETS/github.svg";
-import forksSvg from "@/ASSETS/forks.svg";
+import starsSvg from "@/assets/stars.svg";
+import githubSvg from "@/assets/github.svg";
+import forksSvg from "@/assets/forks.svg";
 
 import "./index.scss";
 import Image from "next/image";
@@ -17,9 +17,9 @@ export default async function RepositoryPage() {
   const repositoryRes = await fetchRepositoryList();
   const repository = _.get(
     repositoryRes,
-    'data.repositoryOwner.repositories.edges',
+    "data.repositoryOwner.repositories.edges",
     []
-  )
+  );
   return (
     <div className="RepositoryPage">
       <Viewer title="前端组件" data={userRes.data.viewer} />

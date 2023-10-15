@@ -1,5 +1,5 @@
 {
-  "name": "next",
+  "name": "frontend",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -10,28 +10,23 @@
   },
   "dependencies": {
     "axios": "^1.5.1",
+    "classname": "^0.0.0",
     "classnames": "^2.3.2",
-    "github-markdown-css": "^5.2.0",
     "lodash": "^4.17.21",
     "next": "13.5.4",
     "react": "^18",
     "react-dom": "^18",
     "react-markdown": "^9.0.0",
-    "react-router-dom": "^6.16.0",
     "react-syntax-highlighter": "^15.5.0",
-    "sass": "^1.69.0",
-    "styled-jsx": "^5.1.2"
+    "sass": "^1.69.3"
   },
   "devDependencies": {
-    "@types/lodash": "^4.14.199",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
-    "@types/react-syntax-highlighter": "^15.5.8",
     "autoprefixer": "^10",
     "eslint": "^8",
     "eslint-config-next": "13.5.4",
-    "git-cz": "^4.9.0",
     "postcss": "^8",
     "tailwindcss": "^3",
     "typescript": "^5"

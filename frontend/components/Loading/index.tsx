@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import loadingSvg from "@/ASSETS/loading.svg";
+import loadingSvg from "@/assets/loading.svg";
 
 import "./index.scss";
 
