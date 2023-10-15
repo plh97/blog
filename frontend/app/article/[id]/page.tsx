@@ -22,6 +22,7 @@ export default async function ArticleDetail({ params }: PageProps) {
     title: "",
     body: ""
   });
+  // article/%5BReact%5D%20上拉加载更多
   return (
     <div className="DetailPage">
       <Viewer title={article!.title} data={user.data.viewer} />

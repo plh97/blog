@@ -1,4 +1,4 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/a68cc8f8-b37b-4da7-9bdb-a72b3a69636c/deploy-status)](https://app.netlify.com/sites/plh-blog/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/4a9f79ff-561d-4a0c-9a6b-caad4c398bbe/deploy-status)](https://app.netlify.com/sites/plh-blog/deploys)
 [![author](https://img.shields.io/badge/author-peng-blue.svg)](https://github.com/plh97/blog)
 [![tested with jest](https://img.shields.io/badge/tested_with-jest-99424f.svg)](https://github.com/facebook/jest)
 [![jest](https://jestjs.io/img/jest-badge.svg)](https://github.com/facebook/jest)
