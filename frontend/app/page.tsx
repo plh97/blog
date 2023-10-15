@@ -1,9 +1,14 @@
 import { fetchHome } from "@/apis/home";
 import { fetchUser } from "@/apis/user";
 import Viewer from "@/components/Viewer";
+import Markdown from "@/components/Markdown";
 
 import './page.scss'
-import Markdown from "@/components/Markdown";
+
+export const metadata = {
+  title: 'Home Page',
+  description: 'This is plh97\'s blog',
+}
 
 export default async function Home() {
   const user = await fetchUser();

@@ -8,6 +8,11 @@ import { fetchArticleDetail } from "@/apis/article";
 import { PageProps } from "@/.next/types/app/article/[id]/page";
 import Markdown from "@/components/Markdown";
 
+export const metadata = {
+  title: 'Article Detail Page',
+  description: 'This is Article Detail Page | can view one articles here',
+}
+
 export default async function ArticleDetail({ params }: PageProps) {
   const user = await fetchUser();
   const articleRes = await fetchArticleDetail({

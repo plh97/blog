@@ -9,9 +9,9 @@ import { IViewer, fetchUser } from "@/apis/user";
 import { fetchHome } from "@/apis/home";
 import { fetchArticleList } from "@/apis/article";
 
-interface IProps {
-  user: IViewer;
-  article: string;
+export const metadata = {
+  title: 'Article List Page',
+  description: 'This is Article List Page | can view all articles here',
 }
 
 export default async function ArticlePage() {

@@ -12,6 +12,11 @@ import Link from "next/link";
 import { fetchUser } from "@/apis/user";
 import { fetchRepositoryList } from "@/apis/repository";
 
+export const metadata = {
+  title: "Repository List Page",
+  description: "Repository List Page | can view all repositories here",
+};
+
 export default async function RepositoryPage() {
   const userRes = await fetchUser();
   const repositoryRes = await fetchRepositoryList();

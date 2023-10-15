@@ -8,10 +8,15 @@ import Viewer from "@/components/Viewer";
 import "./index.scss";
 import Markdown from "@/components/Markdown";
 
+export const metadata = {
+  title: "Repository Detail Page",
+  description: "This is Repository Detail Page | can view one Repository here",
+};
+
 export default async function RepositoryDetail({ params }: PageProps) {
   const userRes = await fetchUser();
   const repositoryRes = await fetchRepositoryDetail({
-    repo: decodeURIComponent(params.id)
+    repo: decodeURIComponent(params.id),
   });
   const repositoryText = _.get(
     repositoryRes,
