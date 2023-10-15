@@ -1407,6 +1407,11 @@ hast-util-whitespace@^3.0.0:
   dependencies:
     "@types/hast" "^3.0.0"
 
+highlight.js@^11.9.0:
+  version "11.9.0"
+  resolved "https://registry.yarnpkg.com/highlight.js/-/highlight.js-11.9.0.tgz#04ab9ee43b52a41a047432c8103e2158a1b8b5b0"
+  integrity sha512-fJ7cW7fQGCYAkgv4CPfwFHrfd/cLS4Hau96JuJ+ZTOWhjnhoeN1ub1tFmALm/+lW5z4WCAuAV9bm05AP0mS6Gw==
+
 html-url-attributes@^3.0.0:
   version "3.0.0"
   resolved "https://registry.npmjs.org/html-url-attributes/-/html-url-attributes-3.0.0.tgz"
@@ -2325,6 +2330,11 @@ prelude-ls@^1.2.1:
   version "1.2.1"
   resolved "https://registry.npmjs.org/prelude-ls/-/prelude-ls-1.2.1.tgz"
   integrity sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==
+
+prism-material-themes@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/prism-material-themes/-/prism-material-themes-1.0.4.tgz#1384981fdd8318bc31b30d49c5ea69d82695b241"
+  integrity sha512-ydN2H7BJA65njkdJkyHFhZprJSH/r0hhksR65Ate5XrR3sGP1M+fYhWxXzRoonBmKmal3UaoGg1+OZYBrU9tGA==
 
 prism-themes@^1.9.0:
   version "1.9.0"
