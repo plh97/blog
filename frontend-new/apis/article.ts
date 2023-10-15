@@ -9,7 +9,7 @@ export const fetchArticleList = () =>
     data: {
       query: ` {
 			    repositoryOwner(login: "plh97") {
-			        repository(name: "pengliheng.github.io") {
+			        repository(name: "blog") {
 			            issues(first: 100, states: OPEN) {
 			                edges {
 			                    node {
@@ -27,12 +27,10 @@ export const fetchArticleList = () =>
 			            }
 			        }
 			    }
-			}`,
-    },
+			}`
+    }
   });
 
-
-// data.repositoryOwner.repository.issues.edges
 interface IArticle {
   data: {
     repositoryOwner: {
@@ -41,33 +39,34 @@ interface IArticle {
           edges: {
             title: string;
             body: string;
-          }
-        }
-      }
-    }
-  }
+          };
+        };
+      };
+    };
+  };
 }
-export const fetchArticleDetail = (keyWord: string) => {
+export const fetchArticleDetail = ({ issue }: { issue: string }) => {
+  const query = `{
+search(
+	first: 10
+	query: "repo:plh97/blog ${issue}"
+	type: ISSUE
+) {
+	edges {
+		node {
+			... on Issue {
+				body
+				title
+			}
+		}
+	}
+}
+}`;
   return AxiosOrLocal<IArticle>({
     url: "/graphql",
     method: "post",
     data: {
-      query: `{
-				search(
-					first: 10
-					query: "repo:plh97/pengliheng.github.io http"
-					type: ISSUE
-				) {
-					edges {
-						node {
-							... on Issue {
-								body
-								title
-							}
-						}
-					}
-				}
-			}`,
-    },
+      query
+    }
   });
 };

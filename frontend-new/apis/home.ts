@@ -12,7 +12,7 @@ export const fetchHome = () =>
     data: {
       query: `{
             repositoryOwner(login: "plh97") {
-                repository(name: "pengliheng.github.io") {
+                repository(name: "blog") {
                     object(expression: "master:README.md") {
                         ... on Blob {
                             text
@@ -20,6 +20,6 @@ export const fetchHome = () =>
                     }
                 }
             }
-        }`,
-    },
+        }`
+    }
   });
