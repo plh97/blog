@@ -1,4 +1,3 @@
-import { FETCH_REPOSITORY_LIST } from "@/constants";
 import AxiosOrLocal from "@/utils/axiosOrLocal";
 
 // fetchRepositoryList
