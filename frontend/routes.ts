@@ -2,22 +2,22 @@ const routes = [
   {
     path: "/",
     icon: "icon-desktop",
-    content: "主页"
+    content: "Home Page"
   },
   {
     path: "/article",
     icon: "icon-th-list",
-    content: "文章"
+    content: "Article"
   },
   {
     path: "/repository",
     icon: "icon-dashboard",
-    content: "仓库"
+    content: "Repository"
   },
   {
     path: "/about",
     icon: "icon-id-card",
-    content: "关于我"
+    content: "About Me"
   }
 ];
 export default routes;
