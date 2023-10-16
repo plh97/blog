@@ -41,6 +41,9 @@ export const fetchRepositoryList = () =>
 								stargazers {
 									totalCount
 								}
+								defaultBranchRef {
+									name
+								}
 							}
 						}
 					}

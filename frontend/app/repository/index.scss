@@ -55,28 +55,30 @@
 					font-size: 12px;
 					display: flex;
 					align-items: center;
+					column-gap: 16px;
 
-					.RepositoryPage__detail-language--color {
-						border-radius: 50%;
-						display: inline-block;
-						height: 12px;
-						position: relative;
-						top: 1px;
-						width: 12px;
+					.RepositoryPage__detail-language {
+						display: inline-flex;
+						align-items: center;
+						column-gap: 3px;
+						.RepositoryPage__detail-language--color {
+							border-radius: 50%;
+							display: inline-block;
+							height: 12px;
+							position: relative;
+							top: 1px;
+							width: 12px;
+						}
 					}
 
-					.RepositoryPage__detail-language--content {
-						margin-left: 3px;
-					}
 
 					.RepositoryPage__detail-stargazers {
-						margin-left: 16px;
 						fill: currentColor;
 						display: inline-flex;
 						align-items: center;
+						column-gap: 2px;
 
 						.RepositoryPage__detail-stargazers--text {
-							margin-left: 2px;
 						}
 					}
 				}
@@ -86,6 +88,7 @@
 				flex: 0 0 auto;
 				display: inline-flex;
 				flex-direction: column;
+				row-gap: 2px;
 
 				.RepositoryPage-update {
 					font-size: 12px;
@@ -106,13 +109,15 @@
 				}
 
 				.RepositoryPage-topic {
+					display: flex;
+					column-gap: 5px;
+					row-gap: 5px;
 					.RepositoryPage-topic__item {
 						color: #0366d6;
 						font-size: 12px;
 						background-color: #f1f8ff;
 						border-radius: 3px;
 						display: inline-block;
-						margin: 0 5px 5px 0;
 						padding: 0 5px;
 						white-space: nowrap;
 

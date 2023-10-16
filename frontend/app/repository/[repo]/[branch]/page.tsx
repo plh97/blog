@@ -3,7 +3,7 @@ import _ from "lodash";
 import React, { Component } from "react";
 import { fetchUser } from "@/apis/user";
 import { fetchRepositoryDetail } from "@/apis/repository";
-import { PageProps } from "@/.next/types/app/repository/[id]/page";
+import { PageProps } from "@/.next/types/app/repository/[repo]/[branch]/page";
 import Viewer from "@/components/Viewer";
 import "./index.scss";
 import Markdown from "@/components/Markdown";
@@ -16,7 +16,8 @@ export const metadata = {
 export default async function RepositoryDetail({ params }: PageProps) {
   const userRes = await fetchUser();
   const repositoryRes = await fetchRepositoryDetail({
-    repo: decodeURIComponent(params.id),
+    repo: decodeURIComponent(params.repo),
+    branch: decodeURIComponent(params.branch),
   });
   const repositoryText = _.get(
     repositoryRes,
