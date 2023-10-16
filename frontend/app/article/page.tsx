@@ -40,10 +40,11 @@ export default async function ArticlePage() {
               <span className="ArticlePage__detail">
                 <span className="ArticlePage__title">{e.node.title}</span>
                 {e.node.labels.nodes.map(
-                  (label: { color: string; name: string }, i: number) => (
+                  (label: { color: string; name: string; description: string }, i: number) => (
                     <span
                       className="ArticlePage__label"
                       key={i}
+                      title={label.description}
                       style={{
                         background: `#${label.color}`,
                       }}

@@ -1,31 +1,36 @@
 import AxiosOrLocal from "@/utils/axiosOrLocal";
 
-// fetchArticleList
 export const fetchArticleList = () =>
   AxiosOrLocal({
     url: "/graphql",
     method: "post",
     data: {
-      query: ` {
-			    repositoryOwner(login: "plh97") {
-			        repository(name: "blog") {
-			            issues(first: 100, states: OPEN) {
-			                edges {
-			                    node {
-			                        updatedAt createdAt title id
-			                        author {
-			                            avatarUrl login
-			                        }
-			                        labels(first: 5) {
-			                            nodes {
-			                                name color
-			                            }
-			                        }
-			                    }
-			                }
-			            }
-			        }
-			    }
+      query: `{
+				repositoryOwner(login: "plh97") {
+					repository(name: "blog") {
+						issues(first: 100, states: OPEN) {
+							edges {
+								node {
+									updatedAt
+									createdAt
+									title
+									id
+									author {
+										avatarUrl
+										login
+									}
+									labels(first: 5) {
+										nodes {
+											name
+											color
+											description
+										}
+									}
+								}
+							}
+						}
+					}
+				}
 			}`
     }
   });
