@@ -24,15 +24,7 @@ export default function Code({
 }) {
   useEffect(() => {
     Prism.highlightAll();
-    // const html = Prism.highlight(
-    //   children,
-    //   Prism.languages.javascript,
-    //   "javascript"
-    // );
-    console.log(Prism.languages);
   }, []);
-  console.log(Prism);
-  console.log(fmtLang(language));
   return (
     <code className={classNames(`language-${fmtLang(language)}`)}>
       {children}
