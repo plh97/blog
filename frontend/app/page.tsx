@@ -17,7 +17,6 @@ export default async function Home() {
     repo: "plh97/blog",
     branch: "develop",
   });
-  console.log(repositoryRes);
   const repositoryText = _.get(
     repositoryRes,
     "data.search.edges[0].node.object.text",

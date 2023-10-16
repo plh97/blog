@@ -1,12 +1,11 @@
-// package
 import _ from "lodash";
-import React, { Component } from "react";
+import React from "react";
 import { fetchUser } from "@/apis/user";
 import { fetchRepositoryDetail } from "@/apis/repository";
 import { PageProps } from "@/.next/types/app/repository/[repo]/[branch]/page";
 import Viewer from "@/components/Viewer";
-import "./index.scss";
 import Markdown from "@/components/Markdown";
+import "./index.scss";
 
 export const metadata = {
   title: "Repository Detail Page",

@@ -1,7 +1,6 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/4a9f79ff-561d-4a0c-9a6b-caad4c398bbe/deploy-status)](https://app.netlify.com/sites/plh-blog/deploys)
 [![author](https://img.shields.io/badge/author-peng-blue.svg)](https://github.com/plh97/blog)
-[![tested with jest](https://img.shields.io/badge/tested_with-jest-99424f.svg)](https://github.com/facebook/jest)
-[![jest](https://jestjs.io/img/jest-badge.svg)](https://github.com/facebook/jest)
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fgjbae1212%2Fhit-counter)](https://hits.seeyoufarm.com)
 
 ### 欢迎光临我的博客
 
