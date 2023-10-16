@@ -1,17 +1,19 @@
-// import Header from '@/components/Header';
-import Side from '@/components/Side'
-import Footer from '@/components/Footer'
-import './layout.scss'
-import './globals.css'
+import Side from "@/components/Side";
+import Footer from "@/components/Footer";
+import ProgressBar from "@/components/ProgressBar";
+
+import "./layout.scss";
+import "./globals.css";
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en">
       <body suppressHydrationWarning>
+        <ProgressBar />
         <div className="Layout__container">
           <div className="Layout__content">
             <Side />
@@ -21,5 +23,5 @@ export default function RootLayout({
         </div>
       </body>
     </html>
-  )
+  );
 }
