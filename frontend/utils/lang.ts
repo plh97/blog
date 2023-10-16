@@ -4,6 +4,7 @@ export const langMap: Record<string, string> = {
   js: "tsx",
   jsx: "tsx",
   javascript: "tsx",
+  vdhl: "nand2tetris-hdl",
 };
 
 export function fmtLang(language: string) {

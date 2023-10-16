@@ -1,5 +1,6 @@
 "use client";
 import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 import Code from "./Code";
 
 export default function Markdown(props: {
@@ -8,6 +9,7 @@ export default function Markdown(props: {
 }) {
   return (
     <ReactMarkdown
+      remarkPlugins={[remarkGfm]}
       className={"markdown-body" + " " + props.className ?? ""}
       components={{
         code(props) {
