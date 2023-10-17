@@ -11,13 +11,14 @@
 		position: relative;
 		.side {
 			width: 280px;
+			position: fixed;
+			width: 280px;
+			height: 100vh;
 			background: var(--grey9);
-			.side-inner {
-				position: fixed;
-				width: 280px;
-			}
+			z-index: 1;
 		}
 		.body {
+			margin-left: 280px;
 			margin-bottom: 30px;
 			padding: 20px;
 			box-sizing: border-box;

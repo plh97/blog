@@ -28,9 +28,9 @@ export default async function RepositoryDetail({ params }: PageProps) {
     ""
   );
   return (
-    <div className="DetailPage">
+    <>
       <Viewer title={nameWithOwner} data={userRes.data.viewer} />
       <Markdown>{repositoryText}</Markdown>
-    </div>
+    </>
   );
 }

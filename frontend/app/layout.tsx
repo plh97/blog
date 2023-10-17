@@ -21,9 +21,7 @@ export default function RootLayout({
         <div className={styles["container"]}>
           <div className={styles["content"]}>
             <div className={styles["side"]}>
-              <div className={styles["side-inner"]}>
-                <Side />
-              </div>
+              <Side />
             </div>
             <div className={styles["body"]}>{children}</div>
           </div>
