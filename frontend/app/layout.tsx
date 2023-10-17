@@ -1,8 +1,9 @@
+import Head from "next/head";
 import Side from "@/components/Side";
 import Footer from "@/components/Footer";
 import ProgressBar from "@/components/ProgressBar";
 
-import "./layout.scss";
+import styles from "./layout.module.scss";
 import "./globals.css";
 
 export default function RootLayout({
@@ -12,14 +13,23 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+      </Head>
       <body suppressHydrationWarning>
         <ProgressBar />
-        <div className="Layout__container">
-          <div className="Layout__content">
-            <Side />
-            <div className="Layout__body">{children}</div>
+        <div className={styles["container"]}>
+          <div className={styles["content"]}>
+            <div className={styles["side"]}>
+              <div className={styles["side-inner"]}>
+                <Side />
+              </div>
+            </div>
+            <div className={styles["body"]}>{children}</div>
           </div>
-          <Footer />
+          <div className={styles["footer"]}>
+            <Footer />
+          </div>
         </div>
       </body>
     </html>

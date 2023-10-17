@@ -1,6 +1,5 @@
 import _ from "lodash";
 import React from "react";
-import styls from "./index.module.scss";
 
 import { fetchUser } from "@/apis/user";
 import Viewer from "@/components/Viewer";
@@ -30,11 +29,9 @@ export default async function About() {
     ""
   );
   return (
-    <div className={styls.page}>
+    <>
       <Viewer title={nameWithOwner} data={userRes.data.viewer} />
-      <div className="DetailPage__content">
-        <Markdown>{repositoryText}</Markdown>
-      </div>
-    </div>
+      <Markdown>{repositoryText}</Markdown>
+    </>
   );
 }

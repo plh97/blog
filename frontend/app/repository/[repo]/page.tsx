@@ -5,7 +5,6 @@ import { fetchUser } from "@/apis/user";
 import { fetchRepositoryDetail } from "@/apis/repository";
 import { PageProps } from "@/.next/types/app/repository/[repo]/page";
 import Viewer from "@/components/Viewer";
-import "./index.scss";
 import Markdown from "@/components/Markdown";
 
 export const metadata = {
@@ -31,9 +30,7 @@ export default async function RepositoryDetail({ params }: PageProps) {
   return (
     <div className="DetailPage">
       <Viewer title={nameWithOwner} data={userRes.data.viewer} />
-      <div className="DetailPage__content">
-        <Markdown>{repositoryText}</Markdown>
-      </div>
+      <Markdown>{repositoryText}</Markdown>
     </div>
   );
 }

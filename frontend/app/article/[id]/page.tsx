@@ -1,7 +1,6 @@
 import _ from "lodash";
 import React from "react";
 
-import "./index.scss";
 import Viewer from "@/components/Viewer";
 import { fetchUser } from "@/apis/user";
 import { fetchArticleDetail } from "@/apis/article";
@@ -24,11 +23,9 @@ export default async function ArticleDetail({ params }: PageProps) {
   });
   // article/%5BReact%5D%20上拉加载更多
   return (
-    <div className="DetailPage">
+    <>
       <Viewer title={article!.title} data={user.data.viewer} />
-      <div className="DetailPage__content">
-        <Markdown className="markdown-body">{article.body}</Markdown>
-      </div>
-    </div>
+      <Markdown className="markdown-body">{article.body}</Markdown>
+    </>
   );
 }

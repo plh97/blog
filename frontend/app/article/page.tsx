@@ -22,7 +22,7 @@ export default async function ArticlePage() {
     []
   )
   return (
-    <div className="ArticlePage">
+    <>
       <Viewer title="文章列表" data={user.data.viewer} />
       <div className="ArticlePage__content">
         {Array.prototype.slice
@@ -60,6 +60,6 @@ export default async function ArticlePage() {
             </Link>
           ))}
       </div>
-    </div>
+    </>
   );
 }
