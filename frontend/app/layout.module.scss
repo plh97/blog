@@ -13,7 +13,7 @@
 			width: 280px;
 			position: fixed;
 			width: 280px;
-			height: 100vh;
+			height: calc(100vh - 30px);
 			background: var(--grey9);
 			z-index: 1;
 		}
@@ -24,7 +24,7 @@
 			box-sizing: border-box;
 			background: #fff;
 			width: calc(100% - 280px);
-			min-height: 100vh;
+			min-height: calc(100vh - 30px);
 		}
 	}
 	.footer {
