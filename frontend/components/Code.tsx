@@ -10,6 +10,8 @@ import "prismjs/components/prism-json";
 import "prismjs/components/prism-jsx";
 import "prismjs/components/prism-yaml";
 import "prismjs/components/prism-go";
+import "prismjs/components/prism-scss";
+import "prismjs/components/prism-less";
 import "prismjs/components/prism-tsx";
 import "prismjs/components/prism-python";
 import "prismjs/components/prism-nand2tetris-hdl";
