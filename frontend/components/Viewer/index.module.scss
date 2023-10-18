@@ -1,9 +1,7 @@
 .Viewer {
   width: 100%;
-  // overflow: auto;
-  // background: red;
 
-  &__container {
+  .container {
     min-width: 550px;
     margin-bottom: 1rem;
     position: relative;
@@ -21,7 +19,7 @@
     justify-content: space-between;
     background-position-y: bottom;
 
-    .Viewer__detail {
+    .detail {
       background-color: rgba(245, 245, 245, 0.23);
       flex: 0 0;
       display: flex;
@@ -31,24 +29,24 @@
       width: 100%;
       align-items: stretch;
 
-      .Viewer__image {
+      .image {
         width: 4rem;
         height: 4rem;
         border-radius: 1rem;
         margin-right: 1rem;
       }
 
-      .Viewer__detail-list {
+      .detail-list {
         display: inline-flex;
         flex-direction: column;
         justify-content: space-between;
 
-        .Viewer__detail-name {
+        .detail-name {
           font-size: 40px;
           line-height: 30px;
         }
 
-        .Viewer__detail-bio {
+        .detail-bio {
           font-size: 16px;
         }
       }
