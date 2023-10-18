@@ -1,7 +1,7 @@
 // Link.react.test.js
 import React from 'react'
 import renderer from 'react-test-renderer'
-import Viewer from '../index.jsx'
+import Viewer from '../index.js'
 
 it('renders correctly', () => {
 	const props = {
