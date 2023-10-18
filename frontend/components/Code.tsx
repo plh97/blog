@@ -1,25 +1,28 @@
-import React, { ReactNode, useEffect } from "react";
+"use client";
+import React, { useEffect } from "react";
 import Prism from "prismjs";
-import { fmtLang } from "@/utils/lang";
 import classNames from "classnames";
 import "prism-material-themes/themes/material-default.css";
-import "prismjs/components/prism-typescript";
-import "prismjs/components/prism-nginx";
-import "prismjs/components/prism-bash";
-import "prismjs/components/prism-json";
-import "prismjs/components/prism-jsx";
-import "prismjs/components/prism-yaml";
-import "prismjs/components/prism-go";
-import "prismjs/components/prism-scss";
-import "prismjs/components/prism-less";
-import "prismjs/components/prism-tsx";
-import "prismjs/components/prism-python";
-import "prismjs/components/prism-nand2tetris-hdl";
+
+import "prismjs/components/prism-bash.min";
+import "prismjs/components/prism-go.min";
+import "prismjs/components/prism-less.min";
+import "prismjs/components/prism-nand2tetris-hdl.min";
+import "prismjs/components/prism-nginx.min";
+import "prismjs/components/prism-json.min";
+import "prismjs/components/prism-jsx.min";
+import "prismjs/components/prism-yaml.min";
+import "prismjs/components/prism-scss.min";
+import "prismjs/components/prism-tsx.min";
+import "prismjs/components/prism-python.min";
+import "prismjs/components/prism-typescript.min";
+
+import { fmtLang } from "@/utils/lang";
 
 export default function Code({
   // plugins = ["line-numbers"],
   children,
-  language = "Bash",
+  language = "txt",
 }: {
   children: string;
   language?: string;
