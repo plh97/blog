@@ -13,17 +13,9 @@ interface IProps {
 
 export default function SideItem({ path, className, children, icon }: IProps) {
   const pathname = usePathname();
-  const isPathMatch = useCallback(() => {
-    if (path === "/") {
-      return pathname === path;
-    }
-    return pathname.includes(path);
-  }, [pathname, path]);
+  const active = pathname === path;
   return (
-    <Link
-      href={path ?? ""}
-      className={cs(className, { active: isPathMatch() })}
-    >
+    <Link href={path} className={cs(className, { active })}>
       <i className={cs("icon", icon)} />
       {children}
     </Link>
