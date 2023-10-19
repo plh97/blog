@@ -3,7 +3,21 @@ const nextConfig = {
   productionBrowserSourceMaps: true,
   reactStrictMode: true,
   images: {
-    domains: ["avatars.githubusercontent.com"]
+
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "**",
+      },
+    ],
+    // domains: [
+    //   "avatars.githubusercontent.com",
+    //   "github.com",
+    //   "api.netlify.com",
+    //   "hits.seeyoufarm.com",
+    //   "doubanio.com",
+    //   "*.doubanio.com",
+    // ]
   }
 }
 
