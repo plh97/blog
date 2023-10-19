@@ -9,7 +9,6 @@ node_modules
 
 **/*/dist
 
-*.lock
 # Local Netlify folder
 .netlify
 .history
