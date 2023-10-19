@@ -1,8 +1,7 @@
-"use client";
 import Link from "next/link";
 import cs from "classnames";
-import { usePathname } from "next/navigation";
 import React from "react";
+import Active from "./Active";
 
 interface IProps {
   className: string;
@@ -12,13 +11,9 @@ interface IProps {
 }
 
 export default function SideItem({ path, className, children, icon }: IProps) {
-  const pathname = usePathname();
-  let active = pathname.includes(path);
-  if (path==='/') {
-    active = pathname === path;
-  }
   return (
-    <Link href={path} className={cs(className, { active })}>
+    <Link href={path} className={cs(className)}>
+      <Active path={path} />
       <i className={cs("icon", icon)} />
       {children}
     </Link>
