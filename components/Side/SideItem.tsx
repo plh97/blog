@@ -13,7 +13,10 @@ interface IProps {
 
 export default function SideItem({ path, className, children, icon }: IProps) {
   const pathname = usePathname();
-  const active = pathname === path;
+  let active = pathname.includes(path);
+  if (path==='/') {
+    active = pathname === path;
+  }
   return (
     <Link href={path} className={cs(className, { active })}>
       <i className={cs("icon", icon)} />
