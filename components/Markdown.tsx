@@ -1,5 +1,6 @@
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import rehypeRaw from 'rehype-raw'
 import Code from "./Code";
 
 export default function Markdown(props: {
@@ -9,6 +10,7 @@ export default function Markdown(props: {
   return (
     <ReactMarkdown
       remarkPlugins={[remarkGfm]}
+      rehypePlugins={[rehypeRaw]}
       className={"markdown-body" + " " + props.className ?? ""}
       components={{
         code(props) {
