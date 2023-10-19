@@ -2,7 +2,7 @@
 import Link from "next/link";
 import cs from "classnames";
 import { usePathname } from "next/navigation";
-import React, { useCallback } from "react";
+import React from "react";
 
 interface IProps {
   className: string;

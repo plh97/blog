@@ -72,40 +72,52 @@ Uncaught Error: Actions must be plain objects. Use custom middleware for async a
 
 - [x] [网络是怎样连接的](https://book.douban.com/subject/26941639/) - [笔记](https://github.com/plh97/blog/issues/40)
 
-![](https://static.pipk.top/api/public/images/6075462533216409.png)
+![](https://img1.doubanio.com/view/subject/s/public/s29370067.jpg)
 
 ---
 
 - [x] [HTTP 权威指南](https://book.douban.com/subject/10746113/) - [笔记一](https://github.com/plh97/blog/issues/45) - [笔记二](https://github.com/plh97/blog/issues/52)
 
-![](https://static.pipk.top/api/public/images/2376380500856452.png)
+![](https://img1.doubanio.com/view/subject/s/public/s11329547.jpg)
 
 ---
 
 - [x] [JavaScript 面向对象精要](https://book.douban.com/subject/26352658/) - [笔记一](https://github.com/plh97/blog/issues/29) - [笔记二](https://github.com/plh97/blog/issues/31)
 
-![](https://static.pipk.top/api/public/images/7833702919612766.png)
+![](https://img2.doubanio.com/view/subject/s/public/s28291461.jpg)
 
 ---
 
 - [x] [现代前端技术解析](https://book.douban.com/subject/27021790/) - [笔记一](https://github.com/plh97/blog/issues/28) - [笔记二](https://github.com/plh97/blog/issues/58)
 
+![](https://img2.doubanio.com/view/subject/s/public/s29728202.jpg)
+
 ---
 
 - [x] [深入理解 ES6](https://book.douban.com/subject/27072230/) - [笔记一](https://github.com/plh97/blog/issues/32) - [笔记二](https://github.com/plh97/blog/issues/51)
+
+![](https://img1.doubanio.com/view/subject/s/public/s29478358.jpg)
 
 ---
 
 - [x] [ES6 标准入门](https://book.douban.com/subject/26708954/) - [笔记一](https://github.com/plh97/blog/issues/23) - [笔记二](https://github.com/plh97/blog/issues/26)
 
+![](https://img2.doubanio.com/view/subject/l/public/s28383612.jpg)
+
 ---
 
 - [x] [高性能的 JavaScript](https://book.douban.com/subject/5362856/) - [笔记](https://github.com/plh97/blog/issues/15)
+
+![](https://img9.doubanio.com/view/subject/s/public/s4538004.jpg)
 
 ---
 
 - [x] [JavaScript 语言精粹](https://book.douban.com/subject/3590768/) - [笔记](https://github.com/plh97/blog/issues/10)
 
+![](https://img9.doubanio.com/view/subject/s/public/s3651235.jpg)
+
 ---
 
 - [x] [数据结构与算法 JavaScript 描述](https://book.douban.com/subject/25945449/) - [笔记](https://github.com/plh97/blog/issues/6)
+
+![](https://img1.doubanio.com/view/subject/s/public/s27371758.jpg)
