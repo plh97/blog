@@ -130,7 +130,7 @@ a {
 
 @font-face {
   font-family: "Reem Kufi";
-  src: url("./a.woff");
+  src: url("/font-icons/fonts/a.woff");
 }
 
 .fade-enter {
