@@ -1,16 +1,13 @@
+import React from "react";
 import _ from "lodash";
-import React, { Component } from "react";
-import { timeUtils } from "@/utils/time";
-import Viewer from "@/components/Viewer";
-import starsSvg from "@/assets/stars.svg";
-import githubSvg from "@/assets/github.svg";
-import forksSvg from "@/assets/forks.svg";
-
-import "./index.scss";
 import Image from "next/image";
 import Link from "next/link";
+import { timeUtils } from "@/utils/time";
+import Viewer from "@/components/Viewer";
 import { fetchUser } from "@/apis/user";
 import { fetchRepositoryList } from "@/apis/repository";
+
+import "./index.scss";
 
 export const metadata = {
   title: "Repository List Page",
@@ -46,14 +43,14 @@ function RepositoryItem({ node }: { node: any }) {
             </span>
           )}
           <span className="RepositoryPage__detail-stargazers">
-            <Image src={starsSvg} alt="stars" />
+            <Image src={"/stars.svg"} width={14} height={16} alt="stars" />
             <span className="RepositoryPage__detail-stargazers--text">
               {node.stargazers && node.stargazers.totalCount}
             </span>
           </span>
 
           <span className="RepositoryPage__detail-stargazers">
-            <Image src={forksSvg} alt="forks" />
+            <Image src={"/forks.svg"} width={10} height={16} alt="forks" />
             <span className="RepositoryPage__detail-stargazers--text">
               {node.forkCount}
             </span>
@@ -77,7 +74,7 @@ function RepositoryItem({ node }: { node: any }) {
               target="_blank"
               href={node.url}
             >
-              <Image src={githubSvg} alt="Github" />
+              <Image src={"/github.svg"} width={16} height={16} alt="Github" />
             </a>
           )}
           {node.homepageUrl && (
