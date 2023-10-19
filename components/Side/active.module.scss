@@ -1,6 +1,14 @@
 .bg {
   width: 100%;
   height: 100%;
-  background-color: lightblue;
   position: absolute;
+  left: 0;
+  top: 0;
+  &:hover {
+    background-color: var(--grey8);
+  }
+}
+
+.active {
+  background-color: var(--grey8);
 }

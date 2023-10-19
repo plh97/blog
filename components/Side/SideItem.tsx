@@ -15,7 +15,7 @@ export default function SideItem({ path, className, children, icon }: IProps) {
     <Link href={path} className={cs(className)}>
       <Active path={path} />
       <i className={cs("icon", icon)} />
-      {children}
+      <span>{children}</span>
     </Link>
   );
 }

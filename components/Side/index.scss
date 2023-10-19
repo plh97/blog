@@ -24,6 +24,9 @@
 			transition: 0.2s all ease;
 			box-sizing: border-box;
 			border-left: 0px solid var(--blue1);
+			& > * {
+				z-index: 1;
+			}
 
 			.icon {
 				margin-right: 20px;
