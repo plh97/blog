@@ -1,6 +1,6 @@
 "use client";
 
-import { AppProgressBar as ProgressBar } from "next-nprogress-bar";
+// import { AppProgressBar as ProgressBar } from "next-nprogress-bar";
 
 import styles from "./layout.module.scss";
 import Side from "@/components/Side";
