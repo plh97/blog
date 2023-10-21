@@ -21,45 +21,20 @@
 			padding: 0 20px;
 			transition: 0.2s all ease;
 			box-sizing: border-box;
+			column-gap: 20px;
 			& > * {
 				z-index: 1;
 			}
 
 			.icon {
-				margin-right: 20px;
 				color: #fff;
 				font-size: 18px;
+				width: 18px;
 			}
 
 			&:hover,
 			&.active {
 				cursor: pointer;
-			}
-		}
-	}
-
-	.Side__history {
-		flex: 0 0 300px;
-		padding: 10px;
-
-		.Side__history-title {
-			font-size: 24px;
-			color: #ccc;
-		}
-
-		.Side__history-content {
-			line-height: 1.5em;
-			padding-left: 20px;
-			color: #999;
-
-			a {
-				margin-left: 10px;
-				color: #999;
-				text-decoration: none;
-
-				&:hover {
-					color: #00b4cf;
-				}
 			}
 		}
 	}
