@@ -1,5 +1,5 @@
-@import "../public/font-icons/fonts.css";
 @import "./markdown.css";
+@import "../public/font-icons/fonts.css";
 /* --var */
 :root {
   /* normal */
@@ -72,83 +72,9 @@ a {
   word-break: break-word;
 }
 
-/* 设置滚动条的样式 */
-::-webkit-scrollbar {
-  width: 0px;
-  height: 0px;
-
-  &:end {
-    display: none;
-  }
-}
-
-/* 滚动槽 */
-::-webkit-scrollbar-track {
-  background-color: rgba(0, 0, 0, 0);
-}
-
-/* 滚动条滑块 */
-::-webkit-scrollbar-thumb {
-  background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 4px;
-
-  &:end {
-    display: none;
-  }
-}
-
-::-webkit-scrollbar-thumb:window-inactive {
-  background-color: rgba(0, 0, 0, 0.5);
-}
-
 @font-face {
   font-family: "Reem Kufi";
   src: url("/font-icons/fonts/a.woff");
-}
-
-.fade-enter {
-  opacity: 0;
-  z-index: 1;
-}
-
-.fade-enter.fade-enter-active {
-  opacity: 1;
-  transition: opacity 250ms ease-in;
-}
-
-/* 进出场动画 */
-/* 飞入 */
-.slide-in-appear {
-  transform: translate3D(100%, 0, 0);
-  transition: all 300ms linear;
-
-  &.slide-in-appear-active {
-    transform: translate3D(0, 0, 0);
-  }
-}
-
-.slide-in-enter {
-  transform: translate3D(100%, 0, 0);
-  transition: all 300ms linear;
-
-  &.slide-in-enter-active {
-    transform: translate3D(0, 0, 0);
-  }
-}
-
-/* 向左滑出 */
-.slide-in-leave {
-  position: absolute;
-  left: 0;
-  top: 0;
-  opacity: 1;
-  transform: translate3D(0, 0, 0);
-  transition: all 300ms linear;
-
-  &.slide-in-leave-active {
-    opacity: 0.01;
-    transform: translate3D(-100%, 0, 0);
-  }
 }
 
 .markdown-body :not(pre) > code[class*="language-"] {
