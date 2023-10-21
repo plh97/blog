@@ -2,5 +2,5 @@
 import { AppProgressBar } from "next-nprogress-bar";
 
 export default function ProgressBar() {
-  return <AppProgressBar />;
+  return <AppProgressBar options={{ showSpinner: true }} />;
 }
