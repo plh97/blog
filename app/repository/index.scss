@@ -14,7 +14,7 @@
 		flex-direction: row;
 		align-items: flex-start;
 		justify-content: space-between;
-		border: 1px solid var(--border-color-base);
+		border: 1px solid theme('colors.border-color-base');
 		box-shadow: var(--box-shadow);
 
 		&:hover {

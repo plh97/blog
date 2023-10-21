@@ -5,26 +5,11 @@
 @tailwind components;
 @tailwind utilities;
 
-/* --var */
-:root {
-  /* normal */
-  --blue1: #00b4cf;
-  --blue2: #01869a;
-  --yellow: #ff9a2a;
-  --green: #7fbc39;
-
-  --border-radius-base: 4px;
-  --border-color-base: #d9d9d9;
-  --box-shadow-base: 0 2px 8px rgba(0, 0, 0, 0.15);
-}
-
 body {
-  background: var(--grey1);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   margin: 0;
   padding: 0;
-  font-family: "Reem Kufi", "Roboto", sans-serif;
   width: 100%;
   min-height: 100vh;
 }
@@ -36,16 +21,16 @@ img {
 
 a {
   text-decoration: none;
-  color: var(--lightBlue7);
+  color: theme('colors.lightBlue7');
   display: inline-block;
   text-indent: 0;
   word-break: break-word;
 }
 
-@font-face {
+/* @font-face {
   font-family: "Reem Kufi";
   src: url("/font-icons/fonts/a.woff");
-}
+} */
 
 .markdown-body :not(pre) > code[class*="language-"] {
 	color: inherit;

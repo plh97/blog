@@ -1,7 +1,7 @@
 import axios, { AxiosRequestConfig } from "axios";
 
 const localAxios = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_BASE_URL,
+  baseURL: "https://api.github.com",
   headers: {
     Authorization: `bearer ${process.env.NEXT_PUBLIC_ACCESS_TOKEN}`,
     Accept: "application/vnd.github.v4.idl",

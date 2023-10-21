@@ -50,7 +50,16 @@ module.exports = {
       lightBlue8: "#0277bd",
       lightBlue9: "#01579b",
 
+      black: colors.black,
+      blue: colors.blue,
+      white: colors.white,
+      gray: colors.gray,
+      emerald: colors.emerald,
+      indigo: colors.indigo,
+      yellow: colors.yellow,
+
       "gray-light": "#d3dce6",
+      "border-color-base": "#d9d9d9",
     },
   },
   plugins: [],
