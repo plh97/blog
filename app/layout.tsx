@@ -6,7 +6,7 @@ import classNames from "classnames";
 
 import { reem_kufi, roboto } from "./fonts";
 import "./globals.css";
-import ProgressBar from "@/components/ProgressBar";
+// import ProgressBar from "@/components/ProgressBar";
 import { config } from '@fortawesome/fontawesome-svg-core'
 import '@fortawesome/fontawesome-svg-core/styles.css'
 
@@ -30,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="bg-gray-100" style={{ fontFamily }}>
-        <ProgressBar />
+        {/* <ProgressBar /> */}
         <div className={styles["container"]}>
           <div className={styles["content"]}>
             <div className={classNames(styles["side"], "bg-gray-900")}>
