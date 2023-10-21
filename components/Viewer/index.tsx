@@ -23,7 +23,7 @@ export default function Viewer({ data, title = "" }: IProps) {
 					alt="background image"
 				/>
 				<h1 className="z-10">{title}</h1>
-				<div className={styles["detail"]}>
+				<div className={classNames(styles["detail"], 'z-10')}>
 					{data?.avatarUrl && (
 						<Image
 							className={styles["image"]}
