@@ -2,6 +2,7 @@ import React from 'react'
 import Image from 'next/image'
 import styles from './index.module.scss'
 import { IViewer } from '@/apis/user'
+import bg from '@/public/bg1.jpg'
 
 interface IProps {
 	data: IViewer
@@ -11,7 +12,9 @@ interface IProps {
 export default function Viewer({ data, title = '' }: IProps) {
 	return (
 		<div className={styles["Viewer"]}>
-			<div className={styles["container"]}>
+			<div className={styles["container"]} style={{
+				backgroundImage: `url(${bg.src})`,
+			}}>
 				<h1>{title}</h1>
 				<div className={styles["detail"]}>
 					{data?.avatarUrl && (
