@@ -14,7 +14,7 @@ export default function Side() {
             <SideItem
               icon={route.icon}
               key={route.path}
-              className="Side__nav-item"
+              className="Side__nav-item hover:bg-gray-800 active:bg-gray-800 text-gray-100"
               path={route.path ?? ""}
             >
               {route.content}

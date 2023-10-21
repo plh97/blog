@@ -4,11 +4,5 @@
   position: absolute;
   left: 0;
   top: 0;
-  &:hover {
-    background-color: var(--grey8);
-  }
-}
-
-.active {
-  background-color: var(--grey8);
+  transition: 0.2s all ease;
 }

@@ -23,7 +23,7 @@ export default async function Home() {
     ""
   );
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24 HomePage">
+    <main className="HomePage">
       <Viewer title="主页" data={user.data.viewer} />
       <Markdown className="markdown-body HomePage-markdown__body">
         {repositoryText}

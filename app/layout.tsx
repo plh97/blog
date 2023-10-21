@@ -2,8 +2,14 @@
 import styles from "./layout.module.scss";
 import Side from "@/components/Side";
 import Footer from "@/components/Footer";
-import Head from "next/head";
+import classNames from "classnames";
+import { Metadata } from "next";
 import "./globals.css";
+
+export const metadata: Metadata = {
+  viewport:
+    "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0",
+};
 
 export default function RootLayout({
   children,
@@ -12,17 +18,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <Head>
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
-        />
-      </Head>
-      <body>
+      <body className="bg-gray-100">
         {/* <ProgressBar /> */}
         <div className={styles["container"]}>
           <div className={styles["content"]}>
-            <div className={styles["side"]}>
+            <div className={classNames(styles["side"], "bg-gray-900")}>
               <Side />
             </div>
             <div className={styles["body"]}>{children}</div>
