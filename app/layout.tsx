@@ -33,7 +33,7 @@ export default function RootLayout({
         {/* <ProgressBar /> */}
         <div className={styles["container"]}>
           <div className={styles["content"]}>
-            <div className={classNames(styles["side"], "bg-gray-900")}>
+            <div className={classNames(styles["side"], "z-100 bg-gray-900")}>
               <Side />
             </div>
             <div className={styles["body"]}>{children}</div>
