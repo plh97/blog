@@ -1,5 +1,4 @@
 @import "./markdown.css";
-@import "../public/font-icons/fonts.css";
 
 @tailwind base;
 @tailwind components;
@@ -26,11 +25,6 @@ a {
   text-indent: 0;
   word-break: break-word;
 }
-
-/* @font-face {
-  font-family: "Reem Kufi";
-  src: url("/font-icons/fonts/a.woff");
-} */
 
 .markdown-body :not(pre) > code[class*="language-"] {
 	color: inherit;

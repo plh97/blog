@@ -1,23 +1,29 @@
+import { faBookmark, faNewspaper, faUser } from "@fortawesome/free-regular-svg-icons";
+import { faHome } from "@fortawesome/free-solid-svg-icons";
+
 const routes = [
   {
     path: "/",
-    icon: "icon-desktop",
-    content: "Home Page"
+    icon: faHome,
+    content: "Home Page",
   },
   {
     path: "/article",
-    icon: "icon-th-list",
-    content: "Article"
+    icon: faNewspaper,
+    // icon: "icon-th-list",
+    content: "Article",
   },
   {
     path: "/repository",
-    icon: "icon-dashboard",
-    content: "Repository"
+    icon: faBookmark,
+    // icon: "icon-dashboard",
+    content: "Repository",
   },
   {
     path: "/about",
-    icon: "icon-id-card",
-    content: "About Me"
-  }
+    icon: faUser,
+    // icon: "icon-id-card",
+    content: "About Me",
+  },
 ];
 export default routes;
