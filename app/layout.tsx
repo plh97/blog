@@ -15,7 +15,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <ProgressBar />
+        {/* <ProgressBar /> */}
         <div className={styles["container"]}>
           <div className={styles["content"]}>
             <div className={styles["side"]}>
