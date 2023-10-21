@@ -1,4 +1,3 @@
-"use client";
 import React from "react";
 import cs from "classnames";
 import { usePathname } from "next/navigation";
