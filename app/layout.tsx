@@ -5,6 +5,7 @@ import { AppProgressBar as ProgressBar } from "next-nprogress-bar";
 import styles from "./layout.module.scss";
 import Side from "@/components/Side";
 import Footer from "@/components/Footer";
+import './globals.css'
 
 export default function RootLayout({
   children,
