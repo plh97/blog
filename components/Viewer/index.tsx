@@ -2,7 +2,6 @@ import React from "react";
 import Image from "next/image";
 import styles from "./index.module.scss";
 import { IViewer } from "@/apis/user";
-import bg from "@/public/bg1.jpg";
 import classNames from "classnames";
 
 interface IProps {
@@ -14,14 +13,6 @@ export default function Viewer({ data, title = "" }: IProps) {
 	return (
 		<div className={styles["Viewer"]}>
 			<div className={styles["container"]}>
-				<Image
-					className={classNames(styles.bg, "z-0")}
-					layout="fill"
-					objectFit="cover"
-					objectPosition="center"
-					src="/bg1.jpg"
-					alt="background image"
-				/>
 				<h1 className="z-10">{title}</h1>
 				<div className={classNames(styles["detail"], 'z-10')}>
 					{data?.avatarUrl && (
