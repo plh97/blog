@@ -18,6 +18,9 @@ export default function Active({ path }: IProps) {
     <span
       className={cs(
         styles.bg,
+        "border-blue-100",
+        "border-l-0",
+        "border-solid",
         {
           ["bg-gray-800 border-l-4"]: active,
         }
