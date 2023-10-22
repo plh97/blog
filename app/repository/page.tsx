@@ -62,8 +62,7 @@ function RepositoryItem({ node }: { node: any }) {
           上次更新: {timeUtils(node.updatedAt)}
         </span>
         <span className="RepositoryPage-commitCount">
-          提交次数:
-          {node.object && node.object.history.totalCount}
+          提交次数: {node.object?.history?.totalCount ?? 0}
         </span>
 
         <span className="RepositoryPage-link">
