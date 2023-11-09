@@ -1,21 +1,20 @@
 import React from "react";
-import "./index.scss";
 import routes from "@/routes";
 
 import SideItem from "./SideItem";
 
 export default function Side() {
   return (
-    <div className="Side__container">
-      <div className="Side__nav">
+    <div className="flex flex-col text-sm w-full">
+      <div className="flex flex-col pt-5">
         {routes
           .filter((route) => route.content)
           .map((route) => (
             <SideItem
-              icon={route.icon}
+              className="cursor-pointer relative flex flex-row items-center h-11 gap-x-5 px-5 mb-2.5 hover:bg-gray-800 active:bg-gray-800 text-gray-100"
               key={route.path}
-              className="Side__nav-item hover:bg-gray-800 active:bg-gray-800 text-gray-100"
-              path={route.path ?? ""}
+              path={route.path}
+              icon={route.icon}
             >
               {route.content}
             </SideItem>

@@ -1,4 +1,6 @@
 import axios, { AxiosRequestConfig } from "axios";
+import nProgress from "nprogress";
+import { isCSR } from "./ssr";
 
 const localAxios = axios.create({
   baseURL: "https://api.github.com",
@@ -15,6 +17,8 @@ export default async function AxiosOrLocal<T>({
   url,
   method,
 }: AxiosRequestConfig) {
+  // isCSR() && nProgress.start();
   const res = await localAxios<T>({ url, method, data });
+  // isCSR() && nProgress.done();
   return res.data;
 }

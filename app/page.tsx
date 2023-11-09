@@ -4,8 +4,6 @@ import Viewer from "@/components/Viewer";
 import Markdown from "@/components/Markdown";
 import { fetchRepositoryDetail } from "@/apis/repository";
 
-import "./page.scss";
-
 export const metadata = {
   title: "Home Page",
   description: "This is plh97's blog",

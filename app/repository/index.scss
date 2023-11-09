@@ -5,7 +5,7 @@
 	flex-wrap: wrap;
 
 	.RepositoryPage__item {
-		width: calc(50% - 10px);
+		// width: calc(50% - 10px);
 		padding: 16px;
 		border-radius: 3px;
 		margin-bottom: 16px;
@@ -73,9 +73,6 @@
 		}
 
 		.RepositoryPage__item--right {
-			flex: 0 0 auto;
-			display: inline-flex;
-			flex-direction: column;
 			row-gap: 2px;
 
 			.RepositoryPage-update {
@@ -88,18 +85,7 @@
 				text-align: right;
 			}
 
-			.RepositoryPage-link {
-				text-align: right;
-
-				a + a {
-					margin-left: 10px;
-				}
-			}
-
 			.RepositoryPage-topic {
-				display: flex;
-				column-gap: 5px;
-				row-gap: 5px;
 				.RepositoryPage-topic__item {
 					color: #0366d6;
 					font-size: 12px;

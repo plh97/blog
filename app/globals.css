@@ -7,26 +7,4 @@
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  min-height: 100vh;
-}
-
-img {
-  display: inline-block;
-  max-width: 100%;
-}
-
-a {
-  text-decoration: none;
-  color: theme('colors.lightBlue7');
-  display: inline-block;
-  text-indent: 0;
-  word-break: break-word;
-}
-
-.markdown-body :not(pre) > code[class*="language-"] {
-	color: inherit;
-	background: inherit;
 }

@@ -2,11 +2,11 @@
 [![author](https://img.shields.io/badge/author-peng-blue.svg)](https://github.com/plh97/blog)
 [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fplh97%2Fblog&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
 
-### 欢迎光临我的博客
+### Welcome to my blog repo
 
-#### [本站](https://plh-blog.netlify.app)托管于 Github，所有数据来源于[ISSUE](https://github.com/plh97/blog/issues)，通过 GitHub API 动态加载数据渲染页面
+#### This [Site](https://plhh.xyz) deployed on Netlify，all data come from [ISSUE](https://github.com/plh97/blog/issues), call GitHub API server side render page
 
-### 我的技术栈
+### My Tech Skill
 
 - JavaScript(React Vue)
 - Node
@@ -18,106 +18,70 @@
 
 ### TODO
 
-- [x] 引入 jest 单元测试,覆盖率>90%
-  - reducer 测试
-  - component 测试
-  - container 测试
-- [x] typescript
+- [x] add jest testcase, coverage > 90%
+  - component testcase
+  - container testcase
 
-### redux-thunk
+### How to deploy this project
 
-使用`redux-thunk`原因在于下面报错内容,允许 action 返回一个函数.
+0. folk & clone this project
+1. login in netlify
+2. buy a domain
+3. select yours folked github repo
+4. select netlify nextjs plugin
+5. create a github access token
+6. add `NEXT_PUBLIC_ACCESS_TOKEN` env variable in netlify
 
-```bash
-Uncaught Error: Actions must be plain objects. Use custom middleware for async actions.
-```
+### Book List
 
-### docker 构建项目
-
-```bash
-./build.sh # 用于构建image,镜像内部运行`yarn build`,构建的dist文件在镜像内部
-./run.sh   # 用于运行镜像 `CMD serve -s dist` 运行服务
-```
-
-### Interview Question ++
-
-- [ ] vue 与 react 区别
-- [ ] 观察者模式与发布订阅模式的区别
-- [ ] 什么情况下 async/await 能取代 promise
-- [ ] webpack 体积 + 编译速度性能优化
-- [ ] es5 function 几种继承过程
-- [ ] 如何阻止浏览器原生右键弹出, `e.preventDefault()`
-- [ ] Http 复杂请求 优化 + Loading
-- [ ] docker 多个实例集群部署
-- [ ] MySQL 关联查询
-- [ ] vuex/redux 实现机制, 属性如何在根节点注入,各个子组件都能获取 - context
-- [ ] ....继续补充
-
-### React 开发原则
-
-尽可能使用 PureComponent,增强性能...
-尽可能细化组件.
-
-### React Router
-
-- `<Link />`: 普通链接
-- `<NavLink />`: 带 toggleClass 的链接
-- `<Prompt />`: 满足条件的时候提示用户是否离开页面
-- `<Redirect />`: 重定向
-- `<Route />`: 路由匹配核心,匹配则显示的组件
-- `<Switch />`: 只匹配第一个路由
-- `exact`, 默认匹配的一个路由
-
-### 看过的书
-
-- [x] [网络是怎样连接的](https://book.douban.com/subject/26941639/) - [笔记](https://github.com/plh97/blog/issues/40)
+- [x] [网络是怎样连接的](https://book.douban.com/subject/26941639/) - [remark](https://github.com/plh97/blog/issues/40)
 
 ![](https://img1.doubanio.com/view/subject/s/public/s29370067.jpg)
 
 ---
 
-- [x] [HTTP 权威指南](https://book.douban.com/subject/10746113/) - [笔记一](https://github.com/plh97/blog/issues/45) - [笔记二](https://github.com/plh97/blog/issues/52)
+- [x] [HTTP 权威指南](https://book.douban.com/subject/10746113/) - [remark 1](https://github.com/plh97/blog/issues/45) - [remark 2](https://github.com/plh97/blog/issues/52)
 
 ![](https://img1.doubanio.com/view/subject/s/public/s11329547.jpg)
 
 ---
 
-- [x] [JavaScript 面向对象精要](https://book.douban.com/subject/26352658/) - [笔记一](https://github.com/plh97/blog/issues/29) - [笔记二](https://github.com/plh97/blog/issues/31)
+- [x] [JavaScript 面向对象精要](https://book.douban.com/subject/26352658/) - [remark 1](https://github.com/plh97/blog/issues/29) - [remark 2](https://github.com/plh97/blog/issues/31)
 
 ![](https://img2.doubanio.com/view/subject/s/public/s28291461.jpg)
 
 ---
 
-- [x] [现代前端技术解析](https://book.douban.com/subject/27021790/) - [笔记一](https://github.com/plh97/blog/issues/28) - [笔记二](https://github.com/plh97/blog/issues/58)
+- [x] [现代前端技术解析](https://book.douban.com/subject/27021790/) - [remark 1](https://github.com/plh97/blog/issues/28) - [remark 2](https://github.com/plh97/blog/issues/58)
 
 ![](https://img2.doubanio.com/view/subject/s/public/s29728202.jpg)
 
 ---
 
-- [x] [深入理解 ES6](https://book.douban.com/subject/27072230/) - [笔记一](https://github.com/plh97/blog/issues/32) - [笔记二](https://github.com/plh97/blog/issues/51)
+- [x] [深入理解 ES6](https://book.douban.com/subject/27072230/) - [remark 1](https://github.com/plh97/blog/issues/32) - [remark 2](https://github.com/plh97/blog/issues/51)
 
 ![](https://img1.doubanio.com/view/subject/s/public/s29478358.jpg)
 
 ---
 
-- [x] [ES6 标准入门](https://book.douban.com/subject/26708954/) - [笔记一](https://github.com/plh97/blog/issues/23) - [笔记二](https://github.com/plh97/blog/issues/26)
+- [x] [ES6 标准入门](https://book.douban.com/subject/26708954/) - [remark 1](https://github.com/plh97/blog/issues/23) - [remark 2](https://github.com/plh97/blog/issues/26)
 
 ![](https://img2.doubanio.com/view/subject/l/public/s28383612.jpg)
 
 ---
 
-- [x] [高性能的 JavaScript](https://book.douban.com/subject/5362856/) - [笔记](https://github.com/plh97/blog/issues/15)
+- [x] [高性能的 JavaScript](https://book.douban.com/subject/5362856/) - [remark](https://github.com/plh97/blog/issues/15)
 
 ![](https://img9.doubanio.com/view/subject/s/public/s4538004.jpg)
 
 ---
 
-- [x] [JavaScript 语言精粹](https://book.douban.com/subject/3590768/) - [笔记](https://github.com/plh97/blog/issues/10)
+- [x] [JavaScript 语言精粹](https://book.douban.com/subject/3590768/) - [remark](https://github.com/plh97/blog/issues/10)
 
 ![](https://img9.doubanio.com/view/subject/s/public/s3651235.jpg)
 
 ---
 
-- [x] [数据结构与算法 JavaScript 描述](https://book.douban.com/subject/25945449/) - [笔记](https://github.com/plh97/blog/issues/6)
+- [x] [数据结构与算法 JavaScript 描述](https://book.douban.com/subject/25945449/) - [remark](https://github.com/plh97/blog/issues/6)
 
 ![](https://img1.doubanio.com/view/subject/s/public/s27371758.jpg)

@@ -5,14 +5,16 @@ import Footer from "@/components/Footer";
 import classNames from "classnames";
 
 import { reem_kufi, roboto } from "./fonts";
-import "./globals.css";
 // import ProgressBar from "@/components/ProgressBar";
-import { config } from '@fortawesome/fontawesome-svg-core'
-import '@fortawesome/fontawesome-svg-core/styles.css'
+import { config } from "@fortawesome/fontawesome-svg-core";
+import "@fortawesome/fontawesome-svg-core/styles.css";
+import "./globals.css";
+import Script from "next/script";
 
-config.autoAddCss = false
+config.autoAddCss = false;
 
-export const metadata: Metadata = {
+export const metadata = {
+  "google-adsense-account": "ca-pub-6302926892933340",
   viewport:
     "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0",
 };
@@ -25,22 +27,30 @@ export default function RootLayout({
   const fontFamily = [
     reem_kufi.style.fontFamily,
     roboto.style.fontFamily,
-    'sans-serif',
-  ].join(', ')
+    "sans-serif",
+  ].join(", ");
   return (
     <html lang="en">
-      <body className="bg-gray-100" style={{ fontFamily }}>
+      <Script
+        async
+        strategy="lazyOnload"
+        crossOrigin="anonymous"
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6302926892933340"
+      />
+      <body
+        suppressHydrationWarning
+        className="bg-gray-100"
+        style={{ fontFamily }}
+      >
         {/* <ProgressBar /> */}
-        <div className={styles["container"]}>
-          <div className={styles["content"]}>
-            <div className={classNames(styles["side"], "z-100 bg-gray-900")}>
-              <Side />
-            </div>
-            <div className={styles["body"]}>{children}</div>
+        <div className={classNames(styles["content"], 'md:w-[1200px] max-md:w-full')}>
+          <div className={classNames(styles["side"], "md:flex max-md:hidden", "z-20 bg-gray-900")}>
+            <Side />
           </div>
-          <div className={styles["footer"]}>
-            <Footer />
-          </div>
+          <div className={classNames(styles["body"], 'md:ml-64 max-md:ml-0', 'md:w-[calc(100%-16rem)] max-md:w-full')}>{children}</div>
+        </div>
+        <div className={classNames(styles["footer"], 'md:w-[1200px] max-md:w-full')}>
+          <Footer />
         </div>
       </body>
     </html>

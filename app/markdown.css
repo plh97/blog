@@ -92,7 +92,6 @@
   margin: 0;
   color: var(--color-fg-default);
   background-color: var(--color-canvas-default);
-  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
   font-size: 16px;
   line-height: 1.5;
   word-wrap: break-word;
@@ -137,6 +136,8 @@
   background-color: transparent;
   color: var(--color-accent-fg);
   text-decoration: none;
+  margin-right: 0.3em;
+  display: inline-block;
 }
 
 .markdown-body abbr[title] {
@@ -198,7 +199,6 @@
 .markdown-body kbd,
 .markdown-body pre,
 .markdown-body samp {
-  font-family: monospace;
   font-size: 1em;
 }
 
@@ -427,14 +427,12 @@
 .markdown-body tt,
 .markdown-body code,
 .markdown-body samp {
-  font-family: ui-monospace,SFMono-Regular,SF Mono,Menlo,Consolas,Liberation Mono,monospace;
   font-size: 12px;
 }
 
 .markdown-body pre {
   margin-top: 0;
   margin-bottom: 0;
-  font-family: ui-monospace,SFMono-Regular,SF Mono,Menlo,Consolas,Liberation Mono,monospace;
   font-size: 12px;
   word-wrap: normal;
 }
@@ -1097,4 +1095,9 @@
 
 .markdown-body ::-webkit-calendar-picker-indicator {
   filter: invert(50%);
+}
+
+.markdown-body :not(pre) > code[class*="language-"] {
+	color: inherit;
+	background: inherit;
 }

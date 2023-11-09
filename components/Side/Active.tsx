@@ -2,7 +2,7 @@
 import React from "react";
 import cs from "classnames";
 import { usePathname } from "next/navigation";
-import styles from "./active.module.scss";
+import styles from "./index.module.scss";
 
 interface IProps {
   path: string;

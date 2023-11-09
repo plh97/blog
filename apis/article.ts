@@ -1,7 +1,35 @@
 import AxiosOrLocal from "@/utils/axiosOrLocal";
 
+export interface IArticleList {
+  updatedAt: string;
+  title: string;
+  author: {
+    login: string;
+    avatarUrl: string;
+  };
+  labels: {
+    nodes: {
+      color: string;
+      name: string;
+      description: string;
+    }[];
+  };
+}
+
 export const fetchArticleList = () =>
-  AxiosOrLocal({
+  AxiosOrLocal<{
+		data: {
+			repositoryOwner: {
+				repository: {
+					issues: {
+						edges: {
+							node: IArticleList
+						}[];
+					};
+				};
+			};
+		};
+	}>({
     url: "/graphql",
     method: "post",
     data: {
