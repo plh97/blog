@@ -13,14 +13,6 @@ export default function Viewer({ data, title = "" }: IProps) {
 	return (
 		<div className={styles["Viewer"]}>
 			<div className={styles["container"]}>
-				<Image
-					className={classNames(styles.bg, "z-0")}
-					fill
-					style={{ objectFit: "cover", objectPosition: "center" }}
-					priority
-					src="/bg1.jpg"
-					alt="background image"
-				/>
 				<h1 className="max-md:text-2xl md:text-4xl z-10">{title}</h1>
 				<div className={classNames(styles["detail"], 'z-10')}>
 					{data?.avatarUrl && (
