@@ -43,13 +43,36 @@ export default function RootLayout({
         style={{ fontFamily }}
       >
         {/* <ProgressBar /> */}
-        <div className={classNames(styles["content"], 'md:w-[1200px] max-md:w-full')}>
-          <div className={classNames(styles["side"], "md:flex max-md:hidden", "z-20 bg-gray-900")}>
+        <div
+          className={classNames(
+            styles["content"],
+            "md:w-[1200px] max-md:w-full"
+          )}
+        >
+          <div
+            className={classNames(
+              styles["side"],
+              "md:flex max-md:hidden",
+              "z-20 bg-gray-900"
+            )}
+          >
             <Side />
           </div>
-          <div className={classNames(styles["body"], 'md:ml-64 max-md:ml-0', 'md:w-[calc(100%-16rem)] max-md:w-full', 'md:p-5 max-md:p-3')}>{children}</div>
+          <div
+            className={classNames(
+              "!pb-0",
+              styles["body"],
+              "md:ml-64 max-md:ml-0",
+              "md:w-[calc(100%-16rem)] max-md:w-full",
+              "md:p-5 max-md:p-3"
+            )}
+          >
+            {children}
+          </div>
         </div>
-        <div className={classNames(styles["footer"], 'md:min-w-[1200px] w-full')}>
+        <div
+          className={classNames(styles["footer"], "md:min-w-[1200px] w-full")}
+        >
           <Footer />
         </div>
       </body>
