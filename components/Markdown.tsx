@@ -17,7 +17,7 @@ export default function Markdown(props: {
       components={{
         img: (props) => {
           if (!props.width || !props.src) {
-            return <img src={props.src} alt={props.alt} />;
+            return 'no img';
           }
           return (
             <Image
