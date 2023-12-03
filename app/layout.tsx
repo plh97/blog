@@ -5,10 +5,13 @@ import classNames from "classnames";
 
 import { reem_kufi, roboto } from "./fonts";
 // import ProgressBar from "@/app/ProgressBar";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
+
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import "@/public/globals.css";
 import Script from "next/script";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 config.autoAddCss = false;
 
@@ -48,16 +51,7 @@ export default function RootLayout({
             "md:w-[1200px] max-md:w-full"
           )}
         >
-          <div
-            className={classNames(
-              styles.side,
-              'sticky top-0',
-              "md:flex max-md:hidden",
-              "bg-gray-900"
-            )}
-          >
-            <Side />
-          </div>
+          <Side />
           <div
             className={classNames(
               "!pb-0",
