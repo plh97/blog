@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 import classNames from "classnames";
 
 import { reem_kufi, roboto } from "./fonts";
-import ProgressBar from "@/components/ProgressBar";
+import ProgressBar from "@/app/ProgressBar";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import "./globals.css";
@@ -53,7 +53,8 @@ export default function RootLayout({
             className={classNames(
               styles["side"],
               "md:flex max-md:hidden",
-              "z-20 bg-gray-900"
+              // "z-20",
+              "bg-gray-900"
             )}
           >
             <Side />

@@ -4564,7 +4564,7 @@ natural-compare@^1.4.0:
 
 next-nprogress-bar@^2.1.2:
   version "2.1.2"
-  resolved "https://registry.npmjs.org/next-nprogress-bar/-/next-nprogress-bar-2.1.2.tgz"
+  resolved "https://registry.yarnpkg.com/next-nprogress-bar/-/next-nprogress-bar-2.1.2.tgz#47ccfba165569a1ecd03410af432fd23d2227676"
   integrity sha512-2Df5d7fr6uPx+BX8MkoWCfl+RjG+uWI5mA399e5sEe8mbT3q/GIUvCXLzBgJBIISpKuMmdLAOYEzqpjlsRVOWw==
   dependencies:
     nprogress "^0.2.0"

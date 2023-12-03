@@ -5,7 +5,7 @@ import { fetchUser } from "@/apis/user";
 import { fetchRepositoryDetail } from "@/apis/repository";
 import { PageProps } from "@/.next/types/app/repository/[repo]/page";
 import Viewer from "@/components/Viewer";
-import Markdown from "@/components/Markdown";
+import Markdown from "@/app/Markdown";
 
 export const metadata = {
   title: "Repository Detail Page",

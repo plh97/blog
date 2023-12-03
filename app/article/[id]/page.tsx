@@ -5,7 +5,7 @@ import Viewer from "@/components/Viewer";
 import { fetchUser } from "@/apis/user";
 import { fetchArticleDetail } from "@/apis/article";
 import { PageProps } from "@/.next/types/app/article/[id]/page";
-import Markdown from "@/components/Markdown";
+import Markdown from "@/app/Markdown";
 
 export const metadata = {
   title: 'Article Detail Page',

@@ -1,7 +1,7 @@
 import _ from "lodash";
 import { fetchUser } from "@/apis/user";
 import Viewer from "@/components/Viewer";
-import Markdown from "@/components/Markdown";
+import Markdown from "@/app/Markdown";
 import { fetchRepositoryDetail } from "@/apis/repository";
 
 export const metadata = {

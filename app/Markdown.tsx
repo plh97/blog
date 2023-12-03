@@ -2,7 +2,7 @@ import ReactMarkdown from "react-markdown";
 import classNames from "classnames";
 import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
-import Code from "./Code";
+import Code from "../components/Code";
 import Image from "next/image";
 
 export default function Markdown(props: {
