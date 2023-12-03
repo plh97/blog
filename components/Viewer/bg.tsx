@@ -13,9 +13,9 @@ export default function CssBackground(props: {
         priority
         alt="BG"
         src={BG}
-        // quality={100}
-        fill
-        className="object-cover"
+        quality={100}
+        // fill
+        // className="object-cover"
       />
       {props.children}
     </div>
