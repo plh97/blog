@@ -29,6 +29,7 @@
     "lodash": "^4.17.21",
     "next": "13.5.4",
     "next-nprogress-bar": "^2.1.2",
+    "next-progress": "^2.3.1",
     "nprogress": "^0.2.0",
     "prism-material-themes": "^1.0.4",
     "prismjs": "^1.29.0",
