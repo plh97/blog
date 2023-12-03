@@ -11,7 +11,7 @@ export default function Side() {
           .filter((route) => route.content)
           .map((route) => (
             <SideItem
-              className="cursor-pointer relative flex flex-row items-center h-11 gap-x-5 px-5 mb-2.5 hover:bg-gray-800 active:bg-gray-800 text-gray-100"
+              className="cursor-pointer relative flex flex-row items-center h-11 gap-x-5 px-5 mb-2.5 text-gray-100"
               key={route.path}
               path={route.path}
               icon={route.icon}

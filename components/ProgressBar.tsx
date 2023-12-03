@@ -11,9 +11,9 @@ import { isCSR } from "@/utils/ssr";
 // Router.events.on("routeChangeError", () => isCSR() && NProgress.done());
 
 export default function ProgressBar() {
-  // NProgress.start();
+  NProgress.start();
   useEffect(() => {
-    // NProgress.done();
+    NProgress.done();
   }, []);
   return <></>;
 }
