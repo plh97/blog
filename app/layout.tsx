@@ -52,6 +52,7 @@ export default function RootLayout({
           <div
             className={classNames(
               styles["side"],
+              'sticky top-0',
               "md:flex max-md:hidden",
               // "z-20",
               "bg-gray-900"
@@ -63,7 +64,7 @@ export default function RootLayout({
             className={classNames(
               "!pb-0",
               styles["body"],
-              "md:ml-64 max-md:ml-0",
+              // "md:ml-64 max-md:ml-0",
               "md:w-[calc(100%-16rem)] max-md:w-full",
               "md:p-5 max-md:p-3"
             )}
@@ -72,7 +73,11 @@ export default function RootLayout({
           </div>
         </div>
         <div
-          className={classNames(styles["footer"], "md:min-w-[1200px] w-full")}
+          className={classNames(
+            styles["footer"],
+            "md:min-w-[1200px] w-full",
+            "sticky bottom-0",
+          )}
         >
           <Footer />
         </div>

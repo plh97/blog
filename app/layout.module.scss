@@ -6,23 +6,15 @@
 	position: relative;
 	.side {
 		width: 16rem;
-		position: fixed;
 		height: calc(100vh - 30px);
 	}
 	.body {
-		// margin-left: 16rem;
 		margin-bottom: 30px;
-		// padding: 20px;
 		box-sizing: border-box;
 		background: #fff;
-		// width: calc(100% - 16rem);
 		min-height: calc(100vh - 30px);
 	}
 }
 .footer {
-	position: fixed;
-	bottom: 0;
-	// width: 100vw;
-	z-index: 1;
 	background-color: #fff;
 }
