@@ -1,7 +1,7 @@
 "use client";
 import Router from "next/router";
 import NProgress from "nprogress";
-import "./ProgressBar.css";
+// import "./ProgressBar.css";
 import "nprogress/nprogress.css";
 import { useEffect } from "react";
 import { isCSR } from "@/utils/ssr";
