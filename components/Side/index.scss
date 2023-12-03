@@ -22,19 +22,11 @@
 			transition: 0.2s all ease;
 			box-sizing: border-box;
 			column-gap: 20px;
-			& > * {
-				z-index: 1;
-			}
 
 			.icon {
 				color: #fff;
 				font-size: 18px;
 				width: 18px;
-			}
-
-			&:hover,
-			&.active {
-				cursor: pointer;
 			}
 		}
 	}
