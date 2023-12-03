@@ -15,7 +15,10 @@ export default function CssBackground(props: {
         // src={BG}
         // quality={100}
         fill
-        className="object-fill"
+        className="object-cover"
+        // style={{
+        //   objectFit: 'cover',
+        // }}
       />
       {props.children}
     </div>
