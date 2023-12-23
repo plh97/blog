@@ -51,6 +51,7 @@
     "eslint": "^8",
     "eslint-config-next": "13.5.4",
     "git-cz": "^4.9.0",
+    "next-pwa": "^5.6.0",
     "postcss": "^8",
     "tailwindcss": "^3",
     "typescript": "^5"
