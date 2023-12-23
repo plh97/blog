@@ -19,7 +19,7 @@ export default function Viewer({ data, title = "" }: IProps) {
 			<CssBackground className={classNames(styles["container"], 'h-72 max-md:h-40')}>
 				<h1 className="max-md:text-2xl md:text-4xl z-10">{title}</h1>
 				<div className={classNames(styles["detail"], 'z-10 p-4 max-md:p-2 gap-x-4 max-md:gap-x-2')}>
-					<Image
+					<img
 						className={classNames(styles["image"], 'max-md:!h-12 max-md:!w-12')}
 						alt="avatar"
 						width={64}
