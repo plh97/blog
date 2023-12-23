@@ -5,13 +5,12 @@ import classNames from "classnames";
 
 import { reem_kufi, roboto } from "./fonts";
 // import ProgressBar from "@/app/ProgressBar";
-import { faGithub } from "@fortawesome/free-brands-svg-icons";
+// import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import "@/public/globals.css";
 import Script from "next/script";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 config.autoAddCss = false;
 
@@ -21,16 +20,17 @@ export const metadata = {
     "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0",
 };
 
+const fontFamily = [
+  reem_kufi.style.fontFamily,
+  roboto.style.fontFamily,
+  "sans-serif",
+].join(", ");
+
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const fontFamily = [
-    reem_kufi.style.fontFamily,
-    roboto.style.fontFamily,
-    "sans-serif",
-  ].join(", ");
   return (
     <html lang="en">
       <Script
