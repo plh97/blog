@@ -20,14 +20,14 @@
       "src": "screenshot/640_320.png",
       "sizes": "640x1280",
       "type": "image/png",
-      "form_factor": "wide",
+      "form_factor": "narrow",
       "label": "Wonder Widgets"
     },
     {
       "src": "screenshot/1920_1080.png",
       "sizes": "3840x2160",
       "type": "image/png",
-      "form_factor": "narrow",
+      "form_factor": "wide",
       "label": "Wonder Widgets"
     }
   ],
