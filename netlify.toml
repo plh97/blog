@@ -3,3 +3,7 @@
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
+
+[dev]
+  command = 'next dev'
+  port = 8888
