@@ -103,7 +103,6 @@ export default function RootLayout({
           <Side />
           <div
             className={classNames(
-              "!pb-0",
               styles.body,
               "md:w-[calc(100%-16rem)] max-md:w-full",
               "md:p-5 max-md:p-3"
