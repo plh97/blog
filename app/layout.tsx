@@ -112,13 +112,7 @@ export default function RootLayout({
             {children}
           </div>
         </div>
-        <div
-          className={classNames(
-            styles.footer,
-            "md:min-w-[1200px] w-full",
-            "sticky bottom-0",
-          )}
-        >
+        <div className="bg-white md:min-w-[1200px] w-full sticky bottom-0">
           <Footer />
         </div>
       </body>

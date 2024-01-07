@@ -10,7 +10,7 @@ export const metadata = {
 
 export default async function PageNotFound() {
   return (
-    <div className={styles["page"]}>
+    <div className="w-full h-full flex items-center justify-center flex-col">
       <Image
         width="522"
         height="237"
