@@ -13,7 +13,7 @@ export default async function PageNotFound() {
         alt="not_found"
         src={"/404_img.svg"}
       />
-      <p>Could not find requested resource</p>
+      <p className="md-4">Could not find requested resource</p>
       <Link href="/">Return Home</Link>
     </div>
   );
