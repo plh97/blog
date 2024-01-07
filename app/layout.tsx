@@ -39,14 +39,16 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const title = 'Blog';
+  const desc = `Peng's Personal Blog`;
   return (
     <html lang="en">
       <head>
-        <meta name="application-name" content="PWA App" />
+        <meta name="application-name" content={title} />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-        <meta name="apple-mobile-web-app-title" content="PWA App" />
-        <meta name="description" content="Best PWA App in the world" />
+        <meta name="apple-mobile-web-app-title" content={title} />
+        <meta name="description" content={desc} />
         <meta name="format-detection" content="telephone=no" />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="msapplication-TileColor" content="#2B5797" />
@@ -62,14 +64,15 @@ export default function RootLayout({
 
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:url" content="https://plhh.xyz" />
-        <meta name="twitter:title" content="PWA App" />
-        <meta name="twitter:description" content="Best PWA App in the world" />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={desc} />
         <meta name="twitter:image" content="https://plhh.xyz/icons/android-chrome-192x192.png" />
-        <meta name="twitter:creator" content="@plh97" />
+        <meta name="twitter:creator" content="@plh_097" />
+
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="Blog" />
-        <meta property="og:description" content="Peng's Personal Blog" />
-        <meta property="og:site_name" content="Blog" />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={desc} />
+        <meta property="og:site_name" content={title} />
         <meta property="og:url" content="https://plhh.xyz" />
         <meta property="og:image" content="https://plhh.xyz/icons/apple-touch-icon.png" />
 
