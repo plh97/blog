@@ -31,7 +31,7 @@ export default async function Article({ data }: IProps) {
         <span className="ArticlePage__title">{data.title}</span>
         {data.labels.nodes.map((label) => (
           <span
-            className={classNames("ArticlePage__label", {
+            className={classNames("ArticlePage__label", 'mr-1.5', {
               'text-white': isDark(label.color),
               'text-black': !isDark(label.color),
             })}
