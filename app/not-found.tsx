@@ -3,6 +3,11 @@ import Image from "next/image";
 import styles from "./not-found.module.scss";
 import Link from "next/link";
 
+export const metadata = {
+  title: "404 Page",
+  description: "404 Page | click return button",
+};
+
 export default async function PageNotFound() {
   return (
     <div className={styles["page"]}>
