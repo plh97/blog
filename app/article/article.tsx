@@ -26,7 +26,7 @@ export default async function Article({ data }: IProps) {
       }}
       className="ArticlePage__item text-[#0288d1]"
     >
-      <Image priority src={data.author.avatarUrl} alt="头像" width={64} height={64} />
+      <img src={data.author.avatarUrl} alt="头像" width={64} height={64} />
       <span className="ArticlePage__detail">
         <span className="ArticlePage__title">{data.title}</span>
         {data.labels.nodes.map((label) => (
