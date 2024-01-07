@@ -11,7 +11,7 @@ export default function CssBackground(props: {
     <div className={classNames("", props.className)}>
       <Image
         priority
-        alt="BG"
+        alt=""
         src={BG}
         quality={100}
         fill
