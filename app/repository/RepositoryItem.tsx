@@ -35,14 +35,16 @@ export default function RepositoryItem({ node }: { node: any }) {
             </span>
           )}
           <span className="RepositoryPage__detail-stargazers">
-            <Image src={"/stars.svg"} width={14} height={16} alt="stars" />
+            <Image
+              priority
+              src={"/stars.svg"} width={14} height={16} alt="stars" />
             <span className="RepositoryPage__detail-stargazers--text">
               {node.stargazers && node.stargazers.totalCount}
             </span>
           </span>
 
           <span className="RepositoryPage__detail-stargazers">
-            <Image src={"/forks.svg"} width={10} height={16} alt="forks" />
+            <Image priority src={"/forks.svg"} width={10} height={16} alt="forks" />
             <span className="RepositoryPage__detail-stargazers--text">
               {node.forkCount}
             </span>

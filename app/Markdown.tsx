@@ -21,6 +21,7 @@ export default function Markdown(props: {
           }
           return (
             <Image
+              priority
               src={props.src}
               alt={props.alt ?? ""}
               width={+props.width ?? 0}

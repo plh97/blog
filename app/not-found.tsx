@@ -12,6 +12,7 @@ export default async function PageNotFound() {
   return (
     <div className="w-full h-full flex items-center justify-center flex-col">
       <Image
+        priority
         width="522"
         height="237"
         className="w-4/5"

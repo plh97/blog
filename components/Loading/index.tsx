@@ -10,7 +10,7 @@ interface IProps {
 export default function Loading({ text }: IProps) {
   return (
     <div className="Loading">
-      <Image width="200" height="200" alt="loading" src={"/loading.svg"} />
+      <Image priority width="200" height="200" alt="loading" src={"/loading.svg"} />
       {text}
     </div>
   );
