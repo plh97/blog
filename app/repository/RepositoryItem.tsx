@@ -13,7 +13,7 @@ export default function RepositoryItem({ node }: { node: any }) {
   }
   return (
     <div className="RepositoryPage__item md:w-[calc(50%-10px)] max-md:w-full">
-      <div className="RepositoryPage__item--left flex-1">
+      <div className="RepositoryPage__item--left gap-y-2 flex-1">
         <Link href={url} className="RepositoryPage__name">
           {node.nameWithOwner}
         </Link>
@@ -49,7 +49,7 @@ export default function RepositoryItem({ node }: { node: any }) {
           </span>
         </div>
       </div>
-      <div className="RepositoryPage__item--right flex flex-1 flex-col">
+      <div className="RepositoryPage__item--right gap-y-1 flex flex-1 flex-col">
         <span className="RepositoryPage-update">
           上次更新: {timeUtils(node.updatedAt)}
         </span>
