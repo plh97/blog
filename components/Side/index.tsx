@@ -47,7 +47,7 @@ export default function SideContainer() {
         onClick={() => {
           setOpen(!open);
         }}
-        className={classNames("md:hidden inline-block fixed icon text-2xl z-30 p-3", {
+        className={classNames("md:!hidden inline-block fixed icon text-2xl z-30 p-3", {
           "text-white": open,
         })}
         icon={open ? faXmark : faBars}
