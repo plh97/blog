@@ -7,7 +7,7 @@ export default function Footer () {
 			©<span>Copyright</span>
 			<span>2017-2024</span>
 			<span>
-				<b>https://plhh.xyz</b>
+				<b>https://plhh.org</b>
 			</span>
 		</div>
 	)
