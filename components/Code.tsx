@@ -11,6 +11,7 @@ import "prismjs/components/prism-nand2tetris-hdl.min";
 import "prismjs/components/prism-nginx.min";
 import "prismjs/components/prism-json.min";
 import "prismjs/components/prism-jsx.min";
+import "prismjs/components/prism-java.min";
 import "prismjs/components/prism-yaml.min";
 import "prismjs/components/prism-scss.min";
 import "prismjs/components/prism-tsx.min";
