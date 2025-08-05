@@ -4,7 +4,7 @@
 
 ### Welcome to my blog repo
 
-#### This [Site](https://plhh.xyz) deployed on Netlify，all data come from [ISSUE](https://github.com/plh97/blog/issues), call GitHub API server side render page
+#### This [Site](https://plhh.org) deployed on Netlify，all data come from [ISSUE](https://github.com/plh97/blog/issues), call GitHub API server side render page
 
 ### My Tech Skill
 
