@@ -32,9 +32,15 @@ export default function Code({
   useEffect(() => {
     Prism.highlightAll();
   }, []);
+  const StringCode = useMemo(()=> {
+    if (children.trim) {
+      return children.trim();
+    }
+    return children;
+  }, [children]);
   return (
     <code className={classNames(`language-${fmtLang(language)}`)}>
-      {children}
+      {StringCode}
     </code>
   );
 }
