@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect } from "react";
+import React, { useEffect, useMemo } from "react";
 import Prism from "prismjs";
 import classNames from "classnames";
 import "prism-material-themes/themes/material-default.css";
