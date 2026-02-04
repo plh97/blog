@@ -16,7 +16,7 @@ config.autoAddCss = false;
 
 export const metadata = {
   "google-adsense-account": "ca-pub-6302926892933340",
-  "google-site-verification", "9NTjM3_8qv1eh9mPxoGMEA-ghhaPc1wQNHEpWP3HUys",
+  "google-site-verification": "9NTjM3_8qv1eh9mPxoGMEA-ghhaPc1wQNHEpWP3HUys",
   viewport:
     "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0",
 };
